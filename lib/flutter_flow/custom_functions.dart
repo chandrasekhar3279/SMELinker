@@ -865,8 +865,8 @@ String? browseServiceProviderConcertotString(String? dropdownSelected) {
   return replacedString;
 }
 
-String? smeroleName(String? roleName) {
-  if (roleName == 'sme') {
+String smeroleName(String? roleName) {
+  if (roleName == 'SME') {
     return 'Entrepreneur';
   } else {
     return 'N/A';

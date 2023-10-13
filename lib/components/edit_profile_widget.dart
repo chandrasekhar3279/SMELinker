@@ -50,13 +50,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
       r'''$.lastName''',
     ).toString().toString());
     _model.titleController ??= TextEditingController(
-        text: valueOrDefault<String>(
-      functions.smeroleName(getJsonField(
-        widget.editProfile,
-        r'''$.title''',
-      ).toString().toString()),
-      'N/A',
-    ));
+        text: functions.smeroleName(getJsonField(
+      widget.editProfile,
+      r'''$.title''',
+    ).toString().toString()));
     _model.emailController ??= TextEditingController(
         text: getJsonField(
       widget.editProfile,

@@ -779,13 +779,10 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                                   Padding(
                                                                                                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                                                                                                     child: Text(
-                                                                                                      valueOrDefault<String>(
-                                                                                                        functions.smeroleName(getJsonField(
-                                                                                                          feedItem,
-                                                                                                          r'''$.roleName''',
-                                                                                                        ).toString()),
-                                                                                                        'N/A',
-                                                                                                      ),
+                                                                                                      functions.smeroleName(getJsonField(
+                                                                                                        feedItem,
+                                                                                                        r'''$.roleName''',
+                                                                                                      ).toString()),
                                                                                                       style: FlutterFlowTheme.of(context).labelMedium,
                                                                                                     ),
                                                                                                   ),

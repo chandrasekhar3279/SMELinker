@@ -670,22 +670,16 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                             r'''$.roleName''',
                                                           ) !=
                                                           null
-                                                      ? valueOrDefault<String>(
-                                                          functions.smeroleName(
-                                                              getJsonField(
-                                                            widget.feedDetail,
-                                                            r'''$.roleName''',
-                                                          ).toString()),
-                                                          'N/A',
-                                                        )
-                                                      : valueOrDefault<String>(
-                                                          functions.smeroleName(
-                                                              getJsonField(
-                                                            widget.feedDetail,
-                                                            r'''$.name''',
-                                                          ).toString()),
-                                                          'N/A',
-                                                        ),
+                                                      ? functions.smeroleName(
+                                                          getJsonField(
+                                                          widget.feedDetail,
+                                                          r'''$.roleName''',
+                                                        ).toString())
+                                                      : functions.smeroleName(
+                                                          getJsonField(
+                                                          widget.feedDetail,
+                                                          r'''$.name''',
+                                                        ).toString()),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodySmall,
