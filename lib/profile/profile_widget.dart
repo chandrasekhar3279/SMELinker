@@ -429,10 +429,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              functions.smeroleName(getJsonField(
+                              getJsonField(
                                 profileGetProfileDetailsResponse.jsonBody,
                                 r'''$.title''',
-                              ).toString()),
+                              ).toString(),
                               style: FlutterFlowTheme.of(context).bodyLarge,
                             ),
                           ),
