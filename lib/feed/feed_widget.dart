@@ -780,11 +780,11 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                                                                                                     child: Text(
                                                                                                       valueOrDefault<String>(
-                                                                                                        getJsonField(
+                                                                                                        functions.smeroleName(getJsonField(
                                                                                                           feedItem,
                                                                                                           r'''$.roleName''',
-                                                                                                        ).toString(),
-                                                                                                        'SME',
+                                                                                                        ).toString()),
+                                                                                                        'N/A',
                                                                                                       ),
                                                                                                       style: FlutterFlowTheme.of(context).labelMedium,
                                                                                                     ),

@@ -1060,6 +1060,12 @@ class FFAppState extends ChangeNotifier {
     _dummyIndisties.insert(_index, _value);
     secureStorage.setStringList('ff_dummyIndisties', _dummyIndisties);
   }
+
+  String _roleName = 'SME';
+  String get roleName => _roleName;
+  set roleName(String _value) {
+    _roleName = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

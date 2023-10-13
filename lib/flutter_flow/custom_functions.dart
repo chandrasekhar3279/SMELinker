@@ -51,16 +51,18 @@ dynamic image(String imagepath) {
   if (imagepath == "null") {
     return {
       "image":
-          "http://smeconnectdev.cloudseed.io/assets/images/news/newsfeed-square.jpg"
+          "http://smelinker.southafricanorth.cloudapp.azure.com/assets/images/news/newsfeed-square.jpg"
     };
   }
   if (imagepath == "") {
     return {
       "image":
-          "http://smeconnectdev.cloudseed.io/assets/images/news/newsfeed-square.jpg"
+          "http://smelinker.southafricanorth.cloudapp.azure.com/assets/images/news/newsfeed-square.jpg"
     };
   }
-  return {"image": "http://smeconnectdev.cloudseed.io" + imagepath};
+  return {
+    "image": "http://smelinker.southafricanorth.cloudapp.azure.com" + imagepath
+  };
 }
 
 String submitedDate(int date) {
@@ -861,4 +863,12 @@ String? browseServiceProviderConcertotString(String? dropdownSelected) {
       dropdownSelected!.replaceAll('&', '%20').replaceAll(' ', '%20');
 
   return replacedString;
+}
+
+String? smeroleName(String? roleName) {
+  if (roleName == 'sme') {
+    return 'Entrepreneur';
+  } else {
+    return 'N/A';
+  }
 }

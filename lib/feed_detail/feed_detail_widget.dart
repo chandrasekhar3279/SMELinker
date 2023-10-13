@@ -670,14 +670,22 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                             r'''$.roleName''',
                                                           ) !=
                                                           null
-                                                      ? getJsonField(
-                                                          widget.feedDetail,
-                                                          r'''$.roleName''',
-                                                        ).toString()
-                                                      : getJsonField(
-                                                          widget.feedDetail,
-                                                          r'''$.name''',
-                                                        ).toString(),
+                                                      ? valueOrDefault<String>(
+                                                          functions.smeroleName(
+                                                              getJsonField(
+                                                            widget.feedDetail,
+                                                            r'''$.roleName''',
+                                                          ).toString()),
+                                                          'N/A',
+                                                        )
+                                                      : valueOrDefault<String>(
+                                                          functions.smeroleName(
+                                                              getJsonField(
+                                                            widget.feedDetail,
+                                                            r'''$.name''',
+                                                          ).toString()),
+                                                          'N/A',
+                                                        ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodySmall,
