@@ -278,6 +278,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'BrowseIndustrieFilter',
           path: '/browseIndustrieFilter',
           builder: (context, params) => BrowseIndustrieFilterWidget(),
+        ),
+        FFRoute(
+          name: 'ChatUserSelect',
+          path: '/chatUserSelect',
+          builder: (context, params) => ChatUserSelectWidget(
+            users: params.getParam('users', ParamType.JSON),
+          ),
+        ),
+        FFRoute(
+          name: 'ChatDetailPage',
+          path: '/chatDetailPage',
+          builder: (context, params) => ChatDetailPageWidget(
+            selecteduser: params.getParam('selecteduser', ParamType.JSON),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

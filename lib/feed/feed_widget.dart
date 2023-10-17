@@ -77,17 +77,82 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            floatingActionButton: FloatingActionButton(
-              onPressed: () async {
+            floatingActionButton: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onDoubleTap: () async {
                 context.pushNamed('AIBussinessAdviser');
               },
-              backgroundColor: FlutterFlowTheme.of(context).primary,
-              elevation: 8.0,
-              child: Image.asset(
-                'assets/images/Chat-Boat.png',
-                width: 30.0,
-                height: 30.0,
-                fit: BoxFit.contain,
+              child: FloatingActionButton.extended(
+                onPressed: () {
+                  print('FloatingActionButton pressed ...');
+                },
+                backgroundColor: FlutterFlowTheme.of(context).primary,
+                elevation: 8.0,
+                label: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('AIBussinessAdviser');
+                        },
+                        child: Image.asset(
+                          'assets/images/Chat-Boat.png',
+                          width: 30.0,
+                          height: 30.0,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                      child: FlutterFlowIconButton(
+                        borderColor: FlutterFlowTheme.of(context).primary,
+                        borderRadius: 20.0,
+                        borderWidth: 1.0,
+                        buttonSize: 40.0,
+                        icon: FaIcon(
+                          FontAwesomeIcons.sms,
+                          color: FlutterFlowTheme.of(context).secondary,
+                          size: 32.0,
+                        ),
+                        onPressed: () async {
+                          _model.usersListRes =
+                              await SmeGroup.getMessagingUsersCall.call(
+                            accessToken: FFAppState().accessToken,
+                          );
+                          if ((_model.usersListRes?.succeeded ?? true)) {
+                            context.pushNamed(
+                              'ChatUserSelect',
+                              queryParameters: {
+                                'users': serializeParam(
+                                  getJsonField(
+                                    (_model.usersListRes?.jsonBody ?? ''),
+                                    r'''$''',
+                                  ),
+                                  ParamType.JSON,
+                                ),
+                              }.withoutNulls,
+                            );
+                          }
+
+                          setState(() {});
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             appBar: AppBar(

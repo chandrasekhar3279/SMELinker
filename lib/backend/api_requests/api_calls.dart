@@ -248,6 +248,7 @@ class SmeGroup {
       GetAllServiceProvidersCall();
   static SearchServiceProvidersCall searchServiceProvidersCall =
       SearchServiceProvidersCall();
+  static GetMessagingUsersCall getMessagingUsersCall = GetMessagingUsersCall();
 }
 
 class LoginAuthenticationCall {
@@ -4357,6 +4358,33 @@ class SearchServiceProvidersCall {
         response,
         r'''$.content''',
         true,
+      );
+}
+
+class GetMessagingUsersCall {
+  Future<ApiCallResponse> call({
+    String? accessToken = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: ' getMessagingUsers',
+      apiUrl: '${SmeGroup.baseUrl}/messages/getMessagingUsers',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${accessToken}',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic users(dynamic response) => getJsonField(
+        response,
+        r'''$''',
       );
 }
 

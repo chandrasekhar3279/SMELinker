@@ -55,6 +55,8 @@ class FeedModel extends FlutterFlowModel<FeedWidget> {
   // Stores action output result for [Backend Call - API (setUnHelpfulness)] action in IconThumbsDownFill widget.
   ApiCallResponse? apiResultRemoveUnlike;
   Completer<ApiCallResponse>? apiRequestCompleter2;
+  // Stores action output result for [Backend Call - API ( getMessagingUsers)] action in IconButton widget.
+  ApiCallResponse? usersListRes;
 
   /// Initialization and disposal methods.
 
