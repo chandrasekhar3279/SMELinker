@@ -94,6 +94,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                 label: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
                       padding:
@@ -120,8 +121,6 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                       child: FlutterFlowIconButton(
                         borderColor: FlutterFlowTheme.of(context).primary,
                         borderRadius: 20.0,
-                        borderWidth: 1.0,
-                        buttonSize: 40.0,
                         icon: FaIcon(
                           FontAwesomeIcons.sms,
                           color: FlutterFlowTheme.of(context).secondary,

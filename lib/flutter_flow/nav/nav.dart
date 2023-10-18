@@ -291,6 +291,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/chatDetailPage',
           builder: (context, params) => ChatDetailPageWidget(
             selecteduser: params.getParam('selecteduser', ParamType.JSON),
+            userchat:
+                params.getParam<dynamic>('userchat', ParamType.JSON, true),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

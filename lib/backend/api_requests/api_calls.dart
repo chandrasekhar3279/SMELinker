@@ -249,6 +249,9 @@ class SmeGroup {
   static SearchServiceProvidersCall searchServiceProvidersCall =
       SearchServiceProvidersCall();
   static GetMessagingUsersCall getMessagingUsersCall = GetMessagingUsersCall();
+  static GetMessagesForUserCall getMessagesForUserCall =
+      GetMessagesForUserCall();
+  static SendMessageCall sendMessageCall = SendMessageCall();
 }
 
 class LoginAuthenticationCall {
@@ -4386,6 +4389,72 @@ class GetMessagingUsersCall {
         response,
         r'''$''',
       );
+}
+
+class GetMessagesForUserCall {
+  Future<ApiCallResponse> call({
+    int? receiverId,
+    int? senderId,
+    String? accessToken = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: ' getMessagesForUser',
+      apiUrl: '${SmeGroup.baseUrl}/messages/getMessages',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${accessToken}',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      params: {
+        'receiverId': receiverId,
+        'senderId': senderId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic chatList(dynamic response) => getJsonField(
+        response,
+        r'''$[:]''',
+        true,
+      );
+}
+
+class SendMessageCall {
+  Future<ApiCallResponse> call({
+    String? content = '',
+    int? receiverId,
+    int? senderId,
+    String? accessToken = '',
+  }) {
+    final ffApiRequestBody = '''
+{
+  "content": "${content}",
+  "receiverId": ${receiverId},
+  "senderId": ${senderId}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: ' sendMessage',
+      apiUrl: '${SmeGroup.baseUrl}/messages/saveMessage',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${accessToken}',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
 }
 
 /// End SME Group Code

@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -14,6 +15,8 @@ class ChatUserSelectModel extends FlutterFlowModel<ChatUserSelectWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API ( getMessagesForUser)] action in Container widget.
+  ApiCallResponse? usersChatRes;
 
   /// Initialization and disposal methods.
 

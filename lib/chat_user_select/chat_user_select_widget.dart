@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -120,6 +121,16 @@ class _ChatUserSelectWidgetState extends State<ChatUserSelectWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
+                            _model.usersChatRes =
+                                await SmeGroup.getMessagesForUserCall.call(
+                              receiverId: getJsonField(
+                                usersItem,
+                                r'''$.userId''',
+                              ),
+                              senderId: 0,
+                              accessToken: FFAppState().accessToken,
+                            );
+
                             context.pushNamed(
                               'ChatDetailPage',
                               queryParameters: {
@@ -127,8 +138,17 @@ class _ChatUserSelectWidgetState extends State<ChatUserSelectWidget> {
                                   usersItem,
                                   ParamType.JSON,
                                 ),
+                                'userchat': serializeParam(
+                                  SmeGroup.getMessagesForUserCall.chatList(
+                                    (_model.usersChatRes?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.JSON,
+                                  true,
+                                ),
                               }.withoutNulls,
                             );
+
+                            setState(() {});
                           },
                           child: Container(
                             width: 100.0,

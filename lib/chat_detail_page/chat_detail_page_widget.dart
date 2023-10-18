@@ -1,7 +1,9 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -14,9 +16,11 @@ class ChatDetailPageWidget extends StatefulWidget {
   const ChatDetailPageWidget({
     Key? key,
     this.selecteduser,
+    this.userchat,
   }) : super(key: key);
 
   final dynamic selecteduser;
+  final List<dynamic>? userchat;
 
   @override
   _ChatDetailPageWidgetState createState() => _ChatDetailPageWidgetState();
@@ -84,88 +88,182 @@ class _ChatDetailPageWidgetState extends State<ChatDetailPageWidget> {
         body: SafeArea(
           top: true,
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
-                child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(50.0, 0.0, 0.0, 0.0),
-                        child: Container(
-                          width: double.infinity,
-                          height: 80.0,
-                          decoration: BoxDecoration(
+                child: FutureBuilder<ApiCallResponse>(
+                  future: (_model.apiRequestCompleter ??=
+                          Completer<ApiCallResponse>()
+                            ..complete(SmeGroup.getMessagesForUserCall.call(
+                              receiverId: getJsonField(
+                                widget.selecteduser,
+                                r'''$.userId''',
+                              ),
+                              senderId: 0,
+                              accessToken: FFAppState().accessToken,
+                            )))
+                      .future,
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: SpinKitFadingCircle(
                             color: FlutterFlowTheme.of(context).secondary,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(30.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(30.0),
-                              topRight: Radius.circular(30.0),
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
-                                  child: Text(
-                                    'Hello World',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                ),
-                              ),
-                            ],
+                            size: 50.0,
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 10.0, 60.0, 10.0),
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: 80.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).primary,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(30.0),
-                              topLeft: Radius.circular(30.0),
-                              topRight: Radius.circular(30.0),
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
-                                child: Text(
-                                  'Hello World',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondary,
+                      );
+                    }
+                    final listViewGetMessagesForUserResponse = snapshot.data!;
+                    return Builder(
+                      builder: (context) {
+                        final chatlist = SmeGroup.getMessagesForUserCall
+                                .chatList(
+                                  listViewGetMessagesForUserResponse.jsonBody,
+                                )
+                                ?.toList() ??
+                            [];
+                        return RefreshIndicator(
+                          onRefresh: () async {
+                            setState(() => _model.apiRequestCompleter = null);
+                            await _model.waitForApiRequestCompleted();
+                          },
+                          child: ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: chatlist.length,
+                            itemBuilder: (context, chatlistIndex) {
+                              final chatlistItem = chatlist[chatlistIndex];
+                              return Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(1.00, 0.00),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          60.0, 5.0, 10.0, 0.0),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondary,
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(30.0),
+                                            bottomRight: Radius.circular(0.0),
+                                            topLeft: Radius.circular(30.0),
+                                            topRight: Radius.circular(30.0),
+                                          ),
+                                        ),
+                                        child: Visibility(
+                                          visible: getJsonField(
+                                                widget.selecteduser,
+                                                r'''$.userId''',
+                                              ) ==
+                                              getJsonField(
+                                                chatlistItem,
+                                                r'''$.receiverId''',
+                                              ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 8.0, 8.0, 8.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 10.0, 0.0),
+                                                  child: Text(
+                                                    getJsonField(
+                                                      chatlistItem,
+                                                      r'''$.content''',
+                                                    ).toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                ),
-                              ),
-                            ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 2.0, 60.0, 5.0),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0.0),
+                                          bottomRight: Radius.circular(30.0),
+                                          topLeft: Radius.circular(30.0),
+                                          topRight: Radius.circular(30.0),
+                                        ),
+                                      ),
+                                      child: Visibility(
+                                        visible: getJsonField(
+                                              widget.selecteduser,
+                                              r'''$.userId''',
+                                            ) !=
+                                            getJsonField(
+                                              chatlistItem,
+                                              r'''$.receiverId''',
+                                            ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 8.0, 8.0, 8.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 10.0, 0.0),
+                                                child: Text(
+                                                  getJsonField(
+                                                    chatlistItem,
+                                                    r'''$.content''',
+                                                  ).toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                            controller: _model.listViewController,
                           ),
-                        ),
-                      ),
-                    ],
-                  ),
+                        );
+                      },
+                    );
+                  },
                 ),
               ),
               Container(
@@ -250,8 +348,34 @@ class _ChatDetailPageWidgetState extends State<ChatDetailPageWidget> {
                               color: FlutterFlowTheme.of(context).secondary,
                               size: 20.0,
                             ),
-                            onPressed: () {
-                              print('IconButton pressed ...');
+                            onPressed: () async {
+                              _model.senMessagaeAPIRes =
+                                  await SmeGroup.sendMessageCall.call(
+                                content: _model.textController.text,
+                                receiverId: getJsonField(
+                                  widget.selecteduser,
+                                  r'''$.userId''',
+                                ),
+                                senderId: 0,
+                                accessToken: FFAppState().accessToken,
+                              );
+                              if ((_model.senMessagaeAPIRes?.succeeded ??
+                                  true)) {
+                                setState(
+                                    () => _model.apiRequestCompleter = null);
+                                await _model.waitForApiRequestCompleted();
+                                setState(() {
+                                  _model.textController?.clear();
+                                });
+                              }
+                              await _model.listViewController?.animateTo(
+                                _model.listViewController!.position
+                                    .maxScrollExtent,
+                                duration: Duration(milliseconds: 100),
+                                curve: Curves.ease,
+                              );
+
+                              setState(() {});
                             },
                           ),
                         ),
