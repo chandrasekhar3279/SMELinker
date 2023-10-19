@@ -92,8 +92,8 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                 backgroundColor: FlutterFlowTheme.of(context).primary,
                 elevation: 8.0,
                 label: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
@@ -120,11 +120,11 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                           EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                       child: FlutterFlowIconButton(
                         borderColor: FlutterFlowTheme.of(context).primary,
-                        borderRadius: 20.0,
+                        borderRadius: 30.0,
                         icon: FaIcon(
-                          FontAwesomeIcons.sms,
+                          FontAwesomeIcons.commentDots,
                           color: FlutterFlowTheme.of(context).secondary,
-                          size: 32.0,
+                          size: 22.0,
                         ),
                         onPressed: () async {
                           _model.usersListRes =
