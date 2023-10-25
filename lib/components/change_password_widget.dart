@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -32,8 +33,11 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
     _model = createModel(context, () => ChangePasswordModel());
 
     _model.oldPasswordController ??= TextEditingController();
+    _model.oldPasswordFocusNode ??= FocusNode();
     _model.newPasswordController ??= TextEditingController();
+    _model.newPasswordFocusNode ??= FocusNode();
     _model.confirmPasswordController ??= TextEditingController();
+    _model.confirmPasswordFocusNode ??= FocusNode();
   }
 
   @override
@@ -115,6 +119,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                   children: [
                     TextFormField(
                       controller: _model.oldPasswordController,
+                      focusNode: _model.oldPasswordFocusNode,
                       onChanged: (_) => EasyDebounce.debounce(
                         '_model.oldPasswordController',
                         Duration(milliseconds: 100),
@@ -196,6 +201,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                       child: TextFormField(
                         controller: _model.newPasswordController,
+                        focusNode: _model.newPasswordFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
                           '_model.newPasswordController',
                           Duration(milliseconds: 100),
@@ -279,6 +285,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                       child: TextFormField(
                         controller: _model.confirmPasswordController,
+                        focusNode: _model.confirmPasswordFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
                           '_model.confirmPasswordController',
                           Duration(milliseconds: 100),

@@ -6,6 +6,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'edit_forum_answer_widget.dart' show EditForumAnswerWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,7 @@ class EditForumAnswerModel extends FlutterFlowModel<EditForumAnswerWidget> {
 
   final formKey = GlobalKey<FormState>();
   // State field(s) for answerField widget.
+  FocusNode? answerFieldFocusNode;
   TextEditingController? answerFieldController;
   String? Function(BuildContext, String?)? answerFieldControllerValidator;
   String? _answerFieldControllerValidator(BuildContext context, String? val) {
@@ -43,6 +45,7 @@ class EditForumAnswerModel extends FlutterFlowModel<EditForumAnswerWidget> {
   }
 
   void dispose() {
+    answerFieldFocusNode?.dispose();
     answerFieldController?.dispose();
   }
 

@@ -8,6 +8,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'add_team_member_widget.dart' show AddTeamMemberWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +22,7 @@ class AddTeamMemberModel extends FlutterFlowModel<AddTeamMemberWidget> {
 
   final formKey = GlobalKey<FormState>();
   // State field(s) for Name widget.
+  FocusNode? nameFocusNode;
   TextEditingController? nameController;
   String? Function(BuildContext, String?)? nameControllerValidator;
   String? _nameControllerValidator(BuildContext context, String? val) {
@@ -38,6 +40,7 @@ class AddTeamMemberModel extends FlutterFlowModel<AddTeamMemberWidget> {
   }
 
   // State field(s) for Title widget.
+  FocusNode? titleFocusNode;
   TextEditingController? titleController;
   String? Function(BuildContext, String?)? titleControllerValidator;
   String? _titleControllerValidator(BuildContext context, String? val) {
@@ -49,6 +52,7 @@ class AddTeamMemberModel extends FlutterFlowModel<AddTeamMemberWidget> {
   }
 
   // State field(s) for LinkedInProfile widget.
+  FocusNode? linkedInProfileFocusNode;
   TextEditingController? linkedInProfileController;
   String? Function(BuildContext, String?)? linkedInProfileControllerValidator;
   bool isDataUploading = false;
@@ -66,8 +70,13 @@ class AddTeamMemberModel extends FlutterFlowModel<AddTeamMemberWidget> {
   }
 
   void dispose() {
+    nameFocusNode?.dispose();
     nameController?.dispose();
+
+    titleFocusNode?.dispose();
     titleController?.dispose();
+
+    linkedInProfileFocusNode?.dispose();
     linkedInProfileController?.dispose();
   }
 

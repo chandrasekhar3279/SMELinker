@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'forgot_password_widget.dart' show ForgotPasswordWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,7 @@ class ForgotPasswordModel extends FlutterFlowModel<ForgotPasswordWidget> {
 
   final formKey = GlobalKey<FormState>();
   // State field(s) for resetpasswordemail widget.
+  FocusNode? resetpasswordemailFocusNode;
   TextEditingController? resetpasswordemailController;
   String? Function(BuildContext, String?)?
       resetpasswordemailControllerValidator;
@@ -40,6 +42,7 @@ class ForgotPasswordModel extends FlutterFlowModel<ForgotPasswordWidget> {
   }
 
   void dispose() {
+    resetpasswordemailFocusNode?.dispose();
     resetpasswordemailController?.dispose();
   }
 

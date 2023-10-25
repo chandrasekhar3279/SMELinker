@@ -9,6 +9,7 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -37,8 +38,11 @@ class _AddProductWidgetState extends State<AddProductWidget> {
     _model = createModel(context, () => AddProductModel());
 
     _model.serviceNameController ??= TextEditingController();
+    _model.serviceNameFocusNode ??= FocusNode();
     _model.productDescController ??= TextEditingController();
+    _model.productDescFocusNode ??= FocusNode();
     _model.priceController ??= TextEditingController();
+    _model.priceFocusNode ??= FocusNode();
   }
 
   @override
@@ -117,6 +121,7 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                     children: [
                       TextFormField(
                         controller: _model.serviceNameController,
+                        focusNode: _model.serviceNameFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
                           '_model.serviceNameController',
                           Duration(milliseconds: 100),
@@ -173,6 +178,7 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                               0.0, 30.0, 0.0, 0.0),
                           child: TextFormField(
                             controller: _model.productDescController,
+                            focusNode: _model.productDescFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.productDescController',
                               Duration(milliseconds: 100),
@@ -234,6 +240,7 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                         child: TextFormField(
                           controller: _model.priceController,
+                          focusNode: _model.priceFocusNode,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.priceController',
                             Duration(milliseconds: 100),

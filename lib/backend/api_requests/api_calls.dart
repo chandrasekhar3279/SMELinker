@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import '../../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
@@ -258,7 +258,7 @@ class LoginAuthenticationCall {
   Future<ApiCallResponse> call({
     String? email = '',
     String? password = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "email": "${email}",
@@ -301,7 +301,7 @@ class RegisterUserCall {
     String? tradeLicense = '',
     String? heardFrom = '',
     List<String>? interestsList,
-  }) {
+  }) async {
     final smeconnectCustomer = _serializeList(smeconnectCustomerList);
     final interests = _serializeList(interestsList);
 
@@ -346,7 +346,7 @@ class RegisterUserCall {
 }
 
 class GetIndustriesCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getIndustries',
       apiUrl: '${SmeGroup.baseUrl}/auth/getIndustries',
@@ -372,7 +372,7 @@ class GetFeedCall {
     int? pageNumber,
     int? pageSize,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getFeed',
       apiUrl: '${SmeGroup.baseUrl}/feed/getFeed',
@@ -418,7 +418,7 @@ class GetFeedCall {
 class GetRegisterReasonsCall {
   Future<ApiCallResponse> call({
     String? reason = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getRegisterReasons',
       apiUrl: '${SmeGroup.baseUrl}/auth/getRegisterReasons',
@@ -436,7 +436,7 @@ class GetRegisterReasonsCall {
 class GetAllGrowthCardsCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getAllGrowthCards',
       apiUrl:
@@ -460,7 +460,7 @@ class DownloadFileCall {
   Future<ApiCallResponse> call({
     String? fileId = '',
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'downloadFile',
       apiUrl: '${SmeGroup.baseUrl}/file/download/${fileId}',
@@ -482,7 +482,7 @@ class DownloadFileCall {
 }
 
 class UploadFileCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'uploadFile',
       apiUrl: '${SmeGroup.baseUrl}/file/upload',
@@ -511,7 +511,7 @@ class RegisterSmeCall {
     String? password = '',
     String? position = '',
     bool? smeconnectCustomer,
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'registerSme',
       apiUrl: '${SmeGroup.baseUrl}/auth/register-sme',
@@ -528,7 +528,7 @@ class RegisterSmeCall {
 }
 
 class ForcedPasswordResetCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'forcedPasswordReset',
       apiUrl: '${SmeGroup.baseUrl}/auth/forcedPasswordReset',
@@ -545,7 +545,7 @@ class ForcedPasswordResetCall {
 }
 
 class GetCaptchaCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getCaptcha',
       apiUrl: '${SmeGroup.baseUrl}/auth/getCaptcha',
@@ -561,7 +561,7 @@ class GetCaptchaCall {
 }
 
 class RefreshAuthCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'refreshAuth',
       apiUrl: '${SmeGroup.baseUrl}/auth/refresh',
@@ -577,7 +577,7 @@ class RefreshAuthCall {
 }
 
 class RegisterGrowthPartnerCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'registerGrowthPartner',
       apiUrl: '${SmeGroup.baseUrl}/auth/register-growth-partner',
@@ -594,7 +594,7 @@ class RegisterGrowthPartnerCall {
 }
 
 class RegisterSMECall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'registerSME',
       apiUrl: '${SmeGroup.baseUrl}/auth/register-sme',
@@ -611,7 +611,7 @@ class RegisterSMECall {
 }
 
 class ConfirmRegistrationCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'confirmRegistration',
       apiUrl: '${SmeGroup.baseUrl}/auth/registrationConfirm',
@@ -628,7 +628,7 @@ class ConfirmRegistrationCall {
 }
 
 class ResendRegistrationTokenCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: ' resendRegistrationToken',
       apiUrl:
@@ -645,7 +645,7 @@ class ResendRegistrationTokenCall {
 }
 
 class ResendRegistrationTokenExistingCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'resendRegistrationTokenExisting',
       apiUrl: '${SmeGroup.baseUrl}/auth/resendTokenForExistingToken?token=q',
@@ -663,7 +663,7 @@ class ResendRegistrationTokenExistingCall {
 class ResetPasswordCall {
   Future<ApiCallResponse> call({
     String? email = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "email": "${email}"
@@ -685,7 +685,7 @@ class ResetPasswordCall {
 }
 
 class SavePasswordCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'savePassword',
       apiUrl: '${SmeGroup.baseUrl}/auth/savePassword',
@@ -702,7 +702,7 @@ class SavePasswordCall {
 }
 
 class ShowCaptchaCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'showCaptcha',
       apiUrl: '${SmeGroup.baseUrl}/auth/showCaptcha',
@@ -718,7 +718,7 @@ class ShowCaptchaCall {
 }
 
 class AuthenticateUserCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'authenticateUser',
       apiUrl: '${SmeGroup.baseUrl}/auth/signin',
@@ -735,7 +735,7 @@ class AuthenticateUserCall {
 }
 
 class SignupGPCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'signupGP',
       apiUrl: '${SmeGroup.baseUrl}/auth/signup-gp?data=q',
@@ -752,7 +752,7 @@ class SignupGPCall {
 }
 
 class VerifyGPRegisterCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'verifyGPRegister',
       apiUrl: '${SmeGroup.baseUrl}/auth/verify-gp-register',
@@ -769,7 +769,7 @@ class VerifyGPRegisterCall {
 }
 
 class CreateContainerCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: ' createContainer',
       apiUrl: '${SmeGroup.baseUrl}/container/{name}',
@@ -786,7 +786,7 @@ class CreateContainerCall {
 }
 
 class DeleteContainerCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'deleteContainer',
       apiUrl: '${SmeGroup.baseUrl}/container/{name}',
@@ -802,7 +802,7 @@ class DeleteContainerCall {
 }
 
 class DeleteFileCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'deleteFile',
       apiUrl: '${SmeGroup.baseUrl}/file/delete/{fileId}',
@@ -818,7 +818,7 @@ class DeleteFileCall {
 }
 
 class AddBookmarkCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'addBookmark',
       apiUrl: '${SmeGroup.baseUrl}/bookmarks/addBookmark?resourceId',
@@ -837,7 +837,7 @@ class AddBookmarkCall {
 class GetBookmarksCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getBookmarks',
       apiUrl: '${SmeGroup.baseUrl}/bookmarks/getBookmarks',
@@ -857,7 +857,7 @@ class GetBookmarksCall {
 }
 
 class UpdateGrowthCardApprovalStatusCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'updateGrowthCardApprovalStatus',
       apiUrl:
@@ -875,7 +875,7 @@ class UpdateGrowthCardApprovalStatusCall {
 }
 
 class ApproveUserCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'approveUser',
       apiUrl: '${SmeGroup.baseUrl}/community-manager/approveOrRejectUser',
@@ -892,7 +892,7 @@ class ApproveUserCall {
 }
 
 class GetUserQuestionsCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getUserQuestions',
       apiUrl:
@@ -909,7 +909,7 @@ class GetUserQuestionsCall {
 }
 
 class GetUsersCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getUsers',
       apiUrl:
@@ -926,7 +926,7 @@ class GetUsersCall {
 }
 
 class GetGrowthCardsPendingForApprovalCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getGrowthCardsPendingForApproval',
       apiUrl: '${SmeGroup.baseUrl}/community-manager/pendingForApprovalGCs',
@@ -945,7 +945,7 @@ class DeleteAnswerCall {
   Future<ApiCallResponse> call({
     int? answerId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'deleteAnswer',
       apiUrl: '${SmeGroup.baseUrl}/discussion-board/deleteAnswer',
@@ -968,7 +968,7 @@ class DeleteQuestionCall {
   Future<ApiCallResponse> call({
     int? questionId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'deleteQuestion',
       apiUrl: '${SmeGroup.baseUrl}/discussion-board/deleteQuestion',
@@ -993,7 +993,7 @@ class GetAnswersCall {
     int? pageNumber,
     int? pageSize,
     int? questionId,
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getAnswers',
       apiUrl: '${SmeGroup.baseUrl}/discussion-board/getAnswers',
@@ -1021,7 +1021,7 @@ class GetQuestionsCall {
     int? pageNumber,
     int? pageSize,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getQuestions',
       apiUrl: '${SmeGroup.baseUrl}/discussion-board/getQuestions',
@@ -1060,7 +1060,7 @@ class GetQuestionsCall {
 }
 
 class MarkBestAnswerCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'markBestAnswer',
       apiUrl: '${SmeGroup.baseUrl}/discussion-board/markBestAnswer?answerId=3',
@@ -1082,7 +1082,7 @@ class SubmitAnswersCall {
     int? questionId,
     dynamic? mentionsJson,
     String? accessToken = '',
-  }) {
+  }) async {
     final mentions = _serializeJson(mentionsJson);
     final ffApiRequestBody = '''
 {
@@ -1114,7 +1114,7 @@ class SubmitQuestionCall {
     String? accessToken = '',
     dynamic? questionRequestJson,
     String? question = '',
-  }) {
+  }) async {
     final questionRequest = _serializeJson(questionRequestJson);
     final ffApiRequestBody = '''
 {
@@ -1145,7 +1145,7 @@ class UpdateAnswerCall {
     int? answerId,
     String? answer = '',
     int? questionId,
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "answer": "${answer}",
@@ -1171,7 +1171,7 @@ class UpdateAnswerCall {
 }
 
 class UpdateAnswerStatusCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'updateAnswerStatus',
       apiUrl:
@@ -1193,7 +1193,7 @@ class UpdateQuestionCall {
     String? accessToken = '',
     int? questionId,
     String? question = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "question": "${question}",
@@ -1220,7 +1220,7 @@ class UpdateQuestionCall {
 }
 
 class UpdateQuestionStatusCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'updateQuestionStatus',
       apiUrl:
@@ -1238,7 +1238,7 @@ class UpdateQuestionStatusCall {
 }
 
 class SubmitCustomQuestionCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'submitCustomQuestion',
       apiUrl: '${SmeGroup.baseUrl}/faq/askCustomQuestion',
@@ -1255,7 +1255,7 @@ class SubmitCustomQuestionCall {
 }
 
 class GetFaqContentCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getFaqContent',
       apiUrl: '${SmeGroup.baseUrl}/faq/getFaqContent?pageNumber=0&pageSize=10',
@@ -1277,7 +1277,7 @@ class GetCommentsCall {
     int? feedId,
     int? size,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getComments',
       apiUrl: '${SmeGroup.baseUrl}/feed/comments',
@@ -1309,7 +1309,7 @@ class DeleteFeedCommentCall {
   Future<ApiCallResponse> call({
     int? commentId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'deleteFeedComment',
       apiUrl: '${SmeGroup.baseUrl}/feed/deleteFeedComment',
@@ -1329,7 +1329,7 @@ class DeleteFeedCommentCall {
 }
 
 class GetFeedCommentsCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getFeedComments',
       apiUrl:
@@ -1346,7 +1346,7 @@ class GetFeedCommentsCall {
 }
 
 class GetFeedCommentsCountCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getFeedCommentsCount',
       apiUrl: '${SmeGroup.baseUrl}/feed/getFeedCommentsCount?feedId',
@@ -1362,7 +1362,7 @@ class GetFeedCommentsCountCall {
 }
 
 class GetFeedFavoriteCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getFeedFavorite',
       apiUrl:
@@ -1379,7 +1379,7 @@ class GetFeedFavoriteCall {
 }
 
 class GetFeedForApprovalCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getFeedForApproval',
       apiUrl:
@@ -1396,7 +1396,7 @@ class GetFeedForApprovalCall {
 }
 
 class GetFeedForManagerViewCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getFeedForManagerView',
       apiUrl:
@@ -1413,7 +1413,7 @@ class GetFeedForManagerViewCall {
 }
 
 class GetMostTrendingCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getMostTrending',
       apiUrl:
@@ -1434,7 +1434,7 @@ class GetMyContentCall {
     int? pageNumber,
     int? pageSize,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getMyContent',
       apiUrl: '${SmeGroup.baseUrl}/feed/getMyFeedContent',
@@ -1468,7 +1468,7 @@ class GetMyContentCall {
 }
 
 class GetRejectedFeedListCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getRejectedFeedList',
       apiUrl:
@@ -1489,7 +1489,7 @@ class GetTopArticlesCall {
     int? pageNumber,
     int? pageSize,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getTopArticles',
       apiUrl: '${SmeGroup.baseUrl}/feed/getTopArticles',
@@ -1522,7 +1522,7 @@ class ShareFeedCall {
     FFUploadedFile? featuredImage,
     FFUploadedFile? document,
     String? accessToken = '',
-  }) {
+  }) async {
     final data = _serializeJson(dataJson);
 
     return ApiManager.instance.makeApiCall(
@@ -1556,7 +1556,7 @@ class SubmitFeedCommentCall {
     String? comment = '',
     int? feedId,
     List<int>? mentionsList,
-  }) {
+  }) async {
     final mentions = _serializeList(mentionsList);
 
     final ffApiRequestBody = '''
@@ -1586,7 +1586,7 @@ class SubmitFeedCommentCall {
 }
 
 class SubmitReviewCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'submitReview',
       apiUrl: '${SmeGroup.baseUrl}/feed/submitReviewStatus',
@@ -1603,7 +1603,7 @@ class SubmitReviewCall {
 }
 
 class UpdateFeedCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'updateFeed',
       apiUrl: '${SmeGroup.baseUrl}/feed/updateFeed',
@@ -1625,7 +1625,7 @@ class UpdateFeedCommentCall {
     String? comment = '',
     int? commentId,
     dynamic? mentionsJson,
-  }) {
+  }) async {
     final mentions = _serializeJson(mentionsJson);
     final ffApiRequestBody = '''
 {
@@ -1653,7 +1653,7 @@ class UpdateFeedCommentCall {
 }
 
 class SaveCategoryGrowthCardMappingCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'saveCategoryGrowthCardMapping',
       apiUrl: '${SmeGroup.baseUrl}/growth-cards',
@@ -1670,7 +1670,7 @@ class SaveCategoryGrowthCardMappingCall {
 }
 
 class UpdateGrowthCardFeaturedStatusCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'updateGrowthCardFeaturedStatus',
       apiUrl: '${SmeGroup.baseUrl}/growth-cards',
@@ -1687,7 +1687,7 @@ class UpdateGrowthCardFeaturedStatusCall {
 }
 
 class DeleteGrowthCardCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'deleteGrowthCard',
       apiUrl: '${SmeGroup.baseUrl}/growth-cards?gcId=3',
@@ -1703,7 +1703,7 @@ class DeleteGrowthCardCall {
 }
 
 class CreateGrowthCardCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'createGrowthCard',
       apiUrl: '${SmeGroup.baseUrl}/growth-cards/createGrowthCard',
@@ -1720,7 +1720,7 @@ class CreateGrowthCardCall {
 }
 
 class GetAllGrowthCardstwoCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getAllGrowthCardstwo',
       apiUrl:
@@ -1737,7 +1737,7 @@ class GetAllGrowthCardstwoCall {
 }
 
 class GetPublishedUtilityCategoriesCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getPublishedUtilityCategories',
       apiUrl: '${SmeGroup.baseUrl}/growth-cards/getAllUtilityCategories',
@@ -1755,7 +1755,7 @@ class GetPublishedUtilityCategoriesCall {
 class GetFeaturedGrowthCardsCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getFeaturedGrowthCards',
       apiUrl: '${SmeGroup.baseUrl}/growth-cards/getFeaturedGrowthCards',
@@ -1773,7 +1773,7 @@ class GetFeaturedGrowthCardsCall {
 }
 
 class GetGCByIdCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getGCById',
       apiUrl:
@@ -1790,7 +1790,7 @@ class GetGCByIdCall {
 }
 
 class UpdateGrowthCardCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'updateGrowthCard',
       apiUrl: '${SmeGroup.baseUrl}/growth-cards/updateGrowthCard?data=ok',
@@ -1810,7 +1810,7 @@ class ViewGCAsPDFCall {
   Future<ApiCallResponse> call({
     int? gcId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'viewGCAsPDF',
       apiUrl: '${SmeGroup.baseUrl}/growth-cards/viewGCAsPDF',
@@ -1831,7 +1831,7 @@ class ViewGCAsPDFCall {
 }
 
 class AddCustomGrowthPlansCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'addCustomGrowthPlans',
       apiUrl: '${SmeGroup.baseUrl}/growth-plans/addCustomGrowthPlan?data=ok',
@@ -1852,7 +1852,7 @@ class ApplyForGrowthPlanCall {
     int? growthPlanId,
     String? criteriaSelected = '',
     String? accessToken = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "growthPlanId": ${growthPlanId},
@@ -1882,7 +1882,7 @@ class GetCheckListCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
     int? growthPlanId,
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: ' getCheckList',
       apiUrl: '${SmeGroup.baseUrl}/growth-plans/getCheckList',
@@ -1914,7 +1914,7 @@ class SearchGrowthPlansCall {
     String? accessToken = '',
     int? pageNumber,
     int? pageSize,
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'searchGrowthPlans',
       apiUrl:
@@ -1942,7 +1942,7 @@ class SearchGrowthPlansCall {
 }
 
 class SearchGrowthPackagesCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'searchGrowthPackages',
       apiUrl:
@@ -1963,7 +1963,7 @@ class GetHealthCheckContentCall {
   Future<ApiCallResponse> call({
     int? healthCheckId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getHealthCheckContent',
       apiUrl: '${SmeGroup.baseUrl}/health-check/getHealthCheckContent',
@@ -2000,7 +2000,7 @@ class GetHealthChecksCall {
     int? pageNumber,
     int? pageSize,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getHealthChecks',
       apiUrl: '${SmeGroup.baseUrl}/health-check/getHealthChecks',
@@ -2032,7 +2032,7 @@ class GetSavedUserResponsesCall {
   Future<ApiCallResponse> call({
     int? healthCheckId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getSavedUserResponses',
       apiUrl: '${SmeGroup.baseUrl}/health-check/getSavedUserResponses',
@@ -2058,7 +2058,7 @@ class SaveUserResponsesCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
     dynamic? healthCheckAnswersJson,
-  }) {
+  }) async {
     final healthCheckAnswers = _serializeJson(healthCheckAnswersJson);
     final ffApiRequestBody = '''
 ${healthCheckAnswers}''';
@@ -2085,7 +2085,7 @@ class SubmitAnswerssCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
     dynamic? healthCheckAnswersJson,
-  }) {
+  }) async {
     final healthCheckAnswers = _serializeJson(healthCheckAnswersJson);
     final ffApiRequestBody = '''
 ${healthCheckAnswers}''';
@@ -2113,7 +2113,7 @@ class SubmitAnswersViewReportCall {
   Future<ApiCallResponse> call({
     int? healthCheckId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'submitAnswersViewReport',
       apiUrl: '${SmeGroup.baseUrl}/health-check/viewReport',
@@ -2141,7 +2141,7 @@ class SubmitAnswersViewReportCall {
 }
 
 class GetUserPortfolioCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getUserPortfolio',
       apiUrl: '${SmeGroup.baseUrl}/investor/getPortfolio',
@@ -2160,7 +2160,7 @@ class GetUserPortfolioCall {
 class GetContactDetailCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getContactDetail',
       apiUrl: '${SmeGroup.baseUrl}/contact-detail',
@@ -2185,7 +2185,7 @@ class EditContactDetailCall {
   Future<ApiCallResponse> call({
     dynamic? dataJson,
     String? accessToken = '',
-  }) {
+  }) async {
     final data = _serializeJson(dataJson);
 
     return ApiManager.instance.makeApiCall(
@@ -2211,7 +2211,7 @@ class GetContactDetailPubicCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
     int? userId = 0,
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getContactDetailPubic',
       apiUrl: '${SmeGroup.baseUrl}/contact-detail/getContactDetails',
@@ -2242,7 +2242,7 @@ class GetProductsCall {
     int? pageSize,
     String? accessToken = '',
     int? userId = 0,
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: ' getProducts',
       apiUrl: '${SmeGroup.baseUrl}/product',
@@ -2281,7 +2281,7 @@ class CreateProductCall {
     FFUploadedFile? file,
     dynamic? dataJson,
     String? accessToken = '',
-  }) {
+  }) async {
     final data = _serializeJson(dataJson);
 
     return ApiManager.instance.makeApiCall(
@@ -2309,7 +2309,7 @@ class UpdateProductCall {
     String? accessToken = '',
     dynamic? dataJson,
     FFUploadedFile? file,
-  }) {
+  }) async {
     final data = _serializeJson(dataJson);
 
     return ApiManager.instance.makeApiCall(
@@ -2338,7 +2338,7 @@ class BookProductCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
     int? productId,
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'bookProduct',
       apiUrl: '${SmeGroup.baseUrl}/product/bookProduct?productId=3',
@@ -2364,7 +2364,7 @@ class DeleteProductCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
     int? productId,
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'deleteProduct',
       apiUrl: '${SmeGroup.baseUrl}/product/deleteProduct',
@@ -2385,7 +2385,7 @@ class DeleteProductCall {
 }
 
 class GetBookingsCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getBookings',
       apiUrl:
@@ -2405,7 +2405,7 @@ class GetBookingsCall {
 class GetProductCategoriesCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getProductCategories',
       apiUrl: '${SmeGroup.baseUrl}/product/getProductCategories',
@@ -2425,7 +2425,7 @@ class GetProductCategoriesCall {
 }
 
 class GetLatestProductsCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getLatestProducts',
       apiUrl: '${SmeGroup.baseUrl}/product/latest?userId=0',
@@ -2441,7 +2441,7 @@ class GetLatestProductsCall {
 }
 
 class GetLatestProductUserIdCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getLatestProductUserId',
       apiUrl: '${SmeGroup.baseUrl}/product/latest/{userId}',
@@ -2461,7 +2461,7 @@ class ReplyToBookingCall {
     int? bookingId,
     String? accessToken = '',
     dynamic? messageJson,
-  }) {
+  }) async {
     final message = _serializeJson(messageJson);
     final ffApiRequestBody = '''
 {
@@ -2489,7 +2489,7 @@ class ReplyToBookingCall {
 }
 
 class AddResourceCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: ' addResource',
       apiUrl: '${SmeGroup.baseUrl}/resource/addResource?data=a',
@@ -2506,7 +2506,7 @@ class AddResourceCall {
 }
 
 class GetViewCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: ' getView',
       apiUrl: '${SmeGroup.baseUrl}/resource/getView?resourceId=3',
@@ -2526,7 +2526,7 @@ class SearchResourcesCall {
     int? pageNumber,
     int? pageSize,
     String? accessToken = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "pageNumber": ${pageNumber},
@@ -2562,7 +2562,7 @@ class SearchByCategoryCall {
   Future<ApiCallResponse> call({
     String? term = '',
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: ' searchByCategory',
       apiUrl: '${SmeGroup.baseUrl}/search',
@@ -2614,7 +2614,7 @@ class SearchByCategoryCall {
 }
 
 class SearchProductsCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'searchProducts',
       apiUrl:
@@ -2631,7 +2631,7 @@ class SearchProductsCall {
 }
 
 class SearchServicesCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'searchServices',
       apiUrl:
@@ -2653,7 +2653,7 @@ class SearchUsersCall {
     int? pageNumber,
     int? pageSize,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'searchUsers',
       apiUrl: '${SmeGroup.baseUrl}/search/SearchUsers',
@@ -2688,7 +2688,7 @@ class GetServiceCardListCall {
     int? userId = 0,
     int? pageNumber = 0,
     int? pageSize = 100,
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getServiceCardList',
       apiUrl: '${SmeGroup.baseUrl}/service-card',
@@ -2722,7 +2722,7 @@ class CreateServiceCardCall {
     dynamic? dataJson,
     FFUploadedFile? file,
     String? accessToken = '',
-  }) {
+  }) async {
     final data = _serializeJson(dataJson);
 
     return ApiManager.instance.makeApiCall(
@@ -2750,7 +2750,7 @@ class UpdateServiceCardCall {
     String? accessToken = '',
     dynamic? dataJson,
     FFUploadedFile? file,
-  }) {
+  }) async {
     final data = _serializeJson(dataJson);
 
     return ApiManager.instance.makeApiCall(
@@ -2779,7 +2779,7 @@ class BookServiceCall {
   Future<ApiCallResponse> call({
     int? serviceId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'bookService',
       apiUrl: '${SmeGroup.baseUrl}/service-card/bookService',
@@ -2805,7 +2805,7 @@ class DeleteProductServiceCardCall {
   Future<ApiCallResponse> call({
     int? serviceId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'deleteProductServiceCard',
       apiUrl: '${SmeGroup.baseUrl}/service-card/deleteService',
@@ -2834,7 +2834,7 @@ class GetAllBookingsCall {
     int? pageSize,
     String? sortBy = '',
     String? sortOrder = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "myBookings": ${myBookings},
@@ -2868,7 +2868,7 @@ class GetAllBookingsCall {
 }
 
 class GetBookingsServiceCardCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getBookingsServiceCard',
       apiUrl:
@@ -2886,7 +2886,7 @@ class GetBookingsServiceCardCall {
 }
 
 class GetServiceCategoriesCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: ' getServiceCategories',
       apiUrl: '${SmeGroup.baseUrl}/service-card/getServiceCategories',
@@ -2908,7 +2908,7 @@ class GetServiceCategoriesCall {
 }
 
 class GetLatestServiceCardsCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getLatestServiceCards',
       apiUrl: '${SmeGroup.baseUrl}/service-card/latest?userId=0',
@@ -2924,7 +2924,7 @@ class GetLatestServiceCardsCall {
 }
 
 class GetLatestServiceCardsUserIdCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getLatestServiceCardsUserId',
       apiUrl: '${SmeGroup.baseUrl}/service-card/latest/{userId}',
@@ -2940,7 +2940,7 @@ class GetLatestServiceCardsUserIdCall {
 }
 
 class ReplyToBookingServiceCardCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'replyToBookingServiceCard',
       apiUrl: '${SmeGroup.baseUrl}/service-card/replyToBooking',
@@ -2957,7 +2957,7 @@ class ReplyToBookingServiceCardCall {
 }
 
 class AddServiceProviderCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'addServiceProvider',
       apiUrl: '${SmeGroup.baseUrl}/service-provider/addServiceProvider?data=a',
@@ -2974,7 +2974,7 @@ class AddServiceProviderCall {
 }
 
 class AddSmeProfileCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'addSmeProfile',
       apiUrl: '${SmeGroup.baseUrl}/sme/addSmeProfile?data=a',
@@ -2993,7 +2993,7 @@ class AddSmeProfileCall {
 class GetSmeProfileCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getSmeProfile',
       apiUrl: '${SmeGroup.baseUrl}/sme/getSmeProfile',
@@ -3016,7 +3016,7 @@ class GetSmeStatsCall {
   Future<ApiCallResponse> call({
     String? filter = '',
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getSmeStats',
       apiUrl: '${SmeGroup.baseUrl}/sme/getSmeStats',
@@ -3038,7 +3038,7 @@ class GetSmeStatsCall {
 }
 
 class SearchSmeProfilesCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'searchSmeProfiles',
       apiUrl:
@@ -3056,7 +3056,7 @@ class SearchSmeProfilesCall {
 }
 
 class UpdateAboutCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'updateAbout',
       apiUrl: '${SmeGroup.baseUrl}/sme/updateAbout',
@@ -3073,7 +3073,7 @@ class UpdateAboutCall {
 }
 
 class AddAboutCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: ' addAbout',
       apiUrl: '${SmeGroup.baseUrl}/user/addAbout?about=a',
@@ -3093,7 +3093,7 @@ class AddFollowerCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
     String? userId = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "userId": "${userId}"
@@ -3127,7 +3127,7 @@ class AddStoryCall {
     String? past = '',
     String? pastTitle = '',
     String? accessToken = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
 "future": "${future}",
@@ -3157,7 +3157,7 @@ class AddStoryCall {
 }
 
 class ContactSmeCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'contactSme',
       apiUrl: '${SmeGroup.baseUrl}/user/contactSme',
@@ -3174,7 +3174,7 @@ class ContactSmeCall {
 }
 
 class ExportContactsCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'exportContacts',
       apiUrl: '${SmeGroup.baseUrl}/user/exportContacts?fileType=a',
@@ -3190,7 +3190,7 @@ class ExportContactsCall {
 }
 
 class GetAboutCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getAbout',
       apiUrl: '${SmeGroup.baseUrl}/user/getAbout?userId=0',
@@ -3211,7 +3211,7 @@ class GetFolloweesCall {
     int? pageSize,
     int? userId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getFollowees',
       apiUrl: '${SmeGroup.baseUrl}/user/getFollowees',
@@ -3247,7 +3247,7 @@ class GetFollowersCall {
     String? sortBy = '',
     String? accessToken = '',
     int? userId,
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: ' getFollowers',
       apiUrl: '${SmeGroup.baseUrl}/user/getFollowers',
@@ -3285,7 +3285,7 @@ class GetHeaderBannerInfoCall {
   Future<ApiCallResponse> call({
     int? userId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getHeaderBannerInfo',
       apiUrl: '${SmeGroup.baseUrl}/user/getHeaderBanner',
@@ -3313,7 +3313,7 @@ class GetHeaderBannerInfoCall {
 }
 
 class GetHeaderBannerInfoUserIdCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getHeaderBannerInfoUserId',
       apiUrl: '${SmeGroup.baseUrl}/user/getHeaderBanner/{userId}',
@@ -3332,7 +3332,7 @@ class GetOrgDetailsCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
     int? userId,
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: ' getOrgDetails',
       apiUrl: '${SmeGroup.baseUrl}/user/getOrgDetails',
@@ -3354,7 +3354,7 @@ class GetOrgDetailsCall {
 }
 
 class GetPasswordLastUpdatedDateCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getPasswordLastUpdatedDate',
       apiUrl: '${SmeGroup.baseUrl}/user/getPasswordLastUpdated',
@@ -3372,7 +3372,7 @@ class GetPasswordLastUpdatedDateCall {
 class GetProfileDetailsCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getProfileDetails',
       apiUrl: '${SmeGroup.baseUrl}/user/getProfileDetails',
@@ -3396,7 +3396,7 @@ class GetTaggableUsersCall {
   Future<ApiCallResponse> call({
     String? companyNameWithChars = '',
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getTaggableUsers',
       apiUrl: '${SmeGroup.baseUrl}/user/getTaggableUsers',
@@ -3431,7 +3431,7 @@ class GetUserStoryCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
     int? userId = 0,
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getUserStory',
       apiUrl: '${SmeGroup.baseUrl}/user/getUserStory',
@@ -3453,7 +3453,7 @@ class GetUserStoryCall {
 }
 
 class GetUserStoryUserIdCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getUserStoryUserId',
       apiUrl: '${SmeGroup.baseUrl}/user/getUserStory/{userId}',
@@ -3469,7 +3469,7 @@ class GetUserStoryUserIdCall {
 }
 
 class GetUserInfoCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getUserInfo',
       apiUrl: '${SmeGroup.baseUrl}/user/info',
@@ -3487,7 +3487,7 @@ class GetUserInfoCall {
 class BrnNumberCheckCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'brnNumberCheck',
       apiUrl: '${SmeGroup.baseUrl}/user/isBRNExist',
@@ -3510,7 +3510,7 @@ class IsFollowingCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
     int? userId,
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: ' isFollowing',
       apiUrl: '${SmeGroup.baseUrl}/user/isFollowing',
@@ -3535,7 +3535,7 @@ class UnFollowCall {
   Future<ApiCallResponse> call({
     int? followeeId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'unFollow',
       apiUrl: '${SmeGroup.baseUrl}/user/unFollow',
@@ -3557,7 +3557,7 @@ class UnFollowCall {
 }
 
 class UpdateBRNNumberCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'updateBRNNumber',
       apiUrl: '${SmeGroup.baseUrl}/user/updateBRN',
@@ -3577,7 +3577,7 @@ class UpdateOrgDetailsCall {
   Future<ApiCallResponse> call({
     dynamic? dataJson,
     String? accessToken = '',
-  }) {
+  }) async {
     final data = _serializeJson(dataJson);
 
     return ApiManager.instance.makeApiCall(
@@ -3605,7 +3605,7 @@ class ChangeUserPasswordCall {
     String? accessToken = '',
     String? newPassword = '',
     String? oldPassword = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "newPassword": "${newPassword}",
@@ -3636,7 +3636,7 @@ class UpdateProfileCall {
     String? accessToken = '',
     dynamic? dataJson,
     FFUploadedFile? file,
-  }) {
+  }) async {
     final data = _serializeJson(dataJson);
 
     return ApiManager.instance.makeApiCall(
@@ -3665,7 +3665,7 @@ class GetTeamMemberListCall {
   Future<ApiCallResponse> call({
     int? userId = 0,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getTeamMemberList',
       apiUrl: '${SmeGroup.baseUrl}/team-member/getTeamMemberList',
@@ -3697,7 +3697,7 @@ class CreateTeamMemberCall {
     FFUploadedFile? file,
     dynamic? dataJson,
     String? accessToken = '',
-  }) {
+  }) async {
     final data = _serializeJson(dataJson);
 
     return ApiManager.instance.makeApiCall(
@@ -3724,7 +3724,7 @@ class DeleteTeamMemberCall {
   Future<ApiCallResponse> call({
     String? teamMemberId = '',
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'deleteTeamMember',
       apiUrl: '${SmeGroup.baseUrl}/team-member',
@@ -3746,7 +3746,7 @@ class DeleteTeamMemberCall {
 }
 
 class GetTeamMemberListPublicCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getTeamMemberListPublic',
       apiUrl: '${SmeGroup.baseUrl}/team-member/getTeamMemberList?userId=0',
@@ -3762,7 +3762,7 @@ class GetTeamMemberListPublicCall {
 }
 
 class GetAllUtilityCategoriesCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getAllUtilityCategories',
       apiUrl: '${SmeGroup.baseUrl}/utility-category',
@@ -3778,7 +3778,7 @@ class GetAllUtilityCategoriesCall {
 }
 
 class CreateUtilityCategoryCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'createUtilityCategory',
       apiUrl: '${SmeGroup.baseUrl}/utility-category',
@@ -3795,7 +3795,7 @@ class CreateUtilityCategoryCall {
 }
 
 class UpdateUtilityCategoryCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'updateUtilityCategory',
       apiUrl: '${SmeGroup.baseUrl}/utility-category',
@@ -3812,7 +3812,7 @@ class UpdateUtilityCategoryCall {
 }
 
 class DeleteUtilityCategoryCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'deleteUtilityCategory',
       apiUrl: '${SmeGroup.baseUrl}/utility-category?utilityCategoryId=2',
@@ -3828,7 +3828,7 @@ class DeleteUtilityCategoryCall {
 }
 
 class GetAllUtilityCategoriestwoCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getAllUtilityCategoriestwo',
       apiUrl: '${SmeGroup.baseUrl}/utility-category/getAllUtilityCategories',
@@ -3846,7 +3846,7 @@ class GetAllUtilityCategoriestwoCall {
 class GetCategoryWiseGrowthCardsCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getCategoryWiseGrowthCards',
       apiUrl: '${SmeGroup.baseUrl}/utility-category/getCategoryWiseGrowthCards',
@@ -3876,7 +3876,7 @@ class GetCategoryWiseGrowthCardsCall {
 }
 
 class GetCategoryWiseGrowthPartnersCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getCategoryWiseGrowthPartners',
       apiUrl: '${SmeGroup.baseUrl}/getCategoryWiseGrowthPartners',
@@ -3892,7 +3892,7 @@ class GetCategoryWiseGrowthPartnersCall {
 }
 
 class GetAllGrowthPatnersCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getAllGrowthPatners',
       apiUrl:
@@ -3909,7 +3909,7 @@ class GetAllGrowthPatnersCall {
 }
 
 class UpdatePriorityOrderCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'updatePriorityOrder',
       apiUrl: '${SmeGroup.baseUrl}/utility-category/updatePriorityOrder',
@@ -3926,7 +3926,7 @@ class UpdatePriorityOrderCall {
 }
 
 class UpdateStatusCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'updateStatus',
       apiUrl: '${SmeGroup.baseUrl}/utility-category/updateStatus',
@@ -3947,7 +3947,7 @@ class SetHelpfulnessCall {
     int? feedId,
     bool? helpful = true,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'setHelpfulness',
       apiUrl: '${SmeGroup.baseUrl}/feed/setHelpfulness',
@@ -3974,7 +3974,7 @@ class SetUnHelpfulnessCall {
     int? feedId,
     bool? unHelpful = true,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'setUnHelpfulness',
       apiUrl: '${SmeGroup.baseUrl}/feed/setUnHelpfulness',
@@ -4001,7 +4001,7 @@ class SetForumHelpfulnessCall {
     bool? forumHelpful,
     int? forumId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'setForumHelpfulness',
       apiUrl: '${SmeGroup.baseUrl}/discussion-board/setForumHelpfulness',
@@ -4027,7 +4027,7 @@ class SetForumUnHelpfulnessCall {
     int? forumId,
     bool? forumUnHelpful,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'setForumUnHelpfulness',
       apiUrl: '${SmeGroup.baseUrl}/discussion-board/setForumUnHelpfulness',
@@ -4051,7 +4051,7 @@ class SetForumUnHelpfulnessCall {
 class GetTopActiveCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: ' getTopActive',
       apiUrl: '${SmeGroup.baseUrl}/discussion-board/getTopActive',
@@ -4079,7 +4079,7 @@ class GetMoreDetailsCall {
   Future<ApiCallResponse> call({
     int? growthPlanId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getMoreDetails',
       apiUrl: '${SmeGroup.baseUrl}/growth-plans/getMoreDetails',
@@ -4120,7 +4120,7 @@ class RegisterUqudoSMECall {
   Future<ApiCallResponse> call({
     dynamic? dataJson,
     FFUploadedFile? faceImg,
-  }) {
+  }) async {
     final data = _serializeJson(dataJson);
 
     return ApiManager.instance.makeApiCall(
@@ -4147,7 +4147,7 @@ class GetBannerUserIdCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
     String? userId = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getBannerUserId',
       apiUrl: '${SmeGroup.baseUrl}/user/getBanner/${userId}',
@@ -4170,7 +4170,7 @@ class GenerateAiResponseCall {
   Future<ApiCallResponse> call({
     String? question = '',
     String? accessToken = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "question": "${question}"
@@ -4204,7 +4204,7 @@ class UpdateBannerCall {
     int? userId,
     String? accessToken = '',
     FFUploadedFile? file,
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'updateBanner',
       apiUrl: '${SmeGroup.baseUrl}/user/updateBanner',
@@ -4233,7 +4233,7 @@ class EkybverifycompanyCall {
     String? companyName = '',
     String? companyRegion = '',
     String? tradeLicense = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "companyName": "${companyName}",
@@ -4270,7 +4270,7 @@ class SetVerifiedCompanyCall {
     String? accessToken = '',
     String? companyName = '',
     String? companyStatus = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "companyName": "${companyName}",
@@ -4301,7 +4301,7 @@ class GetAllServiceProvidersCall {
     int? pageNumber,
     int? pageSize,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getAllServiceProviders',
       apiUrl: '${SmeGroup.baseUrl}/service-provider/getAllServiceProviders',
@@ -4335,7 +4335,7 @@ class SearchServiceProvidersCall {
     int? pageNumber,
     int? pageSize,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: ' SearchServiceProviders',
       apiUrl: '${SmeGroup.baseUrl}/search/SearchServiceProviders',
@@ -4367,7 +4367,7 @@ class SearchServiceProvidersCall {
 class GetMessagingUsersCall {
   Future<ApiCallResponse> call({
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: ' getMessagingUsers',
       apiUrl: '${SmeGroup.baseUrl}/messages/getMessagingUsers',
@@ -4396,7 +4396,7 @@ class GetMessagesForUserCall {
     int? receiverId,
     int? senderId,
     String? accessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: ' getMessagesForUser',
       apiUrl: '${SmeGroup.baseUrl}/messages/getMessages',
@@ -4430,7 +4430,7 @@ class SendMessageCall {
     int? receiverId,
     int? senderId,
     String? accessToken = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "content": "${content}",
@@ -4473,7 +4473,7 @@ class SendFullPromptCall {
   Future<ApiCallResponse> call({
     String? apiKey = '',
     String? prompt = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "model": "text-davinci-003",
@@ -4535,7 +4535,7 @@ class AuthApiCall {
     String? grantType = 'client_credentials',
     String? clientId = 'e5b85ad8-f23e-4423-a0ca-f0bd14ea6f39',
     String? clientSecret = 'itebLa8FrRdHOguH1ocNUn88',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'AUTH API',
       apiUrl: '${UqudoVerifyAPIGroup.baseUrl}/api/oauth/token',
@@ -4577,7 +4577,7 @@ class KybApiCall {
     String? countryOfRegistration = '',
     String? dataGroups = '',
     String? uqudoAccessToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'KYB API',
       apiUrl: '${CompanyverificationGroup.baseUrl}/api/v1/companies',

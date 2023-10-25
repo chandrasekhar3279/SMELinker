@@ -10,6 +10,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'edit_service_widget.dart' show EditServiceWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,7 @@ class EditServiceModel extends FlutterFlowModel<EditServiceWidget> {
 
   final formKey = GlobalKey<FormState>();
   // State field(s) for editserviceName widget.
+  FocusNode? editserviceNameFocusNode;
   TextEditingController? editserviceNameController;
   String? Function(BuildContext, String?)? editserviceNameControllerValidator;
   String? _editserviceNameControllerValidator(
@@ -39,6 +41,7 @@ class EditServiceModel extends FlutterFlowModel<EditServiceWidget> {
   }
 
   // State field(s) for editServiceDesc widget.
+  FocusNode? editServiceDescFocusNode;
   TextEditingController? editServiceDescController;
   String? Function(BuildContext, String?)? editServiceDescControllerValidator;
   String? _editServiceDescControllerValidator(
@@ -57,6 +60,7 @@ class EditServiceModel extends FlutterFlowModel<EditServiceWidget> {
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
   // State field(s) for minTimeTextField widget.
+  FocusNode? minTimeTextFieldFocusNode;
   TextEditingController? minTimeTextFieldController;
   String? Function(BuildContext, String?)? minTimeTextFieldControllerValidator;
   String? _minTimeTextFieldControllerValidator(
@@ -72,6 +76,7 @@ class EditServiceModel extends FlutterFlowModel<EditServiceWidget> {
   }
 
   // State field(s) for maxTimeTextField widget.
+  FocusNode? maxTimeTextFieldFocusNode;
   TextEditingController? maxTimeTextFieldController;
   String? Function(BuildContext, String?)? maxTimeTextFieldControllerValidator;
   String? _maxTimeTextFieldControllerValidator(
@@ -87,6 +92,7 @@ class EditServiceModel extends FlutterFlowModel<EditServiceWidget> {
   }
 
   // State field(s) for minCostTextField widget.
+  FocusNode? minCostTextFieldFocusNode;
   TextEditingController? minCostTextFieldController;
   String? Function(BuildContext, String?)? minCostTextFieldControllerValidator;
   String? _minCostTextFieldControllerValidator(
@@ -102,6 +108,7 @@ class EditServiceModel extends FlutterFlowModel<EditServiceWidget> {
   }
 
   // State field(s) for maxCostTextField widget.
+  FocusNode? maxCostTextFieldFocusNode;
   TextEditingController? maxCostTextFieldController;
   String? Function(BuildContext, String?)? maxCostTextFieldControllerValidator;
   String? _maxCostTextFieldControllerValidator(
@@ -135,11 +142,22 @@ class EditServiceModel extends FlutterFlowModel<EditServiceWidget> {
   }
 
   void dispose() {
+    editserviceNameFocusNode?.dispose();
     editserviceNameController?.dispose();
+
+    editServiceDescFocusNode?.dispose();
     editServiceDescController?.dispose();
+
+    minTimeTextFieldFocusNode?.dispose();
     minTimeTextFieldController?.dispose();
+
+    maxTimeTextFieldFocusNode?.dispose();
     maxTimeTextFieldController?.dispose();
+
+    minCostTextFieldFocusNode?.dispose();
     minCostTextFieldController?.dispose();
+
+    maxCostTextFieldFocusNode?.dispose();
     maxCostTextFieldController?.dispose();
   }
 

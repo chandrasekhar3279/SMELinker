@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -39,6 +40,7 @@ class _ForumAnswerWidgetState extends State<ForumAnswerWidget> {
     _model = createModel(context, () => ForumAnswerModel());
 
     _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -152,6 +154,7 @@ class _ForumAnswerWidgetState extends State<ForumAnswerWidget> {
                           EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                       child: TextFormField(
                         controller: _model.textController,
+                        focusNode: _model.textFieldFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
                           '_model.textController',
                           Duration(milliseconds: 100),

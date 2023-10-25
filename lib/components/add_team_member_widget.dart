@@ -7,6 +7,7 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -35,8 +36,11 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
     _model = createModel(context, () => AddTeamMemberModel());
 
     _model.nameController ??= TextEditingController();
+    _model.nameFocusNode ??= FocusNode();
     _model.titleController ??= TextEditingController();
+    _model.titleFocusNode ??= FocusNode();
     _model.linkedInProfileController ??= TextEditingController();
+    _model.linkedInProfileFocusNode ??= FocusNode();
   }
 
   @override
@@ -120,6 +124,7 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                               0.0, 30.0, 0.0, 0.0),
                           child: TextFormField(
                             controller: _model.nameController,
+                            focusNode: _model.nameFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.nameController',
                               Duration(milliseconds: 100),
@@ -194,6 +199,7 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                               0.0, 30.0, 0.0, 0.0),
                           child: TextFormField(
                             controller: _model.titleController,
+                            focusNode: _model.titleFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.titleController',
                               Duration(milliseconds: 100),
@@ -268,6 +274,7 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                               0.0, 30.0, 0.0, 0.0),
                           child: TextFormField(
                             controller: _model.linkedInProfileController,
+                            focusNode: _model.linkedInProfileFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.linkedInProfileController',
                               Duration(milliseconds: 100),

@@ -9,6 +9,7 @@ import 'search_widget.dart' show SearchWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -26,6 +27,7 @@ class SearchModel extends FlutterFlowModel<SearchWidget> {
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for searchBar widget.
+  FocusNode? searchBarFocusNode;
   TextEditingController? searchBarController;
   String? Function(BuildContext, String?)? searchBarControllerValidator;
   String? _searchBarControllerValidator(BuildContext context, String? val) {
@@ -51,6 +53,7 @@ class SearchModel extends FlutterFlowModel<SearchWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    searchBarFocusNode?.dispose();
     searchBarController?.dispose();
   }
 

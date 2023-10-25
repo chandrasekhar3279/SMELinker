@@ -8,6 +8,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -47,16 +48,19 @@ class _UpdateOrgDetailsPageWidgetState
       widget.orgDetails,
       r'''$.companyName''',
     ).toString().toString());
+    _model.companyNameFocusNode ??= FocusNode();
     _model.brnNumberController ??= TextEditingController(
         text: getJsonField(
       widget.orgDetails,
       r'''$.brnNumber''',
     ).toString().toString());
+    _model.brnNumberFocusNode ??= FocusNode();
     _model.tradeLicenseNumberController ??= TextEditingController(
         text: getJsonField(
       widget.orgDetails,
       r'''$.tradeLicense''',
     ).toString().toString());
+    _model.tradeLicenseNumberFocusNode ??= FocusNode();
     _model.descriptionController ??= TextEditingController(
         text: valueOrDefault<String>(
       getJsonField(
@@ -71,6 +75,7 @@ class _UpdateOrgDetailsPageWidgetState
             ).toString().toString(),
       'N/A',
     ));
+    _model.descriptionFocusNode ??= FocusNode();
   }
 
   @override
@@ -157,6 +162,7 @@ class _UpdateOrgDetailsPageWidgetState
                         children: [
                           TextFormField(
                             controller: _model.companyNameController,
+                            focusNode: _model.companyNameFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.companyNameController',
                               Duration(milliseconds: 100),
@@ -245,6 +251,7 @@ class _UpdateOrgDetailsPageWidgetState
                                 0.0, 30.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.brnNumberController,
+                              focusNode: _model.brnNumberFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.brnNumberController',
                                 Duration(milliseconds: 100),
@@ -329,6 +336,7 @@ class _UpdateOrgDetailsPageWidgetState
                                 0.0, 30.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.tradeLicenseNumberController,
+                              focusNode: _model.tradeLicenseNumberFocusNode,
                               autofocus: true,
                               readOnly: getJsonField(
                                     widget.orgDetails,
@@ -722,6 +730,7 @@ class _UpdateOrgDetailsPageWidgetState
                                 0.0, 30.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.descriptionController,
+                              focusNode: _model.descriptionFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.descriptionController',
                                 Duration(milliseconds: 100),

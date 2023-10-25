@@ -9,6 +9,7 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -46,11 +47,13 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
       widget.editServiceItem,
       r'''$.name''',
     ).toString().toString());
+    _model.editserviceNameFocusNode ??= FocusNode();
     _model.editServiceDescController ??= TextEditingController(
         text: getJsonField(
       widget.editServiceItem,
       r'''$.description''',
     ).toString().toString());
+    _model.editServiceDescFocusNode ??= FocusNode();
     _model.minTimeTextFieldController ??= TextEditingController(
         text: functions
             .splitServiceTime(
@@ -60,6 +63,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                 ).toString().toString(),
                 'min')
             .toString());
+    _model.minTimeTextFieldFocusNode ??= FocusNode();
     _model.maxTimeTextFieldController ??= TextEditingController(
         text: functions
             .splitServiceTime(
@@ -69,6 +73,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                 ).toString().toString(),
                 'max')
             .toString());
+    _model.maxTimeTextFieldFocusNode ??= FocusNode();
     _model.minCostTextFieldController ??= TextEditingController(
         text: functions
             .splitServiceCost(
@@ -78,6 +83,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                 ).toString().toString(),
                 'min')
             .toString());
+    _model.minCostTextFieldFocusNode ??= FocusNode();
     _model.maxCostTextFieldController ??= TextEditingController(
         text: functions
             .splitServiceCost(
@@ -87,6 +93,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                 ).toString().toString(),
                 null)
             .toString());
+    _model.maxCostTextFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -191,6 +198,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                 0.0, 5.0, 0.0, 30.0),
                             child: TextFormField(
                               controller: _model.editserviceNameController,
+                              focusNode: _model.editserviceNameFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.editserviceNameController',
                                 Duration(milliseconds: 100),
@@ -251,6 +259,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                             alignment: AlignmentDirectional(0.00, 0.00),
                             child: TextFormField(
                               controller: _model.editServiceDescController,
+                              focusNode: _model.editServiceDescFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.editServiceDescController',
                                 Duration(milliseconds: 100),
@@ -460,6 +469,8 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                         child: TextFormField(
                                           controller:
                                               _model.minTimeTextFieldController,
+                                          focusNode:
+                                              _model.minTimeTextFieldFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.minTimeTextFieldController',
@@ -563,6 +574,8 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                         child: TextFormField(
                                           controller:
                                               _model.maxTimeTextFieldController,
+                                          focusNode:
+                                              _model.maxTimeTextFieldFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.maxTimeTextFieldController',
@@ -699,6 +712,8 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                         child: TextFormField(
                                           controller:
                                               _model.minCostTextFieldController,
+                                          focusNode:
+                                              _model.minCostTextFieldFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.minCostTextFieldController',
@@ -802,6 +817,8 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                         child: TextFormField(
                                           controller:
                                               _model.maxCostTextFieldController,
+                                          focusNode:
+                                              _model.maxCostTextFieldFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.maxCostTextFieldController',

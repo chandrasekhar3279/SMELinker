@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -59,6 +60,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                 r'''$.address''',
               ).toString().toString()
             : '');
+    _model.addressFocusNode ??= FocusNode();
     _model.emailController ??= TextEditingController(
         text: (getJsonField(
                       widget.getinTouch,
@@ -75,6 +77,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                 r'''$.email''',
               ).toString().toString()
             : '');
+    _model.emailFocusNode ??= FocusNode();
     _model.linkedInController ??= TextEditingController(
         text: (getJsonField(
                       widget.getinTouch,
@@ -91,6 +94,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                 r'''$.linkedIn''',
               ).toString().toString()
             : '');
+    _model.linkedInFocusNode ??= FocusNode();
     _model.webSiteController ??= TextEditingController(
         text: (getJsonField(
                       widget.getinTouch,
@@ -107,6 +111,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                 r'''$.website''',
               ).toString().toString()
             : '');
+    _model.webSiteFocusNode ??= FocusNode();
     _model.phoneNumberController ??= TextEditingController(
         text: (getJsonField(
                       widget.getinTouch,
@@ -123,6 +128,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                 r'''$.contactNo''',
               ).toString().toString()
             : '');
+    _model.phoneNumberFocusNode ??= FocusNode();
   }
 
   @override
@@ -205,6 +211,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                           alignment: AlignmentDirectional(0.00, 0.00),
                           child: TextFormField(
                             controller: _model.addressController,
+                            focusNode: _model.addressFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.addressController',
                               Duration(milliseconds: 100),
@@ -281,6 +288,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                               0.0, 30.0, 0.0, 0.0),
                           child: TextFormField(
                             controller: _model.emailController,
+                            focusNode: _model.emailFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.emailController',
                               Duration(milliseconds: 100),
@@ -356,6 +364,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                               0.0, 30.0, 0.0, 0.0),
                           child: TextFormField(
                             controller: _model.linkedInController,
+                            focusNode: _model.linkedInFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.linkedInController',
                               Duration(milliseconds: 100),
@@ -431,6 +440,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                               0.0, 30.0, 0.0, 0.0),
                           child: TextFormField(
                             controller: _model.webSiteController,
+                            focusNode: _model.webSiteFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.webSiteController',
                               Duration(milliseconds: 100),
@@ -508,6 +518,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                                 0.0, 30.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.phoneNumberController,
+                              focusNode: _model.phoneNumberFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.phoneNumberController',
                                 Duration(milliseconds: 100),

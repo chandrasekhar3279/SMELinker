@@ -8,6 +8,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -43,6 +44,7 @@ class _SearchWidgetState extends State<SearchWidget> {
     });
 
     _model.searchBarController ??= TextEditingController();
+    _model.searchBarFocusNode ??= FocusNode();
   }
 
   @override
@@ -54,6 +56,15 @@ class _SearchWidgetState extends State<SearchWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return FutureBuilder<ApiCallResponse>(
@@ -122,6 +133,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                               10.0, 10.0, 10.0, 10.0),
                           child: TextFormField(
                             controller: _model.searchBarController,
+                            focusNode: _model.searchBarFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.searchBarController',
                               Duration(milliseconds: 2000),

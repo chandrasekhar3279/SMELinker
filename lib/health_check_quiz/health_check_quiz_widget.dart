@@ -9,6 +9,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -75,6 +76,8 @@ class _HealthCheckQuizWidgetState extends State<HealthCheckQuizWidget> {
         }
       }
     });
+
+    _model.expandableController2 = ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -86,6 +89,15 @@ class _HealthCheckQuizWidgetState extends State<HealthCheckQuizWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -325,8 +337,6 @@ class _HealthCheckQuizWidgetState extends State<HealthCheckQuizWidget> {
                                                                             0x00000000),
                                                                         child:
                                                                             ExpandableNotifier(
-                                                                          initialExpanded:
-                                                                              false,
                                                                           child:
                                                                               ExpandablePanel(
                                                                             header:
@@ -486,7 +496,7 @@ class _HealthCheckQuizWidgetState extends State<HealthCheckQuizWidget> {
                                     width: double.infinity,
                                     color: Color(0x00000000),
                                     child: ExpandableNotifier(
-                                      initialExpanded: false,
+                                      controller: _model.expandableController2,
                                       child: ExpandablePanel(
                                         header: Padding(
                                           padding:

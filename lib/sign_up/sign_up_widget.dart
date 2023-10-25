@@ -9,6 +9,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -50,6 +51,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                 r'''$.secondaryId''',
               ).toString().toString()
             : null);
+    _model.firstNameFocusNode ??= FocusNode();
     _model.lastNameController ??= TextEditingController(
         text: (FFAppState().uqudoResponse != null) &&
                 (getJsonField(
@@ -62,6 +64,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                 r'''$.primaryId''',
               ).toString().toString()
             : null);
+    _model.lastNameFocusNode ??= FocusNode();
     _model.emailController ??= TextEditingController(
         text: (FFAppState().uqudoResponse != null) &&
                 (getJsonField(
@@ -74,6 +77,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                 r'''$.email''',
               ).toString().toString()
             : '');
+    _model.emailFocusNode ??= FocusNode();
     _model.positionController ??= TextEditingController(
         text: (FFAppState().uqudoResponse != null) &&
                 (getJsonField(
@@ -86,12 +90,19 @@ class _SignUpWidgetState extends State<SignUpWidget>
                 r'''$.position''',
               ).toString().toString()
             : '');
+    _model.positionFocusNode ??= FocusNode();
     _model.passwordController ??= TextEditingController();
+    _model.passwordFocusNode ??= FocusNode();
     _model.confirmPasswordController ??= TextEditingController();
+    _model.confirmPasswordFocusNode ??= FocusNode();
     _model.companyNameController ??= TextEditingController();
+    _model.companyNameFocusNode ??= FocusNode();
     _model.regNumberController ??= TextEditingController();
+    _model.regNumberFocusNode ??= FocusNode();
     _model.tradeLicenseNumberController ??= TextEditingController();
+    _model.tradeLicenseNumberFocusNode ??= FocusNode();
     _model.businessBankingController ??= TextEditingController();
+    _model.businessBankingFocusNode ??= FocusNode();
   }
 
   @override
@@ -103,6 +114,15 @@ class _SignUpWidgetState extends State<SignUpWidget>
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -220,6 +240,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                               child: TextFormField(
                                                 controller:
                                                     _model.firstNameController,
+                                                focusNode:
+                                                    _model.firstNameFocusNode,
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.firstNameController',
@@ -371,6 +393,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                               child: TextFormField(
                                                 controller:
                                                     _model.lastNameController,
+                                                focusNode:
+                                                    _model.lastNameFocusNode,
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.lastNameController',
@@ -528,6 +552,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                               child: TextFormField(
                                                 controller:
                                                     _model.emailController,
+                                                focusNode:
+                                                    _model.emailFocusNode,
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.emailController',
@@ -679,6 +705,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                               child: TextFormField(
                                                 controller:
                                                     _model.positionController,
+                                                focusNode:
+                                                    _model.positionFocusNode,
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.positionController',
@@ -830,6 +858,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                               child: TextFormField(
                                                 controller:
                                                     _model.passwordController,
+                                                focusNode:
+                                                    _model.passwordFocusNode,
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.passwordController',
@@ -1004,6 +1034,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                               child: TextFormField(
                                                 controller: _model
                                                     .confirmPasswordController,
+                                                focusNode: _model
+                                                    .confirmPasswordFocusNode,
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.confirmPasswordController',
@@ -1186,6 +1218,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                               child: TextFormField(
                                                 controller: _model
                                                     .companyNameController,
+                                                focusNode:
+                                                    _model.companyNameFocusNode,
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.companyNameController',
@@ -1520,6 +1554,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                               child: TextFormField(
                                                 controller:
                                                     _model.regNumberController,
+                                                focusNode:
+                                                    _model.regNumberFocusNode,
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.regNumberController',
@@ -1672,6 +1708,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                               child: TextFormField(
                                                 controller: _model
                                                     .tradeLicenseNumberController,
+                                                focusNode: _model
+                                                    .tradeLicenseNumberFocusNode,
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.tradeLicenseNumberController',
@@ -1918,6 +1956,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                               child: TextFormField(
                                                 controller: _model
                                                     .businessBankingController,
+                                                focusNode: _model
+                                                    .businessBankingFocusNode,
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.businessBankingController',

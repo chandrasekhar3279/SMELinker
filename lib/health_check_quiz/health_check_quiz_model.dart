@@ -10,6 +10,7 @@ import 'health_check_quiz_widget.dart' show HealthCheckQuizWidget;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -35,6 +36,9 @@ class HealthCheckQuizModel extends FlutterFlowModel<HealthCheckQuizWidget> {
   // Models for HealthCheckOptionsComponent dynamic component.
   late FlutterFlowDynamicModels<HealthCheckOptionsComponentModel>
       healthCheckOptionsComponentModels;
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController2;
+
   // Stores action output result for [Backend Call - API (getSavedUserResponses)] action in Button widget.
   ApiCallResponse? savedAnswers;
   // Stores action output result for [Backend Call - API (submitAnswerss)] action in Button widget.
@@ -50,6 +54,7 @@ class HealthCheckQuizModel extends FlutterFlowModel<HealthCheckQuizWidget> {
   void dispose() {
     unfocusNode.dispose();
     healthCheckOptionsComponentModels.dispose();
+    expandableController2.dispose();
   }
 
   /// Action blocks are added here.

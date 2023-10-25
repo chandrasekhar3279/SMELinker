@@ -10,6 +10,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'sign_up_widget.dart' show SignUpWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -29,6 +30,7 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
       tabBarController != null ? tabBarController!.index : 0;
 
   // State field(s) for firstName widget.
+  FocusNode? firstNameFocusNode;
   TextEditingController? firstNameController;
   String? Function(BuildContext, String?)? firstNameControllerValidator;
   String? _firstNameControllerValidator(BuildContext context, String? val) {
@@ -44,6 +46,7 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   }
 
   // State field(s) for lastName widget.
+  FocusNode? lastNameFocusNode;
   TextEditingController? lastNameController;
   String? Function(BuildContext, String?)? lastNameControllerValidator;
   String? _lastNameControllerValidator(BuildContext context, String? val) {
@@ -55,6 +58,7 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   }
 
   // State field(s) for email widget.
+  FocusNode? emailFocusNode;
   TextEditingController? emailController;
   String? Function(BuildContext, String?)? emailControllerValidator;
   String? _emailControllerValidator(BuildContext context, String? val) {
@@ -69,6 +73,7 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   }
 
   // State field(s) for position widget.
+  FocusNode? positionFocusNode;
   TextEditingController? positionController;
   String? Function(BuildContext, String?)? positionControllerValidator;
   String? _positionControllerValidator(BuildContext context, String? val) {
@@ -84,6 +89,7 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   }
 
   // State field(s) for password widget.
+  FocusNode? passwordFocusNode;
   TextEditingController? passwordController;
   late bool passwordVisibility;
   String? Function(BuildContext, String?)? passwordControllerValidator;
@@ -100,6 +106,7 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   }
 
   // State field(s) for confirmPassword widget.
+  FocusNode? confirmPasswordFocusNode;
   TextEditingController? confirmPasswordController;
   late bool confirmPasswordVisibility;
   String? Function(BuildContext, String?)? confirmPasswordControllerValidator;
@@ -113,6 +120,7 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   }
 
   // State field(s) for companyName widget.
+  FocusNode? companyNameFocusNode;
   TextEditingController? companyNameController;
   String? Function(BuildContext, String?)? companyNameControllerValidator;
   String? _companyNameControllerValidator(BuildContext context, String? val) {
@@ -131,6 +139,7 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   String? industryValue;
   FormFieldController<String>? industryValueController;
   // State field(s) for regNumber widget.
+  FocusNode? regNumberFocusNode;
   TextEditingController? regNumberController;
   String? Function(BuildContext, String?)? regNumberControllerValidator;
   String? _regNumberControllerValidator(BuildContext context, String? val) {
@@ -149,6 +158,7 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   }
 
   // State field(s) for tradeLicenseNumber widget.
+  FocusNode? tradeLicenseNumberFocusNode;
   TextEditingController? tradeLicenseNumberController;
   String? Function(BuildContext, String?)?
       tradeLicenseNumberControllerValidator;
@@ -156,6 +166,7 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   String? countryOfRegionValue;
   FormFieldController<String>? countryOfRegionValueController;
   // State field(s) for businessBanking widget.
+  FocusNode? businessBankingFocusNode;
   TextEditingController? businessBankingController;
   String? Function(BuildContext, String?)? businessBankingControllerValidator;
   String? _businessBankingControllerValidator(
@@ -198,15 +209,34 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   void dispose() {
     unfocusNode.dispose();
     tabBarController?.dispose();
+    firstNameFocusNode?.dispose();
     firstNameController?.dispose();
+
+    lastNameFocusNode?.dispose();
     lastNameController?.dispose();
+
+    emailFocusNode?.dispose();
     emailController?.dispose();
+
+    positionFocusNode?.dispose();
     positionController?.dispose();
+
+    passwordFocusNode?.dispose();
     passwordController?.dispose();
+
+    confirmPasswordFocusNode?.dispose();
     confirmPasswordController?.dispose();
+
+    companyNameFocusNode?.dispose();
     companyNameController?.dispose();
+
+    regNumberFocusNode?.dispose();
     regNumberController?.dispose();
+
+    tradeLicenseNumberFocusNode?.dispose();
     tradeLicenseNumberController?.dispose();
+
+    businessBankingFocusNode?.dispose();
     businessBankingController?.dispose();
   }
 

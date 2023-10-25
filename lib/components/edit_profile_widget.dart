@@ -7,6 +7,7 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -44,21 +45,25 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
       widget.editProfile,
       r'''$.firstName''',
     ).toString().toString());
+    _model.firstNameFocusNode ??= FocusNode();
     _model.lastNameController ??= TextEditingController(
         text: getJsonField(
       widget.editProfile,
       r'''$.lastName''',
     ).toString().toString());
+    _model.lastNameFocusNode ??= FocusNode();
     _model.titleController ??= TextEditingController(
         text: getJsonField(
       widget.editProfile,
       r'''$.title''',
     ).toString().toString());
+    _model.titleFocusNode ??= FocusNode();
     _model.emailController ??= TextEditingController(
         text: getJsonField(
       widget.editProfile,
       r'''$.email''',
     ).toString().toString());
+    _model.emailFocusNode ??= FocusNode();
   }
 
   @override
@@ -148,6 +153,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               children: [
                                 TextFormField(
                                   controller: _model.firstNameController,
+                                  focusNode: _model.firstNameFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.firstNameController',
                                     Duration(milliseconds: 100),
@@ -235,6 +241,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               children: [
                                 TextFormField(
                                   controller: _model.lastNameController,
+                                  focusNode: _model.lastNameFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.lastNameController',
                                     Duration(milliseconds: 100),
@@ -324,6 +331,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               children: [
                                 TextFormField(
                                   controller: _model.titleController,
+                                  focusNode: _model.titleFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.titleController',
                                     Duration(milliseconds: 100),
@@ -419,6 +427,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               children: [
                                 TextFormField(
                                   controller: _model.emailController,
+                                  focusNode: _model.emailFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.emailController',
                                     Duration(milliseconds: 100),

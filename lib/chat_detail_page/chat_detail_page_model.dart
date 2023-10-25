@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'chat_detail_page_widget.dart' show ChatDetailPageWidget;
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,6 +21,7 @@ class ChatDetailPageModel extends FlutterFlowModel<ChatDetailPageWidget> {
   ScrollController? listViewController;
   Completer<ApiCallResponse>? apiRequestCompleter;
   // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
   // Stores action output result for [Backend Call - API ( sendMessage)] action in IconButton widget.
@@ -34,6 +36,7 @@ class ChatDetailPageModel extends FlutterFlowModel<ChatDetailPageWidget> {
   void dispose() {
     unfocusNode.dispose();
     listViewController?.dispose();
+    textFieldFocusNode?.dispose();
     textController?.dispose();
   }
 

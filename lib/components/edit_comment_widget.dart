@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -53,6 +54,7 @@ class _EditCommentWidgetState extends State<EditCommentWidget> {
                 widget.feedCommentInfo,
                 r'''$.commentText''',
               ).toString().toString());
+    _model.commentFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -145,6 +147,7 @@ class _EditCommentWidgetState extends State<EditCommentWidget> {
                               children: [
                                 TextFormField(
                                   controller: _model.commentFieldController,
+                                  focusNode: _model.commentFieldFocusNode,
                                   autofocus: true,
                                   textCapitalization: TextCapitalization.words,
                                   obscureText: false,

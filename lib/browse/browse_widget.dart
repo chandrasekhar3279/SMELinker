@@ -9,6 +9,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -40,6 +41,7 @@ class _BrowseWidgetState extends State<BrowseWidget>
     });
 
     _model.searchFieldController ??= TextEditingController();
+    _model.searchFieldFocusNode ??= FocusNode();
     _model.tabBarController = TabController(
       vsync: this,
       length: 7,
@@ -56,6 +58,15 @@ class _BrowseWidgetState extends State<BrowseWidget>
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return YoutubeFullScreenWrapper(
@@ -98,6 +109,7 @@ class _BrowseWidgetState extends State<BrowseWidget>
                               10.0, 0.0, 0.0, 0.0),
                           child: TextFormField(
                             controller: _model.searchFieldController,
+                            focusNode: _model.searchFieldFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.searchFieldController',
                               Duration(milliseconds: 200),

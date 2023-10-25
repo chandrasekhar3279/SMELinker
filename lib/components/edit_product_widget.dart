@@ -9,6 +9,7 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -46,16 +47,19 @@ class _EditProductWidgetState extends State<EditProductWidget> {
       widget.productItem,
       r'''$.productName''',
     ).toString().toString());
+    _model.editProductNameFocusNode ??= FocusNode();
     _model.editproductDescController ??= TextEditingController(
         text: getJsonField(
       widget.productItem,
       r'''$.description''',
     ).toString().toString());
+    _model.editproductDescFocusNode ??= FocusNode();
     _model.editProductPriceController ??= TextEditingController(
         text: getJsonField(
       widget.productItem,
       r'''$.price''',
     ).toString().toString());
+    _model.editProductPriceFocusNode ??= FocusNode();
   }
 
   @override
@@ -140,6 +144,7 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                     children: [
                       TextFormField(
                         controller: _model.editProductNameController,
+                        focusNode: _model.editProductNameFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
                           '_model.editProductNameController',
                           Duration(milliseconds: 100),
@@ -205,6 +210,7 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                               0.0, 30.0, 0.0, 0.0),
                           child: TextFormField(
                             controller: _model.editproductDescController,
+                            focusNode: _model.editproductDescFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.editproductDescController',
                               Duration(milliseconds: 100),
@@ -274,6 +280,7 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                         child: TextFormField(
                           controller: _model.editProductPriceController,
+                          focusNode: _model.editProductPriceFocusNode,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.editProductPriceController',
                             Duration(milliseconds: 100),

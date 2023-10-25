@@ -9,6 +9,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'update_org_details_page_widget.dart' show UpdateOrgDetailsPageWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,7 @@ class UpdateOrgDetailsPageModel
 
   final formKey = GlobalKey<FormState>();
   // State field(s) for companyName widget.
+  FocusNode? companyNameFocusNode;
   TextEditingController? companyNameController;
   String? Function(BuildContext, String?)? companyNameControllerValidator;
   String? _companyNameControllerValidator(BuildContext context, String? val) {
@@ -30,6 +32,7 @@ class UpdateOrgDetailsPageModel
   }
 
   // State field(s) for brnNumber widget.
+  FocusNode? brnNumberFocusNode;
   TextEditingController? brnNumberController;
   String? Function(BuildContext, String?)? brnNumberControllerValidator;
   String? _brnNumberControllerValidator(BuildContext context, String? val) {
@@ -48,6 +51,7 @@ class UpdateOrgDetailsPageModel
   }
 
   // State field(s) for TradeLicenseNumber widget.
+  FocusNode? tradeLicenseNumberFocusNode;
   TextEditingController? tradeLicenseNumberController;
   String? Function(BuildContext, String?)?
       tradeLicenseNumberControllerValidator;
@@ -61,6 +65,7 @@ class UpdateOrgDetailsPageModel
   String? yearofLaunchValue;
   FormFieldController<String>? yearofLaunchValueController;
   // State field(s) for description widget.
+  FocusNode? descriptionFocusNode;
   TextEditingController? descriptionController;
   String? Function(BuildContext, String?)? descriptionControllerValidator;
   String? _descriptionControllerValidator(BuildContext context, String? val) {
@@ -83,9 +88,16 @@ class UpdateOrgDetailsPageModel
   }
 
   void dispose() {
+    companyNameFocusNode?.dispose();
     companyNameController?.dispose();
+
+    brnNumberFocusNode?.dispose();
     brnNumberController?.dispose();
+
+    tradeLicenseNumberFocusNode?.dispose();
     tradeLicenseNumberController?.dispose();
+
+    descriptionFocusNode?.dispose();
     descriptionController?.dispose();
   }
 

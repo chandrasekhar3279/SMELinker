@@ -51,7 +51,7 @@ dependencies:
     git:
       url: https://github.com/FlutterFlow/infinite_scroll_pagination.git
       ref: develop
-  intl: 0.18.0
+  intl: 0.18.1
   json_path: 0.6.2
   lottie: 1.2.1
   mime_type: 1.0.0
@@ -131,8 +131,6 @@ flutter:
     - assets/lottie_animations/
     - assets/rive_animations/
     - assets/pdfs/
-
-
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

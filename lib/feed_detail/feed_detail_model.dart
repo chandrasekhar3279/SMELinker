@@ -12,6 +12,7 @@ import 'dart:async';
 import 'feed_detail_widget.dart' show FeedDetailWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -54,6 +55,7 @@ class FeedDetailModel extends FlutterFlowModel<FeedDetailWidget> {
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for commentText widget.
+  FocusNode? commentTextFocusNode;
   TextEditingController? commentTextController;
   String? Function(BuildContext, String?)? commentTextControllerValidator;
   String? _commentTextControllerValidator(BuildContext context, String? val) {
@@ -86,7 +88,9 @@ class FeedDetailModel extends FlutterFlowModel<FeedDetailWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    commentTextFocusNode?.dispose();
     commentTextController?.dispose();
+
     moreDetailsModels.dispose();
   }
 

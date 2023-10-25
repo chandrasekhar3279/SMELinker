@@ -8,6 +8,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -44,6 +45,15 @@ class _BrowseServiceProvidersWidgetState
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return FutureBuilder<ApiCallResponse>(
@@ -228,69 +238,64 @@ class _BrowseServiceProvidersWidgetState
                                                           ),
                                                         ),
                                                       ),
-                                                      Text(
-                                                        getJsonField(
-                                                          interestsItem,
-                                                          r'''$.companyName''',
-                                                        ).toString(),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium,
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    4.0,
-                                                                    0.0,
-                                                                    4.0),
+                                                      Expanded(
                                                         child: Text(
                                                           getJsonField(
                                                             interestsItem,
-                                                            r'''$.enterpriseType''',
-                                                          ).toString(),
+                                                            r'''$.companyName''',
+                                                          )
+                                                              .toString()
+                                                              .maybeHandleOverflow(
+                                                                  maxChars: 25),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .titleMedium,
                                                         ),
                                                       ),
                                                       Expanded(
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .stretch,
-                                                          children: [
-                                                            Expanded(
-                                                              child: Text(
-                                                                getJsonField(
-                                                                          interestsItem,
-                                                                          r'''$.about''',
-                                                                        ) !=
-                                                                        null
-                                                                    ? valueOrDefault<
-                                                                        String>(
-                                                                        getJsonField(
-                                                                          interestsItem,
-                                                                          r'''$.about''',
-                                                                        ).toString(),
-                                                                        'N/A',
-                                                                      )
-                                                                    : ''.maybeHandleOverflow(
-                                                                        maxChars:
-                                                                            60,
-                                                                        replacement:
-                                                                            '…',
-                                                                      ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium,
-                                                              ),
-                                                            ),
-                                                          ],
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      4.0,
+                                                                      0.0,
+                                                                      4.0),
+                                                          child: Text(
+                                                            getJsonField(
+                                                              interestsItem,
+                                                              r'''$.enterpriseType''',
+                                                            )
+                                                                .toString()
+                                                                .maybeHandleOverflow(
+                                                                    maxChars:
+                                                                        30),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleMedium,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Text(
+                                                          getJsonField(
+                                                                    interestsItem,
+                                                                    r'''$.about''',
+                                                                  ) !=
+                                                                  null
+                                                              ? valueOrDefault<
+                                                                  String>(
+                                                                  getJsonField(
+                                                                    interestsItem,
+                                                                    r'''$.about''',
+                                                                  ).toString(),
+                                                                  'N/A',
+                                                                )
+                                                              : '',
+                                                          maxLines: 3,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                         ),
                                                       ),
                                                     ],
@@ -523,142 +528,131 @@ class _BrowseServiceProvidersWidgetState
                                                         BorderRadius.circular(
                                                             8.0),
                                                   ),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
-                                                    children: [
-                                                      Container(
-                                                        width: 150.0,
-                                                        height: double.infinity,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Image.network(
-                                                          getJsonField(
-                                                            functions.image(
-                                                                getJsonField(
-                                                              serviceprovidersItem,
-                                                              r'''$.logo''',
-                                                            ).toString()),
-                                                            r'''$.image''',
-                                                          ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(2.0, 2.0,
+                                                                2.0, 2.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceAround,
+                                                      children: [
+                                                        Container(
+                                                          width: 150.0,
                                                           height:
                                                               double.infinity,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            6.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  getJsonField(
-                                                                    serviceprovidersItem,
-                                                                    r'''$.companyName''',
-                                                                  ).toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium,
-                                                                ),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                          ),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16.0),
+                                                            child:
+                                                                Image.network(
+                                                              getJsonField(
+                                                                functions.image(
+                                                                    getJsonField(
+                                                                  serviceprovidersItem,
+                                                                  r'''$.logo''',
+                                                                ).toString()),
+                                                                r'''$.image''',
                                                               ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            6.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  getJsonField(
-                                                                    serviceprovidersItem,
-                                                                    r'''$.enterpriseType''',
-                                                                  ).toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall,
-                                                                ),
-                                                              ),
-                                                              Expanded(
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .stretch,
-                                                                    children: [
-                                                                      Expanded(
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              6.0,
-                                                                              2.0,
-                                                                              2.0),
-                                                                          child:
-                                                                              Text(
-                                                                            getJsonField(
-                                                                                      serviceprovidersItem,
-                                                                                      r'''$.about''',
-                                                                                    ) !=
-                                                                                    null
-                                                                                ? getJsonField(
-                                                                                    serviceprovidersItem,
-                                                                                    r'''$.about''',
-                                                                                  ).toString()
-                                                                                : ''.maybeHandleOverflow(
-                                                                                    maxChars: 160,
-                                                                                    replacement: '…',
-                                                                                  ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).labelMedium,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
+                                                              height: double
+                                                                  .infinity,
+                                                              fit: BoxFit
+                                                                  .contain,
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Expanded(
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        8.0,
+                                                                        0.0,
+                                                                        2.0,
+                                                                        2.0),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Expanded(
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            6.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      getJsonField(
+                                                                        serviceprovidersItem,
+                                                                        r'''$.companyName''',
+                                                                      ).toString(),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMedium,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Expanded(
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            6.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      getJsonField(
+                                                                        serviceprovidersItem,
+                                                                        r'''$.enterpriseType''',
+                                                                      ).toString(),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Expanded(
+                                                                  child: Text(
+                                                                    getJsonField(
+                                                                              serviceprovidersItem,
+                                                                              r'''$.about''',
+                                                                            ) !=
+                                                                            null
+                                                                        ? getJsonField(
+                                                                            serviceprovidersItem,
+                                                                            r'''$.about''',
+                                                                          ).toString()
+                                                                        : '',
+                                                                    maxLines: 3,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall,
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),

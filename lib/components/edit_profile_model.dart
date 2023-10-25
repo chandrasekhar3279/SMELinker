@@ -8,6 +8,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'edit_profile_widget.dart' show EditProfileWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +22,7 @@ class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
 
   final formKey = GlobalKey<FormState>();
   // State field(s) for firstName widget.
+  FocusNode? firstNameFocusNode;
   TextEditingController? firstNameController;
   String? Function(BuildContext, String?)? firstNameControllerValidator;
   String? _firstNameControllerValidator(BuildContext context, String? val) {
@@ -32,6 +34,7 @@ class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
   }
 
   // State field(s) for lastName widget.
+  FocusNode? lastNameFocusNode;
   TextEditingController? lastNameController;
   String? Function(BuildContext, String?)? lastNameControllerValidator;
   String? _lastNameControllerValidator(BuildContext context, String? val) {
@@ -43,6 +46,7 @@ class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
   }
 
   // State field(s) for Title widget.
+  FocusNode? titleFocusNode;
   TextEditingController? titleController;
   String? Function(BuildContext, String?)? titleControllerValidator;
   String? _titleControllerValidator(BuildContext context, String? val) {
@@ -54,6 +58,7 @@ class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
   }
 
   // State field(s) for email widget.
+  FocusNode? emailFocusNode;
   TextEditingController? emailController;
   String? Function(BuildContext, String?)? emailControllerValidator;
   String? _emailControllerValidator(BuildContext context, String? val) {
@@ -84,9 +89,16 @@ class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
   }
 
   void dispose() {
+    firstNameFocusNode?.dispose();
     firstNameController?.dispose();
+
+    lastNameFocusNode?.dispose();
     lastNameController?.dispose();
+
+    titleFocusNode?.dispose();
     titleController?.dispose();
+
+    emailFocusNode?.dispose();
     emailController?.dispose();
   }
 

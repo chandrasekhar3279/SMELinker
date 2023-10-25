@@ -6,6 +6,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'get_in_touch_details_widget.dart' show GetInTouchDetailsWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,7 @@ class GetInTouchDetailsModel extends FlutterFlowModel<GetInTouchDetailsWidget> {
 
   final formKey = GlobalKey<FormState>();
   // State field(s) for address widget.
+  FocusNode? addressFocusNode;
   TextEditingController? addressController;
   String? Function(BuildContext, String?)? addressControllerValidator;
   String? _addressControllerValidator(BuildContext context, String? val) {
@@ -26,6 +28,7 @@ class GetInTouchDetailsModel extends FlutterFlowModel<GetInTouchDetailsWidget> {
   }
 
   // State field(s) for email widget.
+  FocusNode? emailFocusNode;
   TextEditingController? emailController;
   String? Function(BuildContext, String?)? emailControllerValidator;
   String? _emailControllerValidator(BuildContext context, String? val) {
@@ -40,12 +43,15 @@ class GetInTouchDetailsModel extends FlutterFlowModel<GetInTouchDetailsWidget> {
   }
 
   // State field(s) for linkedIn widget.
+  FocusNode? linkedInFocusNode;
   TextEditingController? linkedInController;
   String? Function(BuildContext, String?)? linkedInControllerValidator;
   // State field(s) for webSite widget.
+  FocusNode? webSiteFocusNode;
   TextEditingController? webSiteController;
   String? Function(BuildContext, String?)? webSiteControllerValidator;
   // State field(s) for phoneNumber widget.
+  FocusNode? phoneNumberFocusNode;
   TextEditingController? phoneNumberController;
   String? Function(BuildContext, String?)? phoneNumberControllerValidator;
   String? _phoneNumberControllerValidator(BuildContext context, String? val) {
@@ -71,10 +77,19 @@ class GetInTouchDetailsModel extends FlutterFlowModel<GetInTouchDetailsWidget> {
   }
 
   void dispose() {
+    addressFocusNode?.dispose();
     addressController?.dispose();
+
+    emailFocusNode?.dispose();
     emailController?.dispose();
+
+    linkedInFocusNode?.dispose();
     linkedInController?.dispose();
+
+    webSiteFocusNode?.dispose();
     webSiteController?.dispose();
+
+    phoneNumberFocusNode?.dispose();
     phoneNumberController?.dispose();
   }
 

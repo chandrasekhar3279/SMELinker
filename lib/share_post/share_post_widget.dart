@@ -8,6 +8,7 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,11 +34,17 @@ class _SharePostWidgetState extends State<SharePostWidget> {
     _model = createModel(context, () => SharePostModel());
 
     _model.textFieldPostTitleController ??= TextEditingController();
+    _model.textFieldPostTitleFocusNode ??= FocusNode();
     _model.textFieldvideoPostTitleController ??= TextEditingController();
+    _model.textFieldvideoPostTitleFocusNode ??= FocusNode();
     _model.textFieldDocumentPostTitleController ??= TextEditingController();
+    _model.textFieldDocumentPostTitleFocusNode ??= FocusNode();
     _model.feedUrlController ??= TextEditingController();
+    _model.feedUrlFocusNode ??= FocusNode();
     _model.provideDocUrlController ??= TextEditingController();
+    _model.provideDocUrlFocusNode ??= FocusNode();
     _model.descriptionController ??= TextEditingController();
+    _model.descriptionFocusNode ??= FocusNode();
   }
 
   @override
@@ -49,6 +56,15 @@ class _SharePostWidgetState extends State<SharePostWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -208,6 +224,8 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                     child: TextFormField(
                                       controller:
                                           _model.textFieldPostTitleController,
+                                      focusNode:
+                                          _model.textFieldPostTitleFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.textFieldPostTitleController',
                                         Duration(milliseconds: 100),
@@ -301,6 +319,8 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                     child: TextFormField(
                                       controller: _model
                                           .textFieldvideoPostTitleController,
+                                      focusNode: _model
+                                          .textFieldvideoPostTitleFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.textFieldvideoPostTitleController',
                                         Duration(milliseconds: 100),
@@ -394,6 +414,8 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                     child: TextFormField(
                                       controller: _model
                                           .textFieldDocumentPostTitleController,
+                                      focusNode: _model
+                                          .textFieldDocumentPostTitleFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.textFieldDocumentPostTitleController',
                                         Duration(milliseconds: 100),
@@ -770,6 +792,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                         16.0, 30.0, 16.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.feedUrlController,
+                                      focusNode: _model.feedUrlFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.feedUrlController',
                                         Duration(milliseconds: 100),
@@ -872,6 +895,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                     child: TextFormField(
                                       controller:
                                           _model.provideDocUrlController,
+                                      focusNode: _model.provideDocUrlFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.provideDocUrlController',
                                         Duration(milliseconds: 100),
@@ -1292,6 +1316,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                         16.0, 30.0, 16.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.descriptionController,
+                                      focusNode: _model.descriptionFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.descriptionController',
                                         Duration(milliseconds: 100),

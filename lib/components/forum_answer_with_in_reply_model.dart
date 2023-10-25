@@ -7,6 +7,7 @@ import 'forum_answer_with_in_reply_widget.dart'
     show ForumAnswerWithInReplyWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +17,7 @@ class ForumAnswerWithInReplyModel
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
   // Stores action output result for [Backend Call - API (submitAnswers)] action in Button widget.
@@ -26,6 +28,7 @@ class ForumAnswerWithInReplyModel
   void initState(BuildContext context) {}
 
   void dispose() {
+    textFieldFocusNode?.dispose();
     textController?.dispose();
   }
 

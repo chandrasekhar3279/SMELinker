@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -54,6 +55,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
             ),
       'N/A',
     ));
+    _model.pastTitleFocusNode ??= FocusNode();
     _model.pastDescController ??= TextEditingController(
         text: getJsonField(
                   widget.myStory,
@@ -68,6 +70,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                 ).toString().toString(),
                 'N/A',
               ));
+    _model.pastDescFocusNode ??= FocusNode();
     _model.nowTitleController ??= TextEditingController(
         text: getJsonField(
                   widget.myStory,
@@ -79,6 +82,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                 widget.myStory,
                 r'''$.nowTitle''',
               ).toString().toString());
+    _model.nowTitleFocusNode ??= FocusNode();
     _model.nowDescController ??= TextEditingController(
         text: valueOrDefault<String>(
       getJsonField(
@@ -96,6 +100,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
             ),
       'N/A',
     ));
+    _model.nowDescFocusNode ??= FocusNode();
     _model.futureTitleController ??= TextEditingController(
         text: valueOrDefault<String>(
       getJsonField(
@@ -113,6 +118,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
             ),
       'N/A',
     ));
+    _model.futureTitleFocusNode ??= FocusNode();
     _model.futureDescController ??= TextEditingController(
         text: valueOrDefault<String>(
       getJsonField(
@@ -130,6 +136,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
             ),
       'N/A',
     ));
+    _model.futureDescFocusNode ??= FocusNode();
   }
 
   @override
@@ -232,6 +239,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                                   0.0, 30.0, 0.0, 0.0),
                               child: TextFormField(
                                 controller: _model.pastTitleController,
+                                focusNode: _model.pastTitleFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.pastTitleController',
                                   Duration(milliseconds: 100),
@@ -314,6 +322,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                                   0.0, 30.0, 0.0, 0.0),
                               child: TextFormField(
                                 controller: _model.pastDescController,
+                                focusNode: _model.pastDescFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.pastDescController',
                                   Duration(milliseconds: 100),
@@ -399,6 +408,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                                   0.0, 30.0, 0.0, 0.0),
                               child: TextFormField(
                                 controller: _model.nowTitleController,
+                                focusNode: _model.nowTitleFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.nowTitleController',
                                   Duration(milliseconds: 100),
@@ -482,6 +492,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                                   0.0, 30.0, 0.0, 0.0),
                               child: TextFormField(
                                 controller: _model.nowDescController,
+                                focusNode: _model.nowDescFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.nowDescController',
                                   Duration(milliseconds: 100),
@@ -565,6 +576,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                                   0.0, 30.0, 0.0, 0.0),
                               child: TextFormField(
                                 controller: _model.futureTitleController,
+                                focusNode: _model.futureTitleFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.futureTitleController',
                                   Duration(milliseconds: 100),
@@ -649,6 +661,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                                   0.0, 30.0, 0.0, 0.0),
                               child: TextFormField(
                                 controller: _model.futureDescController,
+                                focusNode: _model.futureDescFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.futureDescController',
                                   Duration(milliseconds: 100),

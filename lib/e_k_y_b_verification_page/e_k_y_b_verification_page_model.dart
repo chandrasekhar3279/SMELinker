@@ -8,6 +8,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'e_k_y_b_verification_page_widget.dart' show EKYBVerificationPageWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -23,9 +24,11 @@ class EKYBVerificationPageModel
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for companyName widget.
+  FocusNode? companyNameFocusNode;
   TextEditingController? companyNameController;
   String? Function(BuildContext, String?)? companyNameControllerValidator;
   // State field(s) for LicenseNo widget.
+  FocusNode? licenseNoFocusNode;
   TextEditingController? licenseNoController;
   String? Function(BuildContext, String?)? licenseNoControllerValidator;
   // State field(s) for countryRegion widget.
@@ -42,7 +45,10 @@ class EKYBVerificationPageModel
 
   void dispose() {
     unfocusNode.dispose();
+    companyNameFocusNode?.dispose();
     companyNameController?.dispose();
+
+    licenseNoFocusNode?.dispose();
     licenseNoController?.dispose();
   }
 

@@ -10,6 +10,7 @@ import 'browse_widget.dart' show BrowseWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,6 +26,7 @@ class BrowseModel extends FlutterFlowModel<BrowseWidget> {
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for searchField widget.
+  FocusNode? searchFieldFocusNode;
   TextEditingController? searchFieldController;
   String? Function(BuildContext, String?)? searchFieldControllerValidator;
   String? _searchFieldControllerValidator(BuildContext context, String? val) {
@@ -54,7 +56,9 @@ class BrowseModel extends FlutterFlowModel<BrowseWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    searchFieldFocusNode?.dispose();
     searchFieldController?.dispose();
+
     tabBarController?.dispose();
   }
 

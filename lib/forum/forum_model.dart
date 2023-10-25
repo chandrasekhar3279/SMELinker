@@ -16,6 +16,7 @@ import 'forum_widget.dart' show ForumWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -40,6 +41,7 @@ class ForumModel extends FlutterFlowModel<ForumWidget> {
   String? choiceChipsValue;
   FormFieldController<List<String>>? choiceChipsValueController;
   // State field(s) for questionText widget.
+  FocusNode? questionTextFocusNode;
   TextEditingController? questionTextController;
   String? Function(BuildContext, String?)? questionTextControllerValidator;
   String? _questionTextControllerValidator(BuildContext context, String? val) {
@@ -83,7 +85,9 @@ class ForumModel extends FlutterFlowModel<ForumWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    questionTextFocusNode?.dispose();
     questionTextController?.dispose();
+
     forumAnswerModels.dispose();
     moreDetailsModels1.dispose();
     moreDetailsModels2.dispose();

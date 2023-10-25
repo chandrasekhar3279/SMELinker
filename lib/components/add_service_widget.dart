@@ -9,6 +9,7 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -37,11 +38,17 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
     _model = createModel(context, () => AddServiceModel());
 
     _model.serviceNameController ??= TextEditingController();
+    _model.serviceNameFocusNode ??= FocusNode();
     _model.productDescController ??= TextEditingController();
+    _model.productDescFocusNode ??= FocusNode();
     _model.minTimeTextFieldController ??= TextEditingController();
+    _model.minTimeTextFieldFocusNode ??= FocusNode();
     _model.maxTimeTextFieldController ??= TextEditingController();
+    _model.maxTimeTextFieldFocusNode ??= FocusNode();
     _model.minCostTextFieldController ??= TextEditingController();
+    _model.minCostTextFieldFocusNode ??= FocusNode();
     _model.maxCostTextFieldController ??= TextEditingController();
+    _model.maxCostTextFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -146,6 +153,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                 0.0, 5.0, 0.0, 30.0),
                             child: TextFormField(
                               controller: _model.serviceNameController,
+                              focusNode: _model.serviceNameFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.serviceNameController',
                                 Duration(milliseconds: 100),
@@ -227,6 +235,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                             alignment: AlignmentDirectional(0.00, 0.00),
                             child: TextFormField(
                               controller: _model.productDescController,
+                              focusNode: _model.productDescFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.productDescController',
                                 Duration(milliseconds: 100),
@@ -445,6 +454,8 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                         child: TextFormField(
                                           controller:
                                               _model.minTimeTextFieldController,
+                                          focusNode:
+                                              _model.minTimeTextFieldFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.minTimeTextFieldController',
@@ -547,6 +558,8 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                         child: TextFormField(
                                           controller:
                                               _model.maxTimeTextFieldController,
+                                          focusNode:
+                                              _model.maxTimeTextFieldFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.maxTimeTextFieldController',
@@ -701,6 +714,8 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                         child: TextFormField(
                                           controller:
                                               _model.minCostTextFieldController,
+                                          focusNode:
+                                              _model.minCostTextFieldFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.minCostTextFieldController',
@@ -803,6 +818,8 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                         child: TextFormField(
                                           controller:
                                               _model.maxCostTextFieldController,
+                                          focusNode:
+                                              _model.maxCostTextFieldFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.maxCostTextFieldController',

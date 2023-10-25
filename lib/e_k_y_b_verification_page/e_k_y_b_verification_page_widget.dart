@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -31,6 +32,10 @@ class _EKYBVerificationPageWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => EKYBVerificationPageModel());
+
+    _model.companyNameFocusNode ??= FocusNode();
+
+    _model.licenseNoFocusNode ??= FocusNode();
   }
 
   @override
@@ -42,6 +47,15 @@ class _EKYBVerificationPageWidgetState
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return FutureBuilder<ApiCallResponse>(
@@ -179,6 +193,7 @@ class _EKYBVerificationPageWidgetState
                                           r'''$.companyName''',
                                         ).toString(),
                                       ),
+                                      focusNode: _model.companyNameFocusNode,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelText: 'Company Name',
@@ -259,6 +274,7 @@ class _EKYBVerificationPageWidgetState
                                           'N/A',
                                         ),
                                       ),
+                                      focusNode: _model.licenseNoFocusNode,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelText: 'Trade Licence Number',

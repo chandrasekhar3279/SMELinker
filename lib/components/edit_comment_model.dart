@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'edit_comment_widget.dart' show EditCommentWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +19,7 @@ class EditCommentModel extends FlutterFlowModel<EditCommentWidget> {
 
   final formKey = GlobalKey<FormState>();
   // State field(s) for commentField widget.
+  FocusNode? commentFieldFocusNode;
   TextEditingController? commentFieldController;
   String? Function(BuildContext, String?)? commentFieldControllerValidator;
   // Stores action output result for [Backend Call - API (updateFeedComment)] action in Button widget.
@@ -28,6 +30,7 @@ class EditCommentModel extends FlutterFlowModel<EditCommentWidget> {
   void initState(BuildContext context) {}
 
   void dispose() {
+    commentFieldFocusNode?.dispose();
     commentFieldController?.dispose();
   }
 

@@ -34,6 +34,7 @@ class _AIBussinessAdviserWidgetState extends State<AIBussinessAdviserWidget> {
     _model = createModel(context, () => AIBussinessAdviserModel());
 
     _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -45,6 +46,15 @@ class _AIBussinessAdviserWidgetState extends State<AIBussinessAdviserWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -683,6 +693,7 @@ class _AIBussinessAdviserWidgetState extends State<AIBussinessAdviserWidget> {
                                   16.0, 0.0, 0.0, 0.0),
                               child: TextFormField(
                                 controller: _model.textController,
+                                focusNode: _model.textFieldFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.textController',
                                   Duration(milliseconds: 100),

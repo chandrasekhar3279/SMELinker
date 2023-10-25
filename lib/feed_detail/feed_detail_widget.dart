@@ -11,6 +11,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -45,6 +46,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
     _model = createModel(context, () => FeedDetailModel());
 
     _model.commentTextController ??= TextEditingController();
+    _model.commentTextFocusNode ??= FocusNode();
   }
 
   @override
@@ -56,6 +58,15 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return FutureBuilder<ApiCallResponse>(
@@ -989,6 +1000,8 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                           child: TextFormField(
                                                             controller: _model
                                                                 .commentTextController,
+                                                            focusNode: _model
+                                                                .commentTextFocusNode,
                                                             onChanged: (_) =>
                                                                 EasyDebounce
                                                                     .debounce(

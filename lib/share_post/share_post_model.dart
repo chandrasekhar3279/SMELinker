@@ -9,6 +9,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'share_post_widget.dart' show SharePostWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -26,6 +27,7 @@ class SharePostModel extends FlutterFlowModel<SharePostWidget> {
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for TextFieldPostTitle widget.
+  FocusNode? textFieldPostTitleFocusNode;
   TextEditingController? textFieldPostTitleController;
   String? Function(BuildContext, String?)?
       textFieldPostTitleControllerValidator;
@@ -43,6 +45,7 @@ class SharePostModel extends FlutterFlowModel<SharePostWidget> {
   }
 
   // State field(s) for TextFieldvideoPostTitle widget.
+  FocusNode? textFieldvideoPostTitleFocusNode;
   TextEditingController? textFieldvideoPostTitleController;
   String? Function(BuildContext, String?)?
       textFieldvideoPostTitleControllerValidator;
@@ -60,6 +63,7 @@ class SharePostModel extends FlutterFlowModel<SharePostWidget> {
   }
 
   // State field(s) for TextFieldDocumentPostTitle widget.
+  FocusNode? textFieldDocumentPostTitleFocusNode;
   TextEditingController? textFieldDocumentPostTitleController;
   String? Function(BuildContext, String?)?
       textFieldDocumentPostTitleControllerValidator;
@@ -77,6 +81,7 @@ class SharePostModel extends FlutterFlowModel<SharePostWidget> {
   }
 
   // State field(s) for FeedUrl widget.
+  FocusNode? feedUrlFocusNode;
   TextEditingController? feedUrlController;
   String? Function(BuildContext, String?)? feedUrlControllerValidator;
   String? _feedUrlControllerValidator(BuildContext context, String? val) {
@@ -91,6 +96,7 @@ class SharePostModel extends FlutterFlowModel<SharePostWidget> {
   }
 
   // State field(s) for provideDocUrl widget.
+  FocusNode? provideDocUrlFocusNode;
   TextEditingController? provideDocUrlController;
   String? Function(BuildContext, String?)? provideDocUrlControllerValidator;
   bool isDataUploading1 = false;
@@ -102,6 +108,7 @@ class SharePostModel extends FlutterFlowModel<SharePostWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // State field(s) for description widget.
+  FocusNode? descriptionFocusNode;
   TextEditingController? descriptionController;
   String? Function(BuildContext, String?)? descriptionControllerValidator;
   // Stores action output result for [Backend Call - API (shareFeed)] action in ButtonLogin widget.
@@ -121,11 +128,22 @@ class SharePostModel extends FlutterFlowModel<SharePostWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    textFieldPostTitleFocusNode?.dispose();
     textFieldPostTitleController?.dispose();
+
+    textFieldvideoPostTitleFocusNode?.dispose();
     textFieldvideoPostTitleController?.dispose();
+
+    textFieldDocumentPostTitleFocusNode?.dispose();
     textFieldDocumentPostTitleController?.dispose();
+
+    feedUrlFocusNode?.dispose();
     feedUrlController?.dispose();
+
+    provideDocUrlFocusNode?.dispose();
     provideDocUrlController?.dispose();
+
+    descriptionFocusNode?.dispose();
     descriptionController?.dispose();
   }
 

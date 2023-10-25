@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'change_password_widget.dart' show ChangePasswordWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,7 @@ class ChangePasswordModel extends FlutterFlowModel<ChangePasswordWidget> {
 
   final formKey = GlobalKey<FormState>();
   // State field(s) for oldPassword widget.
+  FocusNode? oldPasswordFocusNode;
   TextEditingController? oldPasswordController;
   late bool oldPasswordVisibility;
   String? Function(BuildContext, String?)? oldPasswordControllerValidator;
@@ -26,6 +28,7 @@ class ChangePasswordModel extends FlutterFlowModel<ChangePasswordWidget> {
   }
 
   // State field(s) for NewPassword widget.
+  FocusNode? newPasswordFocusNode;
   TextEditingController? newPasswordController;
   late bool newPasswordVisibility;
   String? Function(BuildContext, String?)? newPasswordControllerValidator;
@@ -42,6 +45,7 @@ class ChangePasswordModel extends FlutterFlowModel<ChangePasswordWidget> {
   }
 
   // State field(s) for ConfirmPassword widget.
+  FocusNode? confirmPasswordFocusNode;
   TextEditingController? confirmPasswordController;
   late bool confirmPasswordVisibility;
   String? Function(BuildContext, String?)? confirmPasswordControllerValidator;
@@ -69,8 +73,13 @@ class ChangePasswordModel extends FlutterFlowModel<ChangePasswordWidget> {
   }
 
   void dispose() {
+    oldPasswordFocusNode?.dispose();
     oldPasswordController?.dispose();
+
+    newPasswordFocusNode?.dispose();
     newPasswordController?.dispose();
+
+    confirmPasswordFocusNode?.dispose();
     confirmPasswordController?.dispose();
   }
 

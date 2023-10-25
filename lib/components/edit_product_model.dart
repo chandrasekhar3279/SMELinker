@@ -10,6 +10,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'edit_product_widget.dart' show EditProductWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,7 @@ class EditProductModel extends FlutterFlowModel<EditProductWidget> {
 
   final formKey = GlobalKey<FormState>();
   // State field(s) for editProductName widget.
+  FocusNode? editProductNameFocusNode;
   TextEditingController? editProductNameController;
   String? Function(BuildContext, String?)? editProductNameControllerValidator;
   String? _editProductNameControllerValidator(
@@ -35,6 +37,7 @@ class EditProductModel extends FlutterFlowModel<EditProductWidget> {
   }
 
   // State field(s) for editproductDesc widget.
+  FocusNode? editproductDescFocusNode;
   TextEditingController? editproductDescController;
   String? Function(BuildContext, String?)? editproductDescControllerValidator;
   String? _editproductDescControllerValidator(
@@ -51,6 +54,7 @@ class EditProductModel extends FlutterFlowModel<EditProductWidget> {
   }
 
   // State field(s) for editProductPrice widget.
+  FocusNode? editProductPriceFocusNode;
   TextEditingController? editProductPriceController;
   String? Function(BuildContext, String?)? editProductPriceControllerValidator;
   String? _editProductPriceControllerValidator(
@@ -81,8 +85,13 @@ class EditProductModel extends FlutterFlowModel<EditProductWidget> {
   }
 
   void dispose() {
+    editProductNameFocusNode?.dispose();
     editProductNameController?.dispose();
+
+    editproductDescFocusNode?.dispose();
     editproductDescController?.dispose();
+
+    editProductPriceFocusNode?.dispose();
     editProductPriceController?.dispose();
   }
 

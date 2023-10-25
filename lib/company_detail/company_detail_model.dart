@@ -22,6 +22,7 @@ import 'dart:async';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -64,6 +65,9 @@ class CompanyDetailModel extends FlutterFlowModel<CompanyDetailWidget> {
   ApiCallResponse? apiResultixj;
   // Stores action output result for [Backend Call - API (unFollow)] action in Text widget.
   ApiCallResponse? apiResultlb3;
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController1;
+
   // Stores action output result for [Backend Call - API (bookProduct)] action in Container widget.
   ApiCallResponse? apiResultvn5;
   Completer<ApiCallResponse>? apiRequestCompleter1;
@@ -74,6 +78,14 @@ class CompanyDetailModel extends FlutterFlowModel<CompanyDetailWidget> {
   Completer<ApiCallResponse>? apiRequestCompleter2;
   // Models for MoreDetails dynamic component.
   late FlutterFlowDynamicModels<MoreDetailsModel> moreDetailsModels2;
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController2;
+
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController3;
+
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController4;
 
   /// Initialization and disposal methods.
 
@@ -84,8 +96,12 @@ class CompanyDetailModel extends FlutterFlowModel<CompanyDetailWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    expandableController1.dispose();
     moreDetailsModels1.dispose();
     moreDetailsModels2.dispose();
+    expandableController2.dispose();
+    expandableController3.dispose();
+    expandableController4.dispose();
   }
 
   /// Action blocks are added here.

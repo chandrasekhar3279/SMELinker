@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -42,6 +43,7 @@ class _EditForumQuestionWidgetState extends State<EditForumQuestionWidget> {
       widget.questionItem,
       r'''$.question''',
     ).toString().toString());
+    _model.questionFocusNode ??= FocusNode();
   }
 
   @override
@@ -133,6 +135,7 @@ class _EditForumQuestionWidgetState extends State<EditForumQuestionWidget> {
                               children: [
                                 TextFormField(
                                   controller: _model.questionController,
+                                  focusNode: _model.questionFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.questionController',
                                     Duration(milliseconds: 100),
