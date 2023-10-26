@@ -387,7 +387,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Column(
                               mainAxisSize: MainAxisSize.max,
@@ -399,12 +399,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                   child: Text(
                                     'COST',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                        ),
+                                        .titleMedium,
                                   ),
                                 ),
                                 Text(
@@ -441,12 +436,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                   child: Text(
                                     'DURATION',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                        ),
+                                        .titleMedium,
                                   ),
                                 ),
                                 Text(
@@ -485,12 +475,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                     child: Text(
                                       'LANGUAGE',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
+                                          .titleLarge,
                                     ),
                                   ),
                                   Text(
@@ -536,12 +521,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                   child: Text(
                                     'CREATED ON',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                        ),
+                                        .titleMedium,
                                   ),
                                 ),
                                 Text(
@@ -574,12 +554,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                   child: Text(
                                     'UPDATED ON',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                        ),
+                                        .titleMedium,
                                   ),
                                 ),
                                 Text(
@@ -656,13 +631,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                   0.0, 0.0, 0.0, 5.0),
                               child: Text(
                                 'CONTEXT OF SERVICE',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
+                                style: FlutterFlowTheme.of(context).titleMedium,
                               ),
                             ),
                             Row(
@@ -704,13 +673,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                   0.0, 0.0, 0.0, 5.0),
                               child: Text(
                                 'OUTCOME',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
+                                style: FlutterFlowTheme.of(context).titleMedium,
                               ),
                             ),
                             Row(
@@ -749,13 +712,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                   0.0, 0.0, 0.0, 5.0),
                               child: Text(
                                 'EXCLUSIONS',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
+                                style: FlutterFlowTheme.of(context).titleMedium,
                               ),
                             ),
                             Row(
@@ -794,13 +751,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                   0.0, 0.0, 0.0, 5.0),
                               child: Text(
                                 'SCOPE OF WORK',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
+                                style: FlutterFlowTheme.of(context).titleMedium,
                               ),
                             ),
                             Row(
