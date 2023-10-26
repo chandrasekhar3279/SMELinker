@@ -144,14 +144,14 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   String? Function(BuildContext, String?)? regNumberControllerValidator;
   String? _regNumberControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please enter BRN';
+      return 'Please enter CRN';
     }
 
     if (val.length < 9) {
-      return 'Please insert a valid BRN';
+      return 'Please insert a valid CRN';
     }
     if (val.length > 9) {
-      return 'Please insert a valid BRN';
+      return 'The format is YYYY/XXXXXX/ZZ where YYYY is the Year and ZZ is the CompanyType';
     }
 
     return null;

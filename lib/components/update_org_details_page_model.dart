@@ -37,14 +37,14 @@ class UpdateOrgDetailsPageModel
   String? Function(BuildContext, String?)? brnNumberControllerValidator;
   String? _brnNumberControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'BRN Number cannot be empty';
+      return 'CRN Number cannot be empty';
     }
 
     if (val.length < 9) {
-      return 'Please insert a valid BRN';
+      return 'Please insert a valid CRN';
     }
     if (val.length > 9) {
-      return 'Please insert a valid BRN';
+      return 'The format is YYYY/XXXXXX/ZZ where YYYY is the Year and ZZ is the Company Type';
     }
 
     return null;

@@ -2916,15 +2916,20 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                           0.0,
                                                                           0.0),
                                                                   child: Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      getJsonField(
-                                                                        columnGetInTouchGetContactDetailPubicResponse
-                                                                            .jsonBody,
-                                                                        r'''$.linkedIn''',
-                                                                      ).toString(),
-                                                                      'N/A',
-                                                                    ),
+                                                                    getJsonField(
+                                                                              columnGetInTouchGetContactDetailPubicResponse.jsonBody,
+                                                                              r'''$.linkedIn''',
+                                                                            ) !=
+                                                                            null
+                                                                        ? valueOrDefault<
+                                                                            String>(
+                                                                            getJsonField(
+                                                                              columnGetInTouchGetContactDetailPubicResponse.jsonBody,
+                                                                              r'''$.linkedIn''',
+                                                                            ).toString(),
+                                                                            'N/A',
+                                                                          )
+                                                                        : 'N/A',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium,

@@ -109,7 +109,7 @@ class _SignUpSelectionWidgetState extends State<SignUpSelectionWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed('OnboardingGetstarted');
+                              context.pushNamed('SignUp');
 
                               setState(() {
                                 FFAppState().documentTypeUqudo = '';

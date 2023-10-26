@@ -147,8 +147,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                 size: 22.0,
               ),
               onPressed: () async {
-                context.goNamed('OnboardingGetstarted');
-
+                context.safePop();
                 setState(() {
                   FFAppState().submittedSignUpForm = false;
                   FFAppState().uqudoResponseProfileImage = null;
@@ -1601,7 +1600,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   labelText:
-                                                      'Business Registration Number (BRN)',
+                                                      'Company Registration Number (CRN)',
                                                   labelStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .bodyLarge
@@ -1612,7 +1611,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                                     context)
                                                                 .secondaryText,
                                                       ),
-                                                  hintText: ' Ex: C12345678',
+                                                  hintText: 'YYYY/XXXXXX/ZZ',
                                                   hintStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .labelMedium

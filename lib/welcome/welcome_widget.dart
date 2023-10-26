@@ -596,7 +596,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                   ),
                                   FFButtonWidget(
                                     onPressed: () async {
-                                      context.pushNamed('OnboardingGetstarted');
+                                      context.pushNamed('SignUp');
                                     },
                                     text: 'Sign up',
                                     options: FFButtonOptions(

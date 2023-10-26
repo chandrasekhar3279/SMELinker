@@ -562,8 +562,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                               false;
                                         });
 
-                                        context
-                                            .pushNamed('OnboardingGetstarted');
+                                        context.pushNamed('SignUp');
                                       },
                                       text: 'Sign Up',
                                       options: FFButtonOptions(

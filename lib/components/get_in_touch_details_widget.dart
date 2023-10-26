@@ -549,7 +549,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                                 labelText: 'Enter your phone number',
                                 labelStyle:
                                     FlutterFlowTheme.of(context).bodyLarge,
-                                hintText: 'Contact Number',
+                                hintText: 'Contact Number Ex: +2711-123-4567',
                                 hintStyle:
                                     FlutterFlowTheme.of(context).labelMedium,
                                 enabledBorder: OutlineInputBorder(

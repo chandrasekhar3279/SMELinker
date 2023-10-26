@@ -59,8 +59,8 @@ class GetInTouchDetailsModel extends FlutterFlowModel<GetInTouchDetailsWidget> {
       return 'Phone Number cannot be empty';
     }
 
-    if (!RegExp('^\\+971[- ]?\\d{4}[- ]?\\d{4}\$').hasMatch(val)) {
-      return 'Invalid format eg: +971 XXXX XXXX or +971-XXXX-XXXX';
+    if (!RegExp('^\\+2711[- ]?\\d{4}[- ]?\\d{4}\$').hasMatch(val)) {
+      return 'Invalid format eg: +2711XXXX XXXX or +2711-123-4567';
     }
     return null;
   }

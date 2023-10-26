@@ -284,10 +284,10 @@ class _UpdateOrgDetailsPageWidgetState
                               textCapitalization: TextCapitalization.sentences,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'BRN Number',
+                                labelText: 'Company Registration Number (CRN)',
                                 labelStyle:
                                     FlutterFlowTheme.of(context).bodyLarge,
-                                hintText: 'eg: C12345678',
+                                hintText: 'eg: YYYY/XXXXXX/ZZ',
                                 hintStyle:
                                     FlutterFlowTheme.of(context).labelMedium,
                                 enabledBorder: OutlineInputBorder(
