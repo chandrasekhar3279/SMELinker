@@ -104,7 +104,7 @@ class _FlutterFlowChoiceChipsState extends State<FlutterFlowChoiceChips> {
   Widget build(BuildContext context) {
     final children = widget.options.map<Widget>(
       (option) {
-        final selected = choiceChipValues.contains(option.label);
+        final selected = selectedValues.contains(option.label);
         final style =
             selected ? widget.selectedChipStyle : widget.unselectedChipStyle;
         return Theme(

@@ -107,134 +107,137 @@ class _ChatUserSelectWidgetState extends State<ChatUserSelectWidget> {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-              child: Builder(
-                builder: (context) {
-                  final users = getJsonField(
-                    widget.users,
-                    r'''$''',
-                  ).toList();
-                  return ListView.builder(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: users.length,
-                    itemBuilder: (context, usersIndex) {
-                      final usersItem = users[usersIndex];
-                      return Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 8.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            _model.usersChatRes =
-                                await SmeGroup.getMessagesForUserCall.call(
-                              receiverId: getJsonField(
-                                usersItem,
-                                r'''$.userId''',
-                              ),
-                              senderId: 0,
-                              accessToken: FFAppState().accessToken,
-                            );
-
-                            context.pushNamed(
-                              'ChatDetailPage',
-                              queryParameters: {
-                                'selecteduser': serializeParam(
+            Expanded(
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                child: Builder(
+                  builder: (context) {
+                    final users = getJsonField(
+                      widget.users,
+                      r'''$''',
+                    ).toList();
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: users.length,
+                      itemBuilder: (context, usersIndex) {
+                        final usersItem = users[usersIndex];
+                        return Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 8.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              _model.usersChatRes =
+                                  await SmeGroup.getMessagesForUserCall.call(
+                                receiverId: getJsonField(
                                   usersItem,
-                                  ParamType.JSON,
+                                  r'''$.userId''',
                                 ),
-                                'userchat': serializeParam(
-                                  SmeGroup.getMessagesForUserCall.chatList(
-                                    (_model.usersChatRes?.jsonBody ?? ''),
-                                  ),
-                                  ParamType.JSON,
-                                  true,
-                                ),
-                              }.withoutNulls,
-                            );
+                                senderId: 0,
+                                accessToken: FFAppState().accessToken,
+                              );
 
-                            setState(() {});
-                          },
-                          child: Container(
-                            width: 100.0,
-                            height: 70.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              borderRadius: BorderRadius.circular(12.0),
-                              border: Border.all(
-                                color: FlutterFlowTheme.of(context).alternate,
-                                width: 1.0,
+                              context.pushNamed(
+                                'ChatDetailPage',
+                                queryParameters: {
+                                  'selecteduser': serializeParam(
+                                    usersItem,
+                                    ParamType.JSON,
+                                  ),
+                                  'userchat': serializeParam(
+                                    SmeGroup.getMessagesForUserCall.chatList(
+                                      (_model.usersChatRes?.jsonBody ?? ''),
+                                    ),
+                                    ParamType.JSON,
+                                    true,
+                                  ),
+                                }.withoutNulls,
+                              );
+
+                              setState(() {});
+                            },
+                            child: Container(
+                              width: 100.0,
+                              height: 70.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                borderRadius: BorderRadius.circular(12.0),
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  width: 1.0,
+                                ),
                               ),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 10.0, 10.0, 10.0),
-                                  child: Container(
-                                    width: 60.0,
-                                    height: 60.0,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Image.network(
-                                      getJsonField(
-                                        functions.image(getJsonField(
-                                          usersItem,
-                                          r'''$.image''',
-                                        ).toString()),
-                                        r'''$.image''',
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 10.0, 10.0, 10.0),
+                                    child: Container(
+                                      width: 60.0,
+                                      height: 60.0,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
                                       ),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          getJsonField(
+                                      child: Image.network(
+                                        getJsonField(
+                                          functions.image(getJsonField(
                                             usersItem,
-                                            r'''$.name''',
-                                          ).toString(),
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelLarge,
+                                            r'''$.image''',
+                                          ).toString()),
+                                          r'''$.image''',
                                         ),
+                                        fit: BoxFit.cover,
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
-                                        child: FaIcon(
-                                          FontAwesomeIcons.facebookMessenger,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          size: 24.0,
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                  Expanded(
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            getJsonField(
+                                              usersItem,
+                                              r'''$.name''',
+                                            ).toString(),
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelLarge,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 10.0, 0.0),
+                                          child: FaIcon(
+                                            FontAwesomeIcons.facebookMessenger,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            size: 24.0,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    },
-                  );
-                },
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
             ),
           ],

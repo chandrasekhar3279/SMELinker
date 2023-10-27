@@ -305,7 +305,7 @@ class _ChatDetailPageWidgetState extends State<ChatDetailPageWidget> {
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Label here...',
+                                labelText: 'enter your message',
                                 labelStyle:
                                     FlutterFlowTheme.of(context).labelMedium,
                                 hintStyle:

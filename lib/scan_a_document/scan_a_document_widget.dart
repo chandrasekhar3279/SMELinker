@@ -134,7 +134,7 @@ class _ScanADocumentWidgetState extends State<ScanADocumentWidget> {
                                 FormFieldController<String>(
                               _model.dropDownValue ??= '',
                             ),
-                            options: ['PASSPORT', 'UAE_ID'],
+                            options: List<String>.from(['PASSPORT', 'UAE_ID']),
                             optionLabels: ['PASSPORT', 'EMIRATE ID'],
                             onChanged: (val) async {
                               setState(() => _model.dropDownValue = val);
