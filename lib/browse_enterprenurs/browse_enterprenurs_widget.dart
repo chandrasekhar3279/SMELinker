@@ -412,12 +412,8 @@ class _BrowseEnterprenursWidgetState extends State<BrowseEnterprenursWidget> {
                                                                         ).toString(),
                                                                         'N/A',
                                                                       )
-                                                                    : ''.maybeHandleOverflow(
-                                                                        maxChars:
-                                                                            70,
-                                                                        replacement:
-                                                                            '…',
-                                                                      ),
+                                                                    : '',
+                                                                maxLines: 3,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodySmall,
