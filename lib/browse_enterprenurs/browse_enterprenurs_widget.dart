@@ -331,33 +331,26 @@ class _BrowseEnterprenursWidgetState extends State<BrowseEnterprenursWidget> {
                                                     ),
                                                   ),
                                                   Expanded(
-                                                    child: Container(
-                                                      width: double.infinity,
-                                                      height: double.infinity,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    8.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Padding(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  2.0,
+                                                                  2.0,
+                                                                  2.0),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Flexible(
+                                                            child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -375,7 +368,9 @@ class _BrowseEnterprenursWidgetState extends State<BrowseEnterprenursWidget> {
                                                                     .titleMedium,
                                                               ),
                                                             ),
-                                                            Padding(
+                                                          ),
+                                                          Flexible(
+                                                            child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -393,48 +388,43 @@ class _BrowseEnterprenursWidgetState extends State<BrowseEnterprenursWidget> {
                                                                     .bodyMedium,
                                                               ),
                                                             ),
-                                                            Expanded(
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .stretch,
-                                                                children: [
-                                                                  Expanded(
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                          ),
+                                                          Expanded(
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
                                                                           0.0,
                                                                           8.0,
                                                                           0.0,
                                                                           0.0),
-                                                                      child:
-                                                                          Text(
+                                                              child: Text(
+                                                                getJsonField(
+                                                                          searchedItem,
+                                                                          r'''$.about''',
+                                                                        ) !=
+                                                                        null
+                                                                    ? valueOrDefault<
+                                                                        String>(
                                                                         getJsonField(
-                                                                                  searchedItem,
-                                                                                  r'''$.about''',
-                                                                                ) !=
-                                                                                null
-                                                                            ? valueOrDefault<String>(
-                                                                                getJsonField(
-                                                                                  searchedItem,
-                                                                                  r'''$.about''',
-                                                                                ).toString(),
-                                                                                'N/A',
-                                                                              )
-                                                                            : '',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodySmall,
+                                                                          searchedItem,
+                                                                          r'''$.about''',
+                                                                        ).toString(),
+                                                                        'N/A',
+                                                                      )
+                                                                    : ''.maybeHandleOverflow(
+                                                                        maxChars:
+                                                                            70,
+                                                                        replacement:
+                                                                            '…',
                                                                       ),
-                                                                    ),
-                                                                  ),
-                                                                ],
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall,
                                                               ),
                                                             ),
-                                                          ],
-                                                        ),
+                                                          ),
+                                                        ],
                                                       ),
                                                     ),
                                                   ),
