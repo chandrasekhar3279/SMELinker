@@ -55,3 +55,4 @@ export '/chat_user_select/chat_user_select_widget.dart'
     show ChatUserSelectWidget;
 export '/chat_detail_page/chat_detail_page_widget.dart'
     show ChatDetailPageWidget;
+export '/groups/groups_widget.dart' show GroupsWidget;

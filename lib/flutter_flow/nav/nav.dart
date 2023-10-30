@@ -294,6 +294,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             userchat:
                 params.getParam<dynamic>('userchat', ParamType.JSON, true),
           ),
+        ),
+        FFRoute(
+          name: 'Groups',
+          path: '/groups',
+          builder: (context, params) => GroupsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
