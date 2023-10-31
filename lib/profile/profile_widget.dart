@@ -737,12 +737,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.goNamed('Groups');
-
-                                  FFAppState().update(() {
-                                    FFAppState().deleteAccessToken();
-                                    FFAppState().accessToken = '';
-                                  });
+                                  context.pushNamed('Groups');
                                 },
                                 child: ListTile(
                                   title: Text(
