@@ -1066,6 +1066,12 @@ class FFAppState extends ChangeNotifier {
   set roleName(String _value) {
     _roleName = _value;
   }
+
+  bool _join = false;
+  bool get join => _join;
+  set join(bool _value) {
+    _join = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

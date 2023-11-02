@@ -56,3 +56,6 @@ export '/chat_user_select/chat_user_select_widget.dart'
 export '/chat_detail_page/chat_detail_page_widget.dart'
     show ChatDetailPageWidget;
 export '/groups/groups_widget.dart' show GroupsWidget;
+export '/group_detailpage/group_detailpage_widget.dart'
+    show GroupDetailpageWidget;
+export '/groups_copy/groups_copy_widget.dart' show GroupsCopyWidget;

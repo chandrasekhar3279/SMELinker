@@ -299,6 +299,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Groups',
           path: '/groups',
           builder: (context, params) => GroupsWidget(),
+        ),
+        FFRoute(
+          name: 'GroupDetailpage',
+          path: '/groupDetailpage',
+          builder: (context, params) => GroupDetailpageWidget(
+            groupDetails: params.getParam('groupDetails', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'GroupsCopy',
+          path: '/groupsCopy',
+          builder: (context, params) => GroupsCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
