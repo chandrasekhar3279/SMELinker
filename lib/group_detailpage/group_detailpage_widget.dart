@@ -219,8 +219,8 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                 ),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(16.0, 10.0,
-                                                          16.0, 10.0),
+                                                      .fromSTEB(
+                                                          16.0, 5.0, 16.0, 5.0),
                                                   child: Text(
                                                     'Pending',
                                                     style: FlutterFlowTheme.of(
@@ -281,7 +281,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                     ),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 10.0, 16.0, 10.0),
+                                          16.0, 5.0, 16.0, 5.0),
                                       child: Text(
                                         'Category Name',
                                         style: FlutterFlowTheme.of(context)
@@ -310,7 +310,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 10.0, 16.0, 10.0),
+                                            16.0, 5.0, 16.0, 5.0),
                                         child: Text(
                                           'Public',
                                           style: FlutterFlowTheme.of(context)
@@ -403,7 +403,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                 final memberItem = member[memberIndex];
                                 return Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 5.0, 10.0, 5.0),
+                                      10.0, 10.0, 10.0, 0.0),
                                   child: Material(
                                     color: Colors.transparent,
                                     elevation: 2.0,
@@ -543,7 +543,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
-                                                  size: 24.0,
+                                                  size: 20.0,
                                                 ),
                                               ],
                                             ),

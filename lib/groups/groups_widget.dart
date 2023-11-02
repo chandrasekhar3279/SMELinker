@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'groups_model.dart';
 export 'groups_model.dart';
 
@@ -174,7 +175,7 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                             return Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      12.0, 12.0, 12.0, 12.0),
+                                                      12.0, 12.0, 12.0, 0.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -389,9 +390,9 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             16.0,
-                                                                            10.0,
+                                                                            5.0,
                                                                             16.0,
-                                                                            10.0),
+                                                                            5.0),
                                                                         child:
                                                                             Text(
                                                                           'Category Name',
@@ -430,9 +431,9 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                             Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
                                                                               16.0,
-                                                                              10.0,
+                                                                              5.0,
                                                                               16.0,
-                                                                              10.0),
+                                                                              5.0),
                                                                           child:
                                                                               Text(
                                                                             'Public',
@@ -447,21 +448,49 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                   ],
                                                                 ),
                                                               ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            12.0,
-                                                                            0.0),
-                                                                child: Icon(
-                                                                  Icons
-                                                                      .share_outlined,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  size: 30.0,
+                                                              Builder(
+                                                                builder:
+                                                                    (context) =>
+                                                                        Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          12.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      await Share
+                                                                          .share(
+                                                                        'http://smelinker.southafricanorth.cloudapp.azure.com/feed',
+                                                                        sharePositionOrigin:
+                                                                            getWidgetBoundingBox(context),
+                                                                      );
+                                                                    },
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .share_outlined,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ],
@@ -528,7 +557,7 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                             return Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      12.0, 12.0, 12.0, 12.0),
+                                                      12.0, 12.0, 12.0, 0.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -803,9 +832,9 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             16.0,
-                                                                            10.0,
+                                                                            5.0,
                                                                             16.0,
-                                                                            10.0),
+                                                                            5.0),
                                                                         child:
                                                                             Text(
                                                                           'Pending',
@@ -881,7 +910,7 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                             return Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      12.0, 12.0, 12.0, 12.0),
+                                                      12.0, 12.0, 12.0, 0.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -1052,20 +1081,49 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                   MainAxisAlignment
                                                                       .spaceBetween,
                                                               children: [
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          6.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Icon(
-                                                                    Icons
-                                                                        .share_outlined,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    size: 24.0,
+                                                                Builder(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            6.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        await Share
+                                                                            .share(
+                                                                          'http://smelinker.southafricanorth.cloudapp.azure.com/feed',
+                                                                          sharePositionOrigin:
+                                                                              getWidgetBoundingBox(context),
+                                                                        );
+                                                                      },
+                                                                      child:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .share_outlined,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                    ),
                                                                   ),
                                                                 ),
                                                                 if (FFAppState()
