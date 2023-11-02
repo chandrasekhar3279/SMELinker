@@ -65,93 +65,268 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 24.0),
+          child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        borderRadius: 30.0,
-                        borderWidth: 1.0,
-                        buttonSize: 40.0,
-                        icon: Icon(
-                          Icons.arrow_back,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 20.0,
-                        ),
-                        onPressed: () async {
-                          context.safePop();
-                          setState(() {
-                            FFAppState().join = false;
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: 70.0,
-                        height: 70.0,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                        ),
-                        child: Image.asset(
-                          'assets/images/woman-bg.png',
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                      Expanded(
-                        child: Padding(
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 24.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 0.0, 0.0),
-                          child: Column(
+                              4.0, 4.0, 4.0, 4.0),
+                          child: Row(
                             mainAxisSize: MainAxisSize.max,
+                            children: [
+                              FlutterFlowIconButton(
+                                borderColor: Colors.transparent,
+                                borderRadius: 30.0,
+                                borderWidth: 1.0,
+                                buttonSize: 40.0,
+                                icon: Icon(
+                                  Icons.arrow_back,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 20.0,
+                                ),
+                                onPressed: () async {
+                                  context.safePop();
+                                  setState(() {
+                                    FFAppState().join = false;
+                                  });
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 16.0, 16.0, 16.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      widget.groupDetails!,
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleMedium,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        if (FFAppState().join != true)
+                              Container(
+                                width: 70.0,
+                                height: 70.0,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.asset(
+                                  'assets/images/woman-bg.png',
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 0.0, 0.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              widget.groupDetails!,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMedium,
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                if (FFAppState().join != true)
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFF5E91FF),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.0),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  30.0,
+                                                                  8.0,
+                                                                  30.0,
+                                                                  8.0),
+                                                      child: Text(
+                                                        'Join',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                if (FFAppState().join == true)
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    WithdrawrequestWidget(),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+                                                      },
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0x195E91FF),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      30.0),
+                                                          shape: BoxShape
+                                                              .rectangle,
+                                                          border: Border.all(
+                                                            color: Color(
+                                                                0xFF5E91FF),
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      5.0,
+                                                                      16.0,
+                                                                      5.0),
+                                                          child: Text(
+                                                            'Pending',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 10.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Icon(
+                                              Icons.groups_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              size: 20.0,
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                '21, 212 followers',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
                                           Container(
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF5E91FF),
+                                              color: Color(0x195E91FF),
                                               borderRadius:
-                                                  BorderRadius.circular(16.0),
+                                                  BorderRadius.circular(30.0),
+                                              shape: BoxShape.rectangle,
+                                              border: Border.all(
+                                                color: Color(0xFF5E91FF),
+                                              ),
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      30.0, 8.0, 30.0, 8.0),
+                                                      16.0, 5.0, 16.0, 5.0),
                                               child: Text(
-                                                'Join',
+                                                'Category Name',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -159,213 +334,96 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondary,
+                                                              .primaryText,
                                                         ),
                                               ),
                                             ),
                                           ),
-                                        if (FFAppState().join == true)
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 0.0),
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                await showModalBottomSheet(
-                                                  isScrollControlled: true,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  enableDrag: false,
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
-                                                              .unfocus(),
-                                                      child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child:
-                                                            WithdrawrequestWidget(),
-                                                      ),
-                                                    );
-                                                  },
-                                                ).then((value) =>
-                                                    safeSetState(() {}));
-                                              },
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                  color: Color(0x195E91FF),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          30.0),
-                                                  shape: BoxShape.rectangle,
-                                                  border: Border.all(
-                                                    color: Color(0xFF5E91FF),
-                                                  ),
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0x195E91FF),
+                                                borderRadius:
+                                                    BorderRadius.circular(30.0),
+                                                shape: BoxShape.rectangle,
+                                                border: Border.all(
+                                                  color: Color(0xFF5E91FF),
                                                 ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          16.0, 5.0, 16.0, 5.0),
-                                                  child: Text(
-                                                    'Pending',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                        ),
-                                                  ),
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 5.0, 16.0, 5.0),
+                                                child: Text(
+                                                  'Public',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 10.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Icon(
-                                      Icons.groups_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      size: 20.0,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
-                                      child: Text(
-                                        '21, 212 followers',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                        ],
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      color: Color(0x195E91FF),
-                                      borderRadius: BorderRadius.circular(30.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: Color(0xFF5E91FF),
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 5.0, 16.0, 5.0),
-                                      child: Text(
-                                        'Category Name',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: Color(0x195E91FF),
-                                        borderRadius:
-                                            BorderRadius.circular(30.0),
-                                        shape: BoxShape.rectangle,
-                                        border: Border.all(
-                                          color: Color(0xFF5E91FF),
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 5.0, 16.0, 5.0),
-                                        child: Text(
-                                          'Public',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
                               ),
                             ],
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 2.0, 10.0, 2.0),
-                  child: Text(
-                    'Do you know that Dubai is the only city where foreigners make up 80 % of entire city populations? Dubai is a land of opportunities and each year a number of people flock to it in search of a job or building a business. Starting a small business in Dubai is a good idea, since there is diversified business opportunities and growth potential.',
-                    textAlign: TextAlign.start,
-                    maxLines: 5,
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
-                          lineHeight: 1.4,
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 2.0, 10.0, 2.0),
+                          child: Text(
+                            'Do you know that Dubai is the only city where foreigners make up 80 % of entire city populations? Dubai is a land of opportunities and each year a number of people flock to it in search of a job or building a business. Starting a small business in Dubai is a good idea, since there is diversified business opportunities and growth potential.',
+                            textAlign: TextAlign.start,
+                            maxLines: 5,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  lineHeight: 1.4,
+                                ),
+                          ),
                         ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 30.0, 16.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Members',
+                                style:
+                                    FlutterFlowTheme.of(context).headlineMedium,
+                              ),
+                              Icon(
+                                Icons.search_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 24.0,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 30.0, 16.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Members',
-                        style: FlutterFlowTheme.of(context).headlineMedium,
-                      ),
-                      Icon(
-                        Icons.search_rounded,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 36.0,
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: FutureBuilder<ApiCallResponse>(
                     future: SmeGroup.getIndustriesCall.call(),
                     builder: (context, snapshot) {
@@ -543,7 +601,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
-                                                  size: 20.0,
+                                                  size: 16.0,
                                                 ),
                                               ],
                                             ),
