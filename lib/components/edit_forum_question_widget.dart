@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'edit_forum_question_model.dart';
 export 'edit_forum_question_model.dart';
 
@@ -319,7 +320,8 @@ class _EditForumQuestionWidgetState extends State<EditForumQuestionWidget> {
                                               await showDialog(
                                                 context: context,
                                                 builder: (alertDialogContext) {
-                                                  return AlertDialog(
+                                                  return WebViewAware(
+                                                      child: AlertDialog(
                                                     title: Text('Updated'),
                                                     content: Text(
                                                         'Your question updated successfully'),
@@ -331,7 +333,7 @@ class _EditForumQuestionWidgetState extends State<EditForumQuestionWidget> {
                                                         child: Text('Ok'),
                                                       ),
                                                     ],
-                                                  );
+                                                  ));
                                                 },
                                               );
                                               _model.updatePage(() {
@@ -353,7 +355,8 @@ class _EditForumQuestionWidgetState extends State<EditForumQuestionWidget> {
                                               await showDialog(
                                                 context: context,
                                                 builder: (alertDialogContext) {
-                                                  return AlertDialog(
+                                                  return WebViewAware(
+                                                      child: AlertDialog(
                                                     title: Text('Error'),
                                                     content: Text(
                                                         'Something went wrong !'),
@@ -366,7 +369,7 @@ class _EditForumQuestionWidgetState extends State<EditForumQuestionWidget> {
                                                             Text('Try again'),
                                                       ),
                                                     ],
-                                                  );
+                                                  ));
                                                 },
                                               );
                                             }

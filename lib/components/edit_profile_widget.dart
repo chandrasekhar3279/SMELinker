@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'edit_profile_model.dart';
 export 'edit_profile_model.dart';
 
@@ -46,18 +47,21 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
       r'''$.firstName''',
     ).toString().toString());
     _model.firstNameFocusNode ??= FocusNode();
+
     _model.lastNameController ??= TextEditingController(
         text: getJsonField(
       widget.editProfile,
       r'''$.lastName''',
     ).toString().toString());
     _model.lastNameFocusNode ??= FocusNode();
+
     _model.titleController ??= TextEditingController(
         text: getJsonField(
       widget.editProfile,
       r'''$.title''',
     ).toString().toString());
     _model.titleFocusNode ??= FocusNode();
+
     _model.emailController ??= TextEditingController(
         text: getJsonField(
       widget.editProfile,
@@ -868,7 +872,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                             await showDialog(
                                               context: context,
                                               builder: (alertDialogContext) {
-                                                return AlertDialog(
+                                                return WebViewAware(
+                                                    child: AlertDialog(
                                                   title: Text('Success'),
                                                   content: Text(
                                                       'Profile updated successfully'),
@@ -880,7 +885,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                       child: Text('Ok'),
                                                     ),
                                                   ],
-                                                );
+                                                ));
                                               },
                                             );
 
@@ -895,7 +900,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                             await showDialog(
                                               context: context,
                                               builder: (alertDialogContext) {
-                                                return AlertDialog(
+                                                return WebViewAware(
+                                                    child: AlertDialog(
                                                   title: Text('Error'),
                                                   content: Text(
                                                       'Something went wrong !'),
@@ -907,7 +913,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                       child: Text('TryAgain'),
                                                     ),
                                                   ],
-                                                );
+                                                ));
                                               },
                                             );
                                           }

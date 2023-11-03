@@ -11,6 +11,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'service_detail_model.dart';
 export 'service_detail_model.dart';
 
@@ -351,7 +352,8 @@ class _ServiceDetailWidgetState extends State<ServiceDetailWidget> {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
-                                        return AlertDialog(
+                                        return WebViewAware(
+                                            child: AlertDialog(
                                           title: Text('Success'),
                                           content:
                                               Text('Your request hasbeen sent'),
@@ -362,7 +364,7 @@ class _ServiceDetailWidgetState extends State<ServiceDetailWidget> {
                                               child: Text('Ok'),
                                             ),
                                           ],
-                                        );
+                                        ));
                                       },
                                     );
                                     FFAppState().update(() {});
@@ -370,7 +372,8 @@ class _ServiceDetailWidgetState extends State<ServiceDetailWidget> {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
-                                        return AlertDialog(
+                                        return WebViewAware(
+                                            child: AlertDialog(
                                           title: Text('Error'),
                                           content:
                                               Text('Something went wrong!'),
@@ -381,7 +384,7 @@ class _ServiceDetailWidgetState extends State<ServiceDetailWidget> {
                                               child: Text('Try again'),
                                             ),
                                           ],
-                                        );
+                                        ));
                                       },
                                     );
                                   }

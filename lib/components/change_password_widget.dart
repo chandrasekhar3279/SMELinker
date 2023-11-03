@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'change_password_model.dart';
 export 'change_password_model.dart';
 
@@ -34,8 +35,10 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
 
     _model.oldPasswordController ??= TextEditingController();
     _model.oldPasswordFocusNode ??= FocusNode();
+
     _model.newPasswordController ??= TextEditingController();
     _model.newPasswordFocusNode ??= FocusNode();
+
     _model.confirmPasswordController ??= TextEditingController();
     _model.confirmPasswordFocusNode ??= FocusNode();
   }
@@ -391,7 +394,8 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                               await showDialog(
                                 context: context,
                                 builder: (alertDialogContext) {
-                                  return AlertDialog(
+                                  return WebViewAware(
+                                      child: AlertDialog(
                                     title: Text('Success'),
                                     content: Text(
                                         'Your password changed successfully'),
@@ -402,7 +406,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                                         child: Text('Ok'),
                                       ),
                                     ],
-                                  );
+                                  ));
                                 },
                               );
                               setState(() {});
@@ -421,7 +425,8 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                               await showDialog(
                                 context: context,
                                 builder: (alertDialogContext) {
-                                  return AlertDialog(
+                                  return WebViewAware(
+                                      child: AlertDialog(
                                     title: Text('Error'),
                                     content: Text('Something wnet wrong!'),
                                     actions: [
@@ -431,7 +436,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                                         child: Text('Ok'),
                                       ),
                                     ],
-                                  );
+                                  ));
                                 },
                               );
                             }
@@ -439,7 +444,8 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                             await showDialog(
                               context: context,
                               builder: (alertDialogContext) {
-                                return AlertDialog(
+                                return WebViewAware(
+                                    child: AlertDialog(
                                   title: Text(
                                       'New Password and Confirm Password should not be empty'),
                                   content: Text(
@@ -451,7 +457,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                                       child: Text('ok'),
                                     ),
                                   ],
-                                );
+                                ));
                               },
                             );
                           }

@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'follow_list_model.dart';
 export 'follow_list_model.dart';
 
@@ -561,7 +562,9 @@ class _FollowListWidgetState extends State<FollowListWidget>
                                                           context: context,
                                                           builder:
                                                               (alertDialogContext) {
-                                                            return AlertDialog(
+                                                            return WebViewAware(
+                                                                child:
+                                                                    AlertDialog(
                                                               title: Text(
                                                                   'Success!'),
                                                               content: Text(
@@ -575,7 +578,7 @@ class _FollowListWidgetState extends State<FollowListWidget>
                                                                       'Ok'),
                                                                 ),
                                                               ],
-                                                            );
+                                                            ));
                                                           },
                                                         );
                                                         setState(() => _model
@@ -588,7 +591,9 @@ class _FollowListWidgetState extends State<FollowListWidget>
                                                           context: context,
                                                           builder:
                                                               (alertDialogContext) {
-                                                            return AlertDialog(
+                                                            return WebViewAware(
+                                                                child:
+                                                                    AlertDialog(
                                                               title:
                                                                   Text('Error'),
                                                               content: Text(
@@ -602,7 +607,7 @@ class _FollowListWidgetState extends State<FollowListWidget>
                                                                       'TTry again'),
                                                                 ),
                                                               ],
-                                                            );
+                                                            ));
                                                           },
                                                         );
                                                       }

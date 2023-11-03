@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'delete_service_item_model.dart';
 export 'delete_service_item_model.dart';
 
@@ -148,7 +149,8 @@ class _DeleteServiceItemWidgetState extends State<DeleteServiceItemWidget> {
                         await showDialog(
                           context: context,
                           builder: (alertDialogContext) {
-                            return AlertDialog(
+                            return WebViewAware(
+                                child: AlertDialog(
                               title: Text('Service Deleted'),
                               content: Text('Service deleted successfully'),
                               actions: [
@@ -158,7 +160,7 @@ class _DeleteServiceItemWidgetState extends State<DeleteServiceItemWidget> {
                                   child: Text('Ok'),
                                 ),
                               ],
-                            );
+                            ));
                           },
                         );
                         setState(() {
@@ -170,7 +172,8 @@ class _DeleteServiceItemWidgetState extends State<DeleteServiceItemWidget> {
                         await showDialog(
                           context: context,
                           builder: (alertDialogContext) {
-                            return AlertDialog(
+                            return WebViewAware(
+                                child: AlertDialog(
                               title: Text('Error'),
                               content: Text('Something went wrong !'),
                               actions: [
@@ -180,7 +183,7 @@ class _DeleteServiceItemWidgetState extends State<DeleteServiceItemWidget> {
                                   child: Text('Try again'),
                                 ),
                               ],
-                            );
+                            ));
                           },
                         );
                       }

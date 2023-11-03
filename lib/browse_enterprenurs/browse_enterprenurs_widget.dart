@@ -14,6 +14,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'browse_enterprenurs_model.dart';
 export 'browse_enterprenurs_model.dart';
 
@@ -134,7 +135,8 @@ class _BrowseEnterprenursWidgetState extends State<BrowseEnterprenursWidget> {
                                 enableDrag: false,
                                 context: context,
                                 builder: (context) {
-                                  return GestureDetector(
+                                  return WebViewAware(
+                                      child: GestureDetector(
                                     onTap: () => _model
                                             .unfocusNode.canRequestFocus
                                         ? FocusScope.of(context)
@@ -154,7 +156,7 @@ class _BrowseEnterprenursWidgetState extends State<BrowseEnterprenursWidget> {
                                         ),
                                       ),
                                     ),
-                                  );
+                                  ));
                                 },
                               ).then((value) => safeSetState(() {}));
 

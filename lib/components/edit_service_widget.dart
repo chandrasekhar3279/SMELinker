@@ -13,6 +13,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'edit_service_model.dart';
 export 'edit_service_model.dart';
 
@@ -48,12 +49,14 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
       r'''$.name''',
     ).toString().toString());
     _model.editserviceNameFocusNode ??= FocusNode();
+
     _model.editServiceDescController ??= TextEditingController(
         text: getJsonField(
       widget.editServiceItem,
       r'''$.description''',
     ).toString().toString());
     _model.editServiceDescFocusNode ??= FocusNode();
+
     _model.minTimeTextFieldController ??= TextEditingController(
         text: functions
             .splitServiceTime(
@@ -64,6 +67,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                 'min')
             .toString());
     _model.minTimeTextFieldFocusNode ??= FocusNode();
+
     _model.maxTimeTextFieldController ??= TextEditingController(
         text: functions
             .splitServiceTime(
@@ -74,6 +78,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                 'max')
             .toString());
     _model.maxTimeTextFieldFocusNode ??= FocusNode();
+
     _model.minCostTextFieldController ??= TextEditingController(
         text: functions
             .splitServiceCost(
@@ -84,6 +89,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                 'min')
             .toString());
     _model.minCostTextFieldFocusNode ??= FocusNode();
+
     _model.maxCostTextFieldController ??= TextEditingController(
         text: functions
             .splitServiceCost(
@@ -1334,7 +1340,8 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                               await showDialog(
                                                 context: context,
                                                 builder: (alertDialogContext) {
-                                                  return AlertDialog(
+                                                  return WebViewAware(
+                                                      child: AlertDialog(
                                                     title: Text('Success'),
                                                     content: Text(
                                                         'Service updated.'),
@@ -1346,7 +1353,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                         child: Text('Ok'),
                                                       ),
                                                     ],
-                                                  );
+                                                  ));
                                                 },
                                               );
 
@@ -1364,7 +1371,8 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                               await showDialog(
                                                 context: context,
                                                 builder: (alertDialogContext) {
-                                                  return AlertDialog(
+                                                  return WebViewAware(
+                                                      child: AlertDialog(
                                                     title: Text('Error'),
                                                     content: Text(
                                                         'Image size must be below 1MB.'),
@@ -1377,7 +1385,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                             Text('Try again'),
                                                       ),
                                                     ],
-                                                  );
+                                                  ));
                                                 },
                                               );
                                             }
@@ -1385,7 +1393,8 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                             await showDialog(
                                               context: context,
                                               builder: (alertDialogContext) {
-                                                return AlertDialog(
+                                                return WebViewAware(
+                                                    child: AlertDialog(
                                                   title: Text(
                                                       'Invalid time or cost'),
                                                   content: Text(
@@ -1398,7 +1407,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                       child: Text('Ok'),
                                                     ),
                                                   ],
-                                                );
+                                                ));
                                               },
                                             );
                                           }

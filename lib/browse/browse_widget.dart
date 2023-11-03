@@ -42,6 +42,7 @@ class _BrowseWidgetState extends State<BrowseWidget>
 
     _model.searchFieldController ??= TextEditingController();
     _model.searchFieldFocusNode ??= FocusNode();
+
     _model.tabBarController = TabController(
       vsync: this,
       length: 7,

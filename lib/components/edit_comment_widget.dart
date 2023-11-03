@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'edit_comment_model.dart';
 export 'edit_comment_model.dart';
 
@@ -295,7 +296,8 @@ class _EditCommentWidgetState extends State<EditCommentWidget> {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
-                                              return AlertDialog(
+                                              return WebViewAware(
+                                                  child: AlertDialog(
                                                 title: Text('Success'),
                                                 content: Text(
                                                     'You comment updated successfully'),
@@ -307,7 +309,7 @@ class _EditCommentWidgetState extends State<EditCommentWidget> {
                                                     child: Text('Ok'),
                                                   ),
                                                 ],
-                                              );
+                                              ));
                                             },
                                           );
 
@@ -333,7 +335,8 @@ class _EditCommentWidgetState extends State<EditCommentWidget> {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
-                                              return AlertDialog(
+                                              return WebViewAware(
+                                                  child: AlertDialog(
                                                 title: Text('Error'),
                                                 content: Text(
                                                     'Something went wrong!'),
@@ -345,7 +348,7 @@ class _EditCommentWidgetState extends State<EditCommentWidget> {
                                                     child: Text('Try again'),
                                                   ),
                                                 ],
-                                              );
+                                              ));
                                             },
                                           );
                                         }

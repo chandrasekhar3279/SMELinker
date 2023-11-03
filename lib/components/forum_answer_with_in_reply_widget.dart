@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'forum_answer_with_in_reply_model.dart';
 export 'forum_answer_with_in_reply_model.dart';
 
@@ -267,7 +268,8 @@ class _ForumAnswerWithInReplyWidgetState
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
-                              return AlertDialog(
+                              return WebViewAware(
+                                  child: AlertDialog(
                                 title: Text('Sucess'),
                                 content: Text('Your response stored'),
                                 actions: [
@@ -277,7 +279,7 @@ class _ForumAnswerWithInReplyWidgetState
                                     child: Text('Ok'),
                                   ),
                                 ],
-                              );
+                              ));
                             },
                           );
                           setState(() {
@@ -287,7 +289,8 @@ class _ForumAnswerWithInReplyWidgetState
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
-                              return AlertDialog(
+                              return WebViewAware(
+                                  child: AlertDialog(
                                 title: Text('Error'),
                                 content: Text('Something went wrong'),
                                 actions: [
@@ -297,7 +300,7 @@ class _ForumAnswerWithInReplyWidgetState
                                     child: Text('Ok'),
                                   ),
                                 ],
-                              );
+                              ));
                             },
                           );
                         }

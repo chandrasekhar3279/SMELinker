@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'delete_product_item_model.dart';
 export 'delete_product_item_model.dart';
 
@@ -148,7 +149,8 @@ class _DeleteProductItemWidgetState extends State<DeleteProductItemWidget> {
                         await showDialog(
                           context: context,
                           builder: (alertDialogContext) {
-                            return AlertDialog(
+                            return WebViewAware(
+                                child: AlertDialog(
                               title: Text('Deleted'),
                               content: Text('Product deleted successfully'),
                               actions: [
@@ -158,7 +160,7 @@ class _DeleteProductItemWidgetState extends State<DeleteProductItemWidget> {
                                   child: Text('Ok'),
                                 ),
                               ],
-                            );
+                            ));
                           },
                         );
                         setState(() {
@@ -178,7 +180,8 @@ class _DeleteProductItemWidgetState extends State<DeleteProductItemWidget> {
                         await showDialog(
                           context: context,
                           builder: (alertDialogContext) {
-                            return AlertDialog(
+                            return WebViewAware(
+                                child: AlertDialog(
                               title: Text('Error'),
                               content: Text('Something went wrong!'),
                               actions: [
@@ -188,7 +191,7 @@ class _DeleteProductItemWidgetState extends State<DeleteProductItemWidget> {
                                   child: Text('Try again'),
                                 ),
                               ],
-                            );
+                            ));
                           },
                         );
                       }

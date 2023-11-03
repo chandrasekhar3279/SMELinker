@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'forgot_password_model.dart';
 export 'forgot_password_model.dart';
 
@@ -227,7 +228,8 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                               await showDialog(
                                 context: context,
                                 builder: (alertDialogContext) {
-                                  return AlertDialog(
+                                  return WebViewAware(
+                                      child: AlertDialog(
                                     title: Text('Congratulations'),
                                     content: Text(
                                         'we’ve sent you a link to your registered email to reset your password'),
@@ -238,7 +240,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                         child: Text('Ok'),
                                       ),
                                     ],
-                                  );
+                                  ));
                                 },
                               );
                               setState(() {});
@@ -252,7 +254,8 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                               await showDialog(
                                 context: context,
                                 builder: (alertDialogContext) {
-                                  return AlertDialog(
+                                  return WebViewAware(
+                                      child: AlertDialog(
                                     title: Text('Error'),
                                     content: Text(
                                         'We did not find any account with the email address you provided.'),
@@ -263,7 +266,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                         child: Text('Close'),
                                       ),
                                     ],
-                                  );
+                                  ));
                                 },
                               );
                             }

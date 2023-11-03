@@ -12,6 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'update_org_details_page_model.dart';
 export 'update_org_details_page_model.dart';
 
@@ -49,18 +50,21 @@ class _UpdateOrgDetailsPageWidgetState
       r'''$.companyName''',
     ).toString().toString());
     _model.companyNameFocusNode ??= FocusNode();
+
     _model.brnNumberController ??= TextEditingController(
         text: getJsonField(
       widget.orgDetails,
       r'''$.brnNumber''',
     ).toString().toString());
     _model.brnNumberFocusNode ??= FocusNode();
+
     _model.tradeLicenseNumberController ??= TextEditingController(
         text: getJsonField(
       widget.orgDetails,
       r'''$.tradeLicense''',
     ).toString().toString());
     _model.tradeLicenseNumberFocusNode ??= FocusNode();
+
     _model.descriptionController ??= TextEditingController(
         text: valueOrDefault<String>(
       getJsonField(
@@ -956,7 +960,8 @@ class _UpdateOrgDetailsPageWidgetState
                                                   enableDrag: false,
                                                   context: context,
                                                   builder: (context) {
-                                                    return Padding(
+                                                    return WebViewAware(
+                                                        child: Padding(
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
@@ -976,7 +981,7 @@ class _UpdateOrgDetailsPageWidgetState
                                                           ),
                                                         ),
                                                       ),
-                                                    );
+                                                    ));
                                                   },
                                                 ).then((value) =>
                                                     safeSetState(() {}));
@@ -1096,7 +1101,8 @@ class _UpdateOrgDetailsPageWidgetState
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
-                                            return AlertDialog(
+                                            return WebViewAware(
+                                                child: AlertDialog(
                                               title: Text('Org Details '),
                                               content:
                                                   Text('Updated Successfully'),
@@ -1108,7 +1114,7 @@ class _UpdateOrgDetailsPageWidgetState
                                                   child: Text('Ok'),
                                                 ),
                                               ],
-                                            );
+                                            ));
                                           },
                                         );
                                         Navigator.pop(context);
@@ -1121,7 +1127,8 @@ class _UpdateOrgDetailsPageWidgetState
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
-                                            return AlertDialog(
+                                            return WebViewAware(
+                                                child: AlertDialog(
                                               title: Text('Error'),
                                               content: Text(
                                                   'Something went wrong !'),
@@ -1133,7 +1140,7 @@ class _UpdateOrgDetailsPageWidgetState
                                                   child: Text('Try again'),
                                                 ),
                                               ],
-                                            );
+                                            ));
                                           },
                                         );
                                       }

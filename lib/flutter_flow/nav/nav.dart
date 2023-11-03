@@ -306,11 +306,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => GroupDetailpageWidget(
             groupDetails: params.getParam('groupDetails', ParamType.String),
           ),
-        ),
-        FFRoute(
-          name: 'GroupsCopy',
-          path: '/groupsCopy',
-          builder: (context, params) => GroupsCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

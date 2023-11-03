@@ -15,6 +15,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'profile_model.dart';
 export 'profile_model.dart';
 
@@ -372,7 +373,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                         enableDrag: false,
                                         context: context,
                                         builder: (context) {
-                                          return GestureDetector(
+                                          return WebViewAware(
+                                              child: GestureDetector(
                                             onTap: () => _model
                                                     .unfocusNode.canRequestFocus
                                                 ? FocusScope.of(context)
@@ -397,7 +399,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                 ),
                                               ),
                                             ),
-                                          );
+                                          ));
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     },
@@ -596,7 +598,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     enableDrag: false,
                                     context: context,
                                     builder: (context) {
-                                      return GestureDetector(
+                                      return WebViewAware(
+                                          child: GestureDetector(
                                         onTap: () => _model
                                                 .unfocusNode.canRequestFocus
                                             ? FocusScope.of(context)
@@ -613,7 +616,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                             child: ChangePasswordWidget(),
                                           ),
                                         ),
-                                      );
+                                      ));
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 },
@@ -727,33 +730,35 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   dense: false,
                                 ),
                               ),
-                              Divider(
-                                thickness: 1.0,
-                                color: FlutterFlowTheme.of(context).accent4,
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('Groups');
-                                },
-                                child: ListTile(
-                                  title: Text(
-                                    'Groups',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyLarge,
-                                  ),
-                                  trailing: Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 18.0,
-                                  ),
-                                  dense: false,
+                              if (false)
+                                Divider(
+                                  thickness: 1.0,
+                                  color: FlutterFlowTheme.of(context).accent4,
                                 ),
-                              ),
+                              if (false)
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('Groups');
+                                  },
+                                  child: ListTile(
+                                    title: Text(
+                                      'Groups',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyLarge,
+                                    ),
+                                    trailing: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      size: 18.0,
+                                    ),
+                                    dense: false,
+                                  ),
+                                ),
                               Divider(
                                 thickness: 1.0,
                                 color: FlutterFlowTheme.of(context).accent4,

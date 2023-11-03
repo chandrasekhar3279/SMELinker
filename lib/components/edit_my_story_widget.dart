@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'edit_my_story_model.dart';
 export 'edit_my_story_model.dart';
 
@@ -56,6 +57,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
       'N/A',
     ));
     _model.pastTitleFocusNode ??= FocusNode();
+
     _model.pastDescController ??= TextEditingController(
         text: getJsonField(
                   widget.myStory,
@@ -71,6 +73,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                 'N/A',
               ));
     _model.pastDescFocusNode ??= FocusNode();
+
     _model.nowTitleController ??= TextEditingController(
         text: getJsonField(
                   widget.myStory,
@@ -83,6 +86,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                 r'''$.nowTitle''',
               ).toString().toString());
     _model.nowTitleFocusNode ??= FocusNode();
+
     _model.nowDescController ??= TextEditingController(
         text: valueOrDefault<String>(
       getJsonField(
@@ -101,6 +105,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
       'N/A',
     ));
     _model.nowDescFocusNode ??= FocusNode();
+
     _model.futureTitleController ??= TextEditingController(
         text: valueOrDefault<String>(
       getJsonField(
@@ -119,6 +124,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
       'N/A',
     ));
     _model.futureTitleFocusNode ??= FocusNode();
+
     _model.futureDescController ??= TextEditingController(
         text: valueOrDefault<String>(
       getJsonField(
@@ -842,7 +848,8 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                                               await showDialog(
                                                 context: context,
                                                 builder: (alertDialogContext) {
-                                                  return AlertDialog(
+                                                  return WebViewAware(
+                                                      child: AlertDialog(
                                                     title: Text('Success'),
                                                     content:
                                                         Text('Story updated.'),
@@ -854,7 +861,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                                                         child: Text('Ok'),
                                                       ),
                                                     ],
-                                                  );
+                                                  ));
                                                 },
                                               );
                                               setState(() {
@@ -867,7 +874,8 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                                               await showDialog(
                                                 context: context,
                                                 builder: (alertDialogContext) {
-                                                  return AlertDialog(
+                                                  return WebViewAware(
+                                                      child: AlertDialog(
                                                     title: Text('Error'),
                                                     content: Text(
                                                         'Image size must be below 1MB.'),
@@ -879,7 +887,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                                                         child: Text('Ok'),
                                                       ),
                                                     ],
-                                                  );
+                                                  ));
                                                 },
                                               );
                                             }

@@ -10,6 +10,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'growth_card_detail_model.dart';
 export 'growth_card_detail_model.dart';
 
@@ -263,7 +264,8 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
-                                            return AlertDialog(
+                                            return WebViewAware(
+                                                child: AlertDialog(
                                               title: Text('Success'),
                                               content: Text(
                                                   'Your request sent successfully'),
@@ -275,7 +277,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                                   child: Text('Ok'),
                                                 ),
                                               ],
-                                            );
+                                            ));
                                           },
                                         );
 

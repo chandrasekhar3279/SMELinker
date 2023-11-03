@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'e_k_y_b_verification_page_model.dart';
 export 'e_k_y_b_verification_page_model.dart';
 
@@ -507,7 +508,8 @@ class _EKYBVerificationPageWidgetState
                                                   context: context,
                                                   builder:
                                                       (alertDialogContext) {
-                                                    return AlertDialog(
+                                                    return WebViewAware(
+                                                        child: AlertDialog(
                                                       title: Text('Error'),
                                                       content: Text(
                                                           'Something went wrong to verify company'),
@@ -520,7 +522,7 @@ class _EKYBVerificationPageWidgetState
                                                               Text('Try again'),
                                                         ),
                                                       ],
-                                                    );
+                                                    ));
                                                   },
                                                 );
                                               }
@@ -528,7 +530,8 @@ class _EKYBVerificationPageWidgetState
                                               await showDialog(
                                                 context: context,
                                                 builder: (alertDialogContext) {
-                                                  return AlertDialog(
+                                                  return WebViewAware(
+                                                      child: AlertDialog(
                                                     title: Text('Error'),
                                                     content: Text(
                                                         'Something went  wrong update details'),
@@ -541,7 +544,7 @@ class _EKYBVerificationPageWidgetState
                                                             Text('Try again'),
                                                       ),
                                                     ],
-                                                  );
+                                                  ));
                                                 },
                                               );
                                             }

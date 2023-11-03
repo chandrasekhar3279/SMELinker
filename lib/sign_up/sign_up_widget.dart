@@ -13,6 +13,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'sign_up_model.dart';
 export 'sign_up_model.dart';
 
@@ -52,6 +53,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
               ).toString().toString()
             : null);
     _model.firstNameFocusNode ??= FocusNode();
+
     _model.lastNameController ??= TextEditingController(
         text: (FFAppState().uqudoResponse != null) &&
                 (getJsonField(
@@ -65,6 +67,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
               ).toString().toString()
             : null);
     _model.lastNameFocusNode ??= FocusNode();
+
     _model.emailController ??= TextEditingController(
         text: (FFAppState().uqudoResponse != null) &&
                 (getJsonField(
@@ -78,6 +81,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
               ).toString().toString()
             : '');
     _model.emailFocusNode ??= FocusNode();
+
     _model.positionController ??= TextEditingController(
         text: (FFAppState().uqudoResponse != null) &&
                 (getJsonField(
@@ -91,16 +95,22 @@ class _SignUpWidgetState extends State<SignUpWidget>
               ).toString().toString()
             : '');
     _model.positionFocusNode ??= FocusNode();
+
     _model.passwordController ??= TextEditingController();
     _model.passwordFocusNode ??= FocusNode();
+
     _model.confirmPasswordController ??= TextEditingController();
     _model.confirmPasswordFocusNode ??= FocusNode();
+
     _model.companyNameController ??= TextEditingController();
     _model.companyNameFocusNode ??= FocusNode();
+
     _model.regNumberController ??= TextEditingController();
     _model.regNumberFocusNode ??= FocusNode();
+
     _model.tradeLicenseNumberController ??= TextEditingController();
     _model.tradeLicenseNumberFocusNode ??= FocusNode();
+
     _model.businessBankingController ??= TextEditingController();
     _model.businessBankingFocusNode ??= FocusNode();
   }
@@ -2258,7 +2268,9 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                         enableDrag: false,
                                                         context: context,
                                                         builder: (context) {
-                                                          return GestureDetector(
+                                                          return WebViewAware(
+                                                              child:
+                                                                  GestureDetector(
                                                             onTap: () => _model
                                                                     .unfocusNode
                                                                     .canRequestFocus
@@ -2290,7 +2302,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                                 ),
                                                               ),
                                                             ),
-                                                          );
+                                                          ));
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));
@@ -2712,7 +2724,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                       context: context,
                                                       builder:
                                                           (alertDialogContext) {
-                                                        return AlertDialog(
+                                                        return WebViewAware(
+                                                            child: AlertDialog(
                                                           title: Text(
                                                               'Signup Success'),
                                                           content: Text(
@@ -2725,7 +2738,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
-                                                        );
+                                                        ));
                                                       },
                                                     );
                                                     setState(() {
@@ -2817,7 +2830,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                       context: context,
                                                       builder:
                                                           (alertDialogContext) {
-                                                        return AlertDialog(
+                                                        return WebViewAware(
+                                                            child: AlertDialog(
                                                           title: Text(
                                                               'Signup Success'),
                                                           content: Text(
@@ -2830,7 +2844,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
-                                                        );
+                                                        ));
                                                       },
                                                     );
 

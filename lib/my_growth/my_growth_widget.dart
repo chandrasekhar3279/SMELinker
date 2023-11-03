@@ -20,6 +20,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'my_growth_model.dart';
 export 'my_growth_model.dart';
 
@@ -988,7 +989,8 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                           await showDialog(
                                                                                                             context: context,
                                                                                                             builder: (alertDialogContext) {
-                                                                                                              return AlertDialog(
+                                                                                                              return WebViewAware(
+                                                                                                                  child: AlertDialog(
                                                                                                                 title: Text('Success'),
                                                                                                                 content: Text('Your request sent successfully'),
                                                                                                                 actions: [
@@ -997,7 +999,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                                     child: Text('Ok'),
                                                                                                                   ),
                                                                                                                 ],
-                                                                                                              );
+                                                                                                              ));
                                                                                                             },
                                                                                                           );
                                                                                                           setState(() => _model.apiRequestCompleter = null);
@@ -1006,7 +1008,8 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                           await showDialog(
                                                                                                             context: context,
                                                                                                             builder: (alertDialogContext) {
-                                                                                                              return AlertDialog(
+                                                                                                              return WebViewAware(
+                                                                                                                  child: AlertDialog(
                                                                                                                 title: Text('Error'),
                                                                                                                 content: Text('Something went wrong!'),
                                                                                                                 actions: [
@@ -1015,7 +1018,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                                     child: Text('Ok'),
                                                                                                                   ),
                                                                                                                 ],
-                                                                                                              );
+                                                                                                              ));
                                                                                                             },
                                                                                                           );
                                                                                                         }
@@ -1445,7 +1448,8 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                               enableDrag: false,
                                                                                               context: context,
                                                                                               builder: (context) {
-                                                                                                return GestureDetector(
+                                                                                                return WebViewAware(
+                                                                                                    child: GestureDetector(
                                                                                                   onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                   child: Padding(
                                                                                                     padding: MediaQuery.viewInsetsOf(context),
@@ -1456,7 +1460,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                       ),
                                                                                                     ),
                                                                                                   ),
-                                                                                                );
+                                                                                                ));
                                                                                               },
                                                                                             ).then((value) => safeSetState(() {}));
                                                                                           },

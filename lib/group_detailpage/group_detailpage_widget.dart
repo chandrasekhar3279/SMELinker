@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/confirm_alert_widget.dart';
 import '/components/withdrawrequest_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -7,9 +8,9 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'group_detailpage_model.dart';
 export 'group_detailpage_model.dart';
 
@@ -74,7 +75,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                   decoration: BoxDecoration(),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 24.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -208,7 +209,9 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                           enableDrag: false,
                                                           context: context,
                                                           builder: (context) {
-                                                            return GestureDetector(
+                                                            return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
                                                               onTap: () => _model
                                                                       .unfocusNode
                                                                       .canRequestFocus
@@ -227,7 +230,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                                 child:
                                                                     WithdrawrequestWidget(),
                                                               ),
-                                                            );
+                                                            ));
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -595,13 +598,56 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                             Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                FaIcon(
-                                                  FontAwesomeIcons
-                                                      .solidTrashAlt,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  size: 16.0,
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    await showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      enableDrag: false,
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return WebViewAware(
+                                                            child:
+                                                                GestureDetector(
+                                                          onTap: () => _model
+                                                                  .unfocusNode
+                                                                  .canRequestFocus
+                                                              ? FocusScope.of(
+                                                                      context)
+                                                                  .requestFocus(
+                                                                      _model
+                                                                          .unfocusNode)
+                                                              : FocusScope.of(
+                                                                      context)
+                                                                  .unfocus(),
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child:
+                                                                ConfirmAlertWidget(),
+                                                          ),
+                                                        ));
+                                                      },
+                                                    ).then((value) =>
+                                                        safeSetState(() {}));
+                                                  },
+                                                  child: Icon(
+                                                    Icons.close,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .error,
+                                                    size: 20.0,
+                                                  ),
                                                 ),
                                               ],
                                             ),

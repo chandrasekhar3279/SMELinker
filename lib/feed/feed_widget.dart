@@ -20,6 +20,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'feed_model.dart';
 export 'feed_model.dart';
 
@@ -943,7 +944,8 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                           await showDialog(
                                                                                             context: context,
                                                                                             builder: (alertDialogContext) {
-                                                                                              return AlertDialog(
+                                                                                              return WebViewAware(
+                                                                                                  child: AlertDialog(
                                                                                                 title: Text('ERROR!'),
                                                                                                 content: Text('Something went wrong.'),
                                                                                                 actions: [
@@ -952,7 +954,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                                     child: Text('Ok'),
                                                                                                   ),
                                                                                                 ],
-                                                                                              );
+                                                                                              ));
                                                                                             },
                                                                                           );
                                                                                         }
@@ -991,7 +993,8 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                           await showDialog(
                                                                                             context: context,
                                                                                             builder: (alertDialogContext) {
-                                                                                              return AlertDialog(
+                                                                                              return WebViewAware(
+                                                                                                  child: AlertDialog(
                                                                                                 title: Text('ERROR!'),
                                                                                                 content: Text('Something went wrong.'),
                                                                                                 actions: [
@@ -1000,7 +1003,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                                     child: Text('Ok'),
                                                                                                   ),
                                                                                                 ],
-                                                                                              );
+                                                                                              ));
                                                                                             },
                                                                                           );
                                                                                         }
@@ -1063,7 +1066,8 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                           await showDialog(
                                                                                             context: context,
                                                                                             builder: (alertDialogContext) {
-                                                                                              return AlertDialog(
+                                                                                              return WebViewAware(
+                                                                                                  child: AlertDialog(
                                                                                                 title: Text('ERROR!'),
                                                                                                 content: Text('Something went wrong.'),
                                                                                                 actions: [
@@ -1072,7 +1076,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                                     child: Text('Ok'),
                                                                                                   ),
                                                                                                 ],
-                                                                                              );
+                                                                                              ));
                                                                                             },
                                                                                           );
                                                                                         }
@@ -1111,7 +1115,8 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                           await showDialog(
                                                                                             context: context,
                                                                                             builder: (alertDialogContext) {
-                                                                                              return AlertDialog(
+                                                                                              return WebViewAware(
+                                                                                                  child: AlertDialog(
                                                                                                 title: Text('ERROR!'),
                                                                                                 content: Text('Something went wrong.'),
                                                                                                 actions: [
@@ -1120,7 +1125,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                                     child: Text('Ok'),
                                                                                                   ),
                                                                                                 ],
-                                                                                              );
+                                                                                              ));
                                                                                             },
                                                                                           );
                                                                                         }

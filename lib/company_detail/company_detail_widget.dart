@@ -27,6 +27,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'company_detail_model.dart';
 export 'company_detail_model.dart';
 
@@ -547,7 +548,8 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                 enableDrag: false,
                                                                                                 context: context,
                                                                                                 builder: (context) {
-                                                                                                  return GestureDetector(
+                                                                                                  return WebViewAware(
+                                                                                                      child: GestureDetector(
                                                                                                     onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                     child: Padding(
                                                                                                       padding: MediaQuery.viewInsetsOf(context),
@@ -561,7 +563,7 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                         ),
                                                                                                       ),
                                                                                                     ),
-                                                                                                  );
+                                                                                                  ));
                                                                                                 },
                                                                                               ).then((value) => safeSetState(() {}));
                                                                                             },
@@ -741,7 +743,9 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                         context,
                                                                     builder:
                                                                         (context) {
-                                                                      return GestureDetector(
+                                                                      return WebViewAware(
+                                                                          child:
+                                                                              GestureDetector(
                                                                         onTap: () => _model.unfocusNode.canRequestFocus
                                                                             ? FocusScope.of(context).requestFocus(_model.unfocusNode)
                                                                             : FocusScope.of(context).unfocus(),
@@ -762,7 +766,7 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                      );
+                                                                      ));
                                                                     },
                                                                   ).then((value) =>
                                                                       safeSetState(
@@ -1311,7 +1315,8 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                             enableDrag: false,
                                                                                             context: context,
                                                                                             builder: (context) {
-                                                                                              return GestureDetector(
+                                                                                              return WebViewAware(
+                                                                                                  child: GestureDetector(
                                                                                                 onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                 child: Padding(
                                                                                                   padding: MediaQuery.viewInsetsOf(context),
@@ -1320,7 +1325,7 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                     child: AddProductWidget(),
                                                                                                   ),
                                                                                                 ),
-                                                                                              );
+                                                                                              ));
                                                                                             },
                                                                                           ).then((value) => safeSetState(() {}));
                                                                                         },
@@ -1586,7 +1591,8 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                                                       await showDialog(
                                                                                                                                         context: context,
                                                                                                                                         builder: (alertDialogContext) {
-                                                                                                                                          return AlertDialog(
+                                                                                                                                          return WebViewAware(
+                                                                                                                                              child: AlertDialog(
                                                                                                                                             title: Text('Success'),
                                                                                                                                             content: Text('Your request hasbeen sent'),
                                                                                                                                             actions: [
@@ -1595,7 +1601,7 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                                                                 child: Text('Ok'),
                                                                                                                                               ),
                                                                                                                                             ],
-                                                                                                                                          );
+                                                                                                                                          ));
                                                                                                                                         },
                                                                                                                                       );
                                                                                                                                       setState(() => _model.apiRequestCompleter1 = null);
@@ -1604,7 +1610,8 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                                                       await showDialog(
                                                                                                                                         context: context,
                                                                                                                                         builder: (alertDialogContext) {
-                                                                                                                                          return AlertDialog(
+                                                                                                                                          return WebViewAware(
+                                                                                                                                              child: AlertDialog(
                                                                                                                                             title: Text('Error'),
                                                                                                                                             content: Text('Something went wrong!'),
                                                                                                                                             actions: [
@@ -1613,7 +1620,7 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                                                                 child: Text('Try again'),
                                                                                                                                               ),
                                                                                                                                             ],
-                                                                                                                                          );
+                                                                                                                                          ));
                                                                                                                                         },
                                                                                                                                       );
                                                                                                                                     }
@@ -1767,7 +1774,8 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                               enableDrag: false,
                                                                                               context: context,
                                                                                               builder: (context) {
-                                                                                                return GestureDetector(
+                                                                                                return WebViewAware(
+                                                                                                    child: GestureDetector(
                                                                                                   onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                   child: Padding(
                                                                                                     padding: MediaQuery.viewInsetsOf(context),
@@ -1776,7 +1784,7 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                       child: AddServiceWidget(),
                                                                                                     ),
                                                                                                   ),
-                                                                                                );
+                                                                                                ));
                                                                                               },
                                                                                             ).then((value) => safeSetState(() {}));
                                                                                           },
@@ -2091,7 +2099,8 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                                                           await showDialog(
                                                                                                                                             context: context,
                                                                                                                                             builder: (alertDialogContext) {
-                                                                                                                                              return AlertDialog(
+                                                                                                                                              return WebViewAware(
+                                                                                                                                                  child: AlertDialog(
                                                                                                                                                 title: Text('Success'),
                                                                                                                                                 content: Text('Your request hasbeen sent'),
                                                                                                                                                 actions: [
@@ -2100,7 +2109,7 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                                                                     child: Text('Ok'),
                                                                                                                                                   ),
                                                                                                                                                 ],
-                                                                                                                                              );
+                                                                                                                                              ));
                                                                                                                                             },
                                                                                                                                           );
                                                                                                                                           setState(() => _model.apiRequestCompleter2 = null);
@@ -2109,7 +2118,8 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                                                           await showDialog(
                                                                                                                                             context: context,
                                                                                                                                             builder: (alertDialogContext) {
-                                                                                                                                              return AlertDialog(
+                                                                                                                                              return WebViewAware(
+                                                                                                                                                  child: AlertDialog(
                                                                                                                                                 title: Text('Error'),
                                                                                                                                                 content: Text('Something went wrong!'),
                                                                                                                                                 actions: [
@@ -2118,7 +2128,7 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                                                                     child: Text('Try again'),
                                                                                                                                                   ),
                                                                                                                                                 ],
-                                                                                                                                              );
+                                                                                                                                              ));
                                                                                                                                             },
                                                                                                                                           );
                                                                                                                                         }
@@ -2427,7 +2437,8 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                               enableDrag: false,
                                                                                               context: context,
                                                                                               builder: (context) {
-                                                                                                return GestureDetector(
+                                                                                                return WebViewAware(
+                                                                                                    child: GestureDetector(
                                                                                                   onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                   child: Padding(
                                                                                                     padding: MediaQuery.viewInsetsOf(context),
@@ -2440,7 +2451,7 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                       ),
                                                                                                     ),
                                                                                                   ),
-                                                                                                );
+                                                                                                ));
                                                                                               },
                                                                                             ).then((value) => safeSetState(() {}));
                                                                                           },
@@ -2857,7 +2868,8 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                           enableDrag: false,
                                                                                           context: context,
                                                                                           builder: (context) {
-                                                                                            return GestureDetector(
+                                                                                            return WebViewAware(
+                                                                                                child: GestureDetector(
                                                                                               onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                               child: Padding(
                                                                                                 padding: MediaQuery.viewInsetsOf(context),
@@ -2866,7 +2878,7 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                   child: AddTeamMemberWidget(),
                                                                                                 ),
                                                                                               ),
-                                                                                            );
+                                                                                            ));
                                                                                           },
                                                                                         ).then((value) => safeSetState(() {}));
                                                                                       },
@@ -2961,7 +2973,8 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                                       enableDrag: false,
                                                                                                                       context: context,
                                                                                                                       builder: (context) {
-                                                                                                                        return GestureDetector(
+                                                                                                                        return WebViewAware(
+                                                                                                                            child: GestureDetector(
                                                                                                                           onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                                           child: Padding(
                                                                                                                             padding: MediaQuery.viewInsetsOf(context),
@@ -2972,7 +2985,7 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                                               ),
                                                                                                                             ),
                                                                                                                           ),
-                                                                                                                        );
+                                                                                                                        ));
                                                                                                                       },
                                                                                                                     ).then((value) => safeSetState(() {}));
                                                                                                                   },
@@ -3220,7 +3233,8 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                               enableDrag: false,
                                                                                               context: context,
                                                                                               builder: (context) {
-                                                                                                return GestureDetector(
+                                                                                                return WebViewAware(
+                                                                                                    child: GestureDetector(
                                                                                                   onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                   child: Padding(
                                                                                                     padding: MediaQuery.viewInsetsOf(context),
@@ -3234,7 +3248,7 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                       ),
                                                                                                     ),
                                                                                                   ),
-                                                                                                );
+                                                                                                ));
                                                                                               },
                                                                                             ).then((value) => safeSetState(() {}));
                                                                                           },
@@ -3353,7 +3367,8 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                               enableDrag: false,
                                                                                               context: context,
                                                                                               builder: (context) {
-                                                                                                return GestureDetector(
+                                                                                                return WebViewAware(
+                                                                                                    child: GestureDetector(
                                                                                                   onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                   child: Padding(
                                                                                                     padding: MediaQuery.viewInsetsOf(context),
@@ -3367,7 +3382,7 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                                                       ),
                                                                                                     ),
                                                                                                   ),
-                                                                                                );
+                                                                                                ));
                                                                                               },
                                                                                             ).then((value) => safeSetState(() {}));
                                                                                           },
@@ -3453,7 +3468,8 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                     enableDrag: false,
                                     context: context,
                                     builder: (context) {
-                                      return GestureDetector(
+                                      return WebViewAware(
+                                          child: GestureDetector(
                                         onTap: () => _model
                                                 .unfocusNode.canRequestFocus
                                             ? FocusScope.of(context)
@@ -3476,7 +3492,7 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                             ),
                                           ),
                                         ),
-                                      );
+                                      ));
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 },

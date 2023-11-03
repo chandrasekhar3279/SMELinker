@@ -1,16 +1,14 @@
-import '/components/add_service_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'service_empty_list_widget.dart' show ServiceEmptyListWidget;
+import 'confirm_alert_widget.dart' show ConfirmAlertWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 
-class ServiceEmptyListModel extends FlutterFlowModel<ServiceEmptyListWidget> {
+class ConfirmAlertModel extends FlutterFlowModel<ConfirmAlertWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

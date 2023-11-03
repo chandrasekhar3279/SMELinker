@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'delete_feed_comment_model.dart';
 export 'delete_feed_comment_model.dart';
 
@@ -158,7 +159,8 @@ class _DeleteFeedCommentWidgetState extends State<DeleteFeedCommentWidget> {
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
-                              return AlertDialog(
+                              return WebViewAware(
+                                  child: AlertDialog(
                                 title: Text('Success'),
                                 content:
                                     Text('Your comment deleted successfully'),
@@ -169,7 +171,7 @@ class _DeleteFeedCommentWidgetState extends State<DeleteFeedCommentWidget> {
                                     child: Text('Ok'),
                                   ),
                                 ],
-                              );
+                              ));
                             },
                           );
                           _model.updatePage(() {
@@ -185,7 +187,8 @@ class _DeleteFeedCommentWidgetState extends State<DeleteFeedCommentWidget> {
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
-                              return AlertDialog(
+                              return WebViewAware(
+                                  child: AlertDialog(
                                 title: Text('Error'),
                                 content: Text('Something went wrong !'),
                                 actions: [
@@ -195,7 +198,7 @@ class _DeleteFeedCommentWidgetState extends State<DeleteFeedCommentWidget> {
                                     child: Text('Try again'),
                                   ),
                                 ],
-                              );
+                              ));
                             },
                           );
                         }

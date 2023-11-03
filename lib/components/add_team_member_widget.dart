@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'add_team_member_model.dart';
 export 'add_team_member_model.dart';
 
@@ -37,8 +38,10 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
 
     _model.nameController ??= TextEditingController();
     _model.nameFocusNode ??= FocusNode();
+
     _model.titleController ??= TextEditingController();
     _model.titleFocusNode ??= FocusNode();
+
     _model.linkedInProfileController ??= TextEditingController();
     _model.linkedInProfileFocusNode ??= FocusNode();
   }
@@ -670,7 +673,8 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                             await showDialog(
                                               context: context,
                                               builder: (alertDialogContext) {
-                                                return AlertDialog(
+                                                return WebViewAware(
+                                                    child: AlertDialog(
                                                   title: Text('Success'),
                                                   content: Text(
                                                       'Team member added successfully'),
@@ -682,7 +686,7 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                                       child: Text('Ok'),
                                                     ),
                                                   ],
-                                                );
+                                                ));
                                               },
                                             );
                                             setState(() {
@@ -695,7 +699,8 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                             await showDialog(
                                               context: context,
                                               builder: (alertDialogContext) {
-                                                return AlertDialog(
+                                                return WebViewAware(
+                                                    child: AlertDialog(
                                                   title: Text('Error'),
                                                   content: Text(
                                                       'Image size must be below 1MB.'),
@@ -707,7 +712,7 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                                       child: Text('Try again'),
                                                     ),
                                                   ],
-                                                );
+                                                ));
                                               },
                                             );
                                           }
@@ -715,7 +720,8 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
-                                              return AlertDialog(
+                                              return WebViewAware(
+                                                  child: AlertDialog(
                                                 title: Text('Required'),
                                                 content: Text(
                                                     'Please add an Image.'),
@@ -727,7 +733,7 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                                     child: Text('Ok'),
                                                   ),
                                                 ],
-                                              );
+                                              ));
                                             },
                                           );
                                         }

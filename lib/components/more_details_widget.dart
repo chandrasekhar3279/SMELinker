@@ -16,6 +16,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'more_details_model.dart';
 export 'more_details_model.dart';
 
@@ -107,7 +108,8 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                       enableDrag: false,
                       context: context,
                       builder: (context) {
-                        return Padding(
+                        return WebViewAware(
+                            child: Padding(
                           padding: MediaQuery.viewInsetsOf(context),
                           child: Container(
                             height: MediaQuery.sizeOf(context).height * 1.0,
@@ -115,7 +117,7 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                               questionItem: widget.question,
                             ),
                           ),
-                        );
+                        ));
                       },
                     ).then((value) => safeSetState(() {}));
                   } else {
@@ -130,7 +132,8 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                         enableDrag: false,
                         context: context,
                         builder: (context) {
-                          return Padding(
+                          return WebViewAware(
+                              child: Padding(
                             padding: MediaQuery.viewInsetsOf(context),
                             child: Container(
                               height: MediaQuery.sizeOf(context).height * 1.0,
@@ -138,7 +141,7 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                                 productItem: widget.productItem,
                               ),
                             ),
-                          );
+                          ));
                         },
                       ).then((value) => safeSetState(() {}));
                     } else {
@@ -153,7 +156,8 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                           enableDrag: false,
                           context: context,
                           builder: (context) {
-                            return Padding(
+                            return WebViewAware(
+                                child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
                               child: Container(
                                 height: MediaQuery.sizeOf(context).height * 1.0,
@@ -161,7 +165,7 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                                   editServiceItem: widget.serviceItem,
                                 ),
                               ),
-                            );
+                            ));
                           },
                         ).then((value) => safeSetState(() {}));
                       } else {
@@ -176,7 +180,8 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                             enableDrag: false,
                             context: context,
                             builder: (context) {
-                              return Padding(
+                              return WebViewAware(
+                                  child: Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
                                 child: Container(
                                   height:
@@ -189,7 +194,7 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                                     ),
                                   ),
                                 ),
-                              );
+                              ));
                             },
                           ).then((value) => safeSetState(() {}));
                         } else {
@@ -205,7 +210,8 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                               enableDrag: false,
                               context: context,
                               builder: (context) {
-                                return Padding(
+                                return WebViewAware(
+                                    child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
                                   child: Container(
                                     height:
@@ -215,7 +221,7 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                                       feedId: widget.feedID,
                                     ),
                                   ),
-                                );
+                                ));
                               },
                             ).then((value) => safeSetState(() {}));
                           }
@@ -267,7 +273,8 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                       enableDrag: false,
                       context: context,
                       builder: (context) {
-                        return Padding(
+                        return WebViewAware(
+                            child: Padding(
                           padding: MediaQuery.viewInsetsOf(context),
                           child: Container(
                             height: MediaQuery.sizeOf(context).height * 0.3,
@@ -278,7 +285,7 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                               ),
                             ),
                           ),
-                        );
+                        ));
                       },
                     ).then((value) => safeSetState(() {}));
                   } else {
@@ -293,7 +300,8 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                         enableDrag: false,
                         context: context,
                         builder: (context) {
-                          return Padding(
+                          return WebViewAware(
+                              child: Padding(
                             padding: MediaQuery.viewInsetsOf(context),
                             child: Container(
                               height: MediaQuery.sizeOf(context).height * 0.3,
@@ -304,7 +312,7 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                                 ),
                               ),
                             ),
-                          );
+                          ));
                         },
                       ).then((value) => safeSetState(() {}));
                     } else {
@@ -319,7 +327,8 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                           enableDrag: false,
                           context: context,
                           builder: (context) {
-                            return Padding(
+                            return WebViewAware(
+                                child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
                               child: Container(
                                 height: MediaQuery.sizeOf(context).height * 0.3,
@@ -330,7 +339,7 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                                   ),
                                 ),
                               ),
-                            );
+                            ));
                           },
                         ).then((value) => safeSetState(() {}));
                       } else {
@@ -345,7 +354,8 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                             enableDrag: false,
                             context: context,
                             builder: (context) {
-                              return Padding(
+                              return WebViewAware(
+                                  child: Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
                                 child: Container(
                                   height:
@@ -357,7 +367,7 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                                     ),
                                   ),
                                 ),
-                              );
+                              ));
                             },
                           ).then((value) => safeSetState(() {}));
                         } else {
@@ -372,7 +382,8 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                               enableDrag: false,
                               context: context,
                               builder: (context) {
-                                return Padding(
+                                return WebViewAware(
+                                    child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
                                   child: Container(
                                     height:
@@ -387,7 +398,7 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                                       userId: 0,
                                     ),
                                   ),
-                                );
+                                ));
                               },
                             ).then((value) => safeSetState(() {}));
                           }

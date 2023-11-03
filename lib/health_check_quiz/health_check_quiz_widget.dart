@@ -13,6 +13,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'health_check_quiz_model.dart';
 export 'health_check_quiz_model.dart';
 
@@ -606,7 +607,9 @@ class _HealthCheckQuizWidgetState extends State<HealthCheckQuizWidget> {
                                                               context: context,
                                                               builder:
                                                                   (context) {
-                                                                return GestureDetector(
+                                                                return WebViewAware(
+                                                                    child:
+                                                                        GestureDetector(
                                                                   onTap: () => _model
                                                                           .unfocusNode
                                                                           .canRequestFocus
@@ -634,7 +637,7 @@ class _HealthCheckQuizWidgetState extends State<HealthCheckQuizWidget> {
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                );
+                                                                ));
                                                               },
                                                             ).then((value) =>
                                                                 safeSetState(

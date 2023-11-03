@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'get_in_touch_details_model.dart';
 export 'get_in_touch_details_model.dart';
 
@@ -61,6 +62,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
               ).toString().toString()
             : '');
     _model.addressFocusNode ??= FocusNode();
+
     _model.emailController ??= TextEditingController(
         text: (getJsonField(
                       widget.getinTouch,
@@ -78,6 +80,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
               ).toString().toString()
             : '');
     _model.emailFocusNode ??= FocusNode();
+
     _model.linkedInController ??= TextEditingController(
         text: (getJsonField(
                       widget.getinTouch,
@@ -95,6 +98,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
               ).toString().toString()
             : '');
     _model.linkedInFocusNode ??= FocusNode();
+
     _model.webSiteController ??= TextEditingController(
         text: (getJsonField(
                       widget.getinTouch,
@@ -112,6 +116,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
               ).toString().toString()
             : '');
     _model.webSiteFocusNode ??= FocusNode();
+
     _model.phoneNumberController ??= TextEditingController(
         text: (getJsonField(
                       widget.getinTouch,
@@ -682,7 +687,8 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
-                                              return AlertDialog(
+                                              return WebViewAware(
+                                                  child: AlertDialog(
                                                 title: Text('Success'),
                                                 content: Text(
                                                     'Updated your contact details successfully'),
@@ -694,7 +700,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                                                     child: Text('Ok'),
                                                   ),
                                                 ],
-                                              );
+                                              ));
                                             },
                                           );
                                           setState(() {
@@ -707,7 +713,8 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
-                                              return AlertDialog(
+                                              return WebViewAware(
+                                                  child: AlertDialog(
                                                 title: Text('Error'),
                                                 content: Text(
                                                     'Something went wrong'),
@@ -719,7 +726,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                                                     child: Text('Try again'),
                                                   ),
                                                 ],
-                                              );
+                                              ));
                                             },
                                           );
                                         }

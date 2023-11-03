@@ -58,4 +58,3 @@ export '/chat_detail_page/chat_detail_page_widget.dart'
 export '/groups/groups_widget.dart' show GroupsWidget;
 export '/group_detailpage/group_detailpage_widget.dart'
     show GroupDetailpageWidget;
-export '/groups_copy/groups_copy_widget.dart' show GroupsCopyWidget;

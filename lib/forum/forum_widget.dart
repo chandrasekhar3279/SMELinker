@@ -20,6 +20,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'forum_model.dart';
 export 'forum_model.dart';
 
@@ -752,7 +753,8 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                             context,
                                                                         builder:
                                                                             (alertDialogContext) {
-                                                                          return AlertDialog(
+                                                                          return WebViewAware(
+                                                                              child: AlertDialog(
                                                                             title:
                                                                                 Text('Great'),
                                                                             content:
@@ -763,7 +765,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                 child: Text('Ok'),
                                                                               ),
                                                                             ],
-                                                                          );
+                                                                          ));
                                                                         },
                                                                       );
                                                                       setState(
@@ -783,7 +785,8 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                             context,
                                                                         builder:
                                                                             (alertDialogContext) {
-                                                                          return AlertDialog(
+                                                                          return WebViewAware(
+                                                                              child: AlertDialog(
                                                                             title:
                                                                                 Text('Error'),
                                                                             content:
@@ -794,7 +797,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                 child: Text('Close'),
                                                                               ),
                                                                             ],
-                                                                          );
+                                                                          ));
                                                                         },
                                                                       );
                                                                     }
@@ -1828,7 +1831,8 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                                                     enableDrag: false,
                                                                                                                                                     context: context,
                                                                                                                                                     builder: (context) {
-                                                                                                                                                      return GestureDetector(
+                                                                                                                                                      return WebViewAware(
+                                                                                                                                                          child: GestureDetector(
                                                                                                                                                         onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                                                                                         child: Padding(
                                                                                                                                                           padding: MediaQuery.viewInsetsOf(context),
@@ -1840,7 +1844,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                                                             ),
                                                                                                                                                           ),
                                                                                                                                                         ),
-                                                                                                                                                      );
+                                                                                                                                                      ));
                                                                                                                                                     },
                                                                                                                                                   ).then((value) => safeSetState(() {}));
                                                                                                                                                 },

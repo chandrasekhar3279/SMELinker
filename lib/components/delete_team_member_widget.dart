@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'delete_team_member_model.dart';
 export 'delete_team_member_model.dart';
 
@@ -150,7 +151,8 @@ class _DeleteTeamMemberWidgetState extends State<DeleteTeamMemberWidget> {
                         await showDialog(
                           context: context,
                           builder: (alertDialogContext) {
-                            return AlertDialog(
+                            return WebViewAware(
+                                child: AlertDialog(
                               title: Text('Success'),
                               content: Text('Team member deleted'),
                               actions: [
@@ -160,7 +162,7 @@ class _DeleteTeamMemberWidgetState extends State<DeleteTeamMemberWidget> {
                                   child: Text('Ok'),
                                 ),
                               ],
-                            );
+                            ));
                           },
                         );
 
@@ -179,7 +181,8 @@ class _DeleteTeamMemberWidgetState extends State<DeleteTeamMemberWidget> {
                         await showDialog(
                           context: context,
                           builder: (alertDialogContext) {
-                            return AlertDialog(
+                            return WebViewAware(
+                                child: AlertDialog(
                               title: Text('Error'),
                               content: Text('Something went wrong'),
                               actions: [
@@ -189,7 +192,7 @@ class _DeleteTeamMemberWidgetState extends State<DeleteTeamMemberWidget> {
                                   child: Text('Try again'),
                                 ),
                               ],
-                            );
+                            ));
                           },
                         );
                       }

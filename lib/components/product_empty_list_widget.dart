@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'product_empty_list_model.dart';
 export 'product_empty_list_model.dart';
 
@@ -84,13 +85,14 @@ class _ProductEmptyListWidgetState extends State<ProductEmptyListWidget> {
                       enableDrag: false,
                       context: context,
                       builder: (context) {
-                        return Padding(
+                        return WebViewAware(
+                            child: Padding(
                           padding: MediaQuery.viewInsetsOf(context),
                           child: Container(
                             height: MediaQuery.sizeOf(context).height * 1.0,
                             child: AddProductWidget(),
                           ),
-                        );
+                        ));
                       },
                     ).then((value) => safeSetState(() {}));
                   },

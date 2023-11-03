@@ -10,6 +10,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'groups_model.dart';
 export 'groups_model.dart';
 
@@ -797,7 +798,8 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                             context,
                                                                         builder:
                                                                             (context) {
-                                                                          return GestureDetector(
+                                                                          return WebViewAware(
+                                                                              child: GestureDetector(
                                                                             onTap: () => _model.unfocusNode.canRequestFocus
                                                                                 ? FocusScope.of(context).requestFocus(_model.unfocusNode)
                                                                                 : FocusScope.of(context).unfocus(),
@@ -806,7 +808,7 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                               child: WithdrawrequestWidget(),
                                                                             ),
-                                                                          );
+                                                                          ));
                                                                         },
                                                                       ).then((value) =>
                                                                           safeSetState(

@@ -13,6 +13,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'share_post_model.dart';
 export 'share_post_model.dart';
 
@@ -35,14 +36,19 @@ class _SharePostWidgetState extends State<SharePostWidget> {
 
     _model.textFieldPostTitleController ??= TextEditingController();
     _model.textFieldPostTitleFocusNode ??= FocusNode();
+
     _model.textFieldvideoPostTitleController ??= TextEditingController();
     _model.textFieldvideoPostTitleFocusNode ??= FocusNode();
+
     _model.textFieldDocumentPostTitleController ??= TextEditingController();
     _model.textFieldDocumentPostTitleFocusNode ??= FocusNode();
+
     _model.feedUrlController ??= TextEditingController();
     _model.feedUrlFocusNode ??= FocusNode();
+
     _model.provideDocUrlController ??= TextEditingController();
     _model.provideDocUrlFocusNode ??= FocusNode();
+
     _model.descriptionController ??= TextEditingController();
     _model.descriptionFocusNode ??= FocusNode();
   }
@@ -1450,7 +1456,8 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
-                                              return AlertDialog(
+                                              return WebViewAware(
+                                                  child: AlertDialog(
                                                 title: Text('Success'),
                                                 content: Text(
                                                     'Your feed posted successfully'),
@@ -1462,7 +1469,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                                     child: Text('Ok'),
                                                   ),
                                                 ],
-                                              );
+                                              ));
                                             },
                                           );
 
@@ -1476,7 +1483,8 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
-                                              return AlertDialog(
+                                              return WebViewAware(
+                                                  child: AlertDialog(
                                                 title: Text('Error'),
                                                 content: Text(
                                                     'Something went wrong !'),
@@ -1488,7 +1496,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                                     child: Text('Try again'),
                                                   ),
                                                 ],
-                                              );
+                                              ));
                                             },
                                           );
                                         }

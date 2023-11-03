@@ -11,6 +11,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'product_detail_model.dart';
 export 'product_detail_model.dart';
 
@@ -315,7 +316,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
-                                        return AlertDialog(
+                                        return WebViewAware(
+                                            child: AlertDialog(
                                           title: Text('Success'),
                                           content:
                                               Text('Your request hasbeen sent'),
@@ -326,7 +328,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                               child: Text('Ok'),
                                             ),
                                           ],
-                                        );
+                                        ));
                                       },
                                     );
                                     setState(() {
@@ -336,7 +338,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
-                                        return AlertDialog(
+                                        return WebViewAware(
+                                            child: AlertDialog(
                                           title: Text('Error'),
                                           content:
                                               Text('Something went wrong!'),
@@ -347,7 +350,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                               child: Text('Try again'),
                                             ),
                                           ],
-                                        );
+                                        ));
                                       },
                                     );
                                   }

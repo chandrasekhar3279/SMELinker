@@ -13,6 +13,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'add_product_model.dart';
 export 'add_product_model.dart';
 
@@ -39,8 +40,10 @@ class _AddProductWidgetState extends State<AddProductWidget> {
 
     _model.serviceNameController ??= TextEditingController();
     _model.serviceNameFocusNode ??= FocusNode();
+
     _model.productDescController ??= TextEditingController();
     _model.productDescFocusNode ??= FocusNode();
+
     _model.priceController ??= TextEditingController();
     _model.priceFocusNode ??= FocusNode();
   }
@@ -676,7 +679,8 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
-                                              return AlertDialog(
+                                              return WebViewAware(
+                                                  child: AlertDialog(
                                                 title: Text('Success'),
                                                 content: Text('Product added.'),
                                                 actions: [
@@ -687,7 +691,7 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                                                     child: Text('Ok'),
                                                   ),
                                                 ],
-                                              );
+                                              ));
                                             },
                                           );
                                           Navigator.pop(context);
@@ -695,7 +699,8 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
-                                              return AlertDialog(
+                                              return WebViewAware(
+                                                  child: AlertDialog(
                                                 title: Text('Error'),
                                                 content: Text(
                                                     'Image size must be below 1MB.'),
@@ -707,7 +712,7 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                                                     child: Text('Try again'),
                                                   ),
                                                 ],
-                                              );
+                                              ));
                                             },
                                           );
                                           setState(() {});
@@ -716,7 +721,8 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
-                                            return AlertDialog(
+                                            return WebViewAware(
+                                                child: AlertDialog(
                                               title: Text('Required'),
                                               content:
                                                   Text('Please add an image.'),
@@ -728,7 +734,7 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                                                   child: Text('Ok'),
                                                 ),
                                               ],
-                                            );
+                                            ));
                                           },
                                         );
                                       }

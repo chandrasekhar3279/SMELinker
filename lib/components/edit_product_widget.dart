@@ -13,6 +13,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'edit_product_model.dart';
 export 'edit_product_model.dart';
 
@@ -48,12 +49,14 @@ class _EditProductWidgetState extends State<EditProductWidget> {
       r'''$.productName''',
     ).toString().toString());
     _model.editProductNameFocusNode ??= FocusNode();
+
     _model.editproductDescController ??= TextEditingController(
         text: getJsonField(
       widget.productItem,
       r'''$.description''',
     ).toString().toString());
     _model.editproductDescFocusNode ??= FocusNode();
+
     _model.editProductPriceController ??= TextEditingController(
         text: getJsonField(
       widget.productItem,
@@ -799,7 +802,8 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
-                                            return AlertDialog(
+                                            return WebViewAware(
+                                                child: AlertDialog(
                                               title: Text('Success'),
                                               content: Text('Product updated.'),
                                               actions: [
@@ -810,7 +814,7 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                                   child: Text('Ok'),
                                                 ),
                                               ],
-                                            );
+                                            ));
                                           },
                                         );
 
@@ -824,7 +828,8 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
-                                            return AlertDialog(
+                                            return WebViewAware(
+                                                child: AlertDialog(
                                               title: Text('Error'),
                                               content: Text(
                                                   'Image size must be below 1MB.'),
@@ -836,7 +841,7 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                                   child: Text('Try again'),
                                                 ),
                                               ],
-                                            );
+                                            ));
                                           },
                                         );
                                       }

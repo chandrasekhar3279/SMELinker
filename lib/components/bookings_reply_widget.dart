@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'bookings_reply_model.dart';
 export 'bookings_reply_model.dart';
 
@@ -524,7 +525,8 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                             await showDialog(
                                               context: context,
                                               builder: (alertDialogContext) {
-                                                return AlertDialog(
+                                                return WebViewAware(
+                                                    child: AlertDialog(
                                                   title:
                                                       Text('Booking Service'),
                                                   content: Text(
@@ -543,7 +545,7 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                                       child: Text('Ok'),
                                                     ),
                                                   ],
-                                                );
+                                                ));
                                               },
                                             );
                                             _model.updatePage(() {});
@@ -553,7 +555,8 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                             await showDialog(
                                               context: context,
                                               builder: (alertDialogContext) {
-                                                return AlertDialog(
+                                                return WebViewAware(
+                                                    child: AlertDialog(
                                                   title: Text('Error'),
                                                   content: Text(
                                                       'Something went wrong!'),
@@ -565,7 +568,7 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                                       child: Text('Try again'),
                                                     ),
                                                   ],
-                                                );
+                                                ));
                                               },
                                             );
                                           }

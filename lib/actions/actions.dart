@@ -3,6 +3,7 @@ import '/backend/api_requests/api_manager.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 
 Future checkAuth(BuildContext context) async {
   ApiCallResponse? apiResponse;
@@ -14,7 +15,8 @@ Future checkAuth(BuildContext context) async {
     await showDialog(
       context: context,
       builder: (alertDialogContext) {
-        return AlertDialog(
+        return WebViewAware(
+            child: AlertDialog(
           title: Text('Session expired.'),
           content: Text('Please login again.'),
           actions: [
@@ -23,7 +25,7 @@ Future checkAuth(BuildContext context) async {
               child: Text('Ok'),
             ),
           ],
-        );
+        ));
       },
     );
     FFAppState().update(() {
