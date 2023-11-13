@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/confirm_alert_widget.dart';
+import '/components/group_edit_widget.dart';
 import '/components/withdrawrequest_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -8,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -73,248 +75,343 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 0.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              4.0, 4.0, 4.0, 4.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Stack(
                             children: [
-                              FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 30.0,
-                                borderWidth: 1.0,
-                                buttonSize: 40.0,
-                                icon: Icon(
-                                  Icons.arrow_back,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  size: 20.0,
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 200.0,
+                                decoration: BoxDecoration(),
+                                child: Image.asset(
+                                  'assets/images/banner.png',
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  fit: BoxFit.cover,
                                 ),
-                                onPressed: () async {
-                                  context.safePop();
-                                  setState(() {
-                                    FFAppState().join = false;
-                                  });
-                                },
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 10.0, 0.0, 0.0),
+                                child: FlutterFlowIconButton(
+                                  borderColor: Colors.transparent,
+                                  borderRadius: 30.0,
+                                  borderWidth: 1.0,
+                                  buttonSize: 40.0,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  icon: Icon(
+                                    Icons.arrow_back,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 20.0,
+                                  ),
+                                  onPressed: () async {
+                                    context.safePop();
+                                    setState(() {
+                                      FFAppState().join = false;
+                                    });
+                                  },
+                                ),
                               ),
                             ],
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 16.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 70.0,
-                                height: 70.0,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.asset(
-                                  'assets/images/woman-bg.png',
-                                  fit: BoxFit.contain,
-                                ),
+                        ],
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 16.0, 16.0, 16.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: 70.0,
+                              height: 70.0,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
                               ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 0.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Expanded(
-                                            child: Text(
-                                              widget.groupDetails!,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium,
-                                            ),
+                              child: Image.asset(
+                                'assets/images/woman-bg.png',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 0.0, 0.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            widget.groupDetails!,
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleMedium,
                                           ),
-                                          Expanded(
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                if (FFAppState().join != true)
-                                                  Container(
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFF5E91FF),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              16.0),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  30.0,
-                                                                  8.0,
-                                                                  30.0,
-                                                                  8.0),
-                                                      child: Text(
-                                                        'Join',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                                ),
-                                                      ),
-                                                    ),
+                                        ),
+                                        Expanded(
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              if (FFAppState().join != true)
+                                                Container(
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFF5E91FF),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
                                                   ),
-                                                if (FFAppState().join == true)
-                                                  Padding(
+                                                  child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        await showModalBottomSheet(
-                                                          isScrollControlled:
-                                                              true,
-                                                          backgroundColor:
-                                                              Colors
-                                                                  .transparent,
-                                                          enableDrag: false,
-                                                          context: context,
-                                                          builder: (context) {
-                                                            return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    WithdrawrequestWidget(),
+                                                            .fromSTEB(30.0, 8.0,
+                                                                30.0, 8.0),
+                                                    child: Text(
+                                                      'Join',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
                                                               ),
-                                                            ));
-                                                          },
-                                                        ).then((value) =>
-                                                            safeSetState(
-                                                                () {}));
-                                                      },
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
+                                                    ),
+                                                  ),
+                                                ),
+                                              if (FFAppState().join == true)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        enableDrag: false,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                              child:
+                                                                  GestureDetector(
+                                                            onTap: () => _model
+                                                                    .unfocusNode
+                                                                    .canRequestFocus
+                                                                ? FocusScope.of(
+                                                                        context)
+                                                                    .requestFocus(
+                                                                        _model
+                                                                            .unfocusNode)
+                                                                : FocusScope.of(
+                                                                        context)
+                                                                    .unfocus(),
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  WithdrawrequestWidget(),
+                                                            ),
+                                                          ));
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            Color(0x195E91FF),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(30.0),
+                                                        shape:
+                                                            BoxShape.rectangle,
+                                                        border: Border.all(
                                                           color:
-                                                              Color(0x195E91FF),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      30.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: Color(
-                                                                0xFF5E91FF),
-                                                          ),
+                                                              Color(0xFF5E91FF),
                                                         ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      16.0,
-                                                                      5.0,
-                                                                      16.0,
-                                                                      5.0),
-                                                          child: Text(
-                                                            'Pending',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
-                                                          ),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    5.0,
+                                                                    16.0,
+                                                                    5.0),
+                                                        child: Text(
+                                                          'Pending',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              ),
                                                         ),
                                                       ),
                                                     ),
                                                   ),
-                                              ],
+                                                ),
+                                              if (FFAppState().join == true)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 10.0, 0.0),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        enableDrag: false,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                              child:
+                                                                  GestureDetector(
+                                                            onTap: () => _model
+                                                                    .unfocusNode
+                                                                    .canRequestFocus
+                                                                ? FocusScope.of(
+                                                                        context)
+                                                                    .requestFocus(
+                                                                        _model
+                                                                            .unfocusNode)
+                                                                : FocusScope.of(
+                                                                        context)
+                                                                    .unfocus(),
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  GroupEditWidget(),
+                                                            ),
+                                                          ));
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    },
+                                                    child: FaIcon(
+                                                      FontAwesomeIcons
+                                                          .ellipsisV,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 10.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Icon(
+                                            Icons.groups_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 20.0,
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              '21, 212 followers',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
                                             ),
                                           ),
                                         ],
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 10.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Icon(
-                                              Icons.groups_rounded,
-                                              color:
+                                    ),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            color: Color(0x195E91FF),
+                                            borderRadius:
+                                                BorderRadius.circular(30.0),
+                                            shape: BoxShape.rectangle,
+                                            border: Border.all(
+                                              color: Color(0xFF5E91FF),
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 5.0, 16.0, 5.0),
+                                            child: Text(
+                                              'Category Name',
+                                              style:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              size: 20.0,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
                                             ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                '21, 212 followers',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ),
-                                          ],
+                                          ),
                                         ),
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Container(
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 0.0, 0.0),
+                                          child: Container(
                                             decoration: BoxDecoration(
                                               color: Color(0x195E91FF),
                                               borderRadius:
@@ -329,7 +426,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                   .fromSTEB(
                                                       16.0, 5.0, 16.0, 5.0),
                                               child: Text(
-                                                'Category Name',
+                                                'Public',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -342,91 +439,159 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                color: Color(0x195E91FF),
-                                                borderRadius:
-                                                    BorderRadius.circular(30.0),
-                                                shape: BoxShape.rectangle,
-                                                border: Border.all(
-                                                  color: Color(0xFF5E91FF),
-                                                ),
-                                              ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 5.0, 16.0, 5.0),
-                                                child: Text(
-                                                  'Public',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
+                      ),
+                      if (_model.showMoreComment == false)
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 2.0, 10.0, 2.0),
-                          child: Text(
-                            'Do you know that Dubai is the only city where foreigners make up 80 % of entire city populations? Dubai is a land of opportunities and each year a number of people flock to it in search of a job or building a business. Starting a small business in Dubai is a good idea, since there is diversified business opportunities and growth potential.',
-                            textAlign: TextAlign.start,
-                            maxLines: 5,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Roboto',
-                                  lineHeight: 1.4,
-                                ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 30.0, 16.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              16.0, 0.0, 16.0, 0.0),
+                          child: Wrap(
+                            spacing: 0.0,
+                            runSpacing: 0.0,
+                            alignment: WrapAlignment.start,
+                            crossAxisAlignment: WrapCrossAlignment.start,
+                            direction: Axis.horizontal,
+                            runAlignment: WrapAlignment.start,
+                            verticalDirection: VerticalDirection.down,
+                            clipBehavior: Clip.none,
                             children: [
-                              Text(
-                                'Members',
-                                style:
-                                    FlutterFlowTheme.of(context).headlineMedium,
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 8.0, 0.0, 8.0),
+                                child: Text(
+                                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        lineHeight: 1.5,
+                                      ),
+                                ),
                               ),
-                              Icon(
-                                Icons.search_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
+                              FFButtonWidget(
+                                onPressed: () async {
+                                  setState(() {
+                                    _model.showMoreComment = true;
+                                  });
+                                },
+                                text: 'Read More',
+                                options: FFButtonOptions(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                      ),
+                                  elevation: 0.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
                               ),
                             ],
                           ),
                         ),
-                      ],
-                    ),
+                      if (_model.showMoreComment == true)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          child: Wrap(
+                            spacing: 0.0,
+                            runSpacing: 0.0,
+                            alignment: WrapAlignment.start,
+                            crossAxisAlignment: WrapCrossAlignment.start,
+                            direction: Axis.horizontal,
+                            runAlignment: WrapAlignment.start,
+                            verticalDirection: VerticalDirection.down,
+                            clipBehavior: Clip.none,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 8.0, 0.0, 8.0),
+                                child: Text(
+                                  'Topics may include (but not limited to): R&D and Innovation in SMEs, European Innovation Council (EIC) Pathfinder, Transition, Accelerator, The new dedicated SME instrument for Small- & Medium-sized Enterprises, Small Business Act, SME Support Mechanisms, Regional SME Policies, Supporting Innovative SMEs to Achieve and Sustain Business Growth, EuroSME, Access to Finance for SMEs, Encouraging an Entrepreneurial Culture, Entrepreneurship 2020 Action Plan, Internationalization of SMEs, Helping Innovative SMEs to Develop their Technological Breakthroughs into Viable Products with real Commercial Potential, Access to New Markets, International Council for Small Business, Small Business Innovation Research (SBIR) and Small Business Technology Transfer (STTR), Small Business Administration, KOSGEB, the Small and Medium Enterprises Development Organization, Institute for Small Business & Entrepreneurship (ISBE), National Small Business Association, EASME,  Association of Business Incubation, Federation of Small Businesses, Enterprise Europe Network (EEN), International R&D Cooperation, EU Funds and Grants, H2020 SME Calls for Proposals, Partner Search, Project Consortia looking for Potential SME Partners.',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        lineHeight: 1.5,
+                                      ),
+                                ),
+                              ),
+                              FFButtonWidget(
+                                onPressed: () async {
+                                  setState(() {
+                                    _model.showMoreComment = false;
+                                  });
+                                },
+                                text: 'Show less',
+                                options: FFButtonOptions(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                      ),
+                                  elevation: 0.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 30.0, 16.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Members',
+                              style:
+                                  FlutterFlowTheme.of(context).headlineMedium,
+                            ),
+                            Icon(
+                              Icons.search_rounded,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 24.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
                   child: FutureBuilder<ApiCallResponse>(
                     future: SmeGroup.getIndustriesCall.call(),
                     builder: (context, snapshot) {

@@ -252,6 +252,13 @@ class SmeGroup {
   static GetMessagesForUserCall getMessagesForUserCall =
       GetMessagesForUserCall();
   static SendMessageCall sendMessageCall = SendMessageCall();
+  static GetGroupsCall getGroupsCall = GetGroupsCall();
+  static GetAllJoinedGroupsCall getAllJoinedGroupsCall =
+      GetAllJoinedGroupsCall();
+  static GetMyGroupsCall getMyGroupsCall = GetMyGroupsCall();
+  static GetReqJoinedGroupsCall getReqJoinedGroupsCall =
+      GetReqJoinedGroupsCall();
+  static JoinGroupsCall joinGroupsCall = JoinGroupsCall();
 }
 
 class LoginAuthenticationCall {
@@ -4449,6 +4456,129 @@ class SendMessageCall {
       params: {},
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+class GetGroupsCall {
+  Future<ApiCallResponse> call({
+    String? accessToken = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getGroups',
+      apiUrl: '${SmeGroup.baseUrl}/getGroups',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ${accessToken}',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic groups(dynamic response) => getJsonField(
+        response,
+        r'''$''',
+        true,
+      );
+}
+
+class GetAllJoinedGroupsCall {
+  Future<ApiCallResponse> call({
+    String? accessToken = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getAllJoinedGroups',
+      apiUrl: '${SmeGroup.baseUrl}/getAllJoinedGroups',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ${accessToken}',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic requestedgroups(dynamic response) => getJsonField(
+        response,
+        r'''$''',
+      );
+}
+
+class GetMyGroupsCall {
+  Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getMyGroups',
+      apiUrl: '${SmeGroup.baseUrl}/getMyGroups',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+class GetReqJoinedGroupsCall {
+  Future<ApiCallResponse> call({
+    String? accessToken = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getReqJoinedGroups',
+      apiUrl: '${SmeGroup.baseUrl}/getReqJoinedGroups',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${accessToken}',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+class JoinGroupsCall {
+  Future<ApiCallResponse> call({
+    String? accessToken = '',
+    dynamic? dataJson,
+  }) async {
+    final data = _serializeJson(dataJson);
+
+    return ApiManager.instance.makeApiCall(
+      callName: ' joinGroups',
+      apiUrl: '${SmeGroup.baseUrl}/joinGroups',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${accessToken}',
+        'Accept': '*/*',
+      },
+      params: {
+        'data': data,
+      },
+      bodyType: BodyType.MULTIPART,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

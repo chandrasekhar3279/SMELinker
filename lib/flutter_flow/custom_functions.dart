@@ -872,3 +872,17 @@ String smeroleName(String? roleName) {
     return 'N/A';
   }
 }
+
+dynamic joinGroup(
+  int groupId,
+  String joinStatus,
+) {
+  return {
+    "groupId": groupId,
+    "joinStatus": joinStatus,
+  };
+}
+
+String membersCount(int? count) {
+  return (count! > 1) ? " ${count} members" : " ${count} member";
+}

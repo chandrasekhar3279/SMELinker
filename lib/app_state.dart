@@ -1072,6 +1072,24 @@ class FFAppState extends ChangeNotifier {
   set join(bool _value) {
     _join = _value;
   }
+
+  String _joinStatus = 'join';
+  String get joinStatus => _joinStatus;
+  set joinStatus(String _value) {
+    _joinStatus = _value;
+  }
+
+  String _roleStatus = 'member';
+  String get roleStatus => _roleStatus;
+  set roleStatus(String _value) {
+    _roleStatus = _value;
+  }
+
+  bool _groupsearch = false;
+  bool get groupsearch => _groupsearch;
+  set groupsearch(bool _value) {
+    _groupsearch = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
