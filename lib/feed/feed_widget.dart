@@ -602,23 +602,248 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                         CrossAxisAlignment
                                                                             .start,
                                                                     children: [
-                                                                      Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.start,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.start,
-                                                                        children: [
-                                                                          if (getJsonField(
-                                                                                feedItem,
-                                                                                r'''$.featuredImage''',
-                                                                              ) ==
-                                                                              null)
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            context.pushNamed(
+                                                                              'CompanyDetailsPage',
+                                                                              queryParameters: {
+                                                                                'userId': serializeParam(
+                                                                                  getJsonField(
+                                                                                    feedItem,
+                                                                                    r'''$.companyId''',
+                                                                                  ),
+                                                                                  ParamType.int,
+                                                                                ),
+                                                                              }.withoutNulls,
+                                                                            );
+                                                                          },
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.start,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.start,
+                                                                            children: [
+                                                                              if ((getJsonField(
+                                                                                        feedItem,
+                                                                                        r'''$.companyLogo''',
+                                                                                      ) !=
+                                                                                      null) &&
+                                                                                  (getJsonField(
+                                                                                        feedItem,
+                                                                                        r'''$.companyLogo''',
+                                                                                      ) !=
+                                                                                      ''))
+                                                                                Container(
+                                                                                  width: 40.0,
+                                                                                  height: 40.0,
+                                                                                  clipBehavior: Clip.antiAlias,
+                                                                                  decoration: BoxDecoration(
+                                                                                    shape: BoxShape.circle,
+                                                                                  ),
+                                                                                  child: Image.network(
+                                                                                    valueOrDefault<String>(
+                                                                                      getJsonField(
+                                                                                        functions.image(getJsonField(
+                                                                                          feedItem,
+                                                                                          r'''$.companyLogo''',
+                                                                                        ).toString()),
+                                                                                        r'''$.image''',
+                                                                                      ),
+                                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                    ),
+                                                                                    fit: BoxFit.contain,
+                                                                                  ),
+                                                                                ),
+                                                                              if ((getJsonField(
+                                                                                        feedItem,
+                                                                                        r'''$.companyLogo''',
+                                                                                      ) ==
+                                                                                      null) ||
+                                                                                  (getJsonField(
+                                                                                        feedItem,
+                                                                                        r'''$.companyLogo''',
+                                                                                      ) ==
+                                                                                      ''))
+                                                                                Container(
+                                                                                  width: 40.0,
+                                                                                  height: 40.0,
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: Color(0xFFFA6400),
+                                                                                    shape: BoxShape.circle,
+                                                                                  ),
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                                                    children: [
+                                                                                      Text(
+                                                                                        functions.profilePicName(getJsonField(
+                                                                                          feedItem,
+                                                                                          r'''$.companyName''',
+                                                                                        ).toString()),
+                                                                                        textAlign: TextAlign.center,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Roboto',
+                                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                                            ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                              Expanded(
+                                                                                child: Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                  child: Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                    children: [
+                                                                                      Row(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        children: [
+                                                                                          Flexible(
+                                                                                            child: Text(
+                                                                                              valueOrDefault<String>(
+                                                                                                getJsonField(
+                                                                                                  feedItem,
+                                                                                                  r'''$.companyName''',
+                                                                                                ).toString(),
+                                                                                                'companyName',
+                                                                                              ).maybeHandleOverflow(
+                                                                                                maxChars: 22,
+                                                                                                replacement: '…',
+                                                                                              ),
+                                                                                              textAlign: TextAlign.start,
+                                                                                              maxLines: 1,
+                                                                                              style: FlutterFlowTheme.of(context).titleMedium,
+                                                                                            ),
+                                                                                          ),
+                                                                                          if (getJsonField(
+                                                                                                feedItem,
+                                                                                                r'''$.verifiedCompany''',
+                                                                                              ) ==
+                                                                                              true)
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                              child: Icon(
+                                                                                                Icons.verified,
+                                                                                                color: Color(0xFF5191FF),
+                                                                                                size: 20.0,
+                                                                                              ),
+                                                                                            ),
+                                                                                        ],
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          functions.smeroleName(getJsonField(
+                                                                                            feedItem,
+                                                                                            r'''$.roleName''',
+                                                                                          ).toString()),
+                                                                                          style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
                                                                             Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                FlutterFlowYoutubePlayer(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.min,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.end,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.center,
+                                                                          children: [
+                                                                            Expanded(
+                                                                              child: Text(
+                                                                                valueOrDefault<String>(
+                                                                                  getJsonField(
+                                                                                    feedItem,
+                                                                                    r'''$.title''',
+                                                                                  ).toString(),
+                                                                                  'title',
+                                                                                ),
+                                                                                textAlign: TextAlign.start,
+                                                                                maxLines: 2,
+                                                                                style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                      fontFamily: 'Roboto',
+                                                                                      fontSize: 14.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            10.0),
+                                                                        child:
+                                                                            Text(
+                                                                          '${valueOrDefault<String>(
+                                                                            functions.submitedDate(getJsonField(
+                                                                              feedItem,
+                                                                              r'''$.updatedTime''',
+                                                                            )),
+                                                                            'Date',
+                                                                          )} ago',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .override(
+                                                                                fontFamily: 'Roboto',
+                                                                                fontSize: 12.0,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                      if (getJsonField(
+                                                                            feedItem,
+                                                                            r'''$.featuredImage''',
+                                                                          ) ==
+                                                                          null)
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              10.0,
+                                                                              0.0,
+                                                                              10.0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Expanded(
+                                                                                child: FlutterFlowYoutubePlayer(
                                                                                   url: valueOrDefault<String>(
                                                                                     getJsonField(
                                                                                       feedItem,
@@ -626,27 +851,38 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                     ),
                                                                                     'no link',
                                                                                   ),
-                                                                                  width: 100.0,
-                                                                                  height: 90.0,
+                                                                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                  height: 180.0,
                                                                                   autoPlay: false,
                                                                                   looping: true,
                                                                                   mute: false,
                                                                                   showControls: true,
                                                                                   showFullScreen: true,
                                                                                 ),
-                                                                              ],
-                                                                            ),
-                                                                          if (getJsonField(
-                                                                                feedItem,
-                                                                                r'''$.featuredImage''',
-                                                                              ) !=
-                                                                              null)
-                                                                            Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                Container(
-                                                                                  width: 100.0,
-                                                                                  height: 90.0,
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      if (getJsonField(
+                                                                            feedItem,
+                                                                            r'''$.featuredImage''',
+                                                                          ) !=
+                                                                          null)
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              10.0,
+                                                                              0.0,
+                                                                              10.0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Expanded(
+                                                                                child: Container(
+                                                                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                  height: 180.0,
                                                                                   decoration: BoxDecoration(),
                                                                                   child: ClipRRect(
                                                                                     borderRadius: BorderRadius.circular(8.0),
@@ -663,218 +899,14 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                       ),
                                                                                       width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                       height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                      fit: BoxFit.fill,
+                                                                                      fit: BoxFit.contain,
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                              ],
-                                                                            ),
-                                                                          Expanded(
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
-                                                                              child: Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: [
-                                                                                  Row(
-                                                                                    mainAxisSize: MainAxisSize.min,
-                                                                                    mainAxisAlignment: MainAxisAlignment.end,
-                                                                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                    children: [
-                                                                                      Expanded(
-                                                                                        child: Text(
-                                                                                          valueOrDefault<String>(
-                                                                                            getJsonField(
-                                                                                              feedItem,
-                                                                                              r'''$.title''',
-                                                                                            ).toString(),
-                                                                                            'title',
-                                                                                          ),
-                                                                                          textAlign: TextAlign.start,
-                                                                                          maxLines: 2,
-                                                                                          style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                                fontFamily: 'Roboto',
-                                                                                                fontSize: 14.0,
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                                                                                    child: Text(
-                                                                                      '${valueOrDefault<String>(
-                                                                                        functions.submitedDate(getJsonField(
-                                                                                          feedItem,
-                                                                                          r'''$.updatedTime''',
-                                                                                        )),
-                                                                                        'Date',
-                                                                                      )} ago',
-                                                                                      style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                            fontFamily: 'Roboto',
-                                                                                            fontSize: 12.0,
-                                                                                          ),
-                                                                                    ),
-                                                                                  ),
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                                                                                    child: InkWell(
-                                                                                      splashColor: Colors.transparent,
-                                                                                      focusColor: Colors.transparent,
-                                                                                      hoverColor: Colors.transparent,
-                                                                                      highlightColor: Colors.transparent,
-                                                                                      onTap: () async {
-                                                                                        context.pushNamed(
-                                                                                          'CompanyDetailsPage',
-                                                                                          queryParameters: {
-                                                                                            'userId': serializeParam(
-                                                                                              getJsonField(
-                                                                                                feedItem,
-                                                                                                r'''$.companyId''',
-                                                                                              ),
-                                                                                              ParamType.int,
-                                                                                            ),
-                                                                                          }.withoutNulls,
-                                                                                        );
-                                                                                      },
-                                                                                      child: Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        mainAxisAlignment: MainAxisAlignment.start,
-                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                        children: [
-                                                                                          if ((getJsonField(
-                                                                                                    feedItem,
-                                                                                                    r'''$.companyLogo''',
-                                                                                                  ) !=
-                                                                                                  null) &&
-                                                                                              (getJsonField(
-                                                                                                    feedItem,
-                                                                                                    r'''$.companyLogo''',
-                                                                                                  ) !=
-                                                                                                  ''))
-                                                                                            Container(
-                                                                                              width: 40.0,
-                                                                                              height: 40.0,
-                                                                                              clipBehavior: Clip.antiAlias,
-                                                                                              decoration: BoxDecoration(
-                                                                                                shape: BoxShape.circle,
-                                                                                              ),
-                                                                                              child: Image.network(
-                                                                                                valueOrDefault<String>(
-                                                                                                  getJsonField(
-                                                                                                    functions.image(getJsonField(
-                                                                                                      feedItem,
-                                                                                                      r'''$.companyLogo''',
-                                                                                                    ).toString()),
-                                                                                                    r'''$.image''',
-                                                                                                  ),
-                                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
-                                                                                                ),
-                                                                                                fit: BoxFit.contain,
-                                                                                              ),
-                                                                                            ),
-                                                                                          if ((getJsonField(
-                                                                                                    feedItem,
-                                                                                                    r'''$.companyLogo''',
-                                                                                                  ) ==
-                                                                                                  null) ||
-                                                                                              (getJsonField(
-                                                                                                    feedItem,
-                                                                                                    r'''$.companyLogo''',
-                                                                                                  ) ==
-                                                                                                  ''))
-                                                                                            Container(
-                                                                                              width: 40.0,
-                                                                                              height: 40.0,
-                                                                                              decoration: BoxDecoration(
-                                                                                                color: Color(0xFFFA6400),
-                                                                                                shape: BoxShape.circle,
-                                                                                              ),
-                                                                                              child: Row(
-                                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                                                                children: [
-                                                                                                  Text(
-                                                                                                    functions.profilePicName(getJsonField(
-                                                                                                      feedItem,
-                                                                                                      r'''$.companyName''',
-                                                                                                    ).toString()),
-                                                                                                    textAlign: TextAlign.center,
-                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Roboto',
-                                                                                                          color: FlutterFlowTheme.of(context).secondary,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            ),
-                                                                                          Expanded(
-                                                                                            child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                              child: Column(
-                                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                children: [
-                                                                                                  Row(
-                                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                                    children: [
-                                                                                                      Flexible(
-                                                                                                        child: Text(
-                                                                                                          valueOrDefault<String>(
-                                                                                                            getJsonField(
-                                                                                                              feedItem,
-                                                                                                              r'''$.companyName''',
-                                                                                                            ).toString(),
-                                                                                                            'companyName',
-                                                                                                          ).maybeHandleOverflow(
-                                                                                                            maxChars: 22,
-                                                                                                            replacement: '…',
-                                                                                                          ),
-                                                                                                          textAlign: TextAlign.start,
-                                                                                                          maxLines: 1,
-                                                                                                          style: FlutterFlowTheme.of(context).titleMedium,
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                      if (getJsonField(
-                                                                                                            feedItem,
-                                                                                                            r'''$.verifiedCompany''',
-                                                                                                          ) ==
-                                                                                                          true)
-                                                                                                        Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                                          child: Icon(
-                                                                                                            Icons.verified,
-                                                                                                            color: Color(0xFF5191FF),
-                                                                                                            size: 20.0,
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                    ],
-                                                                                                  ),
-                                                                                                  Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
-                                                                                                    child: Text(
-                                                                                                      functions.smeroleName(getJsonField(
-                                                                                                        feedItem,
-                                                                                                        r'''$.roleName''',
-                                                                                                      ).toString()),
-                                                                                                      style: FlutterFlowTheme.of(context).labelMedium,
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                ],
                                                                               ),
-                                                                            ),
+                                                                            ],
                                                                           ),
-                                                                        ],
-                                                                      ),
+                                                                        ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
@@ -899,6 +931,127 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                               FlutterFlowTheme.of(context).bodyMedium,
                                                                         ),
                                                                       ),
+                                                                      if (getJsonField(
+                                                                            feedItem,
+                                                                            r'''$.groupsData[:]''',
+                                                                          ) !=
+                                                                          null)
+                                                                        Builder(
+                                                                          builder:
+                                                                              (context) {
+                                                                            final groupsData =
+                                                                                getJsonField(
+                                                                              feedItem,
+                                                                              r'''$.groupsData[:]''',
+                                                                            ).toList();
+                                                                            return SingleChildScrollView(
+                                                                              scrollDirection: Axis.horizontal,
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: List.generate(groupsData.length, (groupsDataIndex) {
+                                                                                  final groupsDataItem = groupsData[groupsDataIndex];
+                                                                                  return Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 10.0),
+                                                                                    child: InkWell(
+                                                                                      splashColor: Colors.transparent,
+                                                                                      focusColor: Colors.transparent,
+                                                                                      hoverColor: Colors.transparent,
+                                                                                      highlightColor: Colors.transparent,
+                                                                                      onTap: () async {
+                                                                                        context.pushNamed(
+                                                                                          'GroupDetailpage',
+                                                                                          queryParameters: {
+                                                                                            'groupId': serializeParam(
+                                                                                              getJsonField(
+                                                                                                groupsDataItem,
+                                                                                                r'''$.groupId''',
+                                                                                              ),
+                                                                                              ParamType.int,
+                                                                                            ),
+                                                                                          }.withoutNulls,
+                                                                                        );
+                                                                                      },
+                                                                                      child: Container(
+                                                                                        width: MediaQuery.sizeOf(context).width * 0.5,
+                                                                                        decoration: BoxDecoration(
+                                                                                          color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                          borderRadius: BorderRadius.circular(16.0),
+                                                                                          border: Border.all(
+                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                          ),
+                                                                                        ),
+                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                        child: Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                                                                                          child: Row(
+                                                                                            mainAxisSize: MainAxisSize.min,
+                                                                                            children: [
+                                                                                              Column(
+                                                                                                mainAxisSize: MainAxisSize.min,
+                                                                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                children: [
+                                                                                                  Container(
+                                                                                                    width: MediaQuery.sizeOf(context).width * 0.1,
+                                                                                                    height: MediaQuery.sizeOf(context).width * 0.1,
+                                                                                                    decoration: BoxDecoration(
+                                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                      shape: BoxShape.circle,
+                                                                                                    ),
+                                                                                                    child: Container(
+                                                                                                      clipBehavior: Clip.antiAlias,
+                                                                                                      decoration: BoxDecoration(
+                                                                                                        shape: BoxShape.circle,
+                                                                                                      ),
+                                                                                                      child: Image.network(
+                                                                                                        getJsonField(
+                                                                                                          functions.image(getJsonField(
+                                                                                                            groupsDataItem,
+                                                                                                            r'''$.groupImg''',
+                                                                                                          ).toString()),
+                                                                                                          r'''$.image''',
+                                                                                                        ),
+                                                                                                        fit: BoxFit.cover,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                              Expanded(
+                                                                                                child: Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                                  child: Column(
+                                                                                                    mainAxisSize: MainAxisSize.min,
+                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                    children: [
+                                                                                                      Text(
+                                                                                                        getJsonField(
+                                                                                                          groupsDataItem,
+                                                                                                          r'''$.groupName''',
+                                                                                                        ).toString().maybeHandleOverflow(maxChars: 15),
+                                                                                                        style: FlutterFlowTheme.of(context).titleLarge,
+                                                                                                      ),
+                                                                                                      Text(
+                                                                                                        functions.membersCount(getJsonField(
+                                                                                                          groupsDataItem,
+                                                                                                          r'''$.membersCount''',
+                                                                                                        )),
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  );
+                                                                                }),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        ),
                                                                       Divider(
                                                                         thickness:
                                                                             1.0,

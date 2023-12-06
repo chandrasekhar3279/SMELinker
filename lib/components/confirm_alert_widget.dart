@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -10,7 +11,12 @@ import 'confirm_alert_model.dart';
 export 'confirm_alert_model.dart';
 
 class ConfirmAlertWidget extends StatefulWidget {
-  const ConfirmAlertWidget({Key? key}) : super(key: key);
+  const ConfirmAlertWidget({
+    Key? key,
+    this.groupId,
+  }) : super(key: key);
+
+  final int? groupId;
 
   @override
   _ConfirmAlertWidgetState createState() => _ConfirmAlertWidgetState();
@@ -69,13 +75,13 @@ class _ConfirmAlertWidgetState extends State<ConfirmAlertWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
               child: Text(
-                'Are you confirm ,You want to delete this member from this grups?',
+                'Are you confirm ,You want to leave from this group?',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyMedium,
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 50.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -106,8 +112,16 @@ class _ConfirmAlertWidgetState extends State<ConfirmAlertWidget> {
                     ),
                   ),
                   FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      _model.apiResult254 = await SmeGroup.leaveGroupCall.call(
+                        groupId: widget.groupId,
+                        accessToken: FFAppState().accessToken,
+                      );
+                      if ((_model.apiResult254?.succeeded ?? true)) {
+                        context.goNamed('Groups');
+                      }
+
+                      setState(() {});
                     },
                     text: 'Yes',
                     options: FFButtonOptions(

@@ -304,7 +304,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'GroupDetailpage',
           path: '/groupDetailpage',
           builder: (context, params) => GroupDetailpageWidget(
-            groupDetails: params.getParam('groupDetails', ParamType.String),
+            groupId: params.getParam('groupId', ParamType.int),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

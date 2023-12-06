@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/groups_selection_popup_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -1413,6 +1414,206 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 16.0, 16.0, 16.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'Article Visible to Public',
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleMedium,
+                                        ),
+                                      ),
+                                      Switch.adaptive(
+                                        value: _model.switchValue ??= false,
+                                        onChanged: (newValue) async {
+                                          setState(() =>
+                                              _model.switchValue = newValue!);
+                                          if (newValue!) {
+                                            setState(() {
+                                              FFAppState().groupsData = [];
+                                            });
+                                          }
+                                        },
+                                        activeColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        activeTrackColor:
+                                            FlutterFlowTheme.of(context)
+                                                .accent1,
+                                        inactiveTrackColor:
+                                            FlutterFlowTheme.of(context)
+                                                .accent3,
+                                        inactiveThumbColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                if (_model.switchValue != true)
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 16.0, 16.0, 16.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Expanded(
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              setState(() {
+                                                FFAppState().selectGroupsPopup =
+                                                    true;
+                                              });
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                      child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child: Container(
+                                                        height:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .height *
+                                                                1.0,
+                                                        child:
+                                                            GroupsSelectionPopupWidget(),
+                                                      ),
+                                                    ),
+                                                  ));
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            text: 'Select groups to visible',
+                                            options: FFButtonOptions(
+                                              height: 40.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 24.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent2,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
+                                                      ),
+                                              elevation: 3.0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 0.0, 20.0, 12.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      if (false)
+                                        Flexible(
+                                          child: Wrap(
+                                            spacing: 0.0,
+                                            runSpacing: 0.0,
+                                            alignment: WrapAlignment.start,
+                                            crossAxisAlignment:
+                                                WrapCrossAlignment.start,
+                                            direction: Axis.horizontal,
+                                            runAlignment: WrapAlignment.start,
+                                            verticalDirection:
+                                                VerticalDirection.down,
+                                            clipBehavior: Clip.none,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 4.0, 0.0, 4.0),
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFFC0D7FF),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            30.0),
+                                                    shape: BoxShape.rectangle,
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 8.0,
+                                                                10.0, 8.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Flexible(
+                                                          child: Text(
+                                                            FFAppState()
+                                                                .groupsData
+                                                                .length
+                                                                .toString(),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium,
+                                                          ),
+                                                        ),
+                                                        Icon(
+                                                          Icons.close_sharp,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          size: 20.0,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 30.0, 24.0, 30.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
@@ -1434,21 +1635,24 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                                     .textFieldPostTitleController
                                                     .text,
                                                 _model.resourceType,
-                                                _model
-                                                            .resourceType !=
-                                                        'document'
+                                                _model.resourceType != 'document'
                                                     ? _model
                                                         .feedUrlController.text
                                                     : _model
                                                         .provideDocUrlController
                                                         .text,
-                                                _model.descriptionController
-                                                    .text),
+                                                _model
+                                                    .descriptionController.text,
+                                                _model.switchValue!),
                                             r'''$''',
                                           ),
                                           featuredImage:
                                               _model.uploadedLocalFile2,
                                           document: _model.uploadedLocalFile1,
+                                          selectedGroupsList: FFAppState()
+                                              .groupsData
+                                              .take(5)
+                                              .toList(),
                                         );
                                         if ((_model.apiResultjklCopyCopy
                                                 ?.succeeded ??

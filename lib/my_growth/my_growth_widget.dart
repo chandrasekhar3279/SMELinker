@@ -652,7 +652,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                               child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
-                                                                        .min,
+                                                                        .max,
                                                                 children: [
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -690,7 +690,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                     width: double
                                                                         .infinity,
                                                                     height:
-                                                                        360.0,
+                                                                        400.0,
                                                                     decoration:
                                                                         BoxDecoration(),
                                                                     child:
@@ -804,7 +804,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                             children: [
                                                                                               if (getJsonField(
                                                                                                     growthCardsItem,
-                                                                                                    r'''$.growthPatnerLogo''',
+                                                                                                    r'''$.growthPartnerLogo''',
                                                                                                   ) !=
                                                                                                   null)
                                                                                                 Padding(
@@ -820,7 +820,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                       getJsonField(
                                                                                                         functions.image(getJsonField(
                                                                                                           growthCardsItem,
-                                                                                                          r'''$.growthPatnerLogo''',
+                                                                                                          r'''$.growthPartnerLogo''',
                                                                                                         ).toString()),
                                                                                                         r'''$.image''',
                                                                                                       ),
@@ -830,7 +830,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                 ),
                                                                                               if (getJsonField(
                                                                                                     growthCardsItem,
-                                                                                                    r'''$.growthPatnerLogo''',
+                                                                                                    r'''$.growthPartnerLogo''',
                                                                                                   ) ==
                                                                                                   null)
                                                                                                 Padding(
@@ -847,7 +847,10 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                       mainAxisAlignment: MainAxisAlignment.center,
                                                                                                       children: [
                                                                                                         Text(
-                                                                                                          'Hello World',
+                                                                                                          functions.profilePicName(getJsonField(
+                                                                                                            growthCardsItem,
+                                                                                                            r'''$.growthPartnerName''',
+                                                                                                          ).toString()),
                                                                                                           textAlign: TextAlign.center,
                                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                 fontFamily: 'Roboto',
@@ -863,7 +866,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                 child: Text(
                                                                                                   getJsonField(
                                                                                                     growthCardsItem,
-                                                                                                    r'''$.growthPatnerName''',
+                                                                                                    r'''$.growthPartnerName''',
                                                                                                   ).toString(),
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: 'Roboto',
@@ -934,6 +937,56 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                             ],
                                                                                           ),
                                                                                         ),
+                                                                                        if (getJsonField(
+                                                                                              growthCardsItem,
+                                                                                              r'''$.groupsData[:]''',
+                                                                                            ) !=
+                                                                                            null)
+                                                                                          Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+                                                                                            child: Builder(
+                                                                                              builder: (context) {
+                                                                                                final gropsist = getJsonField(
+                                                                                                  growthCardsItem,
+                                                                                                  r'''$.groupsData[:]''',
+                                                                                                ).toList();
+                                                                                                return Row(
+                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                  children: List.generate(gropsist.length, (gropsistIndex) {
+                                                                                                    final gropsistItem = gropsist[gropsistIndex];
+                                                                                                    return Padding(
+                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                                                                                                      child: Container(
+                                                                                                        width: 40.0,
+                                                                                                        height: 40.0,
+                                                                                                        decoration: BoxDecoration(
+                                                                                                          shape: BoxShape.circle,
+                                                                                                        ),
+                                                                                                        child: Container(
+                                                                                                          width: 40.0,
+                                                                                                          height: 40.0,
+                                                                                                          clipBehavior: Clip.antiAlias,
+                                                                                                          decoration: BoxDecoration(
+                                                                                                            shape: BoxShape.circle,
+                                                                                                          ),
+                                                                                                          child: Image.network(
+                                                                                                            getJsonField(
+                                                                                                              functions.image(getJsonField(
+                                                                                                                gropsistItem,
+                                                                                                                r'''$.groupImg''',
+                                                                                                              ).toString()),
+                                                                                                              r'''$.image''',
+                                                                                                            ),
+                                                                                                            fit: BoxFit.cover,
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                    );
+                                                                                                  }),
+                                                                                                );
+                                                                                              },
+                                                                                            ),
+                                                                                          ),
                                                                                         Padding(
                                                                                           padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
                                                                                           child: Row(

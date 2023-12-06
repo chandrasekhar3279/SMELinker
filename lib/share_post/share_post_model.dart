@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/groups_selection_popup_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -112,6 +113,8 @@ class SharePostModel extends FlutterFlowModel<SharePostWidget> {
   FocusNode? descriptionFocusNode;
   TextEditingController? descriptionController;
   String? Function(BuildContext, String?)? descriptionControllerValidator;
+  // State field(s) for Switch widget.
+  bool? switchValue;
   // Stores action output result for [Backend Call - API (shareFeed)] action in ButtonLogin widget.
   ApiCallResponse? apiResultjklCopyCopy;
 

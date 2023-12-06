@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/joined_emptylist_widget.dart';
 import '/components/withdrawrequest_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -34,9 +35,11 @@ class GroupsModel extends FlutterFlowModel<GroupsWidget> {
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
 
+  Completer<ApiCallResponse>? apiRequestCompleter1;
+  Completer<ApiCallResponse>? apiRequestCompleter2;
+  Completer<ApiCallResponse>? apiRequestCompleter3;
   // Stores action output result for [Backend Call - API ( joinGroups)] action in Container widget.
   ApiCallResponse? apiResulteey;
-  Completer<ApiCallResponse>? apiRequestCompleter;
 
   /// Initialization and disposal methods.
 
@@ -54,7 +57,7 @@ class GroupsModel extends FlutterFlowModel<GroupsWidget> {
 
   /// Additional helper methods are added here.
 
-  Future waitForApiRequestCompleted({
+  Future waitForApiRequestCompleted1({
     double minWait = 0,
     double maxWait = double.infinity,
   }) async {
@@ -62,7 +65,37 @@ class GroupsModel extends FlutterFlowModel<GroupsWidget> {
     while (true) {
       await Future.delayed(Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = apiRequestCompleter?.isCompleted ?? false;
+      final requestComplete = apiRequestCompleter1?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
+
+  Future waitForApiRequestCompleted2({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = apiRequestCompleter2?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
+
+  Future waitForApiRequestCompleted3({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = apiRequestCompleter3?.isCompleted ?? false;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
         break;
       }

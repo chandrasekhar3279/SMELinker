@@ -14,12 +14,14 @@ dynamic shareFeed(
   String? topic,
   String? feedUrl,
   String? description,
+  bool isPublic,
 ) {
   return {
     "title": title,
     "topic": topic,
     "feedUrl": feedUrl,
-    "description": description
+    "description": description,
+    "isPublic": isPublic
   };
 }
 

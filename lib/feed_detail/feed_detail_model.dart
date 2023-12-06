@@ -72,10 +72,10 @@ class FeedDetailModel extends FlutterFlowModel<FeedDetailWidget> {
 
   // Stores action output result for [Backend Call - API (getTaggableUsers)] action in commentText widget.
   ApiCallResponse? gettingTagableAPIres;
-  Completer<ApiCallResponse>? apiRequestCompleter1;
+  Completer<ApiCallResponse>? apiRequestCompleter2;
   // Stores action output result for [Backend Call - API (submitFeedComment)] action in sendComment widget.
   ApiCallResponse? apiResult6c1;
-  Completer<ApiCallResponse>? apiRequestCompleter2;
+  Completer<ApiCallResponse>? apiRequestCompleter1;
   // Models for MoreDetails dynamic component.
   late FlutterFlowDynamicModels<MoreDetailsModel> moreDetailsModels;
 
@@ -98,21 +98,6 @@ class FeedDetailModel extends FlutterFlowModel<FeedDetailWidget> {
 
   /// Additional helper methods are added here.
 
-  Future waitForApiRequestCompleted1({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = apiRequestCompleter1?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
-
   Future waitForApiRequestCompleted2({
     double minWait = 0,
     double maxWait = double.infinity,
@@ -122,6 +107,21 @@ class FeedDetailModel extends FlutterFlowModel<FeedDetailWidget> {
       await Future.delayed(Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
       final requestComplete = apiRequestCompleter2?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
+
+  Future waitForApiRequestCompleted1({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = apiRequestCompleter1?.isCompleted ?? false;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
         break;
       }

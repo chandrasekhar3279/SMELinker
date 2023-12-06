@@ -1,10 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/select_image_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -566,6 +568,31 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     return;
                                   }
                                 }
+
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return WebViewAware(
+                                        child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: Container(
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                1.0,
+                                        child: SelectImageWidget(
+                                          selectedImage:
+                                              _model.uploadedLocalFile,
+                                          cropShape: 'square',
+                                          cropPercentage: random_data
+                                              .randomDouble(0.0, 1.0),
+                                        ),
+                                      ),
+                                    ));
+                                  },
+                                ).then((value) => safeSetState(() {}));
                               },
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
@@ -888,6 +915,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                 ));
                                               },
                                             );
+                                            Navigator.pop(context);
 
                                             context.goNamed('Profile');
 

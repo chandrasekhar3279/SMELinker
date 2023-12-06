@@ -1,10 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/select_image_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'edit_profile_widget.dart' show EditProfileWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +20,8 @@ class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
   ///  Local state fields for this component.
 
   bool isImageUploaded = false;
+
+  FFUploadedFile? croppedImagePageState;
 
   ///  State fields for stateful widgets in this component.
 

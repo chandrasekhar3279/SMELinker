@@ -1090,6 +1090,88 @@ class FFAppState extends ChangeNotifier {
   set groupsearch(bool _value) {
     _groupsearch = _value;
   }
+
+  bool _selectGroupsPopup = false;
+  bool get selectGroupsPopup => _selectGroupsPopup;
+  set selectGroupsPopup(bool _value) {
+    _selectGroupsPopup = _value;
+  }
+
+  List<int> _groupsData = [];
+  List<int> get groupsData => _groupsData;
+  set groupsData(List<int> _value) {
+    _groupsData = _value;
+  }
+
+  void addToGroupsData(int _value) {
+    _groupsData.add(_value);
+  }
+
+  void removeFromGroupsData(int _value) {
+    _groupsData.remove(_value);
+  }
+
+  void removeAtIndexFromGroupsData(int _index) {
+    _groupsData.removeAt(_index);
+  }
+
+  void updateGroupsDataAtIndex(
+    int _index,
+    int Function(int) updateFn,
+  ) {
+    _groupsData[_index] = updateFn(_groupsData[_index]);
+  }
+
+  void insertAtIndexInGroupsData(int _index, int _value) {
+    _groupsData.insert(_index, _value);
+  }
+
+  bool _groupsAvailable = false;
+  bool get groupsAvailable => _groupsAvailable;
+  set groupsAvailable(bool _value) {
+    _groupsAvailable = _value;
+  }
+
+  String _uploadCroppedImage = '';
+  String get uploadCroppedImage => _uploadCroppedImage;
+  set uploadCroppedImage(String _value) {
+    _uploadCroppedImage = _value;
+  }
+
+  List<int> _croppedImageBytes = [];
+  List<int> get croppedImageBytes => _croppedImageBytes;
+  set croppedImageBytes(List<int> _value) {
+    _croppedImageBytes = _value;
+  }
+
+  void addToCroppedImageBytes(int _value) {
+    _croppedImageBytes.add(_value);
+  }
+
+  void removeFromCroppedImageBytes(int _value) {
+    _croppedImageBytes.remove(_value);
+  }
+
+  void removeAtIndexFromCroppedImageBytes(int _index) {
+    _croppedImageBytes.removeAt(_index);
+  }
+
+  void updateCroppedImageBytesAtIndex(
+    int _index,
+    int Function(int) updateFn,
+  ) {
+    _croppedImageBytes[_index] = updateFn(_croppedImageBytes[_index]);
+  }
+
+  void insertAtIndexInCroppedImageBytes(int _index, int _value) {
+    _croppedImageBytes.insert(_index, _value);
+  }
+
+  String _croppedImage = '';
+  String get croppedImage => _croppedImage;
+  set croppedImage(String _value) {
+    _croppedImage = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

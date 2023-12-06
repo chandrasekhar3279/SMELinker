@@ -259,6 +259,9 @@ class SmeGroup {
   static GetReqJoinedGroupsCall getReqJoinedGroupsCall =
       GetReqJoinedGroupsCall();
   static JoinGroupsCall joinGroupsCall = JoinGroupsCall();
+  static GetGroupBannerCall getGroupBannerCall = GetGroupBannerCall();
+  static GetGroupDetailsCall getGroupDetailsCall = GetGroupDetailsCall();
+  static LeaveGroupCall leaveGroupCall = LeaveGroupCall();
 }
 
 class LoginAuthenticationCall {
@@ -418,6 +421,11 @@ class GetFeedCall {
   dynamic commentList(dynamic response) => getJsonField(
         response,
         r'''$.feed[:].latestFeedComment..commentText''',
+        true,
+      );
+  dynamic groupsData(dynamic response) => getJsonField(
+        response,
+        r'''$.feed[:].groupsData''',
         true,
       );
 }
@@ -1529,7 +1537,9 @@ class ShareFeedCall {
     FFUploadedFile? featuredImage,
     FFUploadedFile? document,
     String? accessToken = '',
+    List<int>? selectedGroupsList,
   }) async {
+    final selectedGroups = _serializeList(selectedGroupsList);
     final data = _serializeJson(dataJson);
 
     return ApiManager.instance.makeApiCall(
@@ -1547,6 +1557,7 @@ class ShareFeedCall {
         'data': data,
         'featuredImage': featuredImage,
         'document': document,
+        'selectedGroups': selectedGroups,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,
@@ -3880,6 +3891,11 @@ class GetCategoryWiseGrowthCardsCall {
         r'''$''',
         true,
       );
+  dynamic groupList(dynamic response) => getJsonField(
+        response,
+        r'''$[:].growthCardViewList[:].groupsData[:]''',
+        true,
+      );
 }
 
 class GetCategoryWiseGrowthPartnersCall {
@@ -4516,6 +4532,7 @@ class GetAllJoinedGroupsCall {
   dynamic requestedgroups(dynamic response) => getJsonField(
         response,
         r'''$''',
+        true,
       );
 }
 
@@ -4577,6 +4594,84 @@ class JoinGroupsCall {
       },
       params: {
         'data': data,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+class GetGroupBannerCall {
+  Future<ApiCallResponse> call({
+    String? accessToken = '',
+    int? groupId,
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getGroupBanner',
+      apiUrl: '${SmeGroup.baseUrl}/getGroupBanner/${groupId}',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${accessToken}',
+        'Accept': 'application/json',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+class GetGroupDetailsCall {
+  Future<ApiCallResponse> call({
+    String? accessToken = '',
+    int? groupId,
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: ' getGroupDetails',
+      apiUrl: '${SmeGroup.baseUrl}/getGroupDetails/${groupId}',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${accessToken}',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic membersList(dynamic response) => getJsonField(
+        response,
+        r'''$.groupMemberViews''',
+        true,
+      );
+}
+
+class LeaveGroupCall {
+  Future<ApiCallResponse> call({
+    int? groupId,
+    String? accessToken = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: ' leaveGroup',
+      apiUrl: '${SmeGroup.baseUrl}/leaveGroup',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${accessToken}',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      params: {
+        'groupId': groupId,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,

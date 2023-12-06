@@ -12,7 +12,12 @@ import 'group_edit_model.dart';
 export 'group_edit_model.dart';
 
 class GroupEditWidget extends StatefulWidget {
-  const GroupEditWidget({Key? key}) : super(key: key);
+  const GroupEditWidget({
+    Key? key,
+    this.groupId,
+  }) : super(key: key);
+
+  final int? groupId;
 
   @override
   _GroupEditWidgetState createState() => _GroupEditWidgetState();
@@ -122,13 +127,16 @@ class _GroupEditWidgetState extends State<GroupEditWidget> {
                             await showModalBottomSheet(
                               isScrollControlled: true,
                               backgroundColor: Colors.transparent,
+                              isDismissible: false,
                               enableDrag: false,
                               context: context,
                               builder: (context) {
                                 return WebViewAware(
                                     child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: ConfirmAlertWidget(),
+                                  child: ConfirmAlertWidget(
+                                    groupId: widget.groupId,
+                                  ),
                                 ));
                               },
                             ).then((value) => safeSetState(() {}));
@@ -160,42 +168,45 @@ class _GroupEditWidgetState extends State<GroupEditWidget> {
                 ),
               ),
             ),
-            Container(
-              width: double.infinity,
-              height: 60.0,
-              decoration: BoxDecoration(),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Report this group',
-                              style: FlutterFlowTheme.of(context).labelLarge,
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 8.0, 8.0, 8.0),
-                              child: Icon(
-                                Icons.flag_sharp,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 20.0,
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
+              child: Container(
+                width: double.infinity,
+                height: 60.0,
+                decoration: BoxDecoration(),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 0.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Report this group',
+                                style: FlutterFlowTheme.of(context).labelLarge,
                               ),
-                            ),
-                          ],
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 8.0, 8.0, 8.0),
+                                child: Icon(
+                                  Icons.flag_sharp,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 20.0,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
