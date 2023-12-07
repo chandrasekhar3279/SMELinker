@@ -448,7 +448,7 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
                     child: PagedListView<ApiPagingParams, dynamic>(
                       pagingController: _model.setListViewController(
                         (nextPageMarker) => SmeGroup.getAnswersCall.call(

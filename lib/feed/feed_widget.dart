@@ -643,37 +643,53 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                             crossAxisAlignment:
                                                                                 CrossAxisAlignment.start,
                                                                             children: [
-                                                                              if ((getJsonField(
-                                                                                        feedItem,
-                                                                                        r'''$.companyLogo''',
-                                                                                      ) !=
-                                                                                      null) &&
-                                                                                  (getJsonField(
-                                                                                        feedItem,
-                                                                                        r'''$.companyLogo''',
-                                                                                      ) !=
-                                                                                      ''))
-                                                                                Container(
-                                                                                  width: 40.0,
-                                                                                  height: 40.0,
-                                                                                  clipBehavior: Clip.antiAlias,
-                                                                                  decoration: BoxDecoration(
-                                                                                    shape: BoxShape.circle,
-                                                                                  ),
-                                                                                  child: Image.network(
-                                                                                    valueOrDefault<String>(
-                                                                                      getJsonField(
-                                                                                        functions.image(getJsonField(
-                                                                                          feedItem,
-                                                                                          r'''$.companyLogo''',
-                                                                                        ).toString()),
-                                                                                        r'''$.image''',
-                                                                                      ),
-                                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
-                                                                                    ),
-                                                                                    fit: BoxFit.contain,
+                                                                              Container(
+                                                                                width: 40.0,
+                                                                                height: 40.0,
+                                                                                decoration: BoxDecoration(
+                                                                                  shape: BoxShape.circle,
+                                                                                  border: Border.all(
+                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                    width: 2.0,
                                                                                   ),
                                                                                 ),
+                                                                                child: Visibility(
+                                                                                  visible: (getJsonField(
+                                                                                            feedItem,
+                                                                                            r'''$.companyLogo''',
+                                                                                          ) !=
+                                                                                          null) &&
+                                                                                      (getJsonField(
+                                                                                            feedItem,
+                                                                                            r'''$.companyLogo''',
+                                                                                          ) !=
+                                                                                          ''),
+                                                                                  child: Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                                                                    child: Container(
+                                                                                      width: 40.0,
+                                                                                      height: 40.0,
+                                                                                      clipBehavior: Clip.antiAlias,
+                                                                                      decoration: BoxDecoration(
+                                                                                        shape: BoxShape.circle,
+                                                                                      ),
+                                                                                      child: Image.network(
+                                                                                        valueOrDefault<String>(
+                                                                                          getJsonField(
+                                                                                            functions.image(getJsonField(
+                                                                                              feedItem,
+                                                                                              r'''$.companyLogo''',
+                                                                                            ).toString()),
+                                                                                            r'''$.image''',
+                                                                                          ),
+                                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                        ),
+                                                                                        fit: BoxFit.contain,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
                                                                               if ((getJsonField(
                                                                                         feedItem,
                                                                                         r'''$.companyLogo''',
@@ -937,9 +953,6 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                             .infinity,
                                                                         decoration:
                                                                             BoxDecoration(),
-                                                                        alignment: AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
                                                                         child:
                                                                             Visibility(
                                                                           visible: getJsonField(
@@ -948,84 +961,88 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                               ) !=
                                                                               null,
                                                                           child:
-                                                                              Builder(
-                                                                            builder:
-                                                                                (context) {
-                                                                              final groupsData = getJsonField(
-                                                                                feedItem,
-                                                                                r'''$.groupsData[:]''',
-                                                                              ).toList();
-                                                                              return SingleChildScrollView(
-                                                                                scrollDirection: Axis.horizontal,
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                                                  children: List.generate(groupsData.length, (groupsDataIndex) {
-                                                                                    final groupsDataItem = groupsData[groupsDataIndex];
-                                                                                    return Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                                      child: AlignedTooltip(
-                                                                                        content: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
-                                                                                            child: Text(
-                                                                                              getJsonField(
-                                                                                                groupsDataItem,
-                                                                                                r'''$.groupName''',
-                                                                                              ).toString(),
-                                                                                              style: FlutterFlowTheme.of(context).bodyLarge.override(
-                                                                                                    fontFamily: 'Roboto',
-                                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                                  ),
-                                                                                            )),
-                                                                                        offset: 4.0,
-                                                                                        preferredDirection: AxisDirection.up,
-                                                                                        borderRadius: BorderRadius.circular(8.0),
-                                                                                        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                        elevation: 4.0,
-                                                                                        tailBaseWidth: 24.0,
-                                                                                        tailLength: 12.0,
-                                                                                        waitDuration: Duration(milliseconds: 100),
-                                                                                        showDuration: Duration(milliseconds: 1500),
-                                                                                        triggerMode: TooltipTriggerMode.tap,
-                                                                                        child: Container(
-                                                                                          width: MediaQuery.sizeOf(context).width * 0.12,
-                                                                                          height: MediaQuery.sizeOf(context).width * 0.12,
-                                                                                          decoration: BoxDecoration(
-                                                                                            color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                            shape: BoxShape.circle,
-                                                                                            border: Border.all(
-                                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                                              width: 2.0,
-                                                                                            ),
-                                                                                          ),
-                                                                                          child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
-                                                                                            child: Container(
-                                                                                              width: 11.0,
-                                                                                              height: 11.0,
-                                                                                              clipBehavior: Clip.antiAlias,
-                                                                                              decoration: BoxDecoration(
-                                                                                                shape: BoxShape.circle,
-                                                                                              ),
-                                                                                              child: Image.network(
+                                                                              Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                6.0,
+                                                                                0.0,
+                                                                                6.0),
+                                                                            child:
+                                                                                Builder(
+                                                                              builder: (context) {
+                                                                                final groupsData = getJsonField(
+                                                                                  feedItem,
+                                                                                  r'''$.groupsData[:]''',
+                                                                                ).toList();
+                                                                                return SingleChildScrollView(
+                                                                                  scrollDirection: Axis.horizontal,
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                                                    children: List.generate(groupsData.length, (groupsDataIndex) {
+                                                                                      final groupsDataItem = groupsData[groupsDataIndex];
+                                                                                      return Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                        child: AlignedTooltip(
+                                                                                          content: Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                              child: Text(
                                                                                                 getJsonField(
-                                                                                                  functions.image(getJsonField(
-                                                                                                    groupsDataItem,
-                                                                                                    r'''$.groupImg''',
-                                                                                                  ).toString()),
-                                                                                                  r'''$.image''',
+                                                                                                  groupsDataItem,
+                                                                                                  r'''$.groupName''',
+                                                                                                ).toString(),
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                              )),
+                                                                                          offset: 4.0,
+                                                                                          preferredDirection: AxisDirection.up,
+                                                                                          borderRadius: BorderRadius.circular(8.0),
+                                                                                          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                          elevation: 4.0,
+                                                                                          tailBaseWidth: 24.0,
+                                                                                          tailLength: 12.0,
+                                                                                          waitDuration: Duration(milliseconds: 100),
+                                                                                          showDuration: Duration(milliseconds: 1500),
+                                                                                          triggerMode: TooltipTriggerMode.tap,
+                                                                                          child: Container(
+                                                                                            width: 35.0,
+                                                                                            height: 35.0,
+                                                                                            decoration: BoxDecoration(
+                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                              shape: BoxShape.circle,
+                                                                                              border: Border.all(
+                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                                width: 1.0,
+                                                                                              ),
+                                                                                            ),
+                                                                                            child: Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(1.0, 1.0, 1.0, 1.0),
+                                                                                              child: Container(
+                                                                                                width: 11.0,
+                                                                                                height: 11.0,
+                                                                                                clipBehavior: Clip.antiAlias,
+                                                                                                decoration: BoxDecoration(
+                                                                                                  shape: BoxShape.circle,
                                                                                                 ),
-                                                                                                fit: BoxFit.cover,
+                                                                                                child: Image.network(
+                                                                                                  getJsonField(
+                                                                                                    functions.image(getJsonField(
+                                                                                                      groupsDataItem,
+                                                                                                      r'''$.groupImg''',
+                                                                                                    ).toString()),
+                                                                                                    r'''$.image''',
+                                                                                                  ),
+                                                                                                  fit: BoxFit.cover,
+                                                                                                ),
                                                                                               ),
                                                                                             ),
                                                                                           ),
                                                                                         ),
-                                                                                      ),
-                                                                                    );
-                                                                                  }),
-                                                                                ),
-                                                                              );
-                                                                            },
+                                                                                      );
+                                                                                    }),
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),

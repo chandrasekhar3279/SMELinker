@@ -810,7 +810,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                           ),
                                                                                         ),
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
                                                                                           child: Row(
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             children: [
@@ -819,24 +819,35 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                     r'''$.growthPartnerLogo''',
                                                                                                   ) !=
                                                                                                   null)
-                                                                                                Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Container(
-                                                                                                    width: 24.0,
-                                                                                                    height: 24.0,
-                                                                                                    clipBehavior: Clip.antiAlias,
-                                                                                                    decoration: BoxDecoration(
-                                                                                                      shape: BoxShape.circle,
+                                                                                                Container(
+                                                                                                  width: 40.0,
+                                                                                                  height: 40.0,
+                                                                                                  decoration: BoxDecoration(
+                                                                                                    shape: BoxShape.circle,
+                                                                                                    border: Border.all(
+                                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                                      width: 2.0,
                                                                                                     ),
-                                                                                                    child: Image.network(
-                                                                                                      getJsonField(
-                                                                                                        functions.image(getJsonField(
-                                                                                                          featuredGrowthCardItemItem,
-                                                                                                          r'''$.growthPartnerLogo''',
-                                                                                                        ).toString()),
-                                                                                                        r'''$.image''',
+                                                                                                  ),
+                                                                                                  child: Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                                                    child: Container(
+                                                                                                      width: 24.0,
+                                                                                                      height: 24.0,
+                                                                                                      clipBehavior: Clip.antiAlias,
+                                                                                                      decoration: BoxDecoration(
+                                                                                                        shape: BoxShape.circle,
                                                                                                       ),
-                                                                                                      fit: BoxFit.contain,
+                                                                                                      child: Image.network(
+                                                                                                        getJsonField(
+                                                                                                          functions.image(getJsonField(
+                                                                                                            featuredGrowthCardItemItem,
+                                                                                                            r'''$.growthPartnerLogo''',
+                                                                                                          ).toString()),
+                                                                                                          r'''$.image''',
+                                                                                                        ),
+                                                                                                        fit: BoxFit.contain,
+                                                                                                      ),
                                                                                                     ),
                                                                                                   ),
                                                                                                 ),
@@ -845,32 +856,29 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                     r'''$.growthPartnerLogo''',
                                                                                                   ) ==
                                                                                                   null)
-                                                                                                Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Container(
-                                                                                                    width: 24.0,
-                                                                                                    height: 24.0,
-                                                                                                    decoration: BoxDecoration(
-                                                                                                      color: Color(0xFFFA6400),
-                                                                                                      shape: BoxShape.circle,
-                                                                                                    ),
-                                                                                                    child: Row(
-                                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                                                                      children: [
-                                                                                                        Text(
-                                                                                                          functions.profilePicName(getJsonField(
-                                                                                                            featuredGrowthCardItemItem,
-                                                                                                            r'''$.growthPartnerName''',
-                                                                                                          ).toString()),
-                                                                                                          textAlign: TextAlign.center,
-                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                fontFamily: 'Roboto',
-                                                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                                              ),
-                                                                                                        ),
-                                                                                                      ],
-                                                                                                    ),
+                                                                                                Container(
+                                                                                                  width: 40.0,
+                                                                                                  height: 40.0,
+                                                                                                  decoration: BoxDecoration(
+                                                                                                    color: Color(0xFFFA6400),
+                                                                                                    shape: BoxShape.circle,
+                                                                                                  ),
+                                                                                                  child: Row(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                    children: [
+                                                                                                      Text(
+                                                                                                        functions.profilePicName(getJsonField(
+                                                                                                          featuredGrowthCardItemItem,
+                                                                                                          r'''$.growthPartnerName''',
+                                                                                                        ).toString()),
+                                                                                                        textAlign: TextAlign.center,
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                              fontFamily: 'Roboto',
+                                                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                                                            ),
+                                                                                                      ),
+                                                                                                    ],
                                                                                                   ),
                                                                                                 ),
                                                                                               Padding(
@@ -970,13 +978,13 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
                                                                                                       child: AlignedTooltip(
                                                                                                         content: Padding(
-                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                                                                                                             child: Text(
                                                                                                               getJsonField(
                                                                                                                 gropsistItem,
                                                                                                                 r'''$.groupName''',
                                                                                                               ).toString(),
-                                                                                                              style: FlutterFlowTheme.of(context).bodyLarge,
+                                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
                                                                                                             )),
                                                                                                         offset: 4.0,
                                                                                                         preferredDirection: AxisDirection.up,
@@ -989,17 +997,17 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                         showDuration: Duration(milliseconds: 800),
                                                                                                         triggerMode: TooltipTriggerMode.tap,
                                                                                                         child: Container(
-                                                                                                          width: 42.0,
-                                                                                                          height: 42.0,
+                                                                                                          width: 35.0,
+                                                                                                          height: 35.0,
                                                                                                           decoration: BoxDecoration(
                                                                                                             shape: BoxShape.circle,
                                                                                                             border: Border.all(
                                                                                                               color: FlutterFlowTheme.of(context).primary,
-                                                                                                              width: 2.0,
+                                                                                                              width: 1.0,
                                                                                                             ),
                                                                                                           ),
                                                                                                           child: Padding(
-                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(1.0, 1.0, 1.0, 1.0),
                                                                                                             child: Container(
                                                                                                               width: 40.0,
                                                                                                               height: 40.0,
@@ -1384,7 +1392,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                           ),
                                                                                         ),
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
                                                                                           child: Row(
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             children: [
@@ -1393,24 +1401,33 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                     r'''$.growthPartnerLogo''',
                                                                                                   ) !=
                                                                                                   null)
-                                                                                                Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Container(
-                                                                                                    width: 24.0,
-                                                                                                    height: 24.0,
-                                                                                                    clipBehavior: Clip.antiAlias,
-                                                                                                    decoration: BoxDecoration(
-                                                                                                      shape: BoxShape.circle,
+                                                                                                Container(
+                                                                                                  width: 40.0,
+                                                                                                  height: 40.0,
+                                                                                                  decoration: BoxDecoration(
+                                                                                                    shape: BoxShape.circle,
+                                                                                                    border: Border.all(
+                                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                                      width: 2.0,
                                                                                                     ),
-                                                                                                    child: Image.network(
-                                                                                                      getJsonField(
-                                                                                                        functions.image(getJsonField(
-                                                                                                          growthCardsItem,
-                                                                                                          r'''$.growthPartnerLogo''',
-                                                                                                        ).toString()),
-                                                                                                        r'''$.image''',
+                                                                                                  ),
+                                                                                                  child: Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                                                    child: Container(
+                                                                                                      clipBehavior: Clip.antiAlias,
+                                                                                                      decoration: BoxDecoration(
+                                                                                                        shape: BoxShape.circle,
                                                                                                       ),
-                                                                                                      fit: BoxFit.contain,
+                                                                                                      child: Image.network(
+                                                                                                        getJsonField(
+                                                                                                          functions.image(getJsonField(
+                                                                                                            growthCardsItem,
+                                                                                                            r'''$.growthPartnerLogo''',
+                                                                                                          ).toString()),
+                                                                                                          r'''$.image''',
+                                                                                                        ),
+                                                                                                        fit: BoxFit.contain,
+                                                                                                      ),
                                                                                                     ),
                                                                                                   ),
                                                                                                 ),
@@ -1419,32 +1436,29 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                     r'''$.growthPartnerLogo''',
                                                                                                   ) ==
                                                                                                   null)
-                                                                                                Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Container(
-                                                                                                    width: 24.0,
-                                                                                                    height: 24.0,
-                                                                                                    decoration: BoxDecoration(
-                                                                                                      color: Color(0xFFFA6400),
-                                                                                                      shape: BoxShape.circle,
-                                                                                                    ),
-                                                                                                    child: Row(
-                                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                                                                      children: [
-                                                                                                        Text(
-                                                                                                          functions.profilePicName(getJsonField(
-                                                                                                            growthCardsItem,
-                                                                                                            r'''$.growthPartnerName''',
-                                                                                                          ).toString()),
-                                                                                                          textAlign: TextAlign.center,
-                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                fontFamily: 'Roboto',
-                                                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                                              ),
-                                                                                                        ),
-                                                                                                      ],
-                                                                                                    ),
+                                                                                                Container(
+                                                                                                  width: 40.0,
+                                                                                                  height: 40.0,
+                                                                                                  decoration: BoxDecoration(
+                                                                                                    color: Color(0xFFFA6400),
+                                                                                                    shape: BoxShape.circle,
+                                                                                                  ),
+                                                                                                  child: Row(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                    children: [
+                                                                                                      Text(
+                                                                                                        functions.profilePicName(getJsonField(
+                                                                                                          growthCardsItem,
+                                                                                                          r'''$.growthPartnerName''',
+                                                                                                        ).toString()),
+                                                                                                        textAlign: TextAlign.center,
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                              fontFamily: 'Roboto',
+                                                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                                                            ),
+                                                                                                      ),
+                                                                                                    ],
                                                                                                   ),
                                                                                                 ),
                                                                                               Padding(
@@ -1529,7 +1543,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                             ) !=
                                                                                             null)
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
                                                                                             child: Builder(
                                                                                               builder: (context) {
                                                                                                 final gropsist = getJsonField(
@@ -1550,7 +1564,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                                 gropsistItem,
                                                                                                                 r'''$.groupName''',
                                                                                                               ).toString(),
-                                                                                                              style: FlutterFlowTheme.of(context).bodyLarge,
+                                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
                                                                                                             )),
                                                                                                         offset: 4.0,
                                                                                                         preferredDirection: AxisDirection.up,
@@ -1563,20 +1577,18 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                         showDuration: Duration(milliseconds: 800),
                                                                                                         triggerMode: TooltipTriggerMode.tap,
                                                                                                         child: Container(
-                                                                                                          width: 42.0,
-                                                                                                          height: 42.0,
+                                                                                                          width: 35.0,
+                                                                                                          height: 35.0,
                                                                                                           decoration: BoxDecoration(
                                                                                                             shape: BoxShape.circle,
                                                                                                             border: Border.all(
                                                                                                               color: FlutterFlowTheme.of(context).primary,
-                                                                                                              width: 2.0,
+                                                                                                              width: 1.0,
                                                                                                             ),
                                                                                                           ),
                                                                                                           child: Padding(
-                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(1.0, 1.0, 1.0, 1.0),
                                                                                                             child: Container(
-                                                                                                              width: 40.0,
-                                                                                                              height: 40.0,
                                                                                                               clipBehavior: Clip.antiAlias,
                                                                                                               decoration: BoxDecoration(
                                                                                                                 shape: BoxShape.circle,

@@ -1442,7 +1442,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                         },
                                         activeColor:
                                             FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .accent1,
                                         activeTrackColor:
                                             FlutterFlowTheme.of(context)
                                                 .accent1,
@@ -1516,23 +1516,26 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .accent2,
+                                                      .secondaryBackground,
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
                                                       ),
                                               elevation: 3.0,
                                               borderSide: BorderSide(
-                                                color: Colors.transparent,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
                                                 width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(24.0),
                                             ),
                                           ),
                                         ),
@@ -1541,80 +1544,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                   ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20.0, 0.0, 20.0, 12.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      if (false)
-                                        Flexible(
-                                          child: Wrap(
-                                            spacing: 0.0,
-                                            runSpacing: 0.0,
-                                            alignment: WrapAlignment.start,
-                                            crossAxisAlignment:
-                                                WrapCrossAlignment.start,
-                                            direction: Axis.horizontal,
-                                            runAlignment: WrapAlignment.start,
-                                            verticalDirection:
-                                                VerticalDirection.down,
-                                            clipBehavior: Clip.none,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 4.0, 0.0, 4.0),
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFFC0D7FF),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30.0),
-                                                    shape: BoxShape.rectangle,
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 8.0,
-                                                                10.0, 8.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Flexible(
-                                                          child: Text(
-                                                            FFAppState()
-                                                                .groupsData
-                                                                .length
-                                                                .toString(),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Icon(
-                                                          Icons.close_sharp,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          size: 20.0,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 30.0, 24.0, 30.0),
+                                      16.0, 16.0, 24.0, 30.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       setState(() {

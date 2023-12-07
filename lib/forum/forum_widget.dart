@@ -303,521 +303,522 @@ class _ForumWidgetState extends State<ForumWidget> {
               ),
               body: SafeArea(
                 top: true,
-                child: FutureBuilder<ApiCallResponse>(
-                  future: SmeGroup.getTopActiveCall.call(
-                    accessToken: FFAppState().accessToken,
-                  ),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
-                          child: SpinKitFadingCircle(
-                            color: FlutterFlowTheme.of(context).secondary,
-                            size: 50.0,
-                          ),
-                        ),
-                      );
-                    }
-                    final columnGetTopActiveResponse = snapshot.data!;
-                    return InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        FFAppState().showForumQuestionActions = false;
-                        FFAppState().showForumAnswerActions = false;
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 20.0, 0.0, 0.0),
-                            child: Text(
-                              'Need help? Ask a question  to the community.',
-                              textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context).bodyLarge,
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                  child: FutureBuilder<ApiCallResponse>(
+                    future: SmeGroup.getTopActiveCall.call(
+                      accessToken: FFAppState().accessToken,
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: SpinKitFadingCircle(
+                              color: FlutterFlowTheme.of(context).secondary,
+                              size: 50.0,
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 8.0),
-                            child: FlutterFlowChoiceChips(
-                              options: [
-                                ChipData('All'),
-                                ChipData('Top Active')
-                              ],
-                              onChanged: (val) => setState(
-                                  () => _model.choiceChipsValue = val?.first),
-                              selectedChipStyle: ChipStyle(
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: Colors.white,
-                                    ),
-                                iconColor: Colors.white,
-                                iconSize: 0.0,
-                                labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                elevation: 4.0,
-                              ),
-                              unselectedChipStyle: ChipStyle(
-                                backgroundColor: Colors.white,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      fontSize: 12.0,
-                                    ),
-                                iconColor:
-                                    FlutterFlowTheme.of(context).primaryText,
-                                iconSize: 18.0,
-                                labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                elevation: 1.0,
-                              ),
-                              chipSpacing: 20.0,
-                              rowSpacing: 12.0,
-                              multiselect: false,
-                              initialized: _model.choiceChipsValue != null,
-                              alignment: WrapAlignment.start,
-                              controller: _model.choiceChipsValueController ??=
-                                  FormFieldController<List<String>>(
-                                ['All'],
-                              ),
-                              wrapped: true,
-                            ),
-                          ),
-                          Expanded(
-                            child: Padding(
+                        );
+                      }
+                      final columnGetTopActiveResponse = snapshot.data!;
+                      return InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          FFAppState().showForumQuestionActions = false;
+                          FFAppState().showForumAnswerActions = false;
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 12.0, 16.0, 0.0),
+                                  0.0, 20.0, 0.0, 0.0),
+                              child: Text(
+                                'Need help? Ask a question  to the community.',
+                                textAlign: TextAlign.start,
+                                style: FlutterFlowTheme.of(context).bodyLarge,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 12.0, 0.0, 12.0),
+                              child: FlutterFlowChoiceChips(
+                                options: [
+                                  ChipData('All'),
+                                  ChipData('Top Active')
+                                ],
+                                onChanged: (val) => setState(
+                                    () => _model.choiceChipsValue = val?.first),
+                                selectedChipStyle: ChipStyle(
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: Colors.white,
+                                      ),
+                                  iconColor: Colors.white,
+                                  iconSize: 0.0,
+                                  labelPadding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 0.0),
+                                  elevation: 4.0,
+                                ),
+                                unselectedChipStyle: ChipStyle(
+                                  backgroundColor: Colors.white,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 12.0,
+                                      ),
+                                  iconColor:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  iconSize: 18.0,
+                                  labelPadding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 0.0),
+                                  elevation: 1.0,
+                                ),
+                                chipSpacing: 20.0,
+                                rowSpacing: 12.0,
+                                multiselect: false,
+                                initialized: _model.choiceChipsValue != null,
+                                alignment: WrapAlignment.start,
+                                controller:
+                                    _model.choiceChipsValueController ??=
+                                        FormFieldController<List<String>>(
+                                  ['All'],
+                                ),
+                                wrapped: true,
+                              ),
+                            ),
+                            Expanded(
                               child: SingleChildScrollView(
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     if (_model.choiceChipsValue == 'All')
-                                      FutureBuilder<ApiCallResponse>(
-                                        future: SmeGroup.getOrgDetailsCall.call(
-                                          accessToken: FFAppState().accessToken,
-                                          userId: 0,
-                                        ),
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                child: SpinKitFadingCircle(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondary,
-                                                  size: 50.0,
-                                                ),
-                                              ),
-                                            );
-                                          }
-                                          final rowGetOrgDetailsResponse =
-                                              snapshot.data!;
-                                          return Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              if (getJsonField(
-                                                    rowGetOrgDetailsResponse
-                                                        .jsonBody,
-                                                    r'''$.logo''',
-                                                  ) !=
-                                                  null)
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 8.0, 0.0, 0.0),
-                                                  child: Container(
-                                                    width: 30.0,
-                                                    height: 30.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.network(
-                                                      valueOrDefault<String>(
-                                                        getJsonField(
-                                                          functions.image(
-                                                              getJsonField(
-                                                            rowGetOrgDetailsResponse
-                                                                .jsonBody,
-                                                            r'''$.logo''',
-                                                          ).toString()),
-                                                          r'''$.image''',
-                                                        ),
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
-                                                      ),
-                                                      fit: BoxFit.contain,
-                                                    ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 12.0, 0.0, 0.0),
+                                        child: FutureBuilder<ApiCallResponse>(
+                                          future:
+                                              SmeGroup.getOrgDetailsCall.call(
+                                            accessToken:
+                                                FFAppState().accessToken,
+                                            userId: 0,
+                                          ),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  child: SpinKitFadingCircle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
+                                                    size: 50.0,
                                                   ),
                                                 ),
-                                              if (getJsonField(
-                                                    rowGetOrgDetailsResponse
-                                                        .jsonBody,
-                                                    r'''$.logo''',
-                                                  ) ==
-                                                  null)
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 8.0, 0.0, 0.0),
-                                                  child: Container(
-                                                    width: 30.0,
-                                                    height: 30.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFFFA6400),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Text(
-                                                          functions
-                                                              .profilePicName(
-                                                                  getJsonField(
-                                                            rowGetOrgDetailsResponse
-                                                                .jsonBody,
-                                                            r'''$.companyName''',
-                                                          ).toString()),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                              ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 0.0, 0.0, 0.0),
-                                                  child: Material(
-                                                    color: Colors.transparent,
-                                                    elevation: 0.0,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              40.0),
-                                                    ),
+                                              );
+                                            }
+                                            final rowGetOrgDetailsResponse =
+                                                snapshot.data!;
+                                            return Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                if (getJsonField(
+                                                      rowGetOrgDetailsResponse
+                                                          .jsonBody,
+                                                      r'''$.logo''',
+                                                    ) !=
+                                                    null)
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 8.0,
+                                                                0.0, 0.0),
                                                     child: Container(
-                                                      width: MediaQuery.sizeOf(
-                                                                  context)
-                                                              .width *
-                                                          1.0,
+                                                      width: 30.0,
+                                                      height: 30.0,
+                                                      clipBehavior:
+                                                          Clip.antiAlias,
                                                       decoration: BoxDecoration(
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: Image.network(
+                                                        valueOrDefault<String>(
+                                                          getJsonField(
+                                                            functions.image(
+                                                                getJsonField(
+                                                              rowGetOrgDetailsResponse
+                                                                  .jsonBody,
+                                                              r'''$.logo''',
+                                                            ).toString()),
+                                                            r'''$.image''',
+                                                          ),
+                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                        ),
+                                                        fit: BoxFit.contain,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                if (getJsonField(
+                                                      rowGetOrgDetailsResponse
+                                                          .jsonBody,
+                                                      r'''$.logo''',
+                                                    ) ==
+                                                    null)
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 8.0,
+                                                                0.0, 0.0),
+                                                    child: Container(
+                                                      width: 30.0,
+                                                      height: 30.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            Color(0xFFFA6400),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Text(
+                                                            functions
+                                                                .profilePicName(
+                                                                    getJsonField(
+                                                              rowGetOrgDetailsResponse
+                                                                  .jsonBody,
+                                                              r'''$.companyName''',
+                                                            ).toString()),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Material(
+                                                      color: Colors.transparent,
+                                                      elevation: 0.0,
+                                                      shape:
+                                                          RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(40.0),
                                                       ),
-                                                      child: Form(
-                                                        key: _model.formKey,
-                                                        autovalidateMode:
-                                                            AutovalidateMode
-                                                                .disabled,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Expanded(
-                                                                child: Padding(
+                                                      child: Container(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                1.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      40.0),
+                                                        ),
+                                                        child: Form(
+                                                          key: _model.formKey,
+                                                          autovalidateMode:
+                                                              AutovalidateMode
+                                                                  .disabled,
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        8.0,
+                                                                        0.0,
+                                                                        8.0,
+                                                                        0.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Expanded(
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            20.0),
+                                                                    child:
+                                                                        TextFormField(
+                                                                      controller:
+                                                                          _model
+                                                                              .questionTextController,
+                                                                      focusNode:
+                                                                          _model
+                                                                              .questionTextFocusNode,
+                                                                      onChanged:
+                                                                          (_) =>
+                                                                              EasyDebounce.debounce(
+                                                                        '_model.questionTextController',
+                                                                        Duration(
+                                                                            milliseconds:
+                                                                                100),
+                                                                        () async {
+                                                                          if ((_model.submittedForumQuestionForm == true) &&
+                                                                              ((_model.questionTextController.text != null && _model.questionTextController.text != '') || (_model.questionTextController.text == null || _model.questionTextController.text == ''))) {
+                                                                            if (_model.formKey.currentState == null ||
+                                                                                !_model.formKey.currentState!.validate()) {
+                                                                              return;
+                                                                            }
+                                                                          }
+                                                                        },
+                                                                      ),
+                                                                      textCapitalization:
+                                                                          TextCapitalization
+                                                                              .sentences,
+                                                                      obscureText:
+                                                                          false,
+                                                                      decoration:
+                                                                          InputDecoration(
+                                                                        labelStyle:
+                                                                            FlutterFlowTheme.of(context).bodyLarge,
+                                                                        hintText:
+                                                                            'Ask a question',
+                                                                        hintStyle: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .override(
+                                                                              fontFamily: 'Roboto',
+                                                                              color: FlutterFlowTheme.of(context).accent2,
+                                                                            ),
+                                                                        enabledBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).borderColor,
+                                                                            width:
+                                                                                1.0,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(40.0),
+                                                                        ),
+                                                                        focusedBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            width:
+                                                                                1.0,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(40.0),
+                                                                        ),
+                                                                        errorBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).error,
+                                                                            width:
+                                                                                1.0,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(40.0),
+                                                                        ),
+                                                                        focusedErrorBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).error,
+                                                                            width:
+                                                                                1.0,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(40.0),
+                                                                        ),
+                                                                        filled:
+                                                                            true,
+                                                                        fillColor:
+                                                                            FlutterFlowTheme.of(context).secondaryBackground,
+                                                                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                            15.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyLarge,
+                                                                      validator: _model
+                                                                          .questionTextControllerValidator
+                                                                          .asValidator(
+                                                                              context),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          20.0),
-                                                                  child:
-                                                                      TextFormField(
-                                                                    controller:
-                                                                        _model
-                                                                            .questionTextController,
-                                                                    focusNode:
-                                                                        _model
-                                                                            .questionTextFocusNode,
-                                                                    onChanged: (_) =>
-                                                                        EasyDebounce
-                                                                            .debounce(
-                                                                      '_model.questionTextController',
-                                                                      Duration(
-                                                                          milliseconds:
-                                                                              100),
-                                                                      () async {
-                                                                        if ((_model.submittedForumQuestionForm ==
-                                                                                true) &&
-                                                                            ((_model.questionTextController.text != null && _model.questionTextController.text != '') ||
-                                                                                (_model.questionTextController.text == null || _model.questionTextController.text == ''))) {
-                                                                          if (_model.formKey.currentState == null ||
-                                                                              !_model.formKey.currentState!.validate()) {
-                                                                            return;
-                                                                          }
-                                                                        }
-                                                                      },
-                                                                    ),
-                                                                    textCapitalization:
-                                                                        TextCapitalization
-                                                                            .sentences,
-                                                                    obscureText:
-                                                                        false,
-                                                                    decoration:
-                                                                        InputDecoration(
-                                                                      labelStyle:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyLarge,
-                                                                      hintText:
-                                                                          'Ask a question',
-                                                                      hintStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Roboto',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).accent2,
-                                                                          ),
-                                                                      enabledBorder:
-                                                                          OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).borderColor,
-                                                                          width:
-                                                                              1.0,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(40.0),
-                                                                      ),
-                                                                      focusedBorder:
-                                                                          OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          width:
-                                                                              1.0,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(40.0),
-                                                                      ),
-                                                                      errorBorder:
-                                                                          OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).error,
-                                                                          width:
-                                                                              1.0,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(40.0),
-                                                                      ),
-                                                                      focusedErrorBorder:
-                                                                          OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).error,
-                                                                          width:
-                                                                              1.0,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(40.0),
-                                                                      ),
-                                                                      filled:
-                                                                          true,
-                                                                      fillColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .secondaryBackground,
-                                                                      contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                          15.0,
-                                                                          0.0,
+                                                                          5.0,
                                                                           0.0,
                                                                           0.0),
+                                                                  child:
+                                                                      FlutterFlowIconButton(
+                                                                    borderColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    borderRadius:
+                                                                        30.0,
+                                                                    borderWidth:
+                                                                        1.0,
+                                                                    buttonSize:
+                                                                        40.0,
+                                                                    icon: Icon(
+                                                                      Icons
+                                                                          .send_sharp,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      size:
+                                                                          22.0,
                                                                     ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyLarge,
-                                                                    validator: _model
-                                                                        .questionTextControllerValidator
-                                                                        .asValidator(
-                                                                            context),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child:
-                                                                    FlutterFlowIconButton(
-                                                                  borderColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  borderRadius:
-                                                                      30.0,
-                                                                  borderWidth:
-                                                                      1.0,
-                                                                  buttonSize:
-                                                                      40.0,
-                                                                  icon: Icon(
-                                                                    Icons
-                                                                        .send_sharp,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    size: 22.0,
-                                                                  ),
-                                                                  showLoadingIndicator:
-                                                                      true,
-                                                                  onPressed:
-                                                                      () async {
-                                                                    setState(
-                                                                        () {
-                                                                      _model.submittedForumQuestionForm =
-                                                                          true;
-                                                                    });
-                                                                    if (_model.formKey.currentState ==
-                                                                            null ||
-                                                                        !_model
-                                                                            .formKey
-                                                                            .currentState!
-                                                                            .validate()) {
-                                                                      return;
-                                                                    }
-                                                                    _model.apiResult9fnCopyCopy =
-                                                                        await SmeGroup
-                                                                            .submitQuestionCall
-                                                                            .call(
-                                                                      accessToken:
-                                                                          FFAppState()
-                                                                              .accessToken,
-                                                                      question: _model
-                                                                          .questionTextController
-                                                                          .text,
-                                                                    );
-                                                                    if ((_model
-                                                                            .apiResult9fnCopyCopy
-                                                                            ?.succeeded ??
-                                                                        true)) {
-                                                                      await showDialog(
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (alertDialogContext) {
-                                                                          return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                            title:
-                                                                                Text('Great'),
-                                                                            content:
-                                                                                Text('We’ve received your question.'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                child: Text('Ok'),
-                                                                              ),
-                                                                            ],
-                                                                          ));
-                                                                        },
-                                                                      );
-                                                                      setState(
-                                                                          () {});
+                                                                    showLoadingIndicator:
+                                                                        true,
+                                                                    onPressed:
+                                                                        () async {
                                                                       setState(
                                                                           () {
-                                                                        _model
-                                                                            .questionTextController
-                                                                            ?.clear();
+                                                                        _model.submittedForumQuestionForm =
+                                                                            true;
                                                                       });
-
-                                                                      context.pushNamed(
-                                                                          'Forum');
-                                                                    } else {
-                                                                      await showDialog(
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (alertDialogContext) {
-                                                                          return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                            title:
-                                                                                Text('Error'),
-                                                                            content:
-                                                                                Text('This Question seems irrelevant or inappropriate and can\'t be posted'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                child: Text('Close'),
-                                                                              ),
-                                                                            ],
-                                                                          ));
-                                                                        },
+                                                                      if (_model.formKey.currentState ==
+                                                                              null ||
+                                                                          !_model
+                                                                              .formKey
+                                                                              .currentState!
+                                                                              .validate()) {
+                                                                        return;
+                                                                      }
+                                                                      _model.apiResult9fnCopyCopy = await SmeGroup
+                                                                          .submitQuestionCall
+                                                                          .call(
+                                                                        accessToken:
+                                                                            FFAppState().accessToken,
+                                                                        question: _model
+                                                                            .questionTextController
+                                                                            .text,
                                                                       );
-                                                                    }
+                                                                      if ((_model
+                                                                              .apiResult9fnCopyCopy
+                                                                              ?.succeeded ??
+                                                                          true)) {
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return WebViewAware(
+                                                                                child: AlertDialog(
+                                                                              title: Text('Great'),
+                                                                              content: Text('We’ve received your question.'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                  child: Text('Ok'),
+                                                                                ),
+                                                                              ],
+                                                                            ));
+                                                                          },
+                                                                        );
+                                                                        setState(
+                                                                            () {});
+                                                                        setState(
+                                                                            () {
+                                                                          _model
+                                                                              .questionTextController
+                                                                              ?.clear();
+                                                                        });
 
-                                                                    setState(
-                                                                        () {});
-                                                                  },
+                                                                        context.pushNamed(
+                                                                            'Forum');
+                                                                      } else {
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return WebViewAware(
+                                                                                child: AlertDialog(
+                                                                              title: Text('Error'),
+                                                                              content: Text('This Question seems irrelevant or inappropriate and can\'t be posted'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                  child: Text('Close'),
+                                                                                ),
+                                                                              ],
+                                                                            ));
+                                                                          },
+                                                                        );
+                                                                      }
+
+                                                                      setState(
+                                                                          () {});
+                                                                    },
+                                                                  ),
                                                                 ),
-                                                              ),
-                                                            ],
+                                                              ],
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
-                                          );
-                                        },
+                                              ],
+                                            );
+                                          },
+                                        ),
                                       ),
                                     if (_model.choiceChipsValue == 'All')
                                       FutureBuilder<ApiCallResponse>(
@@ -2154,11 +2155,11 @@ class _ForumWidgetState extends State<ForumWidget> {
                                 ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
+                          ],
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
