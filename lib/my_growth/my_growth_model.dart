@@ -12,6 +12,7 @@ import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'my_growth_widget.dart' show MyGrowthWidget;
+import 'package:aligned_tooltip/aligned_tooltip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -38,6 +39,8 @@ class MyGrowthModel extends FlutterFlowModel<MyGrowthWidget> {
   // Stores action output result for [Backend Call - API (bookService)] action in Container widget.
   ApiCallResponse? apiResultxhx;
   Completer<ApiCallResponse>? apiRequestCompleter;
+  // Stores action output result for [Backend Call - API (bookService)] action in Container widget.
+  ApiCallResponse? featuredServiceRes;
 
   /// Initialization and disposal methods.
 

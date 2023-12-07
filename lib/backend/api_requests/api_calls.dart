@@ -1788,6 +1788,12 @@ class GetFeaturedGrowthCardsCall {
       cache: false,
     );
   }
+
+  dynamic featuredGrowthCards(dynamic response) => getJsonField(
+        response,
+        r'''$''',
+        true,
+      );
 }
 
 class GetGCByIdCall {

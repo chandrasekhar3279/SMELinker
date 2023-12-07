@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:aligned_tooltip/aligned_tooltip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -274,179 +275,92 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                                     (groupItemsIndex) {
                                               final groupItemsItem =
                                                   groupItems[groupItemsIndex];
-                                              return Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 10.0, 10.0, 10.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      'GroupDetailpage',
-                                                      queryParameters: {
-                                                        'groupId':
-                                                            serializeParam(
-                                                          0,
-                                                          ParamType.int,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
+                                              return AlignedTooltip(
+                                                content: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(4.0, 4.0,
+                                                                4.0, 4.0),
+                                                    child: Text(
+                                                      getJsonField(
+                                                        groupItemsItem,
+                                                        r'''$.groupName''',
+                                                      ).toString(),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyLarge,
+                                                    )),
+                                                offset: 4.0,
+                                                preferredDirection:
+                                                    AxisDirection.up,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                elevation: 4.0,
+                                                tailBaseWidth: 24.0,
+                                                tailLength: 12.0,
+                                                waitDuration:
+                                                    Duration(milliseconds: 100),
+                                                showDuration: Duration(
+                                                    milliseconds: 1000),
+                                                triggerMode:
+                                                    TooltipTriggerMode.tap,
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 6.0, 0.0),
                                                   child: Container(
+                                                    width: 70.0,
+                                                    height: 70.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              16.0),
+                                                      shape: BoxShape.circle,
                                                       border: Border.all(
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
+                                                        width: 2.0,
                                                       ),
                                                     ),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  6.0,
-                                                                  6.0,
-                                                                  6.0,
-                                                                  6.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Container(
-                                                                width: 40.0,
-                                                                height: 40.0,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                child:
-                                                                    Container(
-                                                                  width: 40.0,
-                                                                  height: 40.0,
-                                                                  clipBehavior:
-                                                                      Clip.antiAlias,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    shape: BoxShape
-                                                                        .circle,
-                                                                  ),
-                                                                  child: Image
-                                                                      .network(
-                                                                    getJsonField(
-                                                                      functions
-                                                                          .image(
-                                                                              getJsonField(
-                                                                        groupItemsItem,
-                                                                        r'''$.groupImg''',
-                                                                      ).toString()),
-                                                                      r'''$.image''',
-                                                                    ),
-                                                                    fit: BoxFit
-                                                                        .contain,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Expanded(
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Text(
-                                                                    getJsonField(
-                                                                      groupItemsItem,
-                                                                      r'''$.groupName''',
-                                                                    ).toString(),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium,
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            6.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Icon(
-                                                                          Icons
-                                                                              .groups_rounded,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          size:
-                                                                              20.0,
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              6.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            functions.membersCount(getJsonField(
-                                                                              groupItemsItem,
-                                                                              r'''$.membersCount''',
-                                                                            )),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
+                                                                  2.0,
+                                                                  2.0,
+                                                                  2.0,
+                                                                  2.0),
+                                                      child: Container(
+                                                        width: 40.0,
+                                                        height: 40.0,
+                                                        clipBehavior:
+                                                            Clip.antiAlias,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Image.network(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            getJsonField(
+                                                              functions.image(
+                                                                  getJsonField(
+                                                                groupItemsItem,
+                                                                r'''$.groupImg''',
+                                                              ).toString()),
+                                                              r'''$.image''',
                                                             ),
+                                                            'https://images.unsplash.com/photo-1614436163996-25cee5f54290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80',
                                                           ),
-                                                        ],
+                                                          fit: BoxFit.contain,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),

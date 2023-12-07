@@ -104,27 +104,34 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
                                     height:
-                                        MediaQuery.sizeOf(context).height * 0.4,
+                                        MediaQuery.sizeOf(context).height * 0.5,
                                     child: Stack(
                                       children: [
                                         Align(
                                           alignment:
                                               AlignmentDirectional(0.00, 0.00),
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFF2F3F5),
-                                            ),
-                                            child: Image.asset(
-                                              'assets/images/banner-SA.png',
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 80.0, 0.0, 0.0),
+                                            child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   1.0,
-                                              height: 240.0,
-                                              fit: BoxFit.contain,
-                                              alignment: Alignment(1.00, 0.00),
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFF2F3F5),
+                                              ),
+                                              child: Image.asset(
+                                                'assets/images/banner-SA.png',
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 280.0,
+                                                fit: BoxFit.contain,
+                                                alignment:
+                                                    Alignment(1.00, 0.00),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -141,58 +148,85 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                                 ),
                                           ),
                                         ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.97, -0.89),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 5.0, 5.0, 0.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                context.pushNamed('Login');
-                                              },
-                                              text: 'Login',
-                                              options: FFButtonOptions(
-                                                height: 30.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        30.0, 0.0, 30.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color:
-                                                              Color(0xFF162959),
-                                                        ),
-                                                elevation: 0.0,
-                                                borderSide: BorderSide(
-                                                  color: Color(0xFF162959),
-                                                  width: 1.0,
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 20.0, 16.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    -0.91, -0.89),
+                                                child: Image.asset(
+                                                  'assets/images/sme_blue_bold.png',
+                                                  width: 150.0,
+                                                  height: 60.0,
+                                                  fit: BoxFit.contain,
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(30.0),
                                               ),
-                                              showLoadingIndicator: false,
-                                            ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment: AlignmentDirectional(
-                                              -0.91, -0.89),
-                                          child: Image.asset(
-                                            'assets/images/sme_blue_bold.png',
-                                            width: 120.0,
-                                            height: 50.0,
-                                            fit: BoxFit.contain,
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.97, -0.89),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 10.0, 0.0, 0.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      context
+                                                          .pushNamed('Login');
+                                                    },
+                                                    text: 'Login',
+                                                    options: FFButtonOptions(
+                                                      height: 40.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  30.0,
+                                                                  0.0,
+                                                                  30.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyLarge
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Color(
+                                                                    0xFF162959),
+                                                              ),
+                                                      elevation: 0.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Color(0xFF162959),
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              30.0),
+                                                    ),
+                                                    showLoadingIndicator: false,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ],

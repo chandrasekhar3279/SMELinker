@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/flutter_flow_youtube_player.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'package:aligned_tooltip/aligned_tooltip.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -750,23 +751,20 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
-                        child: Builder(
-                          builder: (context) {
-                            final groupsData = getJsonField(
-                              widget.feedDetail,
-                              r'''$.groupsData''',
-                            ).toList();
-                            return Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: List.generate(groupsData.length,
-                                  (groupsDataIndex) {
-                                final groupsDataItem =
-                                    groupsData[groupsDataIndex];
-                                return Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  decoration: BoxDecoration(),
-                                  alignment: AlignmentDirectional(0.00, 0.00),
-                                  child: Wrap(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Container(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              decoration: BoxDecoration(),
+                              alignment: AlignmentDirectional(0.00, 0.00),
+                              child: Builder(
+                                builder: (context) {
+                                  final gropusdata = getJsonField(
+                                    widget.feedDetail,
+                                    r'''$.groupsData''',
+                                  ).toList();
+                                  return Wrap(
                                     spacing: 0.0,
                                     runSpacing: 0.0,
                                     alignment: WrapAlignment.start,
@@ -776,151 +774,88 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                     runAlignment: WrapAlignment.start,
                                     verticalDirection: VerticalDirection.down,
                                     clipBehavior: Clip.none,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5.0, 5.0, 5.0, 5.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            context.pushNamed(
-                                              'GroupDetailpage',
-                                              queryParameters: {
-                                                'groupId': serializeParam(
-                                                  getJsonField(
-                                                    groupsDataItem,
-                                                    r'''$.groupId''',
-                                                  ),
-                                                  ParamType.int,
-                                                ),
-                                              }.withoutNulls,
-                                            );
-                                          },
-                                          child: Container(
-                                            decoration: BoxDecoration(
+                                    children: List.generate(gropusdata.length,
+                                        (gropusdataIndex) {
+                                      final gropusdataItem =
+                                          gropusdata[gropusdataIndex];
+                                      return AlignedTooltip(
+                                        content: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    4.0, 4.0, 4.0, 4.0),
+                                            child: Text(
+                                              getJsonField(
+                                                gropusdataItem,
+                                                r'''$.groupName''',
+                                              ).toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge,
+                                            )),
+                                        offset: 4.0,
+                                        preferredDirection: AxisDirection.up,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                        elevation: 4.0,
+                                        tailBaseWidth: 24.0,
+                                        tailLength: 12.0,
+                                        waitDuration:
+                                            Duration(milliseconds: 100),
+                                        showDuration:
+                                            Duration(milliseconds: 1500),
+                                        triggerMode: TooltipTriggerMode.tap,
+                                        child: Container(
+                                          width: 60.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                              ),
+                                                      .primary,
+                                              width: 2.0,
                                             ),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(6.0, 6.0, 6.0, 6.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.min,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width: 40.0,
-                                                        height: 40.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: Container(
-                                                          width: 40.0,
-                                                          height: 40.0,
-                                                          clipBehavior:
-                                                              Clip.antiAlias,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            shape:
-                                                                BoxShape.circle,
-                                                          ),
-                                                          child: Image.network(
-                                                            getJsonField(
-                                                              functions.image(
-                                                                  getJsonField(
-                                                                groupsDataItem,
-                                                                r'''$.groupImg''',
-                                                              ).toString()),
-                                                              r'''$.image''',
-                                                            ),
-                                                            fit: BoxFit.contain,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    2.0, 2.0, 2.0, 2.0),
+                                            child: Container(
+                                              width: 40.0,
+                                              height: 40.0,
+                                              clipBehavior: Clip.antiAlias,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: Image.network(
+                                                valueOrDefault<String>(
+                                                  getJsonField(
+                                                    functions
+                                                        .image(getJsonField(
+                                                      gropusdataItem,
+                                                      r'''$.groupImg''',
+                                                    ).toString()),
+                                                    r'''$.image''',
                                                   ),
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Text(
-                                                            getJsonField(
-                                                              groupsDataItem,
-                                                              r'''$.groupName''',
-                                                            ).toString(),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMedium,
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        6.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              functions
-                                                                  .membersCount(
-                                                                      getJsonField(
-                                                                groupsDataItem,
-                                                                r'''$.membersCount''',
-                                                              )),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
+                                                  'https://images.unsplash.com/photo-1614436163996-25cee5f54290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80',
+                                                ),
+                                                fit: BoxFit.contain,
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              }),
-                            );
-                          },
+                                      );
+                                    }),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       if (false)
