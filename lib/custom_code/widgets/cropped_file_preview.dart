@@ -1,4 +1,5 @@
 // Automatic FlutterFlow imports
+import '/backend/schema/structs/index.dart';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -10,16 +11,16 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 class CroppedFilePreview extends StatefulWidget {
-  const CroppedFilePreview({
-    Key? key,
-    this.width,
-    this.height,
-    this.croppedImageFile,
-  }) : super(key: key);
+  const CroppedFilePreview(
+      {Key? key,
+      this.width,
+      this.height,
+      required this.croppedImageFileToPreview})
+      : super(key: key);
 
   final double? width;
   final double? height;
-  final String? croppedImageFile;
+  final FFUploadedFile croppedImageFileToPreview;
 
   @override
   _CroppedFilePreviewState createState() => _CroppedFilePreviewState();
@@ -31,8 +32,12 @@ class _CroppedFilePreviewState extends State<CroppedFilePreview> {
     return Container(
       height: widget.height,
       width: widget.width,
-      child: widget.croppedImageFile != null
-          ? Image.memory(Uint8List.fromList(widget.croppedImageFile!.codeUnits))
+      child: widget.croppedImageFileToPreview != null
+          ? Container(
+              child: Image.memory(widget
+                  .croppedImageFileToPreview!.bytes!.buffer
+                  .asUint8List()),
+            )
           : const SizedBox.shrink(),
     );
   }

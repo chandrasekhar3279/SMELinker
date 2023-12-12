@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -65,45 +64,20 @@ class _SelectImageWidgetState extends State<SelectImageWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Expanded(
+              Container(
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: 400.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                ),
                 child: Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      Navigator.pop(context);
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      height: double.infinity,
-                      child: custom_widgets.CropImageViewWidget(
-                        width: double.infinity,
-                        height: double.infinity,
-                        cropShape: widget.cropShape!,
-                        cropPercentage: widget.cropPercentage!,
-                        resetText: 'Reset',
-                        zoomText: 'Zoom',
-                        rotateText: 'Rotate',
-                        saveText: 'Save',
-                        cancelText: 'Cancel',
-                        originalImage: widget.selectedImage!,
-                        onCancel: () async {
-                          await actions.clearCroppImageShareCache();
-                          Navigator.pop(context);
-                        },
-                        onCrop: () async {
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ),
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  height: MediaQuery.sizeOf(context).height * 1.0,
+                  child: custom_widgets.CropYourImage(
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: MediaQuery.sizeOf(context).height * 1.0,
+                    oldImage: widget.selectedImage,
+                    onCrop: () async {},
                   ),
                 ),
               ),

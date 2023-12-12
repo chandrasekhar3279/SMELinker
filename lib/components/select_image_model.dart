@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'select_image_widget.dart' show SelectImageWidget;
 import 'package:flutter/material.dart';
@@ -12,7 +11,7 @@ import 'package:provider/provider.dart';
 class SelectImageModel extends FlutterFlowModel<SelectImageWidget> {
   ///  Local state fields for this component.
 
-  FFUploadedFile? croppedImage;
+  FFUploadedFile? croppedData;
 
   /// Initialization and disposal methods.
 

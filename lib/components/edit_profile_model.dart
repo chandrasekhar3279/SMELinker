@@ -21,8 +21,6 @@ class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
 
   bool isImageUploaded = false;
 
-  FFUploadedFile? croppedImagePageState;
-
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();

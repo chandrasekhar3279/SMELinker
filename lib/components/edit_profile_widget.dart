@@ -21,9 +21,11 @@ class EditProfileWidget extends StatefulWidget {
   const EditProfileWidget({
     Key? key,
     this.editProfile,
+    this.croppedFile,
   }) : super(key: key);
 
   final dynamic editProfile;
+  final FFUploadedFile? croppedFile;
 
   @override
   _EditProfileWidgetState createState() => _EditProfileWidgetState();
@@ -569,7 +571,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                   }
                                 }
 
-                                await showModalBottomSheet(
+                                showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,
                                   enableDrag: false,
@@ -649,7 +651,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                               .height *
                                                           1.0,
                                                   uploadedImageInBytes:
-                                                      _model.uploadedLocalFile,
+                                                      widget.croppedFile,
                                                 ),
                                               ),
                                             if (_model.uploadedLocalFile ==
@@ -881,7 +883,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                   .call(
                                             accessToken:
                                                 FFAppState().accessToken,
-                                            file: _model.uploadedLocalFile,
+                                            file: widget.croppedFile,
                                             dataJson: getJsonField(
                                               functions.updateProfile(
                                                   _model
@@ -988,6 +990,24 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       ),
                     ),
                   ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.memory(
+                        widget.croppedFile?.bytes ?? Uint8List.fromList([]),
+                        width: 300.0,
+                        height: 200.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

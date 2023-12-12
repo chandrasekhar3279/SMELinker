@@ -1,4 +1,5 @@
 // Automatic FlutterFlow imports
+import '/backend/schema/structs/index.dart';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -9,19 +10,15 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'dart:io';
-
-import 'package:path_provider/path_provider.dart';
-
 import '../actions/clear_cropp_image_share_cache.dart';
 
 import '../../flutter_flow/flutter_flow_widgets.dart';
-import 'dart:convert'; // Import the dart:convert library
 
 import 'dart:ui';
 import "dart:math" show pi;
 import '../../flutter_flow/flutter_flow_icon_button.dart';
 import 'package:custom_image_crop/custom_image_crop.dart';
+import 'package:provider/provider.dart';
 
 class CropImageViewWidget extends StatefulWidget {
   const CropImageViewWidget({
@@ -106,9 +103,6 @@ class _CropImageViewWidgetState extends State<CropImageViewWidget> {
                   shape: _customCropShape,
                   cropPercentage: _getCropPercentage(),
                   backgroundColor: Colors.black,
-                  // drawPath: SolidCropPathPainter.drawPath,
-                  // initialAreaBuilder: (rect) => Rect.fromLTRB(rect.left + 80,
-                  //     rect.top + 80, rect.right - 80, rect.bottom - 80),
                 ),
               ),
             ),
@@ -385,20 +379,19 @@ class _CropImageViewWidgetState extends State<CropImageViewWidget> {
           height: widget.originalImage.height,
           width: widget.originalImage.width,
         );
-        // Encode the image bytes to base64
-        String base64Image = base64Encode(croppedImage.bytes);
 
         // Assuming FFAppState() is a singleton, you might want to create an instance and store it.
         FFAppState appState = FFAppState();
 
         // Set the uploadCroppedImage property in the FFAppState
-        appState.uploadCroppedImage = base64Image!;
+        appState.uploadCroppedImage = newUploadedFile.name.toString();
 
-        //  to update the app state using the update method or similar.
+        // You might want to update the app state using the update method or similar.
         appState.update(() async {
           // 3. Call the onCrop callback function provided in the widget.
           await widget.onCrop.call();
         });
+
         // Print the correct property from the app state.
         print("checking ${appState.uploadCroppedImage}");
       } else {
