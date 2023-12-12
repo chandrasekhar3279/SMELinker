@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
@@ -878,12 +879,16 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                   .validate()) {
                                             return;
                                           }
+                                          _model.croppedRes =
+                                              await actions.convertBase64ToFile(
+                                            FFAppState().croppedImage,
+                                          );
                                           _model.apiResulthv7Copy =
                                               await SmeGroup.updateProfileCall
                                                   .call(
                                             accessToken:
                                                 FFAppState().accessToken,
-                                            file: widget.croppedFile,
+                                            file: _model.croppedRes,
                                             dataJson: getJsonField(
                                               functions.updateProfile(
                                                   _model
@@ -917,6 +922,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                 ));
                                               },
                                             );
+                                            setState(() {
+                                              FFAppState().croppedImage = '';
+                                            });
                                             Navigator.pop(context);
 
                                             context.goNamed('Profile');
@@ -990,6 +998,20 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       ),
                     ),
                   ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Text(
+                      FFAppState()
+                          .croppedImage
+                          .maybeHandleOverflow(maxChars: 20),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
+                    ),
+                  ],
                 ),
               ),
             ],

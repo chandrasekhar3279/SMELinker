@@ -1,8 +1,10 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'select_image_widget.dart' show SelectImageWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,6 +14,13 @@ class SelectImageModel extends FlutterFlowModel<SelectImageWidget> {
   ///  Local state fields for this component.
 
   FFUploadedFile? croppedData;
+
+  ///  State fields for stateful widgets in this component.
+
+  // Stores action output result for [Custom Action - convertBase64ToFile] action in SelectImage widget.
+  FFUploadedFile? croppedFileRes;
+  // Stores action output result for [Custom Action - convertBase64ToFile] action in CropYourImage widget.
+  FFUploadedFile? base64Res;
 
   /// Initialization and disposal methods.
 

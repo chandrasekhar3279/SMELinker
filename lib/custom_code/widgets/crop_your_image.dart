@@ -1,5 +1,4 @@
 // Automatic FlutterFlow imports
-import '/backend/schema/structs/index.dart';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -54,21 +53,27 @@ class _CropYourImageState extends State<CropYourImage> {
     final Uint8List? imageDataBytes =
         _imageData != null ? _imageData.bytes?.buffer.asUint8List() : null;
 
+    final String? filename = _imageData != null ? _imageData.name : null;
+
     return Container(
         child: Column(children: [
-      // Text("Crop your imagess"),
+      // Crop
       Expanded(
         child: Crop(
           image: imageDataBytes!,
           aspectRatio: 1.0,
           onCropped: (Uint8List croppedData) async {
+            // Convert Uint8List to base64-encoded string
+            String base64String = base64Encode(croppedData);
+
             // Create a new FFUploadedFile instance using the cropped data
             FFUploadedFile newCroppedImage = FFUploadedFile(
-              name: "Cropped Image", // You may set a name for the new file
+              name: filename!, // You may set a name for the new file
               bytes: Uint8List.fromList(croppedData),
             );
 
             // MemoryImage croppedImage = MemoryImage(croppedData);
+
             // FFUploadedFile newCropedImage = croppedImage;
             // FFAppState().update(() {setState(() => FFAppState(). = data); });
 
@@ -84,14 +89,28 @@ class _CropYourImageState extends State<CropYourImage> {
             //   MaterialPageRoute(
             //     builder: (context) => CropedUploadImageWidget(
             //       cropeduploadedImagePreview: newCroppedImage,
+            //       croppedBytes: base64String,
             //     ),
             //   ),
             // );
 
-            // print("checking $newCroppedImage");
-            Navigator.pop(context, {'croppedFile': newCroppedImage.bytes});
-            print(
-                "i am checking which data is passing ${newCroppedImage.bytes}");
+            // Assuming FFAppState() is a singleton, you might want to create an instance and store it.
+            FFAppState appState = FFAppState();
+
+            // Set the uploadCroppedImage property in the FFAppState
+            // Update the app state variable with base64String
+            setState(() {
+              // appState.croppedImageFile = newCroppedImage.bytes;
+              appState.croppedImage = base64String;
+            });
+
+            Navigator.pop(context, {
+              'croppedFile': newCroppedImage,
+              'croppedBytes': base64String,
+            });
+            print("checking old image: $_imageData");
+            print("checking $base64String");
+            print("i am checking which data is passing $newCroppedImage");
             // print("checking cropped data $croppedImage");
 
             await widget.onCrop.call();
