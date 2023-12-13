@@ -10,19 +10,11 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import '../../flutter_flow/flutter_flow_widgets.dart';
-
-import '../../components/croped_upload_image_widget.dart';
-
-import '../../components/edit_profile_widget.dart';
-
 import 'dart:convert';
 import 'package:crop_your_image/crop_your_image.dart';
 import 'package:s_m_e_linker/custom_code/widgets/cropped_file_preview.dart';
 
-import 'dart:convert';
-import 'package:crop_your_image/crop_your_image.dart';
-import 'package:s_m_e_linker/custom_code/widgets/cropped_file_preview.dart';
-import 'dart:typed_data';
+// import 'dart:typed_data';
 
 class CropYourImage extends StatefulWidget {
   const CropYourImage({
@@ -86,9 +78,9 @@ class _CropYourImageState extends State<CropYourImage> {
               'croppedFile': newCroppedImage,
               'croppedBytes': base64String,
             });
-            print("checking old image: $_imageData");
-            print("checking $base64String");
-            print("i am checking which data is passing $newCroppedImage");
+            // print("checking old image: $_imageData");
+            // print("checking $base64String");
+            // print("i am checking which data is passing $newCroppedImage");
             // print("checking cropped data $croppedImage");
 
             await widget.onCrop.call();

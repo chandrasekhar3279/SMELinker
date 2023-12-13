@@ -1132,12 +1132,6 @@ class FFAppState extends ChangeNotifier {
     _groupsAvailable = _value;
   }
 
-  String _uploadCroppedImage = '';
-  String get uploadCroppedImage => _uploadCroppedImage;
-  set uploadCroppedImage(String _value) {
-    _uploadCroppedImage = _value;
-  }
-
   String _croppedImage = '';
   String get croppedImage => _croppedImage;
   set croppedImage(String _value) {
