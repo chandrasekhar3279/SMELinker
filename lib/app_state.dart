@@ -1138,35 +1138,6 @@ class FFAppState extends ChangeNotifier {
     _uploadCroppedImage = _value;
   }
 
-  List<int> _croppedImageBytes = [];
-  List<int> get croppedImageBytes => _croppedImageBytes;
-  set croppedImageBytes(List<int> _value) {
-    _croppedImageBytes = _value;
-  }
-
-  void addToCroppedImageBytes(int _value) {
-    _croppedImageBytes.add(_value);
-  }
-
-  void removeFromCroppedImageBytes(int _value) {
-    _croppedImageBytes.remove(_value);
-  }
-
-  void removeAtIndexFromCroppedImageBytes(int _index) {
-    _croppedImageBytes.removeAt(_index);
-  }
-
-  void updateCroppedImageBytesAtIndex(
-    int _index,
-    int Function(int) updateFn,
-  ) {
-    _croppedImageBytes[_index] = updateFn(_croppedImageBytes[_index]);
-  }
-
-  void insertAtIndexInCroppedImageBytes(int _index, int _value) {
-    _croppedImageBytes.insert(_index, _value);
-  }
-
   String _croppedImage = '';
   String get croppedImage => _croppedImage;
   set croppedImage(String _value) {

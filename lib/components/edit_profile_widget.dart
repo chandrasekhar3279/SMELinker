@@ -1004,20 +1004,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Text(
-                      FFAppState()
-                          .croppedImage
-                          .maybeHandleOverflow(maxChars: 20),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
-                    ),
-                  ],
-                ),
-              ),
             ],
           ),
         ),
