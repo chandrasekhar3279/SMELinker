@@ -51,41 +51,48 @@ class _CropYourImageState extends State<CropYourImage> {
         child: Column(children: [
       // Crop
       Expanded(
-        child: Crop(
-          image: imageDataBytes!,
-          aspectRatio: 1.0,
-          onCropped: (Uint8List croppedData) async {
-            // Convert Uint8List to base64-encoded string
-            String base64String = base64Encode(croppedData);
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Crop(
+            // maskColor: FlutterFlowTheme.of(context).primaryBackground,
+            cornerDotBuilder: (size, edgeAlignment) =>
+                DotControl(color: FlutterFlowTheme.of(context).primary),
+            baseColor: FlutterFlowTheme.of(context).secondaryBackground,
+            image: imageDataBytes!,
+            aspectRatio: 1.0,
+            onCropped: (Uint8List croppedData) async {
+              // Convert Uint8List to base64-encoded string
+              String base64String = base64Encode(croppedData);
 
-            // Create a new FFUploadedFile instance using the cropped data
-            FFUploadedFile newCroppedImage = FFUploadedFile(
-              name: filename!, // You may set a name for the new file
-              bytes: Uint8List.fromList(croppedData),
-            );
+              // Create a new FFUploadedFile instance using the cropped data
+              FFUploadedFile newCroppedImage = FFUploadedFile(
+                name: filename!, // You may set a name for the new file
+                bytes: Uint8List.fromList(croppedData),
+              );
 
-            // Assuming FFAppState() is a singleton, you might want to create an instance and store it.
-            FFAppState appState = FFAppState();
+              // Assuming FFAppState() is a singleton, you might want to create an instance and store it.
+              FFAppState appState = FFAppState();
 
-            // Set the uploadCroppedImage property in the FFAppState
-            // Update the app state variable with base64String
-            setState(() {
-              // appState.croppedImageFile = newCroppedImage.bytes;
-              appState.croppedImage = base64String;
-            });
+              // Set the uploadCroppedImage property in the FFAppState
+              // Update the app state variable with base64String
+              setState(() {
+                // appState.croppedImageFile = newCroppedImage.bytes;
+                appState.croppedImage = base64String;
+              });
 
-            Navigator.pop(context, {
-              'croppedFile': newCroppedImage,
-              'croppedBytes': base64String,
-            });
-            // print("checking old image: $_imageData");
-            // print("checking $base64String");
-            // print("i am checking which data is passing $newCroppedImage");
-            // print("checking cropped data $croppedImage");
+              Navigator.pop(context, {
+                'croppedFile': newCroppedImage,
+                'croppedBytes': base64String,
+              });
+              // print("checking old image: $_imageData");
+              // print("checking $base64String");
+              // print("i am checking which data is passing $newCroppedImage");
+              // print("checking cropped data $croppedImage");
 
-            await widget.onCrop.call();
-          },
-          controller: _cropController,
+              await widget.onCrop.call();
+            },
+            controller: _cropController,
+          ),
         ),
       ),
       Padding(
@@ -96,12 +103,12 @@ class _CropYourImageState extends State<CropYourImage> {
           },
           text: 'Crop Image',
           options: FFButtonOptions(
-            height: 50,
+            height: 40,
             padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
             iconPadding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
             color: FlutterFlowTheme.of(context).primary,
             textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                  fontFamily: 'Inter',
+                  fontFamily: 'Roboto',
                   color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
             borderRadius: BorderRadius.circular(8),

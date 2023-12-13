@@ -59,6 +59,7 @@ class _SelectImageWidgetState extends State<SelectImageWidget> {
           padding: EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 30.0, 30.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
