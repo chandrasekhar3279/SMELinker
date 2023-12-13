@@ -1,10 +1,13 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/change_interest_selection_widget.dart';
+import '/components/select_image_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'update_org_details_page_widget.dart' show UpdateOrgDetailsPageWidget;
 import 'package:easy_debounce/easy_debounce.dart';
@@ -17,6 +20,10 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 
 class UpdateOrgDetailsPageModel
     extends FlutterFlowModel<UpdateOrgDetailsPageWidget> {
+  ///  Local state fields for this component.
+
+  bool isImageUploaded = false;
+
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();
@@ -76,6 +83,10 @@ class UpdateOrgDetailsPageModel
 
     return null;
   }
+
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Backend Call - API (updateOrgDetails)] action in Button widget.
   ApiCallResponse? apiResult3zcCopy;

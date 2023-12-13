@@ -890,23 +890,11 @@ String membersCount(int? count) {
 }
 
 FFUploadedFile? convertToFile(String? base64String) {
-  // final directory = await getApplicationDocumentsDirectory();
-  // final filePath =
-  //     '${directory.pathconvert}/${DateTime.now().millisecondsSinceEpoch}.png';
   final bytes = base64Decode(base64String!);
-
   try {
-    // await File(filePath).writeAsBytes(bytes);
-
-    // Get file information
-    // final file = File(filePath);
-    // final filename = file.path.split('/').last;
-    // final mimeType = lookupMimeType(filePath) ?? 'application/octet-stream';
-
-    // Create and return FFUploadedFile
     return FFUploadedFile(
       bytes: bytes,
-      name: "newimage",
+      name: "newimage.jpeg",
       // blurHash: mimeType,
     );
   } catch (e) {

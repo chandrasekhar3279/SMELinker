@@ -72,28 +72,6 @@ class _CropYourImageState extends State<CropYourImage> {
               bytes: Uint8List.fromList(croppedData),
             );
 
-            // MemoryImage croppedImage = MemoryImage(croppedData);
-
-            // FFUploadedFile newCropedImage = croppedImage;
-            // FFAppState().update(() {setState(() => FFAppState(). = data); });
-
-            // Update the page state variable
-            // widget.updatedCroppedImage(newCroppedImage);
-
-            // Pop the navigation
-            // Navigator.pop(context);
-
-            // Handle the cropped image data as needed
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (context) => CropedUploadImageWidget(
-            //       cropeduploadedImagePreview: newCroppedImage,
-            //       croppedBytes: base64String,
-            //     ),
-            //   ),
-            // );
-
             // Assuming FFAppState() is a singleton, you might want to create an instance and store it.
             FFAppState appState = FFAppState();
 

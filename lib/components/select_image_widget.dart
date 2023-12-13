@@ -13,13 +13,9 @@ class SelectImageWidget extends StatefulWidget {
   const SelectImageWidget({
     Key? key,
     this.selectedImage,
-    this.cropShape,
-    this.cropPercentage,
   }) : super(key: key);
 
   final FFUploadedFile? selectedImage;
-  final String? cropShape;
-  final double? cropPercentage;
 
   @override
   _SelectImageWidgetState createState() => _SelectImageWidgetState();

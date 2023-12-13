@@ -3601,6 +3601,7 @@ class UpdateOrgDetailsCall {
   Future<ApiCallResponse> call({
     dynamic? dataJson,
     String? accessToken = '',
+    FFUploadedFile? file,
   }) async {
     final data = _serializeJson(dataJson);
 
@@ -3614,8 +3615,9 @@ class UpdateOrgDetailsCall {
       },
       params: {
         'data': data,
+        'file': file,
       },
-      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      bodyType: BodyType.MULTIPART,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

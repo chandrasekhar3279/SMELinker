@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/select_image_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -80,6 +81,9 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
+                      setState(() {
+                        FFAppState().croppedImage = '';
+                      });
                       Navigator.pop(context);
                     },
                     child: Icon(
@@ -397,11 +401,26 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                 }
                               }
 
-                              if (_model.uploadedLocalFile != null &&
-                                  (_model.uploadedLocalFile.bytes?.isNotEmpty ??
-                                      false)) {
-                                _model.isImageUploaded = true;
-                              }
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return WebViewAware(
+                                      child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: Container(
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              1.0,
+                                      child: SelectImageWidget(
+                                        selectedImage: _model.uploadedLocalFile,
+                                      ),
+                                    ),
+                                  ));
+                                },
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
@@ -447,7 +466,8 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                                   .height *
                                               1.0,
                                           uploadedImageInBytes:
-                                              _model.uploadedLocalFile,
+                                              functions.convertToFile(
+                                                  FFAppState().croppedImage),
                                         ),
                                       ),
                                     ),
@@ -596,6 +616,9 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                   children: [
                                     FFButtonWidget(
                                       onPressed: () async {
+                                        setState(() {
+                                          FFAppState().croppedImage = '';
+                                        });
                                         Navigator.pop(context);
                                       },
                                       text: 'Cancel',
@@ -649,82 +672,32 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                                 .validate()) {
                                           return;
                                         }
-                                        if (_model.isImageUploaded == true) {
-                                          _model.apiResultrukCopy =
-                                              await SmeGroup
-                                                  .createTeamMemberCall
-                                                  .call(
-                                            file: _model.uploadedLocalFile,
-                                            dataJson: getJsonField(
-                                              functions.addTeammember(
-                                                  _model.nameController.text,
-                                                  _model.titleController.text,
-                                                  _model
-                                                      .linkedInProfileController
-                                                      .text),
-                                              r'''$''',
-                                            ),
-                                            accessToken:
-                                                FFAppState().accessToken,
-                                          );
-                                          if ((_model.apiResultrukCopy
-                                                  ?.succeeded ??
-                                              true)) {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return WebViewAware(
-                                                    child: AlertDialog(
-                                                  title: Text('Success'),
-                                                  content: Text(
-                                                      'Team member added successfully'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ));
-                                              },
-                                            );
-                                            setState(() {
-                                              FFAppState()
-                                                      .submittedAddTeamMemberForm =
-                                                  false;
-                                            });
-                                            Navigator.pop(context);
-                                          } else {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return WebViewAware(
-                                                    child: AlertDialog(
-                                                  title: Text('Error'),
-                                                  content: Text(
-                                                      'Image size must be below 1MB.'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Try again'),
-                                                    ),
-                                                  ],
-                                                ));
-                                              },
-                                            );
-                                          }
-                                        } else {
+                                        _model.apiResultrukCopy = await SmeGroup
+                                            .createTeamMemberCall
+                                            .call(
+                                          file: functions.convertToFile(
+                                              FFAppState().croppedImage),
+                                          dataJson: getJsonField(
+                                            functions.addTeammember(
+                                                _model.nameController.text,
+                                                _model.titleController.text,
+                                                _model.linkedInProfileController
+                                                    .text),
+                                            r'''$''',
+                                          ),
+                                          accessToken: FFAppState().accessToken,
+                                        );
+                                        if ((_model
+                                                .apiResultrukCopy?.succeeded ??
+                                            true)) {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
                                                   child: AlertDialog(
-                                                title: Text('Required'),
+                                                title: Text('Success'),
                                                 content: Text(
-                                                    'Please add an Image.'),
+                                                    'Team member added successfully'),
                                                 actions: [
                                                   TextButton(
                                                     onPressed: () =>
@@ -736,6 +709,38 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                               ));
                                             },
                                           );
+                                          setState(() {
+                                            FFAppState().croppedImage = '';
+                                          });
+                                          setState(() {
+                                            FFAppState()
+                                                    .submittedAddTeamMemberForm =
+                                                false;
+                                          });
+                                          Navigator.pop(context);
+                                        } else {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                  child: AlertDialog(
+                                                title: Text('Error'),
+                                                content: Text(
+                                                    'Image size must be below 1MB.'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Try again'),
+                                                  ),
+                                                ],
+                                              ));
+                                            },
+                                          );
+                                          setState(() {
+                                            FFAppState().croppedImage = '';
+                                          });
                                         }
 
                                         setState(() {});

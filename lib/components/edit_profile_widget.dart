@@ -6,9 +6,9 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,11 +21,9 @@ class EditProfileWidget extends StatefulWidget {
   const EditProfileWidget({
     Key? key,
     this.editProfile,
-    this.croppedFile,
   }) : super(key: key);
 
   final dynamic editProfile;
-  final FFUploadedFile? croppedFile;
 
   @override
   _EditProfileWidgetState createState() => _EditProfileWidgetState();
@@ -44,6 +42,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EditProfileModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {});
+    });
 
     _model.firstNameController ??= TextEditingController(
         text: getJsonField(
@@ -116,6 +119,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
+                        setState(() {
+                          FFAppState().croppedImage = '';
+                        });
                         Navigator.pop(context);
                       },
                       child: Icon(
@@ -587,9 +593,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                         child: SelectImageWidget(
                                           selectedImage:
                                               _model.uploadedLocalFile,
-                                          cropShape: 'square',
-                                          cropPercentage: random_data
-                                              .randomDouble(0.0, 1.0),
                                         ),
                                       ),
                                     ));
@@ -952,6 +955,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                 ));
                                               },
                                             );
+                                            setState(() {
+                                              FFAppState().croppedImage = '';
+                                            });
                                           }
 
                                           setState(() {});
