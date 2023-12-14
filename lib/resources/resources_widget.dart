@@ -379,8 +379,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             ).toString());
                                           },
                                           text: 'Download',
-                                          icon: FaIcon(
-                                            FontAwesomeIcons.download,
+                                          icon: Icon(
+                                            Icons.file_download_outlined,
                                             size: 15.0,
                                           ),
                                           options: FFButtonOptions(

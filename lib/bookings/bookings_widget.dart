@@ -310,7 +310,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                         labelColor: FlutterFlowTheme.of(context).primary,
                         unselectedLabelColor:
                             FlutterFlowTheme.of(context).accent2,
-                        labelStyle: FlutterFlowTheme.of(context).labelSmall,
+                        labelStyle: FlutterFlowTheme.of(context).labelMedium,
                         unselectedLabelStyle: TextStyle(),
                         tabs: [
                           FutureBuilder<ApiCallResponse>(
@@ -654,9 +654,9 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                     ) !=
                                                                     null)
                                                                   Container(
-                                                                    width: 60.0,
+                                                                    width: 40.0,
                                                                     height:
-                                                                        60.0,
+                                                                        40.0,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       shape: BoxShape
@@ -779,9 +779,9 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          60.0,
+                                                                          40.0,
                                                                       height:
-                                                                          60.0,
+                                                                          40.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Color(
@@ -1494,9 +1494,9 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                         children: [
                                                                           Container(
                                                                             width:
-                                                                                60.0,
+                                                                                40.0,
                                                                             height:
-                                                                                60.0,
+                                                                                40.0,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               shape: BoxShape.circle,
@@ -1541,8 +1541,8 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                               ) ==
                                                                               null)
                                                                             Container(
-                                                                              width: 60.0,
-                                                                              height: 60.0,
+                                                                              width: 40.0,
+                                                                              height: 40.0,
                                                                               decoration: BoxDecoration(
                                                                                 color: Color(0xFFFA6400),
                                                                                 shape: BoxShape.circle,
@@ -1568,7 +1568,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                           Expanded(
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 getJsonField(
                                                                                   bookingsItem,
