@@ -900,31 +900,32 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                             children: [
                                                                                               Row(
                                                                                                 mainAxisSize: MainAxisSize.max,
-                                                                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
                                                                                                 children: [
                                                                                                   Icon(
                                                                                                     Icons.business_center_rounded,
                                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                                     size: 16.0,
                                                                                                   ),
-                                                                                                  Column(
-                                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                                    children: [
-                                                                                                      Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                                        child: Text(
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                                    child: Column(
+                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                      children: [
+                                                                                                        Text(
                                                                                                           getJsonField(
                                                                                                             featuredGrowthCardItemItem,
                                                                                                             r'''$.costEstimate''',
                                                                                                           ).toString(),
-                                                                                                          style: FlutterFlowTheme.of(context).labelSmall,
+                                                                                                          style: FlutterFlowTheme.of(context).bodySmall,
                                                                                                         ),
-                                                                                                      ),
-                                                                                                      Text(
-                                                                                                        'AED',
-                                                                                                        style: FlutterFlowTheme.of(context).labelSmall,
-                                                                                                      ),
-                                                                                                    ],
+                                                                                                        Text(
+                                                                                                          'AED',
+                                                                                                          style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                        ),
+                                                                                                      ],
+                                                                                                    ),
                                                                                                   ),
                                                                                                 ],
                                                                                               ),
@@ -943,7 +944,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                         featuredGrowthCardItemItem,
                                                                                                         r'''$.timeEstimate''',
                                                                                                       ).toString(),
-                                                                                                      style: FlutterFlowTheme.of(context).labelSmall,
+                                                                                                      style: FlutterFlowTheme.of(context).bodySmall,
                                                                                                     ),
                                                                                                   ),
                                                                                                 ],
@@ -1474,24 +1475,25 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                                     size: 16.0,
                                                                                                   ),
-                                                                                                  Column(
-                                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                                    children: [
-                                                                                                      Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                                        child: Text(
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                                    child: Column(
+                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                      children: [
+                                                                                                        Text(
                                                                                                           getJsonField(
                                                                                                             growthCardsItem,
                                                                                                             r'''$.costEstimate''',
                                                                                                           ).toString(),
-                                                                                                          style: FlutterFlowTheme.of(context).labelSmall,
+                                                                                                          style: FlutterFlowTheme.of(context).bodySmall,
                                                                                                         ),
-                                                                                                      ),
-                                                                                                      Text(
-                                                                                                        'AED',
-                                                                                                        style: FlutterFlowTheme.of(context).labelSmall,
-                                                                                                      ),
-                                                                                                    ],
+                                                                                                        Text(
+                                                                                                          'AED',
+                                                                                                          style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                        ),
+                                                                                                      ],
+                                                                                                    ),
                                                                                                   ),
                                                                                                 ],
                                                                                               ),
@@ -1510,7 +1512,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                         growthCardsItem,
                                                                                                         r'''$.timeEstimate''',
                                                                                                       ).toString(),
-                                                                                                      style: FlutterFlowTheme.of(context).labelSmall,
+                                                                                                      style: FlutterFlowTheme.of(context).bodySmall,
                                                                                                     ),
                                                                                                   ),
                                                                                                 ],
@@ -2031,14 +2033,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                               children: [
                                                                                                 Text(
                                                                                                   'DATE TAKEN',
-                                                                                                  style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                                  style: FlutterFlowTheme.of(context).bodySmall,
                                                                                                 ),
                                                                                                 Text(
                                                                                                   getJsonField(
                                                                                                     contentItem,
                                                                                                     r'''$.dateTaken''',
                                                                                                   ).toString(),
-                                                                                                  style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                                 ),
                                                                                               ],
                                                                                             ),
@@ -2057,7 +2059,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                             contentItem,
                                                                                             r'''$.numberOfDaysBefore''',
                                                                                           ).toString()} days',
-                                                                                          style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                         ),
                                                                                       ),
                                                                                     ],
@@ -2179,14 +2181,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                             children: [
                                                                                               Text(
                                                                                                 'COST',
-                                                                                                style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                                style: FlutterFlowTheme.of(context).bodySmall,
                                                                                               ),
                                                                                               Text(
                                                                                                 getJsonField(
                                                                                                   contentItem,
                                                                                                   r'''$.cost''',
                                                                                                 ).toString(),
-                                                                                                style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                               ),
                                                                                             ],
                                                                                           ),
@@ -2209,14 +2211,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                             children: [
                                                                                               Text(
                                                                                                 'DURATION',
-                                                                                                style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                                style: FlutterFlowTheme.of(context).bodySmall,
                                                                                               ),
                                                                                               Text(
                                                                                                 getJsonField(
                                                                                                   contentItem,
                                                                                                   r'''$.duration''',
                                                                                                 ).toString(),
-                                                                                                style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                               ),
                                                                                             ],
                                                                                           ),
@@ -2242,14 +2244,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                           children: [
                                                                                             Text(
                                                                                               'QUESTIONS',
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
                                                                                             ),
                                                                                             Text(
                                                                                               getJsonField(
                                                                                                 contentItem,
                                                                                                 r'''$.numberOfQuestions''',
                                                                                               ).toString(),
-                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                             ),
                                                                                           ],
                                                                                         ),
@@ -2330,14 +2332,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                           children: [
                                                                                             Text(
                                                                                               'COST',
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
                                                                                             ),
                                                                                             Text(
                                                                                               getJsonField(
                                                                                                 contentItem,
                                                                                                 r'''$.cost''',
                                                                                               ).toString(),
-                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                             ),
                                                                                           ],
                                                                                         ),
@@ -2358,14 +2360,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                           children: [
                                                                                             Text(
                                                                                               'DURATION',
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
                                                                                             ),
                                                                                             Text(
                                                                                               getJsonField(
                                                                                                 contentItem,
                                                                                                 r'''$.duration''',
                                                                                               ).toString(),
-                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                             ),
                                                                                           ],
                                                                                         ),
@@ -2396,7 +2398,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                           children: [
                                                                                             Text(
                                                                                               'QUESTIONS',
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
                                                                                             ),
                                                                                             Text(
                                                                                               '${getJsonField(
@@ -2406,7 +2408,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                 contentItem,
                                                                                                 r'''$.numberOfQuestions''',
                                                                                               ).toString()}',
-                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                             ),
                                                                                           ],
                                                                                         ),
@@ -2706,14 +2708,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                         children: [
                                                                                           Text(
                                                                                             'BUDGET',
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                            style: FlutterFlowTheme.of(context).bodySmall,
                                                                                           ),
                                                                                           Text(
                                                                                             getJsonField(
                                                                                               dataItem,
                                                                                               r'''$.financingBudget''',
                                                                                             ).toString(),
-                                                                                            style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                           ),
                                                                                         ],
                                                                                       ),
@@ -2736,14 +2738,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                         children: [
                                                                                           Text(
                                                                                             'DURATION',
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                            style: FlutterFlowTheme.of(context).bodySmall,
                                                                                           ),
                                                                                           Text(
                                                                                             getJsonField(
                                                                                               dataItem,
                                                                                               r'''$.duration''',
                                                                                             ).toString(),
-                                                                                            style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                           ),
                                                                                         ],
                                                                                       ),
@@ -2779,14 +2781,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                         children: [
                                                                                           Text(
                                                                                             'RESOURCES',
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                            style: FlutterFlowTheme.of(context).bodySmall,
                                                                                           ),
                                                                                           Text(
                                                                                             getJsonField(
                                                                                               dataItem,
                                                                                               r'''$.resources''',
                                                                                             ).toString(),
-                                                                                            style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                           ),
                                                                                         ],
                                                                                       ),
