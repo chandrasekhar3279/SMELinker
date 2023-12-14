@@ -128,11 +128,16 @@ class _LoginWidgetState extends State<LoginWidget> {
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 48.0, 0.0, 48.0),
+                                  0.0, 48.0, 0.0, 30.0),
                               child: Text(
                                 'Login',
-                                style:
-                                    FlutterFlowTheme.of(context).headlineLarge,
+                                style: FlutterFlowTheme.of(context)
+                                    .displayLarge
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
+                                    ),
                               ),
                             ),
                             Padding(
@@ -183,7 +188,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                             ),
-                                        hintText: 'Enter your email here',
+                                        hintText: 'Enter Email ID',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
@@ -294,7 +299,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                             ),
-                                        hintText: 'Enter your password here',
+                                        hintText: 'Enter  Password',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(

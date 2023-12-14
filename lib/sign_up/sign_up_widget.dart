@@ -190,7 +190,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 30.0),
+                      EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 16.0),
                   child: Text(
                     'Join us & connect with a large network of Entrepreneurs around you.',
                     textAlign: TextAlign.center,
@@ -209,7 +209,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                             labelColor: FlutterFlowTheme.of(context).primary,
                             unselectedLabelColor:
                                 FlutterFlowTheme.of(context).accent2,
-                            labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                            labelStyle:
+                                FlutterFlowTheme.of(context).labelMedium,
                             unselectedLabelStyle: TextStyle(),
                             indicatorColor:
                                 FlutterFlowTheme.of(context).primary,

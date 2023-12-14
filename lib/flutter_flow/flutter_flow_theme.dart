@@ -37,7 +37,7 @@ abstract class FlutterFlowTheme {
   late Color grayIcon;
   late Color gray200;
   late Color gray600;
-  late Color black600;
+  late Color runningText14px;
   late Color tertiary400;
   late Color textColor;
   late Color primaryBtnText;
@@ -118,8 +118,8 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color secondary = const Color(0xFFFFFFFF);
   late Color tertiary = const Color(0xFF162951);
   late Color alternate = const Color(0xFFB8E6E0);
-  late Color primaryText = const Color(0xFF000000);
-  late Color secondaryText = const Color(0xFF57636C);
+  late Color primaryText = const Color(0xFF151515);
+  late Color secondaryText = const Color(0xFF252525);
   late Color primaryBackground = const Color(0xFFF1F4F8);
   late Color secondaryBackground = const Color(0xFFFFFFFF);
   late Color accent1 = const Color(0xFF616161);
@@ -136,7 +136,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color grayIcon = Color(0xFF95A1AC);
   late Color gray200 = Color(0xFFDBE2E7);
   late Color gray600 = Color(0xFF262D34);
-  late Color black600 = Color(0xFF090F13);
+  late Color runningText14px = Color(0xFF252525);
   late Color tertiary400 = Color(0xFF39D2C0);
   late Color textColor = Color(0xFF1E2429);
   late Color primaryBtnText = Color(0xFFFFFFFF);
@@ -185,63 +185,63 @@ class ThemeTypography extends Typography {
   TextStyle get displayLarge => GoogleFonts.getFont(
         'Roboto',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w800,
         fontSize: 20.0,
       );
   String get displayMediumFamily => 'Roboto';
   TextStyle get displayMedium => GoogleFonts.getFont(
         'Roboto',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 20.0,
+        fontWeight: FontWeight.w800,
+        fontSize: 16.0,
       );
   String get displaySmallFamily => 'Roboto';
   TextStyle get displaySmall => GoogleFonts.getFont(
         'Roboto',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 20.0,
+        fontWeight: FontWeight.w800,
+        fontSize: 14.0,
       );
   String get headlineLargeFamily => 'Roboto';
   TextStyle get headlineLarge => GoogleFonts.getFont(
         'Roboto',
-        color: theme.primaryText,
-        fontWeight: FontWeight.w500,
+        color: theme.tertiary,
+        fontWeight: FontWeight.bold,
         fontSize: 20.0,
       );
   String get headlineMediumFamily => 'Roboto';
   TextStyle get headlineMedium => GoogleFonts.getFont(
         'Roboto',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+        fontSize: 16.0,
       );
   String get headlineSmallFamily => 'Roboto';
   TextStyle get headlineSmall => GoogleFonts.getFont(
         'Roboto',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+        fontSize: 14.0,
       );
   String get titleLargeFamily => 'Roboto';
   TextStyle get titleLarge => GoogleFonts.getFont(
         'Roboto',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w600,
         fontSize: 16.0,
       );
   String get titleMediumFamily => 'Roboto';
   TextStyle get titleMedium => GoogleFonts.getFont(
         'Roboto',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w600,
         fontSize: 14.0,
       );
   String get titleSmallFamily => 'Roboto';
   TextStyle get titleSmall => GoogleFonts.getFont(
         'Roboto',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w600,
         fontSize: 12.0,
       );
   String get labelLargeFamily => 'Roboto';
@@ -254,35 +254,36 @@ class ThemeTypography extends Typography {
   String get labelMediumFamily => 'Roboto';
   TextStyle get labelMedium => GoogleFonts.getFont(
         'Roboto',
-        color: Color(0x99000000),
-        fontWeight: FontWeight.normal,
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
   String get labelSmallFamily => 'Roboto';
   TextStyle get labelSmall => GoogleFonts.getFont(
         'Roboto',
-        color: Color(0x99000000),
-        fontWeight: FontWeight.normal,
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
         fontSize: 12.0,
       );
   String get bodyLargeFamily => 'Roboto';
   TextStyle get bodyLarge => GoogleFonts.getFont(
         'Roboto',
         color: theme.primaryText,
+        fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
   String get bodyMediumFamily => 'Roboto';
   TextStyle get bodyMedium => GoogleFonts.getFont(
         'Roboto',
-        color: theme.primaryText,
+        color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
   String get bodySmallFamily => 'Roboto';
   TextStyle get bodySmall => GoogleFonts.getFont(
         'Roboto',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        color: theme.accent1,
+        fontWeight: FontWeight.w300,
         fontSize: 12.0,
       );
 }

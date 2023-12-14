@@ -59,17 +59,17 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).secondary,
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
             borderRadius: 30.0,
             borderWidth: 1.0,
-            buttonSize: 60.0,
+            buttonSize: 52.0,
             icon: Icon(
               Icons.arrow_back,
               color: FlutterFlowTheme.of(context).secondaryText,
-              size: 24.0,
+              size: 22.0,
             ),
             onPressed: () async {
               context.pop();
@@ -80,8 +80,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
             style: FlutterFlowTheme.of(context).headlineLarge,
           ),
           actions: [],
-          centerTitle: false,
-          elevation: 0.0,
+          centerTitle: true,
+          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
@@ -204,12 +204,12 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             children: [
                                               Container(
                                                 decoration: BoxDecoration(
-                                                  color: Color(0x3AFF7900),
+                                                  color: Color(0x19FF7900),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           100.0),
                                                   border: Border.all(
-                                                    color: Color(0xFFFF7900),
+                                                    color: Color(0x1AFF7900),
                                                   ),
                                                 ),
                                                 child: Padding(
@@ -223,11 +223,11 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                     ).toString(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium
+                                                        .labelLarge
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           color:
-                                                              Color(0xFFFF7900),
+                                                              Color(0xCDFD5308),
                                                         ),
                                                   ),
                                                 ),
@@ -279,7 +279,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             r'''$.name''',
                                           ).toString(),
                                           style: FlutterFlowTheme.of(context)
-                                              .headlineMedium,
+                                              .labelLarge,
                                         ),
                                         Padding(
                                           padding:
@@ -314,23 +314,9 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Expanded(
-                                                child: Text(
-                                                  valueOrDefault<String>(
-                                                    getJsonField(
-                                                      contentItem,
-                                                      r'''$.resourceCompanyName''',
-                                                    ).toString(),
-                                                    'N/A',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .headlineSmall,
-                                                ),
-                                              ),
                                               Container(
-                                                width: 50.0,
-                                                height: 50.0,
+                                                width: 40.0,
+                                                height: 40.0,
                                                 decoration: BoxDecoration(
                                                   shape: BoxShape.circle,
                                                   border: Border.all(
@@ -360,6 +346,25 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                     ),
                                                     fit: BoxFit.contain,
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          4.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    valueOrDefault<String>(
+                                                      getJsonField(
+                                                        contentItem,
+                                                        r'''$.resourceCompanyName''',
+                                                      ).toString(),
+                                                      'N/A',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleMedium,
                                                   ),
                                                 ),
                                               ),

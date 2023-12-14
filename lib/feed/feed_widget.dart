@@ -386,7 +386,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                   unselectedLabelColor:
                                       FlutterFlowTheme.of(context).accent2,
                                   labelStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                      FlutterFlowTheme.of(context).labelMedium,
                                   unselectedLabelStyle: TextStyle(),
                                   indicatorColor:
                                       FlutterFlowTheme.of(context).primary,
@@ -753,7 +753,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                                 ).toString(),
                                                                                                 'companyName',
                                                                                               ).maybeHandleOverflow(
-                                                                                                maxChars: 22,
+                                                                                                maxChars: 35,
                                                                                                 replacement: '…',
                                                                                               ),
                                                                                               textAlign: TextAlign.start,
@@ -783,7 +783,10 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                             feedItem,
                                                                                             r'''$.roleName''',
                                                                                           ).toString()),
-                                                                                          style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                          style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                fontFamily: 'Roboto',
+                                                                                                color: FlutterFlowTheme.of(context).accent1,
+                                                                                              ),
                                                                                         ),
                                                                                       ),
                                                                                     ],
@@ -820,10 +823,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                 ),
                                                                                 textAlign: TextAlign.start,
                                                                                 maxLines: 2,
-                                                                                style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                      fontFamily: 'Roboto',
-                                                                                      fontSize: 14.0,
-                                                                                    ),
+                                                                                style: FlutterFlowTheme.of(context).labelLarge,
                                                                               ),
                                                                             ),
                                                                           ],
@@ -844,12 +844,8 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                             )),
                                                                             'Date',
                                                                           )} ago',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .labelMedium
-                                                                              .override(
-                                                                                fontFamily: 'Roboto',
-                                                                                fontSize: 12.0,
-                                                                              ),
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).bodySmall,
                                                                         ),
                                                                       ),
                                                                       if (getJsonField(
@@ -910,6 +906,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                   height: 180.0,
                                                                                   decoration: BoxDecoration(
+                                                                                    borderRadius: BorderRadius.circular(8.0),
                                                                                     border: Border.all(
                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
                                                                                       width: 1.0,
@@ -958,8 +955,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                               TextAlign.start,
                                                                           maxLines:
                                                                               4,
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Roboto',
+                                                                                color: Color(0xFF252525),
+                                                                              ),
                                                                         ),
                                                                       ),
                                                                       Container(
@@ -1725,10 +1726,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                             90.0,
                                                                         decoration:
                                                                             BoxDecoration(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(8.0),
                                                                           border:
                                                                               Border.all(
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).primary,
+                                                                                FlutterFlowTheme.of(context).accent1,
                                                                             width:
                                                                                 1.0,
                                                                           ),
@@ -1890,7 +1893,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                           ).toString(),
                                                                                           textAlign: TextAlign.start,
                                                                                           maxLines: 2,
-                                                                                          style: FlutterFlowTheme.of(context).titleMedium,
+                                                                                          style: FlutterFlowTheme.of(context).labelLarge,
                                                                                         ),
                                                                                       ),
                                                                                     ),

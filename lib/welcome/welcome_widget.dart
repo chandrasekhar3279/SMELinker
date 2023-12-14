@@ -141,92 +141,101 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                           child: Text(
                                             'Click • Connect • Grow',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
+                                                .headlineLarge
                                                 .override(
                                                   fontFamily: 'Roboto',
-                                                  color: Color(0xFF162959),
+                                                  fontWeight: FontWeight.w500,
                                                 ),
                                           ),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 16.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -0.91, -0.89),
-                                                child: Image.asset(
-                                                  'assets/images/sme_blue_bold.png',
-                                                  width: 150.0,
-                                                  height: 60.0,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.97, -0.89),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 10.0, 0.0, 0.0),
-                                                  child: FFButtonWidget(
-                                                    onPressed: () async {
-                                                      context
-                                                          .pushNamed('Login');
-                                                    },
-                                                    text: 'Login',
-                                                    options: FFButtonOptions(
-                                                      height: 40.0,
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  30.0,
-                                                                  0.0,
-                                                                  30.0,
-                                                                  0.0),
-                                                      iconPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyLarge
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: Color(
-                                                                    0xFF162959),
-                                                              ),
-                                                      elevation: 0.0,
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Color(0xFF162959),
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              30.0),
-                                                    ),
-                                                    showLoadingIndicator: false,
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.00, 0.00),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 16.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -0.91, -0.89),
+                                                  child: Image.asset(
+                                                    'assets/images/sme_blue_bold.png',
+                                                    width: 150.0,
+                                                    height: 60.0,
+                                                    fit: BoxFit.contain,
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.97, -0.89),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 10.0,
+                                                                0.0, 0.0),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () async {
+                                                        context
+                                                            .pushNamed('Login');
+                                                      },
+                                                      text: 'Login',
+                                                      options: FFButtonOptions(
+                                                        height: 35.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    30.0,
+                                                                    0.0,
+                                                                    30.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyLarge
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: Color(
+                                                                      0xFF162959),
+                                                                ),
+                                                        elevation: 0.0,
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0xFF162959),
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(30.0),
+                                                      ),
+                                                      showLoadingIndicator:
+                                                          false,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -290,13 +299,12 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                             'Need more',
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
+                                                .bodyLarge
                                                 .override(
                                                   fontFamily: 'Roboto',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .tertiary,
-                                                  fontSize: 16.0,
                                                   fontStyle: FontStyle.italic,
                                                 ),
                                           ),
@@ -304,7 +312,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                         Text(
                                           'SMELINKER',
                                           style: FlutterFlowTheme.of(context)
-                                              .displaySmall
+                                              .displayMedium
                                               .override(
                                                 fontFamily: 'Roboto',
                                                 color:
@@ -322,7 +330,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                               'for your',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium
+                                                      .bodyLarge
                                                       .override(
                                                         fontFamily: 'Roboto',
                                                         color:
@@ -338,7 +346,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                                 'Business?',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .displaySmall
+                                                        .displayMedium
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
@@ -443,6 +451,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                                     StyledVerticalDivider(
                                                       thickness: 1.0,
                                                       indent: 15.0,
+                                                      endIndent: 40.0,
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -474,7 +483,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyMedium
+                                                              .bodyLarge
                                                               .override(
                                                                 fontFamily:
                                                                     'Roboto',
@@ -490,7 +499,9 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                                         FontAwesomeIcons
                                                             .dotCircle,
                                                         color:
-                                                            Color(0xFFFF0000),
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
                                                         size: 16.0,
                                                       ),
                                                       Expanded(
@@ -524,8 +535,9 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                                         FaIcon(
                                                           FontAwesomeIcons
                                                               .dotCircle,
-                                                          color:
-                                                              Color(0xFFFF0000),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
                                                           size: 16.0,
                                                         ),
                                                         Expanded(
@@ -560,8 +572,9 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                                         FaIcon(
                                                           FontAwesomeIcons
                                                               .dotCircle,
-                                                          color:
-                                                              Color(0xFFFF0000),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
                                                           size: 16.0,
                                                         ),
                                                         Expanded(
@@ -596,8 +609,9 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                                         FaIcon(
                                                           FontAwesomeIcons
                                                               .dotCircle,
-                                                          color:
-                                                              Color(0xFFFF0000),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
                                                           size: 16.0,
                                                         ),
                                                         Expanded(
