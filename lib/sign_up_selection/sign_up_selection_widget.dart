@@ -81,7 +81,7 @@ class _SignUpSelectionWidgetState extends State<SignUpSelectionWidget> {
           top: true,
           child: SingleChildScrollView(
             child: Column(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [

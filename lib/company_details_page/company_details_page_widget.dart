@@ -192,7 +192,13 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                   height:
                                       MediaQuery.sizeOf(context).height * 1.0,
-                                  decoration: BoxDecoration(),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      width: 1.0,
+                                    ),
+                                  ),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -382,7 +388,9 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                             .secondaryBackground,
                                         shape: BoxShape.circle,
                                         border: Border.all(
-                                          color: Color(0xFF8B97A2),
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          width: 1.0,
                                         ),
                                       ),
                                       child: InkWell(
@@ -1652,23 +1660,75 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                 ),
                                                                             ],
                                                                           ),
-                                                                          InkWell(
-                                                                            splashColor:
-                                                                                Colors.transparent,
-                                                                            focusColor:
-                                                                                Colors.transparent,
-                                                                            hoverColor:
-                                                                                Colors.transparent,
-                                                                            highlightColor:
-                                                                                Colors.transparent,
-                                                                            onTap:
-                                                                                () async {
-                                                                              await Navigator.push(
-                                                                                context,
-                                                                                PageTransition(
-                                                                                  type: PageTransitionType.fade,
-                                                                                  child: FlutterFlowExpandedImageView(
-                                                                                    image: Image.network(
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                12.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(
+                                                                                border: Border.all(
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                              ),
+                                                                              child: InkWell(
+                                                                                splashColor: Colors.transparent,
+                                                                                focusColor: Colors.transparent,
+                                                                                hoverColor: Colors.transparent,
+                                                                                highlightColor: Colors.transparent,
+                                                                                onTap: () async {
+                                                                                  await Navigator.push(
+                                                                                    context,
+                                                                                    PageTransition(
+                                                                                      type: PageTransitionType.fade,
+                                                                                      child: FlutterFlowExpandedImageView(
+                                                                                        image: Image.network(
+                                                                                          valueOrDefault<String>(
+                                                                                            getJsonField(
+                                                                                              functions.image(getJsonField(
+                                                                                                contentItem,
+                                                                                                r'''$.featuredImage''',
+                                                                                              ).toString()),
+                                                                                              r'''$.image''',
+                                                                                            ),
+                                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                          ),
+                                                                                          fit: BoxFit.contain,
+                                                                                        ),
+                                                                                        allowRotation: false,
+                                                                                        tag: valueOrDefault<String>(
+                                                                                          getJsonField(
+                                                                                            functions.image(getJsonField(
+                                                                                              contentItem,
+                                                                                              r'''$.featuredImage''',
+                                                                                            ).toString()),
+                                                                                            r'''$.image''',
+                                                                                          ),
+                                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentIndex',
+                                                                                        ),
+                                                                                        useHeroAnimation: true,
+                                                                                      ),
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                                child: Hero(
+                                                                                  tag: valueOrDefault<String>(
+                                                                                    getJsonField(
+                                                                                      functions.image(getJsonField(
+                                                                                        contentItem,
+                                                                                        r'''$.featuredImage''',
+                                                                                      ).toString()),
+                                                                                      r'''$.image''',
+                                                                                    ),
+                                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentIndex',
+                                                                                  ),
+                                                                                  transitionOnUserGestures: true,
+                                                                                  child: ClipRRect(
+                                                                                    borderRadius: BorderRadius.circular(8.0),
+                                                                                    child: Image.network(
                                                                                       valueOrDefault<String>(
                                                                                         getJsonField(
                                                                                           functions.image(getJsonField(
@@ -1679,53 +1739,11 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                         ),
                                                                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                       ),
+                                                                                      width: double.infinity,
+                                                                                      height: 150.0,
                                                                                       fit: BoxFit.contain,
                                                                                     ),
-                                                                                    allowRotation: false,
-                                                                                    tag: valueOrDefault<String>(
-                                                                                      getJsonField(
-                                                                                        functions.image(getJsonField(
-                                                                                          contentItem,
-                                                                                          r'''$.featuredImage''',
-                                                                                        ).toString()),
-                                                                                        r'''$.image''',
-                                                                                      ),
-                                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentIndex',
-                                                                                    ),
-                                                                                    useHeroAnimation: true,
                                                                                   ),
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                            child:
-                                                                                Hero(
-                                                                              tag: valueOrDefault<String>(
-                                                                                getJsonField(
-                                                                                  functions.image(getJsonField(
-                                                                                    contentItem,
-                                                                                    r'''$.featuredImage''',
-                                                                                  ).toString()),
-                                                                                  r'''$.image''',
-                                                                                ),
-                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentIndex',
-                                                                              ),
-                                                                              transitionOnUserGestures: true,
-                                                                              child: ClipRRect(
-                                                                                borderRadius: BorderRadius.circular(8.0),
-                                                                                child: Image.network(
-                                                                                  valueOrDefault<String>(
-                                                                                    getJsonField(
-                                                                                      functions.image(getJsonField(
-                                                                                        contentItem,
-                                                                                        r'''$.featuredImage''',
-                                                                                      ).toString()),
-                                                                                      r'''$.image''',
-                                                                                    ),
-                                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
-                                                                                  ),
-                                                                                  width: double.infinity,
-                                                                                  height: 150.0,
-                                                                                  fit: BoxFit.contain,
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -2310,19 +2328,39 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                               ),
                                                                               Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                                                                                child: InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    await Navigator.push(
-                                                                                      context,
-                                                                                      PageTransition(
-                                                                                        type: PageTransitionType.fade,
-                                                                                        child: FlutterFlowExpandedImageView(
-                                                                                          image: Image.network(
-                                                                                            valueOrDefault<String>(
+                                                                                child: Container(
+                                                                                  decoration: BoxDecoration(
+                                                                                    border: Border.all(
+                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                      width: 1.0,
+                                                                                    ),
+                                                                                  ),
+                                                                                  child: InkWell(
+                                                                                    splashColor: Colors.transparent,
+                                                                                    focusColor: Colors.transparent,
+                                                                                    hoverColor: Colors.transparent,
+                                                                                    highlightColor: Colors.transparent,
+                                                                                    onTap: () async {
+                                                                                      await Navigator.push(
+                                                                                        context,
+                                                                                        PageTransition(
+                                                                                          type: PageTransitionType.fade,
+                                                                                          child: FlutterFlowExpandedImageView(
+                                                                                            image: Image.network(
+                                                                                              valueOrDefault<String>(
+                                                                                                getJsonField(
+                                                                                                  functions.image(getJsonField(
+                                                                                                    contentServiceItem,
+                                                                                                    r'''$.image''',
+                                                                                                  ).toString()),
+                                                                                                  r'''$.image''',
+                                                                                                ),
+                                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                              ),
+                                                                                              fit: BoxFit.contain,
+                                                                                            ),
+                                                                                            allowRotation: false,
+                                                                                            tag: valueOrDefault<String>(
                                                                                               getJsonField(
                                                                                                 functions.image(getJsonField(
                                                                                                   contentServiceItem,
@@ -2330,12 +2368,29 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                                 ).toString()),
                                                                                                 r'''$.image''',
                                                                                               ),
-                                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentServiceIndex',
                                                                                             ),
-                                                                                            fit: BoxFit.contain,
+                                                                                            useHeroAnimation: true,
                                                                                           ),
-                                                                                          allowRotation: false,
-                                                                                          tag: valueOrDefault<String>(
+                                                                                        ),
+                                                                                      );
+                                                                                    },
+                                                                                    child: Hero(
+                                                                                      tag: valueOrDefault<String>(
+                                                                                        getJsonField(
+                                                                                          functions.image(getJsonField(
+                                                                                            contentServiceItem,
+                                                                                            r'''$.image''',
+                                                                                          ).toString()),
+                                                                                          r'''$.image''',
+                                                                                        ),
+                                                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentServiceIndex',
+                                                                                      ),
+                                                                                      transitionOnUserGestures: true,
+                                                                                      child: ClipRRect(
+                                                                                        borderRadius: BorderRadius.circular(8.0),
+                                                                                        child: Image.network(
+                                                                                          valueOrDefault<String>(
                                                                                             getJsonField(
                                                                                               functions.image(getJsonField(
                                                                                                 contentServiceItem,
@@ -2343,41 +2398,12 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                               ).toString()),
                                                                                               r'''$.image''',
                                                                                             ),
-                                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentServiceIndex',
+                                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                           ),
-                                                                                          useHeroAnimation: true,
+                                                                                          width: double.infinity,
+                                                                                          height: 150.0,
+                                                                                          fit: BoxFit.contain,
                                                                                         ),
-                                                                                      ),
-                                                                                    );
-                                                                                  },
-                                                                                  child: Hero(
-                                                                                    tag: valueOrDefault<String>(
-                                                                                      getJsonField(
-                                                                                        functions.image(getJsonField(
-                                                                                          contentServiceItem,
-                                                                                          r'''$.image''',
-                                                                                        ).toString()),
-                                                                                        r'''$.image''',
-                                                                                      ),
-                                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentServiceIndex',
-                                                                                    ),
-                                                                                    transitionOnUserGestures: true,
-                                                                                    child: ClipRRect(
-                                                                                      borderRadius: BorderRadius.circular(8.0),
-                                                                                      child: Image.network(
-                                                                                        valueOrDefault<String>(
-                                                                                          getJsonField(
-                                                                                            functions.image(getJsonField(
-                                                                                              contentServiceItem,
-                                                                                              r'''$.image''',
-                                                                                            ).toString()),
-                                                                                            r'''$.image''',
-                                                                                          ),
-                                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
-                                                                                        ),
-                                                                                        width: double.infinity,
-                                                                                        height: 150.0,
-                                                                                        fit: BoxFit.contain,
                                                                                       ),
                                                                                     ),
                                                                                   ),
@@ -3754,28 +3780,40 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                           ],
                                                                         ),
                                                                       ),
-                                                                      ClipRRect(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(100.0),
-                                                                        child: Image
-                                                                            .network(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            getJsonField(
-                                                                              functions.image(getJsonField(
-                                                                                teamListItem,
-                                                                                r'''$.image''',
-                                                                              ).toString()),
-                                                                              r'''$.image''',
-                                                                            ),
-                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                      Container(
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          border:
+                                                                              Border.all(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            width:
+                                                                                1.0,
                                                                           ),
-                                                                          width:
-                                                                              100.0,
-                                                                          height:
-                                                                              100.0,
-                                                                          fit: BoxFit
-                                                                              .contain,
+                                                                        ),
+                                                                        child:
+                                                                            ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(100.0),
+                                                                          child:
+                                                                              Image.network(
+                                                                            valueOrDefault<String>(
+                                                                              getJsonField(
+                                                                                functions.image(getJsonField(
+                                                                                  teamListItem,
+                                                                                  r'''$.image''',
+                                                                                ).toString()),
+                                                                                r'''$.image''',
+                                                                              ),
+                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                            ),
+                                                                            width:
+                                                                                100.0,
+                                                                            height:
+                                                                                100.0,
+                                                                            fit:
+                                                                                BoxFit.contain,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                       Padding(
@@ -3793,7 +3831,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                           textAlign:
                                                                               TextAlign.center,
                                                                           style:
-                                                                              FlutterFlowTheme.of(context).labelLarge,
+                                                                              FlutterFlowTheme.of(context).titleMedium,
                                                                         ),
                                                                       ),
                                                                     ],

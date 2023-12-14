@@ -123,7 +123,12 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                         child: Container(
                           width: double.infinity,
                           height: 300.0,
-                          decoration: BoxDecoration(),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              width: 1.0,
+                            ),
+                          ),
                           child: Image.network(
                             getJsonField(
                               functions.image(getJsonField(
@@ -158,29 +163,25 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                   shape: BoxShape.circle,
                                   border: Border.all(
                                     color: FlutterFlowTheme.of(context).primary,
-                                    width: 2.0,
+                                    width: 1.0,
                                   ),
                                 ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      2.0, 2.0, 2.0, 2.0),
-                                  child: Container(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
+                                child: Container(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.network(
+                                    getJsonField(
+                                      functions.image(getJsonField(
+                                        widget.growthCardInfo,
+                                        r'''$.growthPartnerLogo''',
+                                      ).toString()),
+                                      r'''$.image''',
                                     ),
-                                    child: Image.network(
-                                      getJsonField(
-                                        functions.image(getJsonField(
-                                          widget.growthCardInfo,
-                                          r'''$.growthPartnerLogo''',
-                                        ).toString()),
-                                        r'''$.image''',
-                                      ),
-                                      fit: BoxFit.cover,
-                                    ),
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               ),

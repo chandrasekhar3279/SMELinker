@@ -186,22 +186,33 @@ class _StatsWidgetState extends State<StatsWidget> {
                               Container(
                                 width: 45.0,
                                 height: 45.0,
-                                clipBehavior: Clip.antiAlias,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                ),
-                                child: Image.network(
-                                  valueOrDefault<String>(
-                                    getJsonField(
-                                      functions.image(getJsonField(
-                                        rowGetProfileDetailsResponse.jsonBody,
-                                        r'''$.image''',
-                                      ).toString()),
-                                      r'''$.image''',
-                                    ),
-                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 1.0,
                                   ),
-                                  fit: BoxFit.cover,
+                                ),
+                                child: Container(
+                                  width: 45.0,
+                                  height: 45.0,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.network(
+                                    valueOrDefault<String>(
+                                      getJsonField(
+                                        functions.image(getJsonField(
+                                          rowGetProfileDetailsResponse.jsonBody,
+                                          r'''$.image''',
+                                        ).toString()),
+                                        r'''$.image''',
+                                      ),
+                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                    ),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             if (getJsonField(

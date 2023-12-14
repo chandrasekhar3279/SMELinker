@@ -134,7 +134,13 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
                                         height: 200.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            width: 1.0,
+                                          ),
+                                        ),
                                         child: Image.network(
                                           getJsonField(
                                             functions.image(getJsonField(
@@ -187,20 +193,32 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                     Container(
                                       width: 70.0,
                                       height: 70.0,
-                                      clipBehavior: Clip.antiAlias,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-                                      ),
-                                      child: Image.network(
-                                        getJsonField(
-                                          functions.image(getJsonField(
-                                            groupDetailpageGetGroupDetailsResponse
-                                                .jsonBody,
-                                            r'''$.image''',
-                                          ).toString()),
-                                          r'''$.image''',
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          width: 1.0,
                                         ),
-                                        fit: BoxFit.contain,
+                                      ),
+                                      child: Container(
+                                        width: 70.0,
+                                        height: 70.0,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Image.network(
+                                          getJsonField(
+                                            functions.image(getJsonField(
+                                              groupDetailpageGetGroupDetailsResponse
+                                                  .jsonBody,
+                                              r'''$.image''',
+                                            ).toString()),
+                                            r'''$.image''',
+                                          ),
+                                          fit: BoxFit.contain,
+                                        ),
                                       ),
                                     ),
                                     Expanded(
@@ -859,10 +877,20 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Container(
+                                                  width: 60.0,
+                                                  height: 60.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
+                                                    shape: BoxShape.circle,
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      width: 1.0,
+                                                    ),
                                                   ),
                                                   child: Container(
                                                     width: 60.0,

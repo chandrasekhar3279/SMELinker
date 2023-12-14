@@ -247,6 +247,10 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 1.0,
+                                  ),
                                 ),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -826,28 +830,25 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                     shape: BoxShape.circle,
                                                                                                     border: Border.all(
                                                                                                       color: FlutterFlowTheme.of(context).primary,
-                                                                                                      width: 2.0,
+                                                                                                      width: 1.0,
                                                                                                     ),
                                                                                                   ),
-                                                                                                  child: Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
-                                                                                                    child: Container(
-                                                                                                      width: 24.0,
-                                                                                                      height: 24.0,
-                                                                                                      clipBehavior: Clip.antiAlias,
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        shape: BoxShape.circle,
+                                                                                                  child: Container(
+                                                                                                    width: 24.0,
+                                                                                                    height: 24.0,
+                                                                                                    clipBehavior: Clip.antiAlias,
+                                                                                                    decoration: BoxDecoration(
+                                                                                                      shape: BoxShape.circle,
+                                                                                                    ),
+                                                                                                    child: Image.network(
+                                                                                                      getJsonField(
+                                                                                                        functions.image(getJsonField(
+                                                                                                          featuredGrowthCardItemItem,
+                                                                                                          r'''$.growthPartnerLogo''',
+                                                                                                        ).toString()),
+                                                                                                        r'''$.image''',
                                                                                                       ),
-                                                                                                      child: Image.network(
-                                                                                                        getJsonField(
-                                                                                                          functions.image(getJsonField(
-                                                                                                            featuredGrowthCardItemItem,
-                                                                                                            r'''$.growthPartnerLogo''',
-                                                                                                          ).toString()),
-                                                                                                          r'''$.image''',
-                                                                                                        ),
-                                                                                                        fit: BoxFit.contain,
-                                                                                                      ),
+                                                                                                      fit: BoxFit.contain,
                                                                                                     ),
                                                                                                   ),
                                                                                                 ),
@@ -1981,18 +1982,26 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                               0.0,
                                                                               16.0),
                                                                           child:
-                                                                              ClipRRect(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                            child:
-                                                                                Image.network(
-                                                                              getJsonField(
-                                                                                contentItem,
-                                                                                r'''$.image''',
+                                                                              Container(
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              border: Border.all(
+                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                width: 1.0,
                                                                               ),
-                                                                              width: double.infinity,
-                                                                              height: 130.0,
-                                                                              fit: BoxFit.contain,
+                                                                            ),
+                                                                            child:
+                                                                                ClipRRect(
+                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                              child: Image.network(
+                                                                                getJsonField(
+                                                                                  contentItem,
+                                                                                  r'''$.image''',
+                                                                                ),
+                                                                                width: double.infinity,
+                                                                                height: 130.0,
+                                                                                fit: BoxFit.contain,
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -2698,8 +2707,13 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                                                 children: [
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                                  Container(
+                                                                                    decoration: BoxDecoration(
+                                                                                      border: Border.all(
+                                                                                        color: FlutterFlowTheme.of(context).primary,
+                                                                                        width: 1.0,
+                                                                                      ),
+                                                                                    ),
                                                                                     child: Image.asset(
                                                                                       'assets/images/map-4860b8793ae87598c83a08dc44c0334a.png',
                                                                                       width: 100.0,
@@ -2707,13 +2721,16 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                       fit: BoxFit.contain,
                                                                                     ),
                                                                                   ),
-                                                                                  Text(
-                                                                                    getJsonField(
-                                                                                      dataItem,
-                                                                                      r'''$.name''',
-                                                                                    ).toString(),
-                                                                                    textAlign: TextAlign.start,
-                                                                                    style: FlutterFlowTheme.of(context).labelLarge,
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      getJsonField(
+                                                                                        dataItem,
+                                                                                        r'''$.name''',
+                                                                                      ).toString(),
+                                                                                      textAlign: TextAlign.start,
+                                                                                      style: FlutterFlowTheme.of(context).labelLarge,
+                                                                                    ),
                                                                                   ),
                                                                                 ],
                                                                               ),
@@ -2850,21 +2867,32 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                       ) !=
                                                                                       null)
                                                                                     Container(
-                                                                                      width: 38.0,
-                                                                                      height: 38.0,
-                                                                                      clipBehavior: Clip.antiAlias,
+                                                                                      width: 35.0,
+                                                                                      height: 35.0,
                                                                                       decoration: BoxDecoration(
                                                                                         shape: BoxShape.circle,
-                                                                                      ),
-                                                                                      child: Image.network(
-                                                                                        valueOrDefault<String>(
-                                                                                          getJsonField(
-                                                                                            dataItem,
-                                                                                            r'''$.partners[:].logo''',
-                                                                                          ),
-                                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                        border: Border.all(
+                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                          width: 1.0,
                                                                                         ),
-                                                                                        fit: BoxFit.contain,
+                                                                                      ),
+                                                                                      child: Container(
+                                                                                        width: 38.0,
+                                                                                        height: 38.0,
+                                                                                        clipBehavior: Clip.antiAlias,
+                                                                                        decoration: BoxDecoration(
+                                                                                          shape: BoxShape.circle,
+                                                                                        ),
+                                                                                        child: Image.network(
+                                                                                          valueOrDefault<String>(
+                                                                                            getJsonField(
+                                                                                              dataItem,
+                                                                                              r'''$.partners[:].logo''',
+                                                                                            ),
+                                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                          ),
+                                                                                          fit: BoxFit.contain,
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   if (getJsonField(

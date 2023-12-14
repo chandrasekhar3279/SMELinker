@@ -312,6 +312,13 @@ class _BrowseEnterprenursWidgetState extends State<BrowseEnterprenursWidget> {
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .secondaryBackground,
+                                                      border: Border.all(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        width: 1.0,
+                                                      ),
                                                     ),
                                                     child: ClipRRect(
                                                       borderRadius:

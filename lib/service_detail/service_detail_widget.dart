@@ -98,6 +98,10 @@ class _ServiceDetailWidgetState extends State<ServiceDetailWidget> {
                   height: 400.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
+                    border: Border.all(
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      width: 1.0,
+                    ),
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
@@ -133,21 +137,32 @@ class _ServiceDetailWidgetState extends State<ServiceDetailWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
-                      width: 50.0,
-                      height: 50.0,
-                      clipBehavior: Clip.antiAlias,
+                      width: 40.0,
+                      height: 40.0,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                      ),
-                      child: Image.network(
-                        getJsonField(
-                          functions.image(getJsonField(
-                            widget.servicecardInfo,
-                            r'''$.companyLogo''',
-                          ).toString()),
-                          r'''$.image''',
+                        border: Border.all(
+                          color: FlutterFlowTheme.of(context).primary,
+                          width: 1.0,
                         ),
-                        fit: BoxFit.contain,
+                      ),
+                      child: Container(
+                        width: 40.0,
+                        height: 40.0,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.network(
+                          getJsonField(
+                            functions.image(getJsonField(
+                              widget.servicecardInfo,
+                              r'''$.companyLogo''',
+                            ).toString()),
+                            r'''$.image''',
+                          ),
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                     Flexible(

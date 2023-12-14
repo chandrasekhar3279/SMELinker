@@ -88,7 +88,6 @@ class _ChatUserSelectWidgetState extends State<ChatUserSelectWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 44.0,
-                fillColor: FlutterFlowTheme.of(context).alternate,
                 icon: Icon(
                   Icons.close_rounded,
                   color: FlutterFlowTheme.of(context).secondaryText,
@@ -169,67 +168,82 @@ class _ChatUserSelectWidgetState extends State<ChatUserSelectWidget> {
                                     .secondaryBackground,
                                 borderRadius: BorderRadius.circular(12.0),
                                 border: Border.all(
-                                  color: FlutterFlowTheme.of(context).alternate,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   width: 1.0,
                                 ),
                               ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 10.0, 10.0, 10.0),
-                                    child: Container(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 8.0, 8.0, 8.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Container(
                                       width: 60.0,
                                       height: 60.0,
-                                      clipBehavior: Clip.antiAlias,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-                                      ),
-                                      child: Image.network(
-                                        getJsonField(
-                                          functions.image(getJsonField(
-                                            usersItem,
-                                            r'''$.image''',
-                                          ).toString()),
-                                          r'''$.image''',
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          width: 1.0,
                                         ),
-                                        fit: BoxFit.cover,
                                       ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            getJsonField(
+                                      child: Container(
+                                        width: 60.0,
+                                        height: 60.0,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Image.network(
+                                          getJsonField(
+                                            functions.image(getJsonField(
                                               usersItem,
-                                              r'''$.name''',
-                                            ).toString(),
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelLarge,
+                                              r'''$.image''',
+                                            ).toString()),
+                                            r'''$.image''',
                                           ),
+                                          fit: BoxFit.cover,
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
-                                          child: FaIcon(
-                                            FontAwesomeIcons.facebookMessenger,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            size: 24.0,
-                                          ),
-                                        ),
-                                      ],
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                    Expanded(
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              getJsonField(
+                                                usersItem,
+                                                r'''$.name''',
+                                              ).toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 10.0, 0.0),
+                                            child: FaIcon(
+                                              FontAwesomeIcons
+                                                  .facebookMessenger,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),

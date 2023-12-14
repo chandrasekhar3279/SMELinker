@@ -377,6 +377,14 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryBackground,
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            border: Border.all(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              width: 1.0,
+                                                            ),
                                                           ),
                                                           child: Container(
                                                             width: 120.0,
@@ -572,6 +580,14 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            width: 1.0,
+                                                          ),
                                                         ),
                                                         child: Container(
                                                           width: 120.0,
@@ -780,6 +796,14 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            width: 1.0,
+                                                          ),
                                                         ),
                                                         child: Container(
                                                           width: 120.0,
@@ -977,6 +1001,14 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            width: 1.0,
+                                                          ),
                                                         ),
                                                         child: Container(
                                                           width: 120.0,
@@ -1154,6 +1186,14 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            width: 1.0,
+                                                          ),
                                                         ),
                                                         child: Container(
                                                           width: 120.0,
@@ -1310,6 +1350,13 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
+                                                        shape: BoxShape.circle,
+                                                        border: Border.all(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          width: 1.0,
+                                                        ),
                                                       ),
                                                       child: Container(
                                                         width: 120.0,

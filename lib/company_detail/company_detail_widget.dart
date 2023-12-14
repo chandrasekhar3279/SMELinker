@@ -335,8 +335,9 @@ class _CompanyDetailWidgetState extends State<CompanyDetailWidget> {
                                                                     border:
                                                                         Border
                                                                             .all(
-                                                                      color: Color(
-                                                                          0xFF8B97A2),
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
                                                                     ),
                                                                   ),
                                                                   child:

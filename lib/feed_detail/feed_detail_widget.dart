@@ -180,33 +180,44 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                 r'''$.image''',
                               ) !=
                               null)
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed('Profile');
-                              },
-                              child: Container(
-                                width: 45.0,
-                                height: 45.0,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
+                            Container(
+                              width: 35.0,
+                              height: 35.0,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  width: 1.0,
                                 ),
-                                child: Image.network(
-                                  valueOrDefault<String>(
-                                    getJsonField(
-                                      functions.image(getJsonField(
-                                        rowGetProfileDetailsResponse.jsonBody,
-                                        r'''$.image''',
-                                      ).toString()),
-                                      r'''$.image''',
-                                    ),
-                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                              ),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('Profile');
+                                },
+                                child: Container(
+                                  width: 45.0,
+                                  height: 45.0,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
                                   ),
-                                  fit: BoxFit.contain,
+                                  child: Image.network(
+                                    valueOrDefault<String>(
+                                      getJsonField(
+                                        functions.image(getJsonField(
+                                          rowGetProfileDetailsResponse.jsonBody,
+                                          r'''$.image''',
+                                        ).toString()),
+                                        r'''$.image''',
+                                      ),
+                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                    ),
+                                    fit: BoxFit.contain,
+                                  ),
                                 ),
                               ),
                             ),
@@ -373,32 +384,28 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
-                                          width: 2.0,
+                                          width: 1.0,
                                         ),
                                       ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            2.0, 2.0, 2.0, 2.0),
-                                        child: Container(
-                                          width: 50.0,
-                                          height: 50.0,
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: Image.network(
-                                            valueOrDefault<String>(
-                                              getJsonField(
-                                                functions.image(getJsonField(
-                                                  widget.feedDetail,
-                                                  r'''$.companyLogo''',
-                                                ).toString()),
-                                                r'''$.image''',
-                                              ),
-                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                      child: Container(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Image.network(
+                                          valueOrDefault<String>(
+                                            getJsonField(
+                                              functions.image(getJsonField(
+                                                widget.feedDetail,
+                                                r'''$.companyLogo''',
+                                              ).toString()),
+                                              r'''$.image''',
                                             ),
-                                            fit: BoxFit.contain,
+                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                           ),
+                                          fit: BoxFit.contain,
                                         ),
                                       ),
                                     ),

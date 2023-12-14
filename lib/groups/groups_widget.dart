@@ -476,10 +476,23 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                             .max,
                                                                     children: [
                                                                       Container(
+                                                                        width:
+                                                                            80.0,
+                                                                        height:
+                                                                            80.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          shape:
+                                                                              BoxShape.circle,
+                                                                          border:
+                                                                              Border.all(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            width:
+                                                                                1.0,
+                                                                          ),
                                                                         ),
                                                                         child:
                                                                             Container(
@@ -902,10 +915,23 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                             .max,
                                                                     children: [
                                                                       Container(
+                                                                        width:
+                                                                            80.0,
+                                                                        height:
+                                                                            80.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          shape:
+                                                                              BoxShape.circle,
+                                                                          border:
+                                                                              Border.all(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            width:
+                                                                                1.0,
+                                                                          ),
                                                                         ),
                                                                         child:
                                                                             Container(
@@ -1309,10 +1335,23 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                             .max,
                                                                     children: [
                                                                       Container(
+                                                                        width:
+                                                                            80.0,
+                                                                        height:
+                                                                            80.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          shape:
+                                                                              BoxShape.circle,
+                                                                          border:
+                                                                              Border.all(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            width:
+                                                                                1.0,
+                                                                          ),
                                                                         ),
                                                                         child:
                                                                             Container(

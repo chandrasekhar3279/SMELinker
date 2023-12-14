@@ -331,23 +331,36 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                               Container(
                                                 width: 50.0,
                                                 height: 50.0,
-                                                clipBehavior: Clip.antiAlias,
                                                 decoration: BoxDecoration(
                                                   shape: BoxShape.circle,
-                                                ),
-                                                child: Image.network(
-                                                  valueOrDefault<String>(
-                                                    getJsonField(
-                                                      functions
-                                                          .image(getJsonField(
-                                                        contentItem,
-                                                        r'''$.companyLogo''',
-                                                      ).toString()),
-                                                      r'''$.image''',
-                                                    ),
-                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                  border: Border.all(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    width: 1.0,
                                                   ),
-                                                  fit: BoxFit.contain,
+                                                ),
+                                                child: Container(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  clipBehavior: Clip.antiAlias,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Image.network(
+                                                    valueOrDefault<String>(
+                                                      getJsonField(
+                                                        functions
+                                                            .image(getJsonField(
+                                                          contentItem,
+                                                          r'''$.companyLogo''',
+                                                        ).toString()),
+                                                        r'''$.image''',
+                                                      ),
+                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                    ),
+                                                    fit: BoxFit.contain,
+                                                  ),
                                                 ),
                                               ),
                                             ],

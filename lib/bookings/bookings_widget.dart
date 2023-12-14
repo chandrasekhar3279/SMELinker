@@ -210,6 +210,10 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 1.0,
+                                  ),
                                 ),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -649,68 +653,87 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                       r'''$.bookedByLogo''',
                                                                     ) !=
                                                                     null)
-                                                                  InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      context
-                                                                          .pushNamed(
-                                                                        'CompanyDetailsPage',
-                                                                        queryParameters:
-                                                                            {
-                                                                          'userId':
-                                                                              serializeParam(
-                                                                            valueOrDefault<int>(
-                                                                              getJsonField(
-                                                                                bookingsItem,
-                                                                                r'''$.bookedById''',
-                                                                              ),
-                                                                              0,
-                                                                            ),
-                                                                            ParamType.int,
-                                                                          ),
-                                                                        }.withoutNulls,
-                                                                      );
-                                                                    },
-                                                                    child:
-                                                                        Container(
-                                                                      width:
-                                                                          60.0,
-                                                                      height:
-                                                                          60.0,
-                                                                      clipBehavior:
-                                                                          Clip.antiAlias,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        shape: BoxShape
-                                                                            .circle,
+                                                                  Container(
+                                                                    width: 60.0,
+                                                                    height:
+                                                                        60.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      shape: BoxShape
+                                                                          .circle,
+                                                                      border:
+                                                                          Border
+                                                                              .all(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        width:
+                                                                            1.0,
                                                                       ),
-                                                                      child: Image
-                                                                          .network(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          getJsonField(
-                                                                            functions.image(getJsonField(
-                                                                              bookingsItem,
-                                                                              r'''$.bookedByLogo''',
-                                                                            ).toString()),
-                                                                            r'''$.image''',
-                                                                          ),
-                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                    ),
+                                                                    child:
+                                                                        InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        context
+                                                                            .pushNamed(
+                                                                          'CompanyDetailsPage',
+                                                                          queryParameters:
+                                                                              {
+                                                                            'userId':
+                                                                                serializeParam(
+                                                                              valueOrDefault<int>(
+                                                                                getJsonField(
+                                                                                  bookingsItem,
+                                                                                  r'''$.bookedById''',
+                                                                                ),
+                                                                                0,
+                                                                              ),
+                                                                              ParamType.int,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                        );
+                                                                      },
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            60.0,
+                                                                        height:
+                                                                            60.0,
+                                                                        clipBehavior:
+                                                                            Clip.antiAlias,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          shape:
+                                                                              BoxShape.circle,
                                                                         ),
-                                                                        fit: BoxFit
-                                                                            .contain,
+                                                                        child: Image
+                                                                            .network(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            getJsonField(
+                                                                              functions.image(getJsonField(
+                                                                                bookingsItem,
+                                                                                r'''$.bookedByLogo''',
+                                                                              ).toString()),
+                                                                              r'''$.image''',
+                                                                            ),
+                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                          ),
+                                                                          fit: BoxFit
+                                                                              .contain,
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
@@ -1469,32 +1492,49 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                         crossAxisAlignment:
                                                                             CrossAxisAlignment.center,
                                                                         children: [
-                                                                          if (getJsonField(
-                                                                                bookingsItem,
-                                                                                r'''$.providerLogo''',
-                                                                              ) !=
-                                                                              null)
-                                                                            Container(
-                                                                              width: 60.0,
-                                                                              height: 60.0,
-                                                                              clipBehavior: Clip.antiAlias,
-                                                                              decoration: BoxDecoration(
-                                                                                shape: BoxShape.circle,
-                                                                              ),
-                                                                              child: Image.network(
-                                                                                valueOrDefault<String>(
-                                                                                  getJsonField(
-                                                                                    functions.image(getJsonField(
-                                                                                      bookingsItem,
-                                                                                      r'''$.providerLogo''',
-                                                                                    ).toString()),
-                                                                                    r'''$.image''',
-                                                                                  ),
-                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
-                                                                                ),
-                                                                                fit: BoxFit.contain,
+                                                                          Container(
+                                                                            width:
+                                                                                60.0,
+                                                                            height:
+                                                                                60.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              shape: BoxShape.circle,
+                                                                              border: Border.all(
+                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                width: 1.0,
                                                                               ),
                                                                             ),
+                                                                            child:
+                                                                                Visibility(
+                                                                              visible: getJsonField(
+                                                                                    bookingsItem,
+                                                                                    r'''$.providerLogo''',
+                                                                                  ) !=
+                                                                                  null,
+                                                                              child: Container(
+                                                                                width: 60.0,
+                                                                                height: 60.0,
+                                                                                clipBehavior: Clip.antiAlias,
+                                                                                decoration: BoxDecoration(
+                                                                                  shape: BoxShape.circle,
+                                                                                ),
+                                                                                child: Image.network(
+                                                                                  valueOrDefault<String>(
+                                                                                    getJsonField(
+                                                                                      functions.image(getJsonField(
+                                                                                        bookingsItem,
+                                                                                        r'''$.providerLogo''',
+                                                                                      ).toString()),
+                                                                                      r'''$.image''',
+                                                                                    ),
+                                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                  ),
+                                                                                  fit: BoxFit.contain,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
                                                                           if (getJsonField(
                                                                                 bookingsItem,
                                                                                 r'''$.providerLogo''',

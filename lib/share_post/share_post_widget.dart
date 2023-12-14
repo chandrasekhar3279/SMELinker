@@ -1430,7 +1430,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                         ),
                                       ),
                                       Switch.adaptive(
-                                        value: _model.switchValue ??= false,
+                                        value: _model.switchValue ??= true,
                                         onChanged: (newValue) async {
                                           setState(() =>
                                               _model.switchValue = newValue!);

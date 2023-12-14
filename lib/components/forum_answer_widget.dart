@@ -90,40 +90,53 @@ class _ForumAnswerWidgetState extends State<ForumAnswerWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  if (getJsonField(
-                        rowGetOrgDetailsResponse.jsonBody,
-                        r'''$.logo''',
-                      ) !=
-                      null)
-                    Container(
-                      width: 30.0,
-                      height: 30.0,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: Image.network(
-                        valueOrDefault<String>(
-                          getJsonField(
-                            functions.image(getJsonField(
-                              rowGetOrgDetailsResponse.jsonBody,
-                              r'''$.logo''',
-                            ).toString()),
-                            r'''$.image''',
-                          ),
-                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
-                        ),
-                        fit: BoxFit.contain,
+                  Container(
+                    width: 35.0,
+                    height: 35.0,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: FlutterFlowTheme.of(context).primary,
+                        width: 1.0,
                       ),
                     ),
+                    child: Visibility(
+                      visible: getJsonField(
+                            rowGetOrgDetailsResponse.jsonBody,
+                            r'''$.logo''',
+                          ) !=
+                          null,
+                      child: Container(
+                        width: 30.0,
+                        height: 30.0,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.network(
+                          valueOrDefault<String>(
+                            getJsonField(
+                              functions.image(getJsonField(
+                                rowGetOrgDetailsResponse.jsonBody,
+                                r'''$.logo''',
+                              ).toString()),
+                              r'''$.image''',
+                            ),
+                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                          ),
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ),
                   if (getJsonField(
                         rowGetOrgDetailsResponse.jsonBody,
                         r'''$.logo''',
                       ) ==
                       null)
                     Container(
-                      width: 30.0,
-                      height: 30.0,
+                      width: 35.0,
+                      height: 35.0,
                       decoration: BoxDecoration(
                         color: Color(0xFFFA6400),
                         shape: BoxShape.circle,

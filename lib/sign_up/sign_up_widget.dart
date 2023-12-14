@@ -1473,7 +1473,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                                               context)
                                                                       .width *
                                                                   1.0,
-                                                              height: 55.0,
+                                                              height: 60.0,
                                                               textStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -1868,7 +1868,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                                           context)
                                                                       .width *
                                                                   1.0,
-                                                          height: 55.0,
+                                                          height: 60.0,
                                                           textStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -2189,7 +2189,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                                 context)
                                                             .width *
                                                         1.0,
-                                                    height: 55.0,
+                                                    height: 60.0,
                                                     textStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -2310,7 +2310,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                     text:
                                                         'Select Your Interests',
                                                     options: FFButtonOptions(
-                                                      height: 40.0,
+                                                      height: 50.0,
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
@@ -2336,12 +2336,14 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                       elevation: 3.0,
                                                       borderSide: BorderSide(
                                                         color:
-                                                            Colors.transparent,
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
                                                         width: 1.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8.0),
+                                                              30.0),
                                                     ),
                                                   );
                                                 },

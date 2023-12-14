@@ -150,19 +150,32 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                           Container(
                                             width: 40.0,
                                             height: 40.0,
-                                            clipBehavior: Clip.antiAlias,
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
-                                            ),
-                                            child: Image.network(
-                                              getJsonField(
-                                                functions.image(getJsonField(
-                                                  widget.questionItemContent,
-                                                  r'''$.companyLogo''',
-                                                ).toString()),
-                                                r'''$.image''',
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                width: 1.0,
                                               ),
-                                              fit: BoxFit.cover,
+                                            ),
+                                            child: Container(
+                                              width: 40.0,
+                                              height: 40.0,
+                                              clipBehavior: Clip.antiAlias,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: Image.network(
+                                                getJsonField(
+                                                  functions.image(getJsonField(
+                                                    widget.questionItemContent,
+                                                    r'''$.companyLogo''',
+                                                  ).toString()),
+                                                  r'''$.image''',
+                                                ),
+                                                fit: BoxFit.cover,
+                                              ),
                                             ),
                                           ),
                                         if (getJsonField(
@@ -669,31 +682,47 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                if (getJsonField(
-                                                      answersItem,
-                                                      r'''$.companyLogo''',
-                                                    ) !=
-                                                    null)
-                                                  Container(
-                                                    width: 30.0,
-                                                    height: 30.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.network(
-                                                      getJsonField(
-                                                        functions
-                                                            .image(getJsonField(
-                                                          answersItem,
-                                                          r'''$.companyLogo''',
-                                                        ).toString()),
-                                                        r'''$.image''',
-                                                      ),
-                                                      fit: BoxFit.cover,
+                                                Container(
+                                                  width: 30.0,
+                                                  height: 30.0,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      width: 1.0,
                                                     ),
                                                   ),
+                                                  child: Visibility(
+                                                    visible: getJsonField(
+                                                          answersItem,
+                                                          r'''$.companyLogo''',
+                                                        ) !=
+                                                        null,
+                                                    child: Container(
+                                                      width: 30.0,
+                                                      height: 30.0,
+                                                      clipBehavior:
+                                                          Clip.antiAlias,
+                                                      decoration: BoxDecoration(
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: Image.network(
+                                                        getJsonField(
+                                                          functions.image(
+                                                              getJsonField(
+                                                            answersItem,
+                                                            r'''$.companyLogo''',
+                                                          ).toString()),
+                                                          r'''$.image''',
+                                                        ),
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
                                                 if (getJsonField(
                                                       answersItem,
                                                       r'''$.companyLogo''',

@@ -179,24 +179,38 @@ class _FollowListWidgetState extends State<FollowListWidget>
                                                   Container(
                                                     width: 60.0,
                                                     height: 60.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
                                                     decoration: BoxDecoration(
                                                       shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.network(
-                                                      valueOrDefault<String>(
-                                                        getJsonField(
-                                                          functions.image(
-                                                              getJsonField(
-                                                            followersItem,
-                                                            r'''$.userIcon''',
-                                                          ).toString()),
-                                                          r'''$.image''',
-                                                        ),
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                      border: Border.all(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        width: 1.0,
                                                       ),
-                                                      fit: BoxFit.cover,
+                                                    ),
+                                                    child: Container(
+                                                      width: 60.0,
+                                                      height: 60.0,
+                                                      clipBehavior:
+                                                          Clip.antiAlias,
+                                                      decoration: BoxDecoration(
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: Image.network(
+                                                        valueOrDefault<String>(
+                                                          getJsonField(
+                                                            functions.image(
+                                                                getJsonField(
+                                                              followersItem,
+                                                              r'''$.userIcon''',
+                                                            ).toString()),
+                                                            r'''$.image''',
+                                                          ),
+                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                        ),
+                                                        fit: BoxFit.cover,
+                                                      ),
                                                     ),
                                                   ),
                                                 if (getJsonField(
@@ -414,34 +428,53 @@ class _FollowListWidgetState extends State<FollowListWidget>
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.center,
                                                 children: [
-                                                  if (getJsonField(
-                                                        followeesItem,
-                                                        r'''$.userIcon''',
-                                                      ) !=
-                                                      null)
-                                                    Container(
-                                                      width: 60.0,
-                                                      height: 60.0,
-                                                      clipBehavior:
-                                                          Clip.antiAlias,
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: Image.network(
-                                                        valueOrDefault<String>(
-                                                          getJsonField(
-                                                            functions.image(
-                                                                getJsonField(
-                                                              followeesItem,
-                                                              r'''$.userIcon''',
-                                                            ).toString()),
-                                                            r'''$.image''',
-                                                          ),
-                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
-                                                        ),
-                                                        fit: BoxFit.cover,
+                                                  Container(
+                                                    width: 60.0,
+                                                    height: 60.0,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      border: Border.all(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        width: 1.0,
                                                       ),
                                                     ),
+                                                    child: Visibility(
+                                                      visible: getJsonField(
+                                                            followeesItem,
+                                                            r'''$.userIcon''',
+                                                          ) !=
+                                                          null,
+                                                      child: Container(
+                                                        width: 60.0,
+                                                        height: 60.0,
+                                                        clipBehavior:
+                                                            Clip.antiAlias,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Image.network(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            getJsonField(
+                                                              functions.image(
+                                                                  getJsonField(
+                                                                followeesItem,
+                                                                r'''$.userIcon''',
+                                                              ).toString()),
+                                                              r'''$.image''',
+                                                            ),
+                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                          ),
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
                                                   if (getJsonField(
                                                         followeesItem,
                                                         r'''$.userIcon''',

@@ -252,34 +252,43 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  width: 1.0,
+                                ),
                               ),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('Profile');
-                                },
-                                child: Container(
-                                  width: 45.0,
-                                  height: 45.0,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    valueOrDefault<String>(
-                                      getJsonField(
-                                        functions.image(getJsonField(
-                                          rowGetProfileDetailsResponse.jsonBody,
-                                          r'''$.image''',
-                                        ).toString()),
-                                        r'''$.image''',
-                                      ),
-                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    1.0, 1.0, 1.0, 1.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('Profile');
+                                  },
+                                  child: Container(
+                                    width: 45.0,
+                                    height: 45.0,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
                                     ),
-                                    fit: BoxFit.contain,
+                                    child: Image.network(
+                                      valueOrDefault<String>(
+                                        getJsonField(
+                                          functions.image(getJsonField(
+                                            rowGetProfileDetailsResponse
+                                                .jsonBody,
+                                            r'''$.image''',
+                                          ).toString()),
+                                          r'''$.image''',
+                                        ),
+                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                      ),
+                                      fit: BoxFit.contain,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -650,7 +659,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                   shape: BoxShape.circle,
                                                                                   border: Border.all(
                                                                                     color: FlutterFlowTheme.of(context).primary,
-                                                                                    width: 2.0,
+                                                                                    width: 1.0,
                                                                                   ),
                                                                                 ),
                                                                                 child: Visibility(
@@ -1710,7 +1719,15 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                         height:
                                                                             90.0,
                                                                         decoration:
-                                                                            BoxDecoration(),
+                                                                            BoxDecoration(
+                                                                          border:
+                                                                              Border.all(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            width:
+                                                                                1.0,
+                                                                          ),
+                                                                        ),
                                                                         child:
                                                                             ClipRRect(
                                                                           borderRadius:

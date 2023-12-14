@@ -447,14 +447,19 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                       r'''$.logo''',
                                                     ) !=
                                                     null)
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 8.0,
-                                                                0.0, 0.0),
+                                                  Container(
+                                                    width: 40.0,
+                                                    height: 40.0,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      border: Border.all(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                      ),
+                                                    ),
                                                     child: Container(
-                                                      width: 30.0,
-                                                      height: 30.0,
                                                       clipBehavior:
                                                           Clip.antiAlias,
                                                       decoration: BoxDecoration(
@@ -483,49 +488,42 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                       r'''$.logo''',
                                                     ) ==
                                                     null)
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 8.0,
-                                                                0.0, 0.0),
-                                                    child: Container(
-                                                      width: 30.0,
-                                                      height: 30.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFFFA6400),
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Text(
-                                                            functions
-                                                                .profilePicName(
-                                                                    getJsonField(
-                                                              rowGetOrgDetailsResponse
-                                                                  .jsonBody,
-                                                              r'''$.companyName''',
-                                                            ).toString()),
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                                ),
-                                                          ),
-                                                        ],
-                                                      ),
+                                                  Container(
+                                                    width: 40.0,
+                                                    height: 40.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFFA6400),
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                          functions
+                                                              .profilePicName(
+                                                                  getJsonField(
+                                                            rowGetOrgDetailsResponse
+                                                                .jsonBody,
+                                                            r'''$.companyName''',
+                                                          ).toString()),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                              ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 Expanded(
@@ -920,12 +918,19 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                               r'''$.companyLogo''',
                                                                             ) !=
                                                                             null)
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                5.0,
-                                                                                0.0,
-                                                                                0.0),
+                                                                          Container(
+                                                                            width:
+                                                                                40.0,
+                                                                            height:
+                                                                                40.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              shape: BoxShape.circle,
+                                                                              border: Border.all(
+                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                width: 1.0,
+                                                                              ),
+                                                                            ),
                                                                             child:
                                                                                 InkWell(
                                                                               splashColor: Colors.transparent,
@@ -1413,55 +1418,67 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                 Column(
                                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                                   children: [
-                                                                                                                    if (getJsonField(
-                                                                                                                          answersContentItem,
-                                                                                                                          r'''$.companyLogo''',
-                                                                                                                        ) !=
-                                                                                                                        null)
-                                                                                                                      Padding(
-                                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                                                                                                                        child: InkWell(
-                                                                                                                          splashColor: Colors.transparent,
-                                                                                                                          focusColor: Colors.transparent,
-                                                                                                                          hoverColor: Colors.transparent,
-                                                                                                                          highlightColor: Colors.transparent,
-                                                                                                                          onTap: () async {
-                                                                                                                            context.pushNamed(
-                                                                                                                              'CompanyDetailsPage',
-                                                                                                                              queryParameters: {
-                                                                                                                                'userId': serializeParam(
-                                                                                                                                  getJsonField(
-                                                                                                                                    answersContentItem,
-                                                                                                                                    r'''$.userId''',
+                                                                                                                    Container(
+                                                                                                                      width: 30.0,
+                                                                                                                      height: 30.0,
+                                                                                                                      decoration: BoxDecoration(
+                                                                                                                        shape: BoxShape.circle,
+                                                                                                                        border: Border.all(
+                                                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                                                        ),
+                                                                                                                      ),
+                                                                                                                      child: Visibility(
+                                                                                                                        visible: getJsonField(
+                                                                                                                              answersContentItem,
+                                                                                                                              r'''$.companyLogo''',
+                                                                                                                            ) !=
+                                                                                                                            null,
+                                                                                                                        child: Padding(
+                                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                                                          child: InkWell(
+                                                                                                                            splashColor: Colors.transparent,
+                                                                                                                            focusColor: Colors.transparent,
+                                                                                                                            hoverColor: Colors.transparent,
+                                                                                                                            highlightColor: Colors.transparent,
+                                                                                                                            onTap: () async {
+                                                                                                                              context.pushNamed(
+                                                                                                                                'CompanyDetailsPage',
+                                                                                                                                queryParameters: {
+                                                                                                                                  'userId': serializeParam(
+                                                                                                                                    getJsonField(
+                                                                                                                                      answersContentItem,
+                                                                                                                                      r'''$.userId''',
+                                                                                                                                    ),
+                                                                                                                                    ParamType.int,
                                                                                                                                   ),
-                                                                                                                                  ParamType.int,
-                                                                                                                                ),
-                                                                                                                              }.withoutNulls,
-                                                                                                                            );
-                                                                                                                          },
-                                                                                                                          child: Container(
-                                                                                                                            width: 30.0,
-                                                                                                                            height: 30.0,
-                                                                                                                            clipBehavior: Clip.antiAlias,
-                                                                                                                            decoration: BoxDecoration(
-                                                                                                                              shape: BoxShape.circle,
-                                                                                                                            ),
-                                                                                                                            child: Image.network(
-                                                                                                                              valueOrDefault<String>(
-                                                                                                                                getJsonField(
-                                                                                                                                  functions.image(getJsonField(
-                                                                                                                                    answersContentItem,
-                                                                                                                                    r'''$.companyLogo''',
-                                                                                                                                  ).toString()),
-                                                                                                                                  r'''$.image''',
-                                                                                                                                ),
-                                                                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                                                                }.withoutNulls,
+                                                                                                                              );
+                                                                                                                            },
+                                                                                                                            child: Container(
+                                                                                                                              width: 30.0,
+                                                                                                                              height: 30.0,
+                                                                                                                              clipBehavior: Clip.antiAlias,
+                                                                                                                              decoration: BoxDecoration(
+                                                                                                                                shape: BoxShape.circle,
                                                                                                                               ),
-                                                                                                                              fit: BoxFit.contain,
+                                                                                                                              child: Image.network(
+                                                                                                                                valueOrDefault<String>(
+                                                                                                                                  getJsonField(
+                                                                                                                                    functions.image(getJsonField(
+                                                                                                                                      answersContentItem,
+                                                                                                                                      r'''$.companyLogo''',
+                                                                                                                                    ).toString()),
+                                                                                                                                    r'''$.image''',
+                                                                                                                                  ),
+                                                                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                                                                ),
+                                                                                                                                fit: BoxFit.contain,
+                                                                                                                              ),
                                                                                                                             ),
                                                                                                                           ),
                                                                                                                         ),
                                                                                                                       ),
+                                                                                                                    ),
                                                                                                                     if (getJsonField(
                                                                                                                           answersContentItem,
                                                                                                                           r'''$.companyLogo''',

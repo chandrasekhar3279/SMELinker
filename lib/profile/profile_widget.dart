@@ -162,6 +162,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       shape: BoxShape.circle,
+                                      border: Border.all(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        width: 1.0,
+                                      ),
                                     ),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
