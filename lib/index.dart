@@ -8,7 +8,6 @@ export '/sign_up/sign_up_widget.dart' show SignUpWidget;
 export '/forum/forum_widget.dart' show ForumWidget;
 export '/resources/resources_widget.dart' show ResourcesWidget;
 export '/stats/stats_widget.dart' show StatsWidget;
-export '/company_detail/company_detail_widget.dart' show CompanyDetailWidget;
 export '/bookings/bookings_widget.dart' show BookingsWidget;
 export '/my_growth/my_growth_widget.dart' show MyGrowthWidget;
 export '/profile/profile_widget.dart' show ProfileWidget;

@@ -674,35 +674,44 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Image.network(
-                              valueOrDefault<String>(
-                                getJsonField(
-                                  functions.image(valueOrDefault<String>(
-                                    getJsonField(
-                                              widget.feedDetail,
-                                              r'''$.featuredImage''',
-                                            ) !=
-                                            null
-                                        ? valueOrDefault<String>(
-                                            getJsonField(
-                                              widget.feedDetail,
-                                              r'''$.featuredImage''',
-                                            ).toString(),
-                                            'http://smeconnectdev.cloudseed.io/assets/images/news/newsfeed-square.jpg',
-                                          )
-                                        : getJsonField(
-                                            widget.feedDetail,
-                                            r'''$.featured_image''',
-                                          ).toString(),
-                                    'http://smeconnectdev.cloudseed.io/assets/images/news/newsfeed-square.jpg',
-                                  )),
-                                  r'''$.image''',
+                            Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  width: 1.0,
                                 ),
-                                'http://smeconnectdev.cloudseed.io/assets/images/news/newsfeed-square.jpg',
                               ),
-                              width: double.infinity,
-                              height: 200.0,
-                              fit: BoxFit.contain,
+                              child: Image.network(
+                                valueOrDefault<String>(
+                                  getJsonField(
+                                    functions.image(valueOrDefault<String>(
+                                      getJsonField(
+                                                widget.feedDetail,
+                                                r'''$.featuredImage''',
+                                              ) !=
+                                              null
+                                          ? valueOrDefault<String>(
+                                              getJsonField(
+                                                widget.feedDetail,
+                                                r'''$.featuredImage''',
+                                              ).toString(),
+                                              'http://smeconnectdev.cloudseed.io/assets/images/news/newsfeed-square.jpg',
+                                            )
+                                          : getJsonField(
+                                              widget.feedDetail,
+                                              r'''$.featured_image''',
+                                            ).toString(),
+                                      'http://smeconnectdev.cloudseed.io/assets/images/news/newsfeed-square.jpg',
+                                    )),
+                                    r'''$.image''',
+                                  ),
+                                  'http://smeconnectdev.cloudseed.io/assets/images/news/newsfeed-square.jpg',
+                                ),
+                                width: double.infinity,
+                                height: 200.0,
+                                fit: BoxFit.contain,
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(

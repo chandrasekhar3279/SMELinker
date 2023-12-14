@@ -389,7 +389,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                         shape: BoxShape.circle,
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
+                                              .primary,
                                           width: 1.0,
                                         ),
                                       ),

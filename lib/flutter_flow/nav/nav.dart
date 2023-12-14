@@ -97,13 +97,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CompanyDetail',
-          path: '/companyDetail',
-          builder: (context, params) => CompanyDetailWidget(
-            userId: params.getParam('userId', ParamType.int),
-          ),
-        ),
-        FFRoute(
           name: 'Bookings',
           path: '/bookings',
           builder: (context, params) => params.isEmpty

@@ -165,17 +165,7 @@ class _DeleteTeamMemberWidgetState extends State<DeleteTeamMemberWidget> {
                             ));
                           },
                         );
-
-                        context.goNamed(
-                          'CompanyDetailsPage',
-                          queryParameters: {
-                            'userId': serializeParam(
-                              0,
-                              ParamType.int,
-                            ),
-                          }.withoutNulls,
-                        );
-
+                        Navigator.pop(context);
                         setState(() {});
                       } else {
                         await showDialog(
@@ -195,6 +185,7 @@ class _DeleteTeamMemberWidgetState extends State<DeleteTeamMemberWidget> {
                             ));
                           },
                         );
+                        Navigator.pop(context);
                       }
 
                       setState(() {});

@@ -909,7 +909,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                 child: Container(
                                                                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                   height: 180.0,
-                                                                                  decoration: BoxDecoration(),
+                                                                                  decoration: BoxDecoration(
+                                                                                    border: Border.all(
+                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                      width: 1.0,
+                                                                                    ),
+                                                                                  ),
                                                                                   child: ClipRRect(
                                                                                     borderRadius: BorderRadius.circular(8.0),
                                                                                     child: Image.network(

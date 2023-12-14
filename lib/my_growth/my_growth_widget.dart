@@ -795,7 +795,12 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                           child: Container(
                                                                                             width: double.infinity,
                                                                                             height: 124.0,
-                                                                                            decoration: BoxDecoration(),
+                                                                                            decoration: BoxDecoration(
+                                                                                              border: Border.all(
+                                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                width: 1.0,
+                                                                                              ),
+                                                                                            ),
                                                                                             child: Image.network(
                                                                                               valueOrDefault<String>(
                                                                                                 getJsonField(
@@ -1374,7 +1379,12 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                           child: Container(
                                                                                             width: double.infinity,
                                                                                             height: 124.0,
-                                                                                            decoration: BoxDecoration(),
+                                                                                            decoration: BoxDecoration(
+                                                                                              border: Border.all(
+                                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                width: 1.0,
+                                                                                              ),
+                                                                                            ),
                                                                                             child: Image.network(
                                                                                               valueOrDefault<String>(
                                                                                                 getJsonField(
@@ -1986,7 +1996,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               border: Border.all(
-                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                color: FlutterFlowTheme.of(context).secondaryText,
                                                                                 width: 1.0,
                                                                               ),
                                                                             ),
@@ -2710,7 +2720,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                   Container(
                                                                                     decoration: BoxDecoration(
                                                                                       border: Border.all(
-                                                                                        color: FlutterFlowTheme.of(context).primary,
+                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
                                                                                         width: 1.0,
                                                                                       ),
                                                                                     ),
