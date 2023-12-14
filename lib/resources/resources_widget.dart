@@ -244,7 +244,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                       FontAwesomeIcons
                                                           .solidFileExcel,
                                                       color: Color(0xFF67CB45),
-                                                      size: 30.0,
+                                                      size: 24.0,
                                                     ),
                                                   if (getJsonField(
                                                         contentItem,
@@ -255,7 +255,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                       FontAwesomeIcons
                                                           .solidFilePdf,
                                                       color: Color(0xFFC8122E),
-                                                      size: 30.0,
+                                                      size: 24.0,
                                                     ),
                                                   if (getJsonField(
                                                         contentItem,
@@ -266,7 +266,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                       FontAwesomeIcons
                                                           .solidFileWord,
                                                       color: Color(0xFF2685ED),
-                                                      size: 30.0,
+                                                      size: 24.0,
                                                     ),
                                                 ],
                                               ),
@@ -284,7 +284,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 5.0),
+                                                  0.0, 5.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -308,7 +308,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 16.0, 0.0, 24.0),
+                                                  0.0, 8.0, 0.0, 8.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
