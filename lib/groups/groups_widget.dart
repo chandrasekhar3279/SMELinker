@@ -482,9 +482,9 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                     children: [
                                                                       Container(
                                                                         width:
-                                                                            80.0,
+                                                                            60.0,
                                                                         height:
-                                                                            80.0,
+                                                                            60.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
@@ -921,9 +921,9 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                     children: [
                                                                       Container(
                                                                         width:
-                                                                            80.0,
+                                                                            60.0,
                                                                         height:
-                                                                            80.0,
+                                                                            60.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
@@ -1341,9 +1341,9 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                     children: [
                                                                       Container(
                                                                         width:
-                                                                            80.0,
+                                                                            60.0,
                                                                         height:
-                                                                            80.0,
+                                                                            60.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
