@@ -352,7 +352,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                               unselectedLabelColor:
                                   FlutterFlowTheme.of(context).accent2,
                               labelStyle:
-                                  FlutterFlowTheme.of(context).labelSmall,
+                                  FlutterFlowTheme.of(context).labelMedium,
                               unselectedLabelStyle: TextStyle(),
                               indicatorColor:
                                   FlutterFlowTheme.of(context).primary,
