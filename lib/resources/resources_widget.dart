@@ -177,7 +177,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                               final contentItem = content[contentIndex];
                               return Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 16.0, 16.0, 8.0),
+                                    16.0, 16.0, 16.0, 0.0),
                                 child: Card(
                                   clipBehavior: Clip.antiAliasWithSaveLayer,
                                   color: FlutterFlowTheme.of(context)
@@ -371,46 +371,42 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             ],
                                           ),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 16.0),
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              await launchURL(getJsonField(
-                                                contentItem,
-                                                r'''$.resourceUrl''',
-                                              ).toString());
-                                            },
-                                            text: 'Download',
-                                            icon: FaIcon(
-                                              FontAwesomeIcons.download,
-                                              size: 15.0,
-                                            ),
-                                            options: FFButtonOptions(
-                                              width: double.infinity,
-                                              height: 40.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelLarge
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondary,
-                                                      ),
-                                              elevation: 2.0,
-                                              borderRadius:
-                                                  BorderRadius.circular(40.0),
-                                            ),
+                                        FFButtonWidget(
+                                          onPressed: () async {
+                                            await launchURL(getJsonField(
+                                              contentItem,
+                                              r'''$.resourceUrl''',
+                                            ).toString());
+                                          },
+                                          text: 'Download',
+                                          icon: FaIcon(
+                                            FontAwesomeIcons.download,
+                                            size: 15.0,
+                                          ),
+                                          options: FFButtonOptions(
+                                            width: double.infinity,
+                                            height: 40.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelLarge
+                                                    .override(
+                                                      fontFamily: 'Roboto',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                    ),
+                                            elevation: 2.0,
+                                            borderRadius:
+                                                BorderRadius.circular(40.0),
                                           ),
                                         ),
                                       ],
