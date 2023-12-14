@@ -408,7 +408,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        5.0, 0.0, 5.0, 16.0),
+                                        5.0, 0.0, 5.0, 0.0),
                                     child: Text(
                                       'Companies who have requested to book your Products or Services',
                                       textAlign: TextAlign.center,
@@ -418,7 +418,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 16.0, 0.0, 16.0),
+                                        0.0, 8.0, 0.0, 8.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment: MainAxisAlignment.end,
@@ -589,19 +589,19 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                             BorderRadius
                                                                 .circular(8.0),
                                                       ),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        10.0,
-                                                                        10.0,
-                                                                        10.0,
-                                                                        5.0),
-                                                            child: Row(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    12.0,
+                                                                    12.0,
+                                                                    12.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
@@ -628,16 +628,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                 ),
                                                               ],
                                                             ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
-                                                                        5.0,
-                                                                        10.0,
-                                                                        5.0),
-                                                            child: Row(
+                                                            Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
@@ -951,16 +942,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                 ),
                                                               ],
                                                             ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        10.0,
-                                                                        5.0,
-                                                                        10.0,
-                                                                        10.0),
-                                                            child: Row(
+                                                            Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
@@ -1097,7 +1079,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                             .center,
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
-                                                                            .end,
+                                                                            .start,
                                                                     children: [
                                                                       Text(
                                                                         'Status',
@@ -1180,8 +1162,12 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                 ),
                                                               ],
                                                             ),
-                                                          ),
-                                                        ],
+                                                          ]
+                                                              .divide(SizedBox(
+                                                                  height: 4.0))
+                                                              .around(SizedBox(
+                                                                  height: 4.0)),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -1204,19 +1190,15 @@ class _BookingsWidgetState extends State<BookingsWidget>
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 16.0),
-                                    child: Text(
-                                      'Requests you have made to other companies',
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyLarge,
-                                    ),
+                                  Text(
+                                    'Requests you have made to other companies',
+                                    textAlign: TextAlign.center,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyLarge,
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 16.0, 0.0, 16.0),
+                                        0.0, 8.0, 0.0, 8.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment: MainAxisAlignment.end,

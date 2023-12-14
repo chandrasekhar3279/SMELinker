@@ -2031,14 +2031,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                               children: [
                                                                                                 Text(
                                                                                                   'DATE TAKEN',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                  style: FlutterFlowTheme.of(context).labelMedium,
                                                                                                 ),
                                                                                                 Text(
                                                                                                   getJsonField(
                                                                                                     contentItem,
                                                                                                     r'''$.dateTaken''',
                                                                                                   ).toString(),
-                                                                                                  style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                                  style: FlutterFlowTheme.of(context).bodySmall,
                                                                                                 ),
                                                                                               ],
                                                                                             ),
@@ -2057,7 +2057,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                             contentItem,
                                                                                             r'''$.numberOfDaysBefore''',
                                                                                           ).toString()} days',
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                          style: FlutterFlowTheme.of(context).bodySmall,
                                                                                         ),
                                                                                       ),
                                                                                     ],
@@ -2179,14 +2179,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                             children: [
                                                                                               Text(
                                                                                                 'COST',
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                style: FlutterFlowTheme.of(context).labelMedium,
                                                                                               ),
                                                                                               Text(
                                                                                                 getJsonField(
                                                                                                   contentItem,
                                                                                                   r'''$.cost''',
                                                                                                 ).toString(),
-                                                                                                style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                                style: FlutterFlowTheme.of(context).bodySmall,
                                                                                               ),
                                                                                             ],
                                                                                           ),
@@ -2209,14 +2209,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                             children: [
                                                                                               Text(
                                                                                                 'DURATION',
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                style: FlutterFlowTheme.of(context).labelMedium,
                                                                                               ),
                                                                                               Text(
                                                                                                 getJsonField(
                                                                                                   contentItem,
                                                                                                   r'''$.duration''',
                                                                                                 ).toString(),
-                                                                                                style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                                style: FlutterFlowTheme.of(context).bodySmall,
                                                                                               ),
                                                                                             ],
                                                                                           ),
@@ -2242,14 +2242,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                           children: [
                                                                                             Text(
                                                                                               'QUESTIONS',
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
                                                                                             ),
                                                                                             Text(
                                                                                               getJsonField(
                                                                                                 contentItem,
                                                                                                 r'''$.numberOfQuestions''',
                                                                                               ).toString(),
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
                                                                                             ),
                                                                                           ],
                                                                                         ),
@@ -2330,14 +2330,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                           children: [
                                                                                             Text(
                                                                                               'COST',
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
                                                                                             ),
                                                                                             Text(
                                                                                               getJsonField(
                                                                                                 contentItem,
                                                                                                 r'''$.cost''',
                                                                                               ).toString(),
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
                                                                                             ),
                                                                                           ],
                                                                                         ),
@@ -2358,14 +2358,14 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                           children: [
                                                                                             Text(
                                                                                               'DURATION',
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
                                                                                             ),
                                                                                             Text(
                                                                                               getJsonField(
                                                                                                 contentItem,
                                                                                                 r'''$.duration''',
                                                                                               ).toString(),
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
                                                                                             ),
                                                                                           ],
                                                                                         ),
@@ -2396,7 +2396,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                           children: [
                                                                                             Text(
                                                                                               'QUESTIONS',
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
                                                                                             ),
                                                                                             Text(
                                                                                               '${getJsonField(
@@ -2406,7 +2406,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                 contentItem,
                                                                                                 r'''$.numberOfQuestions''',
                                                                                               ).toString()}',
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
                                                                                             ),
                                                                                           ],
                                                                                         ),
