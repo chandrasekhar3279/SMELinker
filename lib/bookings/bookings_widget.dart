@@ -596,68 +596,150 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .start,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                Expanded(
-                                                                  child: Text(
-                                                                    getJsonField(
-                                                                      bookingsItem,
-                                                                      r'''$.productOrServiceName''',
-                                                                    ).toString(),
-                                                                    textAlign:
-                                                                        TextAlign
-                                                                            .start,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelMedium,
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          10.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .start,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Expanded(
+                                                                    child: Text(
+                                                                      getJsonField(
+                                                                        bookingsItem,
+                                                                        r'''$.productOrServiceName''',
+                                                                      ).toString(),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .start,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium,
+                                                                    ),
                                                                   ),
-                                                                ),
-                                                              ],
+                                                                ],
+                                                              ),
                                                             ),
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                if (getJsonField(
-                                                                      bookingsItem,
-                                                                      r'''$.bookedByLogo''',
-                                                                    ) !=
-                                                                    null)
-                                                                  Container(
-                                                                    width: 40.0,
-                                                                    height:
-                                                                        40.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      shape: BoxShape
-                                                                          .circle,
-                                                                      border:
-                                                                          Border
-                                                                              .all(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                        width:
-                                                                            1.0,
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          10.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  if (getJsonField(
+                                                                        bookingsItem,
+                                                                        r'''$.bookedByLogo''',
+                                                                      ) !=
+                                                                      null)
+                                                                    Container(
+                                                                      width:
+                                                                          40.0,
+                                                                      height:
+                                                                          40.0,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        shape: BoxShape
+                                                                            .circle,
+                                                                        border:
+                                                                            Border.all(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                      ),
+                                                                      child:
+                                                                          InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          context
+                                                                              .pushNamed(
+                                                                            'CompanyDetailsPage',
+                                                                            queryParameters:
+                                                                                {
+                                                                              'userId': serializeParam(
+                                                                                valueOrDefault<int>(
+                                                                                  getJsonField(
+                                                                                    bookingsItem,
+                                                                                    r'''$.bookedById''',
+                                                                                  ),
+                                                                                  0,
+                                                                                ),
+                                                                                ParamType.int,
+                                                                              ),
+                                                                            }.withoutNulls,
+                                                                          );
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              60.0,
+                                                                          height:
+                                                                              60.0,
+                                                                          clipBehavior:
+                                                                              Clip.antiAlias,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            shape:
+                                                                                BoxShape.circle,
+                                                                          ),
+                                                                          child:
+                                                                              Image.network(
+                                                                            valueOrDefault<String>(
+                                                                              getJsonField(
+                                                                                functions.image(getJsonField(
+                                                                                  bookingsItem,
+                                                                                  r'''$.bookedByLogo''',
+                                                                                ).toString()),
+                                                                                r'''$.image''',
+                                                                              ).toString(),
+                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                            ),
+                                                                            fit:
+                                                                                BoxFit.contain,
+                                                                          ),
+                                                                        ),
                                                                       ),
                                                                     ),
-                                                                    child:
-                                                                        InkWell(
+                                                                  if (getJsonField(
+                                                                        bookingsItem,
+                                                                        r'''$.bookedByLogo''',
+                                                                      ) ==
+                                                                      null)
+                                                                    InkWell(
                                                                       splashColor:
                                                                           Colors
                                                                               .transparent,
@@ -694,266 +776,176 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                       child:
                                                                           Container(
                                                                         width:
-                                                                            60.0,
+                                                                            40.0,
                                                                         height:
-                                                                            60.0,
-                                                                        clipBehavior:
-                                                                            Clip.antiAlias,
+                                                                            40.0,
                                                                         decoration:
                                                                             BoxDecoration(
+                                                                          color:
+                                                                              Color(0xFFFA6400),
                                                                           shape:
                                                                               BoxShape.circle,
                                                                         ),
-                                                                        child: Image
-                                                                            .network(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            getJsonField(
-                                                                              functions.image(getJsonField(
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.center,
+                                                                          children: [
+                                                                            Text(
+                                                                              functions.profilePicName(getJsonField(
                                                                                 bookingsItem,
-                                                                                r'''$.bookedByLogo''',
+                                                                                r'''$.bookedBy''',
                                                                               ).toString()),
-                                                                              r'''$.image''',
-                                                                            ).toString(),
-                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
-                                                                          ),
-                                                                          fit: BoxFit
-                                                                              .contain,
+                                                                              textAlign: TextAlign.center,
+                                                                              style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                    fontFamily: 'Roboto',
+                                                                                    color: FlutterFlowTheme.of(context).secondary,
+                                                                                  ),
+                                                                            ),
+                                                                          ],
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ),
-                                                                if (getJsonField(
-                                                                      bookingsItem,
-                                                                      r'''$.bookedByLogo''',
-                                                                    ) ==
-                                                                    null)
-                                                                  InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      context
-                                                                          .pushNamed(
-                                                                        'CompanyDetailsPage',
-                                                                        queryParameters:
-                                                                            {
-                                                                          'userId':
-                                                                              serializeParam(
-                                                                            valueOrDefault<int>(
-                                                                              getJsonField(
-                                                                                bookingsItem,
-                                                                                r'''$.bookedById''',
-                                                                              ),
-                                                                              0,
-                                                                            ),
-                                                                            ParamType.int,
-                                                                          ),
-                                                                        }.withoutNulls,
-                                                                      );
-                                                                    },
+                                                                  Expanded(
                                                                     child:
-                                                                        Container(
-                                                                      width:
-                                                                          40.0,
-                                                                      height:
-                                                                          40.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Color(
-                                                                            0xFFFA6400),
-                                                                        shape: BoxShape
-                                                                            .circle,
-                                                                      ),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.center,
-                                                                        children: [
-                                                                          Text(
-                                                                            functions.profilePicName(getJsonField(
-                                                                              bookingsItem,
-                                                                              r'''$.bookedBy''',
-                                                                            ).toString()),
-                                                                            textAlign:
-                                                                                TextAlign.center,
-                                                                            style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                  fontFamily: 'Roboto',
-                                                                                  color: FlutterFlowTheme.of(context).secondary,
-                                                                                ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                Expanded(
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      getJsonField(
-                                                                        bookingsItem,
-                                                                        r'''$.bookedBy''',
-                                                                      ).toString(),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyLarge,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           10.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      if (getJsonField(
-                                                                            bookingsItem,
-                                                                            r'''$.bookingStatus''',
-                                                                          ) !=
-                                                                          FFAppState()
-                                                                              .bookingStatus)
-                                                                        Text(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            functions.convertFirstLetterCapital(getJsonField(
+                                                                      child:
+                                                                          Text(
+                                                                        getJsonField(
+                                                                          bookingsItem,
+                                                                          r'''$.bookedBy''',
+                                                                        ).toString(),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyLarge,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .end,
+                                                                      children: [
+                                                                        if (getJsonField(
                                                                               bookingsItem,
                                                                               r'''$.bookingStatus''',
-                                                                            ).toString()),
-                                                                            'no reply',
+                                                                            ) !=
+                                                                            FFAppState().bookingStatus)
+                                                                          Text(
+                                                                            valueOrDefault<String>(
+                                                                              functions.convertFirstLetterCapital(getJsonField(
+                                                                                bookingsItem,
+                                                                                r'''$.bookingStatus''',
+                                                                              ).toString()),
+                                                                              'no reply',
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                  fontFamily: 'Roboto',
+                                                                                  color: FlutterFlowTheme.of(context).success,
+                                                                                ),
                                                                           ),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .titleMedium
-                                                                              .override(
-                                                                                fontFamily: 'Roboto',
-                                                                                color: FlutterFlowTheme.of(context).success,
-                                                                              ),
-                                                                        ),
-                                                                      if (getJsonField(
-                                                                            bookingsItem,
-                                                                            r'''$.bookingStatus''',
-                                                                          ) ==
-                                                                          FFAppState()
-                                                                              .bookingStatus)
-                                                                        FFButtonWidget(
-                                                                          onPressed:
-                                                                              () async {
-                                                                            await showModalBottomSheet(
-                                                                              isScrollControlled: true,
-                                                                              backgroundColor: Color(0xFF57636C),
-                                                                              enableDrag: false,
-                                                                              context: context,
-                                                                              builder: (context) {
-                                                                                return WebViewAware(
-                                                                                    child: GestureDetector(
-                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                  child: Padding(
-                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                    child: Container(
-                                                                                      height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                      child: BookingsReplyWidget(
-                                                                                        bookedbyItemReply: bookingsItem,
-                                                                                        myProfileDetails: getJsonField(
-                                                                                          bookingsGetProfileDetailsResponse.jsonBody,
-                                                                                          r'''$''',
+                                                                        if (getJsonField(
+                                                                              bookingsItem,
+                                                                              r'''$.bookingStatus''',
+                                                                            ) ==
+                                                                            FFAppState().bookingStatus)
+                                                                          FFButtonWidget(
+                                                                            onPressed:
+                                                                                () async {
+                                                                              await showModalBottomSheet(
+                                                                                isScrollControlled: true,
+                                                                                backgroundColor: Color(0xFF57636C),
+                                                                                enableDrag: false,
+                                                                                context: context,
+                                                                                builder: (context) {
+                                                                                  return WebViewAware(
+                                                                                      child: GestureDetector(
+                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: Container(
+                                                                                        height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                        child: BookingsReplyWidget(
+                                                                                          bookedbyItemReply: bookingsItem,
+                                                                                          myProfileDetails: getJsonField(
+                                                                                            bookingsGetProfileDetailsResponse.jsonBody,
+                                                                                            r'''$''',
+                                                                                          ),
                                                                                         ),
                                                                                       ),
                                                                                     ),
-                                                                                  ),
-                                                                                ));
-                                                                              },
-                                                                            ).then((value) =>
-                                                                                safeSetState(() {}));
-                                                                          },
-                                                                          text:
-                                                                              'Reply',
-                                                                          icon:
-                                                                              Icon(
-                                                                            Icons.reply,
-                                                                            size:
-                                                                                16.0,
-                                                                          ),
-                                                                          options:
-                                                                              FFButtonOptions(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            color:
-                                                                                Colors.white,
-                                                                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                  fontFamily: 'Roboto',
-                                                                                  color: FlutterFlowTheme.of(context).primary,
-                                                                                  fontSize: 14.0,
-                                                                                ),
-                                                                            elevation:
-                                                                                0.0,
-                                                                            borderSide:
-                                                                                BorderSide(
-                                                                              color: Colors.transparent,
-                                                                              width: 1.0,
+                                                                                  ));
+                                                                                },
+                                                                              ).then((value) => safeSetState(() {}));
+                                                                            },
+                                                                            text:
+                                                                                'Reply',
+                                                                            icon:
+                                                                                Icon(
+                                                                              Icons.reply,
+                                                                              size: 16.0,
                                                                             ),
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(20.0),
+                                                                            options:
+                                                                                FFButtonOptions(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              color: Colors.white,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                    fontFamily: 'Roboto',
+                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                    fontSize: 14.0,
+                                                                                  ),
+                                                                              elevation: 0.0,
+                                                                              borderSide: BorderSide(
+                                                                                color: Colors.transparent,
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(20.0),
+                                                                            ),
                                                                           ),
-                                                                        ),
-                                                                    ],
+                                                                      ],
+                                                                    ),
                                                                   ),
-                                                                ),
-                                                              ],
+                                                                ],
+                                                              ),
                                                             ),
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                Expanded(
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          10.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Expanded(
                                                                     child:
                                                                         Column(
                                                                       mainAxisSize:
@@ -961,51 +953,40 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                               .min,
                                                                       mainAxisAlignment:
                                                                           MainAxisAlignment
-                                                                              .center,
+                                                                              .start,
                                                                       crossAxisAlignment:
                                                                           CrossAxisAlignment
                                                                               .start,
                                                                       children: [
-                                                                        Text(
-                                                                          'Item Type',
-                                                                          textAlign:
-                                                                              TextAlign.start,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .labelMedium
-                                                                              .override(
-                                                                                fontFamily: 'Roboto',
-                                                                                lineHeight: 0.8,
-                                                                              ),
-                                                                        ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
-                                                                              8.0,
                                                                               0.0,
-                                                                              0.0),
+                                                                              0.0,
+                                                                              8.0),
                                                                           child:
                                                                               Text(
-                                                                            getJsonField(
-                                                                              bookingsItem,
-                                                                              r'''$.bookingType''',
-                                                                            ).toString(),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            'Item Type',
+                                                                            textAlign:
+                                                                                TextAlign.start,
+                                                                            style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                  fontFamily: 'Roboto',
+                                                                                  lineHeight: 0.8,
+                                                                                ),
                                                                           ),
+                                                                        ),
+                                                                        Text(
+                                                                          getJsonField(
+                                                                            bookingsItem,
+                                                                            r'''$.bookingType''',
+                                                                          ).toString(),
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).bodyMedium,
                                                                         ),
                                                                       ],
                                                                     ),
                                                                   ),
-                                                                ),
-                                                                Expanded(
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0),
+                                                                  Expanded(
                                                                     child:
                                                                         Column(
                                                                       mainAxisSize:
@@ -1013,149 +994,127 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                               .min,
                                                                       mainAxisAlignment:
                                                                           MainAxisAlignment
-                                                                              .center,
+                                                                              .start,
                                                                       crossAxisAlignment:
                                                                           CrossAxisAlignment
                                                                               .start,
                                                                       children: [
-                                                                        Text(
-                                                                          'Booked On',
-                                                                          textAlign:
-                                                                              TextAlign.center,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .labelMedium
-                                                                              .override(
-                                                                                fontFamily: 'Roboto',
-                                                                                lineHeight: 0.8,
-                                                                              ),
-                                                                        ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
-                                                                              8.0,
                                                                               0.0,
-                                                                              0.0),
+                                                                              0.0,
+                                                                              8.0),
                                                                           child:
-                                                                              Row(
+                                                                              Text(
+                                                                            'Booked On',
+                                                                            textAlign:
+                                                                                TextAlign.center,
+                                                                            style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                  fontFamily: 'Roboto',
+                                                                                  lineHeight: 0.8,
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                        Text(
+                                                                          getJsonField(
+                                                                            bookingsItem,
+                                                                            r'''$.dateBooked''',
+                                                                          ).toString(),
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .min,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .start,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              8.0),
+                                                                          child:
+                                                                              Text(
+                                                                            'Status',
+                                                                            textAlign:
+                                                                                TextAlign.center,
+                                                                            style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                  fontFamily: 'Roboto',
+                                                                                  lineHeight: 0.8,
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                        if (getJsonField(
+                                                                              bookingsItem,
+                                                                              r'''$.bookingStatus''',
+                                                                            ) ==
+                                                                            FFAppState().bookingStatus)
+                                                                          Row(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.max,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.center,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.end,
                                                                             children: [
                                                                               FaIcon(
-                                                                                FontAwesomeIcons.calendar,
-                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                FontAwesomeIcons.infoCircle,
+                                                                                color: FlutterFlowTheme.of(context).warning,
                                                                                 size: 16.0,
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
                                                                                 child: Text(
                                                                                   getJsonField(
                                                                                     bookingsItem,
-                                                                                    r'''$.dateBooked''',
+                                                                                    r'''$.bookingStatus''',
                                                                                   ).toString(),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                 ),
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                        ),
+                                                                        if (getJsonField(
+                                                                              bookingsItem,
+                                                                              r'''$.bookingStatus''',
+                                                                            ) !=
+                                                                            FFAppState().bookingStatus)
+                                                                          Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.start,
+                                                                            children: [
+                                                                              FaIcon(
+                                                                                FontAwesomeIcons.solidCheckCircle,
+                                                                                color: FlutterFlowTheme.of(context).success,
+                                                                                size: 16.0,
+                                                                              ),
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                child: Text(
+                                                                                  'Booked',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
                                                                       ],
                                                                     ),
                                                                   ),
-                                                                ),
-                                                                Expanded(
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .min,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Text(
-                                                                        'Status',
-                                                                        textAlign:
-                                                                            TextAlign.center,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              fontFamily: 'Roboto',
-                                                                              lineHeight: 0.8,
-                                                                            ),
-                                                                      ),
-                                                                      Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.center,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.end,
-                                                                        children: [
-                                                                          if (getJsonField(
-                                                                                bookingsItem,
-                                                                                r'''$.bookingStatus''',
-                                                                              ) ==
-                                                                              FFAppState().bookingStatus)
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                                                                              child: Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.end,
-                                                                                children: [
-                                                                                  FaIcon(
-                                                                                    FontAwesomeIcons.infoCircle,
-                                                                                    color: FlutterFlowTheme.of(context).warning,
-                                                                                    size: 16.0,
-                                                                                  ),
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                    child: Text(
-                                                                                      getJsonField(
-                                                                                        bookingsItem,
-                                                                                        r'''$.bookingStatus''',
-                                                                                      ).toString(),
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                    ),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                            ),
-                                                                          if (getJsonField(
-                                                                                bookingsItem,
-                                                                                r'''$.bookingStatus''',
-                                                                              ) !=
-                                                                              FFAppState().bookingStatus)
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                                                                              child: Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.end,
-                                                                                children: [
-                                                                                  FaIcon(
-                                                                                    FontAwesomeIcons.solidCheckCircle,
-                                                                                    color: FlutterFlowTheme.of(context).success,
-                                                                                    size: 16.0,
-                                                                                  ),
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                    child: Text(
-                                                                                      'Booked',
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                    ),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                            ),
-                                                                        ],
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              ],
+                                                                ],
+                                                              ),
                                                             ),
                                                           ]
                                                               .divide(SizedBox(
@@ -1407,7 +1366,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                               10.0,
                                                                               10.0,
                                                                               10.0,
-                                                                              5.0),
+                                                                              10.0),
                                                                           child:
                                                                               Text(
                                                                             getJsonField(
@@ -1427,9 +1386,9 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             10.0,
-                                                                            0.0,
                                                                             10.0,
-                                                                            5.0),
+                                                                            10.0,
+                                                                            10.0),
                                                                     child:
                                                                         InkWell(
                                                                       splashColor:
@@ -1563,7 +1522,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             10.0,
-                                                                            5.0,
+                                                                            10.0,
                                                                             10.0,
                                                                             10.0),
                                                                     child: Row(
@@ -1575,105 +1534,75 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                               .spaceBetween,
                                                                       crossAxisAlignment:
                                                                           CrossAxisAlignment
-                                                                              .center,
+                                                                              .start,
                                                                       children: [
-                                                                        Expanded(
-                                                                          child:
-                                                                              Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                10.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.min,
-                                                                              mainAxisAlignment: MainAxisAlignment.center,
-                                                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                                                              children: [
-                                                                                Text(
-                                                                                  'Item Type',
-                                                                                  textAlign: TextAlign.start,
-                                                                                  style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                        fontFamily: 'Roboto',
-                                                                                        lineHeight: 0.8,
-                                                                                      ),
-                                                                                ),
-                                                                                Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                                                                                  child: Text(
-                                                                                    getJsonField(
-                                                                                      bookingsItem,
-                                                                                      r'''$.bookingType''',
-                                                                                    ).toString(),
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                        Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.min,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.center,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children: [
+                                                                            Text(
+                                                                              'Item Type',
+                                                                              textAlign: TextAlign.start,
+                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                    fontFamily: 'Roboto',
+                                                                                    lineHeight: 0.8,
                                                                                   ),
-                                                                                ),
-                                                                              ],
                                                                             ),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.min,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.center,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children: [
-                                                                              Text(
-                                                                                'Booked On',
-                                                                                textAlign: TextAlign.center,
-                                                                                style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                      fontFamily: 'Roboto',
-                                                                                      lineHeight: 0.8,
-                                                                                    ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                                                              child: Text(
+                                                                                getJsonField(
+                                                                                  bookingsItem,
+                                                                                  r'''$.bookingType''',
+                                                                                ).toString(),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
                                                                               ),
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                  children: [
-                                                                                    FaIcon(
-                                                                                      FontAwesomeIcons.calendar,
-                                                                                      color: Colors.black,
-                                                                                      size: 18.0,
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        getJsonField(
-                                                                                          bookingsItem,
-                                                                                          r'''$.dateBooked''',
-                                                                                        ).toString(),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
+                                                                            ),
+                                                                          ],
                                                                         ),
-                                                                        Expanded(
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.min,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.center,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children: [
-                                                                              Text(
+                                                                        Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.min,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.center,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children: [
+                                                                            Text(
+                                                                              'Booked On',
+                                                                              textAlign: TextAlign.center,
+                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                    fontFamily: 'Roboto',
+                                                                                    lineHeight: 0.8,
+                                                                                  ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                                                              child: Text(
+                                                                                getJsonField(
+                                                                                  bookingsItem,
+                                                                                  r'''$.dateBooked''',
+                                                                                ).toString(),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                        Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.min,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.center,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                              child: Text(
                                                                                 'Status',
                                                                                 textAlign: TextAlign.center,
                                                                                 style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -1681,57 +1610,57 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                                       lineHeight: 0.8,
                                                                                     ),
                                                                               ),
-                                                                              if (getJsonField(
-                                                                                    bookingsItem,
-                                                                                    r'''$.bookingStatus''',
-                                                                                  ) ==
-                                                                                  FFAppState().bookingStatus)
-                                                                                Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                  children: [
-                                                                                    FaIcon(
-                                                                                      FontAwesomeIcons.infoCircle,
-                                                                                      color: FlutterFlowTheme.of(context).warning,
-                                                                                      size: 16.0,
+                                                                            ),
+                                                                            if (getJsonField(
+                                                                                  bookingsItem,
+                                                                                  r'''$.bookingStatus''',
+                                                                                ) ==
+                                                                                FFAppState().bookingStatus)
+                                                                              Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                children: [
+                                                                                  FaIcon(
+                                                                                    FontAwesomeIcons.infoCircle,
+                                                                                    color: FlutterFlowTheme.of(context).warning,
+                                                                                    size: 16.0,
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      getJsonField(
+                                                                                        bookingsItem,
+                                                                                        r'''$.bookingStatus''',
+                                                                                      ).toString(),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        getJsonField(
-                                                                                          bookingsItem,
-                                                                                          r'''$.bookingStatus''',
-                                                                                        ).toString(),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                      ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            if (getJsonField(
+                                                                                  bookingsItem,
+                                                                                  r'''$.bookingStatus''',
+                                                                                ) !=
+                                                                                FFAppState().bookingStatus)
+                                                                              Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                children: [
+                                                                                  FaIcon(
+                                                                                    FontAwesomeIcons.solidCheckCircle,
+                                                                                    color: FlutterFlowTheme.of(context).success,
+                                                                                    size: 16.0,
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      'Booked',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                     ),
-                                                                                  ],
-                                                                                ),
-                                                                              if (getJsonField(
-                                                                                    bookingsItem,
-                                                                                    r'''$.bookingStatus''',
-                                                                                  ) !=
-                                                                                  FFAppState().bookingStatus)
-                                                                                Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                                                  children: [
-                                                                                    FaIcon(
-                                                                                      FontAwesomeIcons.solidCheckCircle,
-                                                                                      color: FlutterFlowTheme.of(context).success,
-                                                                                      size: 16.0,
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        'Booked',
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                            ],
-                                                                          ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                          ],
                                                                         ),
                                                                       ],
                                                                     ),
