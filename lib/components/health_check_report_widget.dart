@@ -52,7 +52,7 @@ class _HealthCheckReportWidgetState extends State<HealthCheckReportWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.00),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
         width: double.infinity,
         height: MediaQuery.sizeOf(context).height * 1.0,
@@ -120,7 +120,7 @@ class _HealthCheckReportWidgetState extends State<HealthCheckReportWidget> {
                       ),
                       Expanded(
                         child: Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 24.0, 0.0),
@@ -147,8 +147,7 @@ class _HealthCheckReportWidgetState extends State<HealthCheckReportWidget> {
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 16.0, 16.0),
+                        padding: EdgeInsets.all(16.0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -220,9 +219,7 @@ class _HealthCheckReportWidgetState extends State<HealthCheckReportWidget> {
                                               .secondaryBackground,
                                           elevation: 2.0,
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 16.0, 16.0, 16.0),
+                                            padding: EdgeInsets.all(16.0),
                                             child: Container(
                                               width: double.infinity,
                                               color: Colors.white,

@@ -186,8 +186,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 16.0, 16.0, 16.0),
+                                    padding: EdgeInsets.all(16.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -342,7 +341,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                           r'''$.companyLogo''',
                                                         ).toString()),
                                                         r'''$.image''',
-                                                      ),
+                                                      ).toString(),
                                                       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                     ),
                                                     fit: BoxFit.contain,

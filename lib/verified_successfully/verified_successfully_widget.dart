@@ -97,7 +97,7 @@ class _VerifiedSuccessfullyWidgetState
                     text: 'Go Home',
                     options: FFButtonOptions(
                       width: 130.0,
-                      height: 50.0,
+                      height: 40.0,
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
@@ -113,6 +113,7 @@ class _VerifiedSuccessfullyWidgetState
                         color: Colors.transparent,
                         width: 1.0,
                       ),
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
                   ),
                 ),

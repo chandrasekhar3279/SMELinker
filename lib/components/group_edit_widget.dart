@@ -88,8 +88,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget> {
                               style: FlutterFlowTheme.of(context).labelLarge,
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  4.0, 4.0, 4.0, 4.0),
+                              padding: EdgeInsets.all(4.0),
                               child: Icon(
                                 Icons.notifications_rounded,
                                 color:
@@ -150,8 +149,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget> {
                                 style: FlutterFlowTheme.of(context).labelLarge,
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    4.0, 4.0, 4.0, 4.0),
+                                padding: EdgeInsets.all(4.0),
                                 child: FaIcon(
                                   FontAwesomeIcons.signOutAlt,
                                   color: FlutterFlowTheme.of(context)
@@ -192,8 +190,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget> {
                                 style: FlutterFlowTheme.of(context).labelLarge,
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 8.0, 8.0, 8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Icon(
                                   Icons.flag_sharp,
                                   color: FlutterFlowTheme.of(context)

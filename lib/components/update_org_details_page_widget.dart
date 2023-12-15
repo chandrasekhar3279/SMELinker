@@ -140,7 +140,7 @@ class _UpdateOrgDetailsPageWidgetState
                     ),
                     Expanded(
                       child: Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 24.0, 0.0),
@@ -1182,7 +1182,7 @@ class _UpdateOrgDetailsPageWidgetState
                                                       r'''$.logo''',
                                                     ).toString()),
                                                     r'''$.image''',
-                                                  ),
+                                                  ).toString(),
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
@@ -1202,7 +1202,7 @@ class _UpdateOrgDetailsPageWidgetState
                                       decoration: BoxDecoration(),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:

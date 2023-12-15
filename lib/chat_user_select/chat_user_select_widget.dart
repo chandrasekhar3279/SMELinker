@@ -72,11 +72,11 @@ class _ChatUserSelectWidgetState extends State<ChatUserSelectWidget> {
             children: [
               Text(
                 'Invite Friends',
-                style: FlutterFlowTheme.of(context).headlineSmall,
+                style: FlutterFlowTheme.of(context).labelLarge,
               ),
               Text(
                 'Invite your friends to join you!',
-                style: FlutterFlowTheme.of(context).labelMedium,
+                style: FlutterFlowTheme.of(context).bodyLarge,
               ),
             ],
           ),
@@ -173,8 +173,7 @@ class _ChatUserSelectWidgetState extends State<ChatUserSelectWidget> {
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 8.0, 8.0, 8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -204,7 +203,7 @@ class _ChatUserSelectWidgetState extends State<ChatUserSelectWidget> {
                                               r'''$.image''',
                                             ).toString()),
                                             r'''$.image''',
-                                          ),
+                                          ).toString(),
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -223,7 +222,7 @@ class _ChatUserSelectWidgetState extends State<ChatUserSelectWidget> {
                                               ).toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .labelLarge,
+                                                      .labelMedium,
                                             ),
                                           ),
                                           Padding(

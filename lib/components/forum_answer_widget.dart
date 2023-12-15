@@ -107,8 +107,8 @@ class _ForumAnswerWidgetState extends State<ForumAnswerWidget> {
                           ) !=
                           null,
                       child: Container(
-                        width: 30.0,
-                        height: 30.0,
+                        width: 35.0,
+                        height: 35.0,
                         clipBehavior: Clip.antiAlias,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
@@ -121,7 +121,7 @@ class _ForumAnswerWidgetState extends State<ForumAnswerWidget> {
                                 r'''$.logo''',
                               ).toString()),
                               r'''$.image''',
-                            ),
+                            ).toString(),
                             'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                           ),
                           fit: BoxFit.contain,
@@ -339,9 +339,9 @@ class _ForumAnswerWidgetState extends State<ForumAnswerWidget> {
                       setState(() {});
                     },
                     child: Icon(
-                      Icons.send_sharp,
+                      Icons.send_rounded,
                       color: FlutterFlowTheme.of(context).primary,
-                      size: 22.0,
+                      size: 20.0,
                     ),
                   ),
                 ],

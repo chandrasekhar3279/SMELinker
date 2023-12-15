@@ -96,7 +96,7 @@ class _BannerChangeWidgetState extends State<BannerChangeWidget> {
                               r'''$.success''',
                             ).toString()),
                             r'''$.image''',
-                          ),
+                          ).toString(),
                           width: 100.0,
                           height: 100.0,
                           fit: BoxFit.contain,

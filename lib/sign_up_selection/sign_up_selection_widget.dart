@@ -67,7 +67,7 @@ class _SignUpSelectionWidgetState extends State<SignUpSelectionWidget> {
             icon: Icon(
               Icons.arrow_back,
               color: FlutterFlowTheme.of(context).secondaryText,
-              size: 22.0,
+              size: 20.0,
             ),
             onPressed: () async {
               context.pop();
@@ -95,7 +95,7 @@ class _SignUpSelectionWidgetState extends State<SignUpSelectionWidget> {
                 fit: BoxFit.contain,
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
+                padding: EdgeInsets.all(24.0),
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(),
@@ -103,8 +103,7 @@ class _SignUpSelectionWidgetState extends State<SignUpSelectionWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 16.0, 16.0),
+                        padding: EdgeInsets.all(16.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -133,8 +132,7 @@ class _SignUpSelectionWidgetState extends State<SignUpSelectionWidget> {
                               borderRadius: BorderRadius.circular(30.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 12.0, 12.0, 12.0),
+                              padding: EdgeInsets.all(12.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:

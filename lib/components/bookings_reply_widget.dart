@@ -102,7 +102,7 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                       ),
                       Expanded(
                         child: Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 24.0, 0.0),
@@ -138,8 +138,7 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 10.0, 10.0, 10.0),
+                                  padding: EdgeInsets.all(10.0),
                                   child: Text(
                                     'Type in your reply to ${getJsonField(
                                       widget.bookedbyItemReply,
@@ -159,8 +158,7 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 10.0, 10.0, 10.0),
+                                  padding: EdgeInsets.all(10.0),
                                   child: Container(
                                     width: double.infinity,
                                     height: 450.0,
@@ -178,9 +176,7 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 10.0, 10.0, 10.0),
+                                                padding: EdgeInsets.all(10.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -230,12 +226,7 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          EdgeInsets.all(10.0),
                                                       child: Text(
                                                         'We\'ve successfully received your request for the ${getJsonField(
                                                           widget
@@ -250,12 +241,7 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          EdgeInsets.all(10.0),
                                                       child: Text(
                                                         'Let\'s discuss and agree on the next steps. ',
                                                         style:
@@ -282,12 +268,7 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          EdgeInsets.all(10.0),
                                                       child: Text(
                                                         'You can reach out to us with the following details:',
                                                         style:
@@ -302,12 +283,8 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      10.0,
-                                                                      10.0,
-                                                                      10.0),
+                                                              EdgeInsets.all(
+                                                                  10.0),
                                                           child: Text(
                                                             'Company:',
                                                             style: FlutterFlowTheme
@@ -333,12 +310,8 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      10.0,
-                                                                      10.0,
-                                                                      10.0),
+                                                              EdgeInsets.all(
+                                                                  10.0),
                                                           child: Text(
                                                             'Email:',
                                                             style: FlutterFlowTheme
@@ -364,12 +337,8 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      10.0,
-                                                                      10.0,
-                                                                      10.0),
+                                                              EdgeInsets.all(
+                                                                  10.0),
                                                           child: Text(
                                                             'Phone:',
                                                             style: FlutterFlowTheme
@@ -405,12 +374,7 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
+                                                          EdgeInsets.all(10.0),
                                                       child: Text(
                                                         'Looking forward to working with you. ',
                                                         style:

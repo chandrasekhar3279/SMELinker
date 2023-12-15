@@ -149,7 +149,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                               r'''$.success''',
                                             ).toString()),
                                             r'''$.image''',
-                                          ),
+                                          ).toString(),
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   1.0,
@@ -183,8 +183,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                 ],
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 16.0, 16.0, 16.0),
+                                padding: EdgeInsets.all(16.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -216,7 +215,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                               r'''$.image''',
                                             ).toString()),
                                             r'''$.image''',
-                                          ),
+                                          ).toString(),
                                           fit: BoxFit.contain,
                                         ),
                                       ),
@@ -232,6 +231,9 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                           children: [
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Expanded(
                                                   child: Text(
@@ -242,7 +244,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                     ).toString(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .titleMedium,
+                                                        .titleLarge,
                                                   ),
                                                 ),
                                                 Expanded(
@@ -251,7 +253,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                         MainAxisSize.max,
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
-                                                            .spaceEvenly,
+                                                            .spaceBetween,
                                                     children: [
                                                       if (getJsonField(
                                                             groupDetailpageGetGroupDetailsResponse
@@ -525,7 +527,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .secondaryText,
-                                                              size: 24.0,
+                                                              size: 20.0,
                                                             ),
                                                           ),
                                                         ),
@@ -534,45 +536,37 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                 ),
                                               ],
                                             ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 10.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Icon(
-                                                    Icons.groups_rounded,
-                                                    color: FlutterFlowTheme.of(
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Icon(
+                                                  Icons.groups_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 20.0,
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    functions.membersCount(
+                                                        getJsonField(
+                                                      groupDetailpageGetGroupDetailsResponse
+                                                          .jsonBody,
+                                                      r'''$.membersCount''',
+                                                    )),
+                                                    style: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondaryText,
-                                                    size: 20.0,
+                                                        .bodySmall,
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      functions.membersCount(
-                                                          getJsonField(
-                                                        groupDetailpageGetGroupDetailsResponse
-                                                            .jsonBody,
-                                                        r'''$.membersCount''',
-                                                      )),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
+                                                ),
+                                              ],
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 12.0),
+                                                  .fromSTEB(0.0, 8.0, 0.0, 8.0),
                                               child: Container(
                                                 decoration: BoxDecoration(
                                                   color: Color(0x195E91FF),
@@ -668,25 +662,21 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                     verticalDirection: VerticalDirection.down,
                                     clipBehavior: Clip.none,
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 8.0, 0.0, 8.0),
-                                        child: Text(
-                                          getJsonField(
-                                            groupDetailpageGetGroupDetailsResponse
-                                                .jsonBody,
-                                            r'''$.description''',
-                                          ).toString().maybeHandleOverflow(
-                                                maxChars: 40,
-                                                replacement: '…',
-                                              ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                lineHeight: 1.5,
-                                              ),
-                                        ),
+                                      Text(
+                                        getJsonField(
+                                          groupDetailpageGetGroupDetailsResponse
+                                              .jsonBody,
+                                          r'''$.description''',
+                                        ).toString().maybeHandleOverflow(
+                                              maxChars: 40,
+                                              replacement: '…',
+                                            ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              lineHeight: 1.5,
+                                            ),
                                       ),
                                       if (getJsonField(
                                             groupDetailpageGetGroupDetailsResponse
@@ -747,22 +737,18 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                     verticalDirection: VerticalDirection.down,
                                     clipBehavior: Clip.none,
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 8.0, 0.0, 8.0),
-                                        child: Text(
-                                          getJsonField(
-                                            groupDetailpageGetGroupDetailsResponse
-                                                .jsonBody,
-                                            r'''$.description''',
-                                          ).toString(),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                lineHeight: 1.5,
-                                              ),
-                                        ),
+                                      Text(
+                                        getJsonField(
+                                          groupDetailpageGetGroupDetailsResponse
+                                              .jsonBody,
+                                          r'''$.description''',
+                                        ).toString(),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              lineHeight: 1.5,
+                                            ),
                                       ),
                                       FFButtonWidget(
                                         onPressed: () async {
@@ -802,8 +788,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                   ),
                                 ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 30.0, 16.0, 0.0),
+                                padding: EdgeInsets.all(16.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -812,13 +797,13 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                     Text(
                                       'Members',
                                       style: FlutterFlowTheme.of(context)
-                                          .headlineMedium,
+                                          .labelLarge,
                                     ),
                                     Icon(
                                       Icons.search_rounded,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 24.0,
+                                      size: 20.0,
                                     ),
                                   ],
                                 ),
@@ -866,8 +851,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                             BorderRadius.circular(16.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 12.0, 12.0, 12.0),
+                                        padding: EdgeInsets.all(12.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -908,7 +892,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                           r'''$.userImg''',
                                                         ).toString()),
                                                         r'''$.image''',
-                                                      ),
+                                                      ).toString(),
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
@@ -934,16 +918,16 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .titleMedium,
+                                                              .labelMedium,
                                                     ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
-                                                                  10.0,
+                                                                  4.0,
                                                                   0.0,
-                                                                  10.0),
+                                                                  8.0),
                                                       child: Text(
                                                         getJsonField(
                                                           membersItem,
@@ -960,11 +944,15 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                           MainAxisSize.max,
                                                       children: [
                                                         Container(
+                                                          width: 25.0,
+                                                          height: 25.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryBackground,
+                                                            shape:
+                                                                BoxShape.circle,
                                                           ),
                                                           child: Container(
                                                             width: 20.0,
@@ -985,7 +973,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                                   r'''$.userCompanyLogo''',
                                                                 ).toString()),
                                                                 r'''$.image''',
-                                                              ),
+                                                              ).toString(),
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),

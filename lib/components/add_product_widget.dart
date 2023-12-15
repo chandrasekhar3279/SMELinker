@@ -92,7 +92,7 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                   ),
                   Expanded(
                     child: Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
@@ -175,7 +175,7 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                             .asValidator(context),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 30.0, 0.0, 0.0),
@@ -472,7 +472,7 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                                 Container(
                                   decoration: BoxDecoration(),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:

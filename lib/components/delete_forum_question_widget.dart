@@ -51,7 +51,7 @@ class _DeleteForumQuestionWidgetState extends State<DeleteForumQuestionWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.00),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
         width: double.infinity,
         constraints: BoxConstraints(
@@ -93,7 +93,7 @@ class _DeleteForumQuestionWidgetState extends State<DeleteForumQuestionWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                padding: EdgeInsets.all(10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,

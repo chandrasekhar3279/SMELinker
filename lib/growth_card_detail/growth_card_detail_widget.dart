@@ -110,8 +110,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                   widget.growthCardInfo,
                                   r'''$.growthCardTitle''',
                                 ).toString(),
-                                style:
-                                    FlutterFlowTheme.of(context).headlineMedium,
+                                style: FlutterFlowTheme.of(context).labelLarge,
                               ),
                             ),
                           ],
@@ -125,7 +124,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                           height: 300.0,
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: FlutterFlowTheme.of(context).secondaryText,
+                              color: FlutterFlowTheme.of(context).accent1,
                               width: 1.0,
                             ),
                           ),
@@ -136,7 +135,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                 r'''$.image''',
                               ).toString()),
                               r'''$.image''',
-                            ),
+                            ).toString(),
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             height: MediaQuery.sizeOf(context).height * 1.0,
                             fit: BoxFit.fill,
@@ -144,8 +143,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 16.0, 16.0),
+                        padding: EdgeInsets.all(16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -180,7 +178,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                         r'''$.growthPartnerLogo''',
                                       ).toString()),
                                       r'''$.image''',
-                                    ),
+                                    ).toString(),
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -230,8 +228,8 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                       widget.growthCardInfo,
                                       r'''$.growthPartnerName''',
                                     ).toString(),
-                                    style:
-                                        FlutterFlowTheme.of(context).labelLarge,
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelMedium,
                                   ),
                                 ],
                               ),
@@ -249,7 +247,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                               null)
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 6.0, 12.0, 6.0),
+                                  16.0, 6.0, 16.0, 6.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -297,12 +295,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                                   return AlignedTooltip(
                                                     content: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    4.0,
-                                                                    4.0,
-                                                                    4.0,
-                                                                    4.0),
+                                                            EdgeInsets.all(4.0),
                                                         child: Text(
                                                           getJsonField(
                                                             groupItemsItem,
@@ -358,12 +351,8 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      1.0,
-                                                                      1.0,
-                                                                      1.0,
-                                                                      1.0),
+                                                              EdgeInsets.all(
+                                                                  1.0),
                                                           child: Container(
                                                             width: 40.0,
                                                             height: 40.0,
@@ -385,7 +374,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                                                     r'''$.groupImg''',
                                                                   ).toString()),
                                                                   r'''$.image''',
-                                                                ),
+                                                                ).toString(),
                                                                 'https://images.unsplash.com/photo-1614436163996-25cee5f54290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80',
                                                               ),
                                                               fit: BoxFit
@@ -596,28 +585,19 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                     widget.growthCardInfo,
                                     r'''$.costEstimate''',
                                   ).toString(),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                                 Text(
                                   'AED',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                               ],
                             ),
                             Column(
                               mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -633,13 +613,8 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                     widget.growthCardInfo,
                                     r'''$.timeEstimate''',
                                   ).toString(),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                               ],
                             ),
@@ -651,6 +626,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                             16.0, 24.0, 16.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Expanded(
                               child: Column(
@@ -664,7 +640,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                     child: Text(
                                       'LANGUAGE',
                                       style: FlutterFlowTheme.of(context)
-                                          .titleLarge,
+                                          .titleMedium,
                                     ),
                                   ),
                                   Text(
@@ -678,16 +654,40 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                             widget.growthCardInfo,
                                             r'''$.languages''',
                                           ).toString(),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ],
                               ),
+                            ),
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 5.0),
+                                  child: Text(
+                                    'SERVICE',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium,
+                                  ),
+                                ),
+                                Text(
+                                  getJsonField(
+                                            widget.growthCardInfo,
+                                            r'''$.approvalStatus''',
+                                          ) !=
+                                          null
+                                      ? 'Available'
+                                      : getJsonField(
+                                          widget.growthCardInfo,
+                                          r'''$.approvalStatus''',
+                                        ).toString(),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -724,18 +724,14 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                           widget.growthCardInfo,
                                           r'''$.createdTime''',
                                         ).toString(),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                               ],
                             ),
                             Column(
                               mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -757,51 +753,8 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                           widget.growthCardInfo,
                                           r'''$.updatedTime''',
                                         ).toString(),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 5.0),
-                                  child: Text(
-                                    'SERVICE',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                        ),
-                                  ),
-                                ),
-                                Text(
-                                  getJsonField(
-                                            widget.growthCardInfo,
-                                            r'''$.approvalStatus''',
-                                          ) !=
-                                          null
-                                      ? 'Available'
-                                      : getJsonField(
-                                          widget.growthCardInfo,
-                                          r'''$.approvalStatus''',
-                                        ).toString(),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                      ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                               ],
                             ),
@@ -836,13 +789,8 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                       'N/A',
                                     ),
                                     textAlign: TextAlign.start,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ),
                               ],
@@ -875,13 +823,8 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                       r'''$.outcomes''',
                                     ).toString(),
                                     textAlign: TextAlign.start,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ),
                               ],
@@ -914,13 +857,8 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                       r'''$.exclusions''',
                                     ).toString(),
                                     textAlign: TextAlign.start,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ),
                               ],
@@ -953,13 +891,8 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                       r'''$.workScope''',
                                     ).toString(),
                                     textAlign: TextAlign.start,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ),
                               ],

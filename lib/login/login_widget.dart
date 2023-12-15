@@ -67,7 +67,7 @@ class _LoginWidgetState extends State<LoginWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: AlignmentDirectional(0.00, 0.00),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: SingleChildScrollView(
               primary: false,
               child: Column(
@@ -77,13 +77,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                 children: [
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 0.3,
+                    height: MediaQuery.sizeOf(context).height * 0.4,
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
                     ),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          60.0, 60.0, 60.0, 60.0),
+                      padding: EdgeInsets.all(60.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -101,7 +101,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                   ),
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 0.7,
+                    height: MediaQuery.sizeOf(context).height * 0.6,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       boxShadow: [
@@ -131,13 +131,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   0.0, 48.0, 0.0, 30.0),
                               child: Text(
                                 'Login',
-                                style: FlutterFlowTheme.of(context)
-                                    .displayLarge
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color:
-                                          FlutterFlowTheme.of(context).tertiary,
-                                    ),
+                                style:
+                                    FlutterFlowTheme.of(context).headlineLarge,
                               ),
                             ),
                             Padding(

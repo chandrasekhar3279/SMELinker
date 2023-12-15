@@ -86,7 +86,7 @@ class _GrowthPlanDetailApplyWidgetState
           title: Text(
             'Apply for growth plan',
             textAlign: TextAlign.center,
-            style: FlutterFlowTheme.of(context).headlineMedium,
+            style: FlutterFlowTheme.of(context).headlineLarge,
           ),
           actions: [],
           centerTitle: true,
@@ -204,8 +204,14 @@ class _GrowthPlanDetailApplyWidgetState
                                         data: ThemeData(
                                           checkboxTheme: CheckboxThemeData(
                                             shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(0.0),
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(0.0),
+                                                bottomRight:
+                                                    Radius.circular(0.0),
+                                                topLeft: Radius.circular(0.0),
+                                                topRight: Radius.circular(0.0),
+                                              ),
                                             ),
                                           ),
                                           unselectedWidgetColor:

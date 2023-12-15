@@ -152,7 +152,7 @@ class _GrowthPlansDetailWidgetState extends State<GrowthPlansDetailWidget> {
                                               r'''$.description''',
                                             ).toString(),
                                             style: FlutterFlowTheme.of(context)
-                                                .labelMedium,
+                                                .bodyMedium,
                                           ),
                                         ),
                                       ),
@@ -211,7 +211,7 @@ class _GrowthPlansDetailWidgetState extends State<GrowthPlansDetailWidget> {
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(30.0),
                                         ),
                                       ),
                                     if (getJsonField(
@@ -276,7 +276,7 @@ class _GrowthPlansDetailWidgetState extends State<GrowthPlansDetailWidget> {
                                                             ).toString(),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyLarge,
+                                                                .labelMedium,
                                                           ),
                                                         ),
                                                       ),

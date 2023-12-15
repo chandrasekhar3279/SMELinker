@@ -88,14 +88,14 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                         scrollDirection: Axis.vertical,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               height: MediaQuery.sizeOf(context).height * 1.0,
                               decoration: BoxDecoration(
                                 color: Color(0xFFF2F3F5),
                               ),
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -109,7 +109,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -129,8 +129,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                                         1.0,
                                                 height: 280.0,
                                                 fit: BoxFit.contain,
-                                                alignment:
-                                                    Alignment(1.00, 0.00),
+                                                alignment: Alignment(1.0, 0.0),
                                               ),
                                             ),
                                           ),
@@ -150,7 +149,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -374,8 +373,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                   .primaryBackground,
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  1.0, 1.0, 1.0, 1.0),
+                              padding: EdgeInsets.all(1.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment:
@@ -423,7 +421,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, -1.00),
+                                                          0.0, -1.0),
                                                   child: Container(
                                                     width: 12.0,
                                                     height: 12.0,
@@ -682,7 +680,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                         ],
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.85, 0.70),
+                        alignment: AlignmentDirectional(0.85, 0.7),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 10.0),

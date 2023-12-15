@@ -132,7 +132,7 @@ class _AIBussinessAdviserWidgetState extends State<AIBussinessAdviserWidget> {
                                     'Hi! I’m your AI Business Advisor. I’m here to help you level up your business.',
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
-                                        .headlineSmall,
+                                        .labelMedium,
                                   ),
                                 ),
                               ],
@@ -229,14 +229,14 @@ class _AIBussinessAdviserWidgetState extends State<AIBussinessAdviserWidget> {
                                       '“Find out what the successful businesses are doing to grow their revenue.” ',
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
-                                          .labelMedium,
+                                          .bodyMedium,
                                     ),
                                   ),
                                   Icon(
                                     Icons.arrow_forward,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 24.0,
+                                    size: 20.0,
                                   ),
                                 ],
                               ),
@@ -314,14 +314,14 @@ class _AIBussinessAdviserWidgetState extends State<AIBussinessAdviserWidget> {
                                       '“Strategies to build & maintain a reliable IT system.“',
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
-                                          .labelMedium,
+                                          .bodyMedium,
                                     ),
                                   ),
                                   Icon(
                                     Icons.arrow_forward,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 24.0,
+                                    size: 20.0,
                                   ),
                                 ],
                               ),
@@ -407,12 +407,7 @@ class _AIBussinessAdviserWidgetState extends State<AIBussinessAdviserWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                12.0,
-                                                                12.0,
-                                                                12.0,
-                                                                12.0),
+                                                        EdgeInsets.all(12.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.min,
@@ -534,13 +529,8 @@ class _AIBussinessAdviserWidgetState extends State<AIBussinessAdviserWidget> {
                                                         ),
                                                       ),
                                                       child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0),
+                                                        padding: EdgeInsets.all(
+                                                            12.0),
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.min,
@@ -731,7 +721,7 @@ class _AIBussinessAdviserWidgetState extends State<AIBussinessAdviserWidget> {
                                           .borderColor,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(30.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -739,21 +729,21 @@ class _AIBussinessAdviserWidgetState extends State<AIBussinessAdviserWidget> {
                                           .secondaryText,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(30.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(30.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(30.0),
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -766,11 +756,11 @@ class _AIBussinessAdviserWidgetState extends State<AIBussinessAdviserWidget> {
                             borderColor: Colors.transparent,
                             borderRadius: 30.0,
                             borderWidth: 1.0,
-                            buttonSize: 60.0,
+                            buttonSize: 40.0,
                             icon: FaIcon(
                               FontAwesomeIcons.paperPlane,
                               color: FlutterFlowTheme.of(context).primary,
-                              size: 30.0,
+                              size: 24.0,
                             ),
                             onPressed: () async {
                               setState(() {

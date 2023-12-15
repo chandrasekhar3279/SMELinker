@@ -155,7 +155,7 @@ class _ChatDetailPageWidgetState extends State<ChatDetailPageWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(1.00, 0.00),
+                                    alignment: AlignmentDirectional(1.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           60.0, 5.0, 10.0, 0.0),
@@ -180,9 +180,7 @@ class _ChatDetailPageWidgetState extends State<ChatDetailPageWidget> {
                                                 r'''$.receiverId''',
                                               ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -233,9 +231,7 @@ class _ChatDetailPageWidgetState extends State<ChatDetailPageWidget> {
                                               r'''$.receiverId''',
                                             ),
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 8.0, 8.0, 8.0),
+                                          padding: EdgeInsets.all(8.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -312,32 +308,31 @@ class _ChatDetailPageWidgetState extends State<ChatDetailPageWidget> {
                                     FlutterFlowTheme.of(context).labelMedium,
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
+                                    color: FlutterFlowTheme.of(context).accent4,
                                     width: 2.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(30.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).primary,
                                     width: 2.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(30.0),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 2.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(30.0),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 2.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(30.0),
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context).bodyMedium,
@@ -350,15 +345,12 @@ class _ChatDetailPageWidgetState extends State<ChatDetailPageWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 16.0, 0.0),
                           child: FlutterFlowIconButton(
-                            borderColor: FlutterFlowTheme.of(context).primary,
                             borderRadius: 20.0,
-                            borderWidth: 1.0,
                             buttonSize: 40.0,
-                            fillColor: FlutterFlowTheme.of(context).primary,
                             icon: FaIcon(
                               FontAwesomeIcons.paperPlane,
-                              color: FlutterFlowTheme.of(context).secondary,
-                              size: 20.0,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 24.0,
                             ),
                             onPressed: () async {
                               _model.senMessagaeAPIRes =

@@ -105,12 +105,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                 elevation: 8.0,
                 label: Row(
                   mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -121,46 +121,51 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                         },
                         child: Image.asset(
                           'assets/images/Chat-Boat.png',
-                          width: 30.0,
-                          height: 30.0,
+                          width: 24.0,
+                          height: 24.0,
                           fit: BoxFit.contain,
                         ),
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                      child: FlutterFlowIconButton(
-                        borderColor: FlutterFlowTheme.of(context).primary,
-                        borderRadius: 30.0,
-                        icon: FaIcon(
-                          FontAwesomeIcons.commentDots,
-                          color: FlutterFlowTheme.of(context).secondary,
-                          size: 22.0,
-                        ),
-                        onPressed: () async {
-                          _model.usersListRes =
-                              await SmeGroup.getMessagingUsersCall.call(
-                            accessToken: FFAppState().accessToken,
-                          );
-                          if ((_model.usersListRes?.succeeded ?? true)) {
-                            context.pushNamed(
-                              'ChatUserSelect',
-                              queryParameters: {
-                                'users': serializeParam(
-                                  getJsonField(
-                                    (_model.usersListRes?.jsonBody ?? ''),
-                                    r'''$''',
-                                  ),
-                                  ParamType.JSON,
-                                ),
-                              }.withoutNulls,
-                            );
-                          }
-
-                          setState(() {});
-                        },
+                    SizedBox(
+                      height: 30.0,
+                      child: VerticalDivider(
+                        thickness: 1.0,
+                        indent: 2.0,
+                        endIndent: 2.0,
+                        color: FlutterFlowTheme.of(context).accent2,
                       ),
+                    ),
+                    FlutterFlowIconButton(
+                      borderColor: FlutterFlowTheme.of(context).primary,
+                      borderRadius: 30.0,
+                      icon: FaIcon(
+                        FontAwesomeIcons.commentDots,
+                        color: FlutterFlowTheme.of(context).secondary,
+                        size: 24.0,
+                      ),
+                      onPressed: () async {
+                        _model.usersListRes =
+                            await SmeGroup.getMessagingUsersCall.call(
+                          accessToken: FFAppState().accessToken,
+                        );
+                        if ((_model.usersListRes?.succeeded ?? true)) {
+                          context.pushNamed(
+                            'ChatUserSelect',
+                            queryParameters: {
+                              'users': serializeParam(
+                                getJsonField(
+                                  (_model.usersListRes?.jsonBody ?? ''),
+                                  r'''$''',
+                                ),
+                                ParamType.JSON,
+                              ),
+                            }.withoutNulls,
+                          );
+                        }
+
+                        setState(() {});
+                      },
                     ),
                   ],
                 ),
@@ -202,7 +207,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                     ),
                   ),
                   child: Align(
-                    alignment: AlignmentDirectional(-0.75, 0.00),
+                    alignment: AlignmentDirectional(-0.75, 0.0),
                     child: Text(
                       'Search',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -258,8 +263,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    1.0, 1.0, 1.0, 1.0),
+                                padding: EdgeInsets.all(1.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -284,7 +288,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                             r'''$.image''',
                                           ).toString()),
                                           r'''$.image''',
-                                        ),
+                                        ).toString(),
                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                       ),
                                       fit: BoxFit.contain,
@@ -595,12 +599,10 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                               8.0),
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          2.0,
-                                                                          2.0,
-                                                                          2.0,
-                                                                          2.0),
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              2.0),
                                                                   child: Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -690,7 +692,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                               r'''$.companyLogo''',
                                                                                             ).toString()),
                                                                                             r'''$.image''',
-                                                                                          ),
+                                                                                          ).toString(),
                                                                                           'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                         ),
                                                                                         fit: BoxFit.contain,
@@ -870,7 +872,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                     getJsonField(
                                                                                       feedItem,
                                                                                       r'''$.feedUrl''',
-                                                                                    ),
+                                                                                    ).toString(),
                                                                                     'no link',
                                                                                   ),
                                                                                   width: MediaQuery.sizeOf(context).width * 1.0,
@@ -922,7 +924,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                             r'''$.featuredImage''',
                                                                                           ).toString()),
                                                                                           r'''$.image''',
-                                                                                        ),
+                                                                                        ).toString(),
                                                                                         'no image',
                                                                                       ),
                                                                                       width: MediaQuery.sizeOf(context).width * 1.0,
@@ -1000,7 +1002,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                         padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
                                                                                         child: AlignedTooltip(
                                                                                           content: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                              padding: EdgeInsets.all(8.0),
                                                                                               child: Text(
                                                                                                 getJsonField(
                                                                                                   groupsDataItem,
@@ -1030,7 +1032,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                               ),
                                                                                             ),
                                                                                             child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(1.0, 1.0, 1.0, 1.0),
+                                                                                              padding: EdgeInsets.all(1.0),
                                                                                               child: Container(
                                                                                                 width: 11.0,
                                                                                                 height: 11.0,
@@ -1045,7 +1047,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                                       r'''$.groupImg''',
                                                                                                     ).toString()),
                                                                                                     r'''$.image''',
-                                                                                                  ),
+                                                                                                  ).toString(),
                                                                                                   fit: BoxFit.cover,
                                                                                                 ),
                                                                                               ),
@@ -1126,7 +1128,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                       child: Icon(
                                                                                         Icons.thumb_up_outlined,
                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        size: 26.0,
+                                                                                        size: 20.0,
                                                                                       ),
                                                                                     ),
                                                                                   if (getJsonField(
@@ -1175,7 +1177,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                       child: Icon(
                                                                                         Icons.thumb_up,
                                                                                         color: FlutterFlowTheme.of(context).primary,
-                                                                                        size: 26.0,
+                                                                                        size: 20.0,
                                                                                       ),
                                                                                     ),
                                                                                 ],
@@ -1248,7 +1250,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                       child: Icon(
                                                                                         Icons.thumb_down_outlined,
                                                                                         color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        size: 26.0,
+                                                                                        size: 20.0,
                                                                                       ),
                                                                                     ),
                                                                                   if (getJsonField(
@@ -1297,7 +1299,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                       child: Icon(
                                                                                         Icons.thumb_down,
                                                                                         color: FlutterFlowTheme.of(context).primary,
-                                                                                        size: 26.0,
+                                                                                        size: 20.0,
                                                                                       ),
                                                                                     ),
                                                                                 ],
@@ -1324,7 +1326,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                               FaIcon(
                                                                                 FontAwesomeIcons.commentDots,
                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                size: 26.0,
+                                                                                size: 20.0,
                                                                               ),
                                                                               Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
@@ -1376,7 +1378,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                   mainAxisAlignment: MainAxisAlignment.end,
                                                                                   children: [
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                      padding: EdgeInsets.all(8.0),
                                                                                       child: Icon(
                                                                                         Icons.more_vert,
                                                                                         color: Color(0xFF57636C),
@@ -1498,12 +1500,10 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                               8.0),
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0),
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              10.0),
                                                                   child: Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -1542,7 +1542,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                         r'''$.featuredImage''',
                                                                                       ).toString()),
                                                                                       r'''$.image''',
-                                                                                    ),
+                                                                                    ).toString(),
                                                                                     width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                     height: MediaQuery.sizeOf(context).height * 1.0,
                                                                                     fit: BoxFit.fill,
@@ -1749,7 +1749,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                   r'''$.featuredImage''',
                                                                                 ).toString()),
                                                                                 r'''$.image''',
-                                                                              ),
+                                                                              ).toString(),
                                                                               'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                             ),
                                                                             width:

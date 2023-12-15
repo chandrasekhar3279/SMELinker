@@ -180,7 +180,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                   ),
                   Expanded(
                     child: Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
@@ -213,7 +213,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: TextFormField(
                             controller: _model.addressController,
                             focusNode: _model.addressFocusNode,
@@ -517,7 +517,7 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(-1.00, 1.00),
+                          alignment: AlignmentDirectional(-1.0, 1.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 30.0, 0.0, 0.0),

@@ -106,7 +106,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                     ),
                     Expanded(
                       child: Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 24.0, 0.0),
@@ -130,8 +130,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                 key: _model.formKey,
                 autovalidateMode: AutovalidateMode.disabled,
                 child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
+                  padding: EdgeInsets.all(24.0),
                   child: FutureBuilder<ApiCallResponse>(
                     future: SmeGroup.getServiceCategoriesCall.call(),
                     builder: (context, snapshot) {
@@ -238,7 +237,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: TextFormField(
                               controller: _model.productDescController,
                               focusNode: _model.productDescFocusNode,
@@ -1050,7 +1049,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                       decoration: BoxDecoration(),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:

@@ -173,7 +173,7 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                     r'''$.companyLogo''',
                                                   ).toString()),
                                                   r'''$.image''',
-                                                ),
+                                                ).toString(),
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -248,8 +248,7 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                              padding: EdgeInsets.all(8.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -283,16 +282,7 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                                 ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .labelLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
+                                                                .labelMedium,
                                                           ),
                                                           if (getJsonField(
                                                                 widget
@@ -352,7 +342,7 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                                size: 22.0,
+                                                                size: 20.0,
                                                               ),
                                                               onPressed:
                                                                   () async {
@@ -389,15 +379,22 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                       ),
                                                     ],
                                                   ),
-                                                  Text(
-                                                    getJsonField(
-                                                      widget
-                                                          .questionItemContent,
-                                                      r'''$.question''',
-                                                    ).toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 6.0,
+                                                                0.0, 6.0),
+                                                    child: Text(
+                                                      getJsonField(
+                                                        widget
+                                                            .questionItemContent,
+                                                        r'''$.question''',
+                                                      ).toString(),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
                                                   ),
                                                   Container(
                                                     width: double.infinity,
@@ -452,7 +449,7 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                                     child:
                                                                         AlignedTooltip(
                                                                       content: Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                          padding: EdgeInsets.all(8.0),
                                                                           child: Text(
                                                                             getJsonField(
                                                                               groupsDataItem,
@@ -490,9 +487,9 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                                       child:
                                                                           Container(
                                                                         width:
-                                                                            35.0,
+                                                                            30.0,
                                                                         height:
-                                                                            35.0,
+                                                                            30.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
@@ -509,11 +506,8 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                                         ),
                                                                         child:
                                                                             Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              1.0,
-                                                                              1.0,
-                                                                              1.0,
-                                                                              1.0),
+                                                                          padding:
+                                                                              EdgeInsets.all(1.0),
                                                                           child:
                                                                               Container(
                                                                             width:
@@ -534,7 +528,7 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                                                   r'''$.groupImg''',
                                                                                 ).toString()),
                                                                                 r'''$.image''',
-                                                                              ),
+                                                                              ).toString(),
                                                                               fit: BoxFit.cover,
                                                                             ),
                                                                           ),
@@ -592,7 +586,7 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                               (FFAppState().showRepliedPageQuestionActions ==
                                   true))
                             Align(
-                              alignment: AlignmentDirectional(0.70, 0.10),
+                              alignment: AlignmentDirectional(0.7, 0.1),
                               child: wrapWithModel(
                                 model: _model.moreDetailsModel1,
                                 updateCallback: () => setState(() {}),
@@ -683,8 +677,8 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Container(
-                                                  width: 30.0,
-                                                  height: 30.0,
+                                                  width: 35.0,
+                                                  height: 35.0,
                                                   decoration: BoxDecoration(
                                                     shape: BoxShape.circle,
                                                     border: Border.all(
@@ -717,7 +711,7 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                             r'''$.companyLogo''',
                                                           ).toString()),
                                                           r'''$.image''',
-                                                        ),
+                                                        ).toString(),
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
@@ -729,8 +723,8 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                     ) ==
                                                     null)
                                                   Container(
-                                                    width: 30.0,
-                                                    height: 30.0,
+                                                    width: 35.0,
+                                                    height: 35.0,
                                                     decoration: BoxDecoration(
                                                       color:
                                                           FlutterFlowTheme.of(
@@ -807,12 +801,7 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  5.0,
-                                                                  5.0,
-                                                                  5.0),
+                                                          EdgeInsets.all(8.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -850,13 +839,7 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                                         ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .labelLarge
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Roboto',
-                                                                          fontSize:
-                                                                              14.0,
-                                                                        ),
+                                                                        .labelMedium,
                                                                   ),
                                                                   if (getJsonField(
                                                                         answersItem,
@@ -923,7 +906,7 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         size:
-                                                                            22.0,
+                                                                            20.0,
                                                                       ),
                                                                       onPressed:
                                                                           () async {
@@ -1359,7 +1342,7 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                           true))
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(0.63, 0.00),
+                                          AlignmentDirectional(0.63, 0.0),
                                       child: wrapWithModel(
                                         model:
                                             _model.moreDetailsModels2.getModel(

@@ -177,7 +177,7 @@ class _HealthCheckQuizWidgetState extends State<HealthCheckQuizWidget> {
                                     r'''$.name''',
                                   ).toString(),
                                   style:
-                                      FlutterFlowTheme.of(context).displaySmall,
+                                      FlutterFlowTheme.of(context).labelMedium,
                                 ),
                               ),
                             ],

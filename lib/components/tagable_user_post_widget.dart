@@ -62,7 +62,7 @@ class _TagableUserPostWidgetState extends State<TagableUserPostWidget> {
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+          padding: EdgeInsets.all(4.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -177,8 +177,7 @@ class _TagableUserPostWidgetState extends State<TagableUserPostWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Icon(
                         Icons.ios_share,
                         color: FlutterFlowTheme.of(context).secondaryText,

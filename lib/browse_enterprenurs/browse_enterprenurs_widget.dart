@@ -108,7 +108,7 @@ class _BrowseEnterprenursWidgetState extends State<BrowseEnterprenursWidget> {
                         children: [
                           Text(
                             'Entrepreneurs',
-                            style: FlutterFlowTheme.of(context).headlineMedium,
+                            style: FlutterFlowTheme.of(context).titleMedium,
                           ),
                           ToggleIcon(
                             onPressed: () async {
@@ -206,8 +206,7 @@ class _BrowseEnterprenursWidgetState extends State<BrowseEnterprenursWidget> {
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    4.0, 4.0, 4.0, 4.0),
+                                padding: EdgeInsets.all(4.0),
                                 child: PagedListView<ApiPagingParams, dynamic>(
                                   pagingController:
                                       _model.setListViewController(
@@ -260,8 +259,7 @@ class _BrowseEnterprenursWidgetState extends State<BrowseEnterprenursWidget> {
                                           .listViewPagingController!
                                           .itemList![searchedIndex];
                                       return Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            4.0, 4.0, 4.0, 4.0),
+                                        padding: EdgeInsets.all(4.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -332,7 +330,7 @@ class _BrowseEnterprenursWidgetState extends State<BrowseEnterprenursWidget> {
                                                             r'''$.logo''',
                                                           ).toString()),
                                                           r'''$.image''',
-                                                        ),
+                                                        ).toString(),
                                                         width: double.infinity,
                                                         height: 100.0,
                                                         fit: BoxFit.contain,
@@ -374,7 +372,7 @@ class _BrowseEnterprenursWidgetState extends State<BrowseEnterprenursWidget> {
                                                                 ).toString(),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .titleMedium,
+                                                                    .labelMedium,
                                                               ),
                                                             ),
                                                           ),

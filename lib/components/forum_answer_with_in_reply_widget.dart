@@ -130,7 +130,7 @@ class _ForumAnswerWithInReplyWidgetState
                               r'''$.logo''',
                             ).toString()),
                             r'''$.image''',
-                          ),
+                          ).toString(),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -151,7 +151,7 @@ class _ForumAnswerWithInReplyWidgetState
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 functions.profilePicName(getJsonField(
                                   columnGetOrgDetailsResponse.jsonBody,

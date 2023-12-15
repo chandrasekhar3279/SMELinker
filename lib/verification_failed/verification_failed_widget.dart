@@ -93,11 +93,7 @@ class _VerificationFailedWidgetState extends State<VerificationFailedWidget> {
                 Text(
                   'Oops! We encountered an issue with your eKYB verification. Please ensure that all the provided information is accurate and try again. If the issue persists, please contact our Admin team for assistance.',
                   textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).labelLarge.override(
-                        fontFamily: 'Roboto',
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        fontWeight: FontWeight.normal,
-                      ),
+                  style: FlutterFlowTheme.of(context).bodyLarge,
                 ),
               ],
             ),

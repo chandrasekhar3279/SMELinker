@@ -137,7 +137,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                     ),
                   ),
                   child: Align(
-                    alignment: AlignmentDirectional(-0.75, 0.00),
+                    alignment: AlignmentDirectional(-0.75, 0.0),
                     child: Text(
                       'Search',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -181,8 +181,8 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                               ) !=
                               null)
                             Container(
-                              width: 35.0,
-                              height: 35.0,
+                              width: 45.0,
+                              height: 45.0,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 border: Border.all(
@@ -213,7 +213,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                           r'''$.image''',
                                         ).toString()),
                                         r'''$.image''',
-                                      ),
+                                      ).toString(),
                                       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                     ),
                                     fit: BoxFit.contain,
@@ -287,8 +287,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+                        padding: EdgeInsets.all(4.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -402,7 +401,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                 r'''$.companyLogo''',
                                               ).toString()),
                                               r'''$.image''',
-                                            ),
+                                            ).toString(),
                                             'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                           ),
                                           fit: BoxFit.contain,
@@ -530,7 +529,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        0.0, 8.0, 0.0, 8.0),
+                                                        0.0, 4.0, 0.0, 8.0),
                                                 child: Text(
                                                   getJsonField(
                                                             widget.feedDetail,
@@ -593,7 +592,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                               'N/A',
                             ),
                             textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context).titleLarge,
+                            style: FlutterFlowTheme.of(context).titleMedium,
                           ),
                         ),
                       ),
@@ -648,11 +647,11 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                   ? getJsonField(
                                       widget.feedDetail,
                                       r'''$.feedUrl''',
-                                    )
+                                    ).toString()
                                   : getJsonField(
                                       widget.feedDetail,
                                       r'''$.feed_url''',
-                                    ),
+                                    ).toString(),
                               autoPlay: false,
                               looping: false,
                               mute: false,
@@ -705,7 +704,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                       'http://smeconnectdev.cloudseed.io/assets/images/news/newsfeed-square.jpg',
                                     )),
                                     r'''$.image''',
-                                  ),
+                                  ).toString(),
                                   'http://smeconnectdev.cloudseed.io/assets/images/news/newsfeed-square.jpg',
                                 ),
                                 width: double.infinity,
@@ -759,7 +758,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                           decoration: BoxDecoration(),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                15.0, 2.0, 10.0, 2.0),
+                                0.0, 8.0, 0.0, 8.0),
                             child: Text(
                               valueOrDefault<String>(
                                 getJsonField(
@@ -789,112 +788,102 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                             Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               decoration: BoxDecoration(),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                child: Builder(
-                                  builder: (context) {
-                                    final gropusdata = getJsonField(
-                                      widget.feedDetail,
-                                      r'''$.groupsData''',
-                                    ).toList();
-                                    return Wrap(
-                                      spacing: 0.0,
-                                      runSpacing: 0.0,
-                                      alignment: WrapAlignment.start,
-                                      crossAxisAlignment:
-                                          WrapCrossAlignment.start,
-                                      direction: Axis.horizontal,
-                                      runAlignment: WrapAlignment.start,
-                                      verticalDirection: VerticalDirection.down,
-                                      clipBehavior: Clip.none,
-                                      children: List.generate(gropusdata.length,
-                                          (gropusdataIndex) {
-                                        final gropusdataItem =
-                                            gropusdata[gropusdataIndex];
-                                        return Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 6.0, 0.0),
-                                          child: AlignedTooltip(
-                                            content: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 8.0, 8.0, 8.0),
-                                                child: Text(
-                                                  getJsonField(
-                                                    gropusdataItem,
-                                                    r'''$.groupName''',
-                                                  ).toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                )),
-                                            offset: 4.0,
-                                            preferredDirection:
-                                                AxisDirection.up,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                            elevation: 4.0,
-                                            tailBaseWidth: 24.0,
-                                            tailLength: 12.0,
-                                            waitDuration:
-                                                Duration(milliseconds: 100),
-                                            showDuration:
-                                                Duration(milliseconds: 1500),
-                                            triggerMode: TooltipTriggerMode.tap,
-                                            child: Container(
-                                              width: 45.0,
-                                              height: 45.0,
-                                              decoration: BoxDecoration(
+                              child: Builder(
+                                builder: (context) {
+                                  final gropusdata = getJsonField(
+                                    widget.feedDetail,
+                                    r'''$.groupsData''',
+                                  ).toList();
+                                  return Wrap(
+                                    spacing: 0.0,
+                                    runSpacing: 0.0,
+                                    alignment: WrapAlignment.start,
+                                    crossAxisAlignment:
+                                        WrapCrossAlignment.start,
+                                    direction: Axis.horizontal,
+                                    runAlignment: WrapAlignment.start,
+                                    verticalDirection: VerticalDirection.down,
+                                    clipBehavior: Clip.none,
+                                    children: List.generate(gropusdata.length,
+                                        (gropusdataIndex) {
+                                      final gropusdataItem =
+                                          gropusdata[gropusdataIndex];
+                                      return Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 6.0, 0.0),
+                                        child: AlignedTooltip(
+                                          content: Padding(
+                                              padding: EdgeInsets.all(8.0),
+                                              child: Text(
+                                                getJsonField(
+                                                  gropusdataItem,
+                                                  r'''$.groupName''',
+                                                ).toString(),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              )),
+                                          offset: 4.0,
+                                          preferredDirection: AxisDirection.up,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          elevation: 4.0,
+                                          tailBaseWidth: 24.0,
+                                          tailLength: 12.0,
+                                          waitDuration:
+                                              Duration(milliseconds: 100),
+                                          showDuration:
+                                              Duration(milliseconds: 1500),
+                                          triggerMode: TooltipTriggerMode.tap,
+                                          child: Container(
+                                            width: 45.0,
+                                            height: 45.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                shape: BoxShape.circle,
-                                                border: Border.all(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  width: 1.0,
-                                                ),
+                                                        .primary,
+                                                width: 1.0,
                                               ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        1.0, 1.0, 1.0, 1.0),
-                                                child: Container(
-                                                  width: 40.0,
-                                                  height: 40.0,
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsets.all(1.0),
+                                              child: Container(
+                                                width: 40.0,
+                                                height: 40.0,
+                                                clipBehavior: Clip.antiAlias,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: Image.network(
+                                                  valueOrDefault<String>(
+                                                    getJsonField(
+                                                      functions
+                                                          .image(getJsonField(
+                                                        gropusdataItem,
+                                                        r'''$.groupImg''',
+                                                      ).toString()),
+                                                      r'''$.image''',
+                                                    ).toString(),
+                                                    'https://images.unsplash.com/photo-1614436163996-25cee5f54290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80',
                                                   ),
-                                                  child: Image.network(
-                                                    valueOrDefault<String>(
-                                                      getJsonField(
-                                                        functions
-                                                            .image(getJsonField(
-                                                          gropusdataItem,
-                                                          r'''$.groupImg''',
-                                                        ).toString()),
-                                                        r'''$.image''',
-                                                      ),
-                                                      'https://images.unsplash.com/photo-1614436163996-25cee5f54290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80',
-                                                    ),
-                                                    fit: BoxFit.contain,
-                                                  ),
+                                                  fit: BoxFit.contain,
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        );
-                                      }),
-                                    );
-                                  },
-                                ),
+                                        ),
+                                      );
+                                    }),
+                                  );
+                                },
                               ),
                             ),
                           ],
@@ -903,7 +892,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                       if (false)
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 36.0, 0.0, 24.0),
+                              16.0, 8.0, 16.0, 8.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -1000,8 +989,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                           ),
                         ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 16.0, 16.0),
+                        padding: EdgeInsets.all(16.0),
                         child: FutureBuilder<ApiCallResponse>(
                           future: SmeGroup.getOrgDetailsCall.call(
                             accessToken: FFAppState().accessToken,
@@ -1040,6 +1028,11 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                       height: 40.0,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          width: 1.0,
+                                        ),
                                       ),
                                       child: Container(
                                         width: double.infinity,
@@ -1057,7 +1050,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                 r'''$.logo''',
                                               ).toString()),
                                               r'''$.image''',
-                                            ),
+                                            ).toString(),
                                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw-bEkdCP8SGyEaKUiE-SXLonzfXIp8mgi546odmsBpwOkDRE5maYDfkPxtSORlCwA9znDkOmbi94&usqp=CAU&ec=48600113',
                                           ),
                                           fit: BoxFit.contain,
@@ -1307,133 +1300,121 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                           ),
                                                         ),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    5.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child:
-                                                            FlutterFlowIconButton(
-                                                          borderColor: Colors
-                                                              .transparent,
-                                                          borderRadius: 30.0,
-                                                          borderWidth: 1.0,
-                                                          buttonSize: 40.0,
-                                                          icon: Icon(
-                                                            Icons.send_sharp,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            size: 22.0,
-                                                          ),
-                                                          onPressed: () async {
+                                                      FlutterFlowIconButton(
+                                                        borderColor:
+                                                            Colors.transparent,
+                                                        borderRadius: 30.0,
+                                                        borderWidth: 1.0,
+                                                        buttonSize: 40.0,
+                                                        icon: Icon(
+                                                          Icons.send_rounded,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          size: 20.0,
+                                                        ),
+                                                        onPressed: () async {
+                                                          setState(() {
+                                                            _model.submittedCommentForm =
+                                                                true;
+                                                          });
+                                                          if (_model.formKey
+                                                                      .currentState ==
+                                                                  null ||
+                                                              !_model.formKey
+                                                                  .currentState!
+                                                                  .validate()) {
+                                                            return;
+                                                          }
+                                                          _model.apiResult6c1 =
+                                                              await SmeGroup
+                                                                  .submitFeedCommentCall
+                                                                  .call(
+                                                            accessToken:
+                                                                FFAppState()
+                                                                    .accessToken,
+                                                            feedId:
+                                                                getJsonField(
+                                                              widget.feedDetail,
+                                                              r'''$.id''',
+                                                            ),
+                                                            comment: (String
+                                                                    myComment) {
+                                                              return myComment
+                                                                  .contains(
+                                                                      '@');
+                                                            }(_model.commentTextController
+                                                                    .text)
+                                                                ? functions.commentTaggableFeed(
+                                                                    _model
+                                                                        .mentions
+                                                                        .toList(),
+                                                                    _model
+                                                                        .mentionsCompanyNames
+                                                                        .toList(),
+                                                                    _model
+                                                                        .commentTextController
+                                                                        .text)
+                                                                : _model
+                                                                    .commentTextController
+                                                                    .text,
+                                                            mentionsList:
+                                                                _model.mentions,
+                                                          );
+                                                          if ((_model
+                                                                  .apiResult6c1
+                                                                  ?.succeeded ??
+                                                              true)) {
+                                                            setState(() => _model
+                                                                    .apiRequestCompleter1 =
+                                                                null);
+                                                            await _model
+                                                                .waitForApiRequestCompleted1();
+                                                            FFAppState()
+                                                                .update(() {
+                                                              FFAppState()
+                                                                      .dummyBoolean =
+                                                                  true;
+                                                              FFAppState()
+                                                                      .tagListPopup =
+                                                                  false;
+                                                            });
                                                             setState(() {
                                                               _model.submittedCommentForm =
-                                                                  true;
+                                                                  false;
                                                             });
-                                                            if (_model.formKey
-                                                                        .currentState ==
-                                                                    null ||
-                                                                !_model.formKey
-                                                                    .currentState!
-                                                                    .validate()) {
-                                                              return;
-                                                            }
-                                                            _model.apiResult6c1 =
-                                                                await SmeGroup
-                                                                    .submitFeedCommentCall
-                                                                    .call(
-                                                              accessToken:
-                                                                  FFAppState()
-                                                                      .accessToken,
-                                                              feedId:
-                                                                  getJsonField(
-                                                                widget
-                                                                    .feedDetail,
-                                                                r'''$.id''',
-                                                              ),
-                                                              comment: (String
-                                                                      myComment) {
-                                                                return myComment
-                                                                    .contains(
-                                                                        '@');
-                                                              }(_model.commentTextController
-                                                                      .text)
-                                                                  ? functions.commentTaggableFeed(
-                                                                      _model
-                                                                          .mentions
-                                                                          .toList(),
-                                                                      _model
-                                                                          .mentionsCompanyNames
-                                                                          .toList(),
-                                                                      _model
-                                                                          .commentTextController
-                                                                          .text)
-                                                                  : _model
-                                                                      .commentTextController
-                                                                      .text,
-                                                              mentionsList:
-                                                                  _model
-                                                                      .mentions,
-                                                            );
-                                                            if ((_model
-                                                                    .apiResult6c1
-                                                                    ?.succeeded ??
-                                                                true)) {
-                                                              setState(() =>
-                                                                  _model.apiRequestCompleter1 =
-                                                                      null);
-                                                              await _model
-                                                                  .waitForApiRequestCompleted1();
-                                                              FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                        .dummyBoolean =
-                                                                    true;
-                                                                FFAppState()
-                                                                        .tagListPopup =
-                                                                    false;
-                                                              });
-                                                              setState(() {
-                                                                _model.submittedCommentForm =
-                                                                    false;
-                                                              });
-                                                              setState(() {
-                                                                _model
-                                                                    .commentTextController
-                                                                    ?.clear();
-                                                              });
-                                                            } else {
-                                                              ScaffoldMessenger
-                                                                      .of(context)
-                                                                  .showSnackBar(
-                                                                SnackBar(
-                                                                  content: Text(
-                                                                    'Something went wrong please try again.',
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondary,
-                                                                    ),
+                                                            setState(() {
+                                                              _model
+                                                                  .commentTextController
+                                                                  ?.clear();
+                                                            });
+                                                          } else {
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                content: Text(
+                                                                  'Something went wrong please try again.',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
                                                                   ),
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          4000),
-                                                                  backgroundColor:
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .error,
                                                                 ),
-                                                              );
-                                                            }
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        4000),
+                                                                backgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .error,
+                                                              ),
+                                                            );
+                                                          }
 
-                                                            setState(() {});
-                                                          },
-                                                        ),
+                                                          setState(() {});
+                                                        },
                                                       ),
                                                     ],
                                                   ),
@@ -1573,7 +1554,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                                               r'''$.companyLogo''',
                                                                             ).toString()),
                                                                             r'''$.image''',
-                                                                          ),
+                                                                          ).toString(),
                                                                           fit: BoxFit
                                                                               .cover,
                                                                         ),
@@ -1593,7 +1574,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                                               r'''$..companyName''',
                                                                             ).toString(),
                                                                             style:
-                                                                                FlutterFlowTheme.of(context).labelLarge,
+                                                                                FlutterFlowTheme.of(context).labelMedium,
                                                                           ),
                                                                         ),
                                                                       ),
@@ -1622,6 +1603,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Roboto',
                                                                                       color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                      fontSize: 12.0,
                                                                                     ),
                                                                               ),
                                                                             ],
@@ -1711,8 +1693,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                           r'''$.feedId''',
                                         ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 16.0, 16.0, 16.0),
+                                      padding: EdgeInsets.all(16.0),
                                       child: Container(
                                         width: double.infinity,
                                         decoration: BoxDecoration(
@@ -1726,8 +1707,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                               0.7, -0.30000000000000004),
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                              padding: EdgeInsets.all(2.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.min,
                                                 crossAxisAlignment:
@@ -1738,38 +1718,49 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                         r'''$.userCompanyLogo''',
                                                       ) !=
                                                       null)
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
-                                                      child: Container(
-                                                        width: 30.0,
-                                                        height: 30.0,
-                                                        clipBehavior:
-                                                            Clip.antiAlias,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          shape:
-                                                              BoxShape.circle,
+                                                    Container(
+                                                      width: 35.0,
+                                                      height: 35.0,
+                                                      decoration: BoxDecoration(
+                                                        shape: BoxShape.circle,
+                                                        border: Border.all(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          width: 1.0,
                                                         ),
-                                                        child: Image.network(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            getJsonField(
-                                                              functions.image(
-                                                                  getJsonField(
-                                                                commentsItem,
-                                                                r'''$.userCompanyLogo''',
-                                                              ).toString()),
-                                                              r'''$.image''',
-                                                            ),
-                                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw-bEkdCP8SGyEaKUiE-SXLonzfXIp8mgi546odmsBpwOkDRE5maYDfkPxtSORlCwA9znDkOmbi94&usqp=CAU&ec=48600113',
+                                                      ),
+                                                      child: Visibility(
+                                                        visible: getJsonField(
+                                                              commentsItem,
+                                                              r'''$.userCompanyLogo''',
+                                                            ) !=
+                                                            null,
+                                                        child: Container(
+                                                          width: 35.0,
+                                                          height: 35.0,
+                                                          clipBehavior:
+                                                              Clip.antiAlias,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            shape:
+                                                                BoxShape.circle,
                                                           ),
-                                                          fit: BoxFit.contain,
+                                                          child: Image.network(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              getJsonField(
+                                                                functions.image(
+                                                                    getJsonField(
+                                                                  commentsItem,
+                                                                  r'''$.userCompanyLogo''',
+                                                                ).toString()),
+                                                                r'''$.image''',
+                                                              ).toString(),
+                                                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw-bEkdCP8SGyEaKUiE-SXLonzfXIp8mgi546odmsBpwOkDRE5maYDfkPxtSORlCwA9znDkOmbi94&usqp=CAU&ec=48600113',
+                                                            ),
+                                                            fit: BoxFit.contain,
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -1778,65 +1769,48 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                         r'''$.userCompanyLogo''',
                                                       ) ==
                                                       null)
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
-                                                      child: Container(
-                                                        width: 30.0,
-                                                        height: 30.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color:
-                                                              Color(0xFFFA6400),
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Text(
-                                                              functions
-                                                                  .profilePicName(
-                                                                      getJsonField(
-                                                                commentsItem,
-                                                                r'''$.userCompanyName''',
-                                                              ).toString()),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Roboto',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondary,
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
+                                                    Container(
+                                                      width: 35.0,
+                                                      height: 35.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            Color(0xFFFA6400),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Text(
+                                                            functions
+                                                                .profilePicName(
+                                                                    getJsonField(
+                                                              commentsItem,
+                                                              r'''$.userCompanyName''',
+                                                            ).toString()),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                ),
+                                                          ),
+                                                        ],
                                                       ),
                                                     ),
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  8.0,
-                                                                  8.0,
-                                                                  8.0),
+                                                          EdgeInsets.all(8.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.min,
@@ -1857,7 +1831,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                                   ).toString(),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelLarge,
+                                                                      .labelMedium,
                                                                 ),
                                                               ),
                                                               if (getJsonField(
@@ -2180,7 +2154,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryText,
-                                                        size: 24.0,
+                                                        size: 20.0,
                                                       ),
                                                       onPressed: () async {
                                                         setState(() {

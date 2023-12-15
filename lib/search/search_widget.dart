@@ -129,8 +129,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                         key: _model.formKey,
                         autovalidateMode: AutovalidateMode.always,
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 10.0, 10.0, 10.0),
+                          padding: EdgeInsets.all(10.0),
                           child: TextFormField(
                             controller: _model.searchBarController,
                             focusNode: _model.searchBarFocusNode,
@@ -370,8 +369,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                                     10.0,
                                                                     0.0),
                                                         child: Container(
-                                                          width: 60.0,
-                                                          height: 60.0,
+                                                          width: 40.0,
+                                                          height: 40.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -405,7 +404,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                                   r'''$.logo''',
                                                                 ).toString()),
                                                                 r'''$.image''',
-                                                              ),
+                                                              ).toString(),
                                                               fit: BoxFit
                                                                   .contain,
                                                             ),
@@ -573,8 +572,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                                   10.0,
                                                                   0.0),
                                                       child: Container(
-                                                        width: 60.0,
-                                                        height: 60.0,
+                                                        width: 40.0,
+                                                        height: 40.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -607,7 +606,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                                 r'''$.image''',
                                                               ).toString()),
                                                               r'''$.image''',
-                                                            ),
+                                                            ).toString(),
                                                             fit: BoxFit.contain,
                                                           ),
                                                         ),
@@ -789,8 +788,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                                   10.0,
                                                                   0.0),
                                                       child: Container(
-                                                        width: 60.0,
-                                                        height: 60.0,
+                                                        width: 40.0,
+                                                        height: 40.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -823,7 +822,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                                 r'''$.image''',
                                                               ).toString()),
                                                               r'''$.image''',
-                                                            ),
+                                                            ).toString(),
                                                             fit: BoxFit.contain,
                                                           ),
                                                         ),
@@ -994,8 +993,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                                   10.0,
                                                                   0.0),
                                                       child: Container(
-                                                        width: 60.0,
-                                                        height: 60.0,
+                                                        width: 40.0,
+                                                        height: 40.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -1028,7 +1027,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                                 r'''$.companyLogo''',
                                                               ).toString()),
                                                               r'''$.image''',
-                                                            ),
+                                                            ).toString(),
                                                             fit: BoxFit.contain,
                                                           ),
                                                         ),
@@ -1179,8 +1178,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                                   10.0,
                                                                   0.0),
                                                       child: Container(
-                                                        width: 60.0,
-                                                        height: 60.0,
+                                                        width: 40.0,
+                                                        height: 40.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -1213,7 +1212,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                                 r'''$.growthPatnerLogo''',
                                                               ).toString()),
                                                               r'''$.image''',
-                                                            ),
+                                                            ).toString(),
                                                             fit: BoxFit.contain,
                                                           ),
                                                         ),
@@ -1344,8 +1343,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: Container(
-                                                      width: 60.0,
-                                                      height: 60.0,
+                                                      width: 40.0,
+                                                      height: 40.0,
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
@@ -1376,7 +1375,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                               r'''$.logo''',
                                                             ).toString()),
                                                             r'''$.image''',
-                                                          ),
+                                                          ).toString(),
                                                           fit: BoxFit.contain,
                                                         ),
                                                       ),

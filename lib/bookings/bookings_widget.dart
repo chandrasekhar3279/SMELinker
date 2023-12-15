@@ -160,7 +160,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                       ),
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(-0.75, 0.00),
+                      alignment: AlignmentDirectional(-0.75, 0.0),
                       child: Text(
                         'Search',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -239,7 +239,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                             r'''$.image''',
                                           ).toString()),
                                           r'''$.image''',
-                                        ),
+                                        ).toString(),
                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                       ),
                                       fit: BoxFit.contain,
@@ -590,13 +590,8 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                 .circular(8.0),
                                                       ),
                                                       child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0),
+                                                        padding: EdgeInsets.all(
+                                                            12.0),
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -623,7 +618,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                             .start,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .labelLarge,
+                                                                        .labelMedium,
                                                                   ),
                                                                 ),
                                                               ],
@@ -719,7 +714,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                                 r'''$.bookedByLogo''',
                                                                               ).toString()),
                                                                               r'''$.image''',
-                                                                            ),
+                                                                            ).toString(),
                                                                             'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                           ),
                                                                           fit: BoxFit
@@ -1509,7 +1504,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                                         r'''$.providerLogo''',
                                                                                       ).toString()),
                                                                                       r'''$.image''',
-                                                                                    ),
+                                                                                    ).toString(),
                                                                                     'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                   ),
                                                                                   fit: BoxFit.contain,
@@ -1593,7 +1588,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                             child:
                                                                                 Column(
                                                                               mainAxisSize: MainAxisSize.min,
-                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                              mainAxisAlignment: MainAxisAlignment.center,
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
                                                                                 Text(
@@ -1628,6 +1623,8 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                               Column(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.min,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
                                                                             crossAxisAlignment:
                                                                                 CrossAxisAlignment.start,
                                                                             children: [
@@ -1671,8 +1668,10 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                               Column(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.min,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
                                                                             crossAxisAlignment:
-                                                                                CrossAxisAlignment.end,
+                                                                                CrossAxisAlignment.start,
                                                                             children: [
                                                                               Text(
                                                                                 'Status',
@@ -1687,29 +1686,26 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                                     r'''$.bookingStatus''',
                                                                                   ) ==
                                                                                   FFAppState().bookingStatus)
-                                                                                Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.end,
-                                                                                    children: [
-                                                                                      FaIcon(
-                                                                                        FontAwesomeIcons.infoCircle,
-                                                                                        color: FlutterFlowTheme.of(context).warning,
-                                                                                        size: 16.0,
+                                                                                Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                                                  children: [
+                                                                                    FaIcon(
+                                                                                      FontAwesomeIcons.infoCircle,
+                                                                                      color: FlutterFlowTheme.of(context).warning,
+                                                                                      size: 16.0,
+                                                                                    ),
+                                                                                    Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                      child: Text(
+                                                                                        getJsonField(
+                                                                                          bookingsItem,
+                                                                                          r'''$.bookingStatus''',
+                                                                                        ).toString(),
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                       ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                        child: Text(
-                                                                                          getJsonField(
-                                                                                            bookingsItem,
-                                                                                            r'''$.bookingStatus''',
-                                                                                          ).toString(),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
+                                                                                    ),
+                                                                                  ],
                                                                                 ),
                                                                               if (getJsonField(
                                                                                     bookingsItem,
@@ -1718,7 +1714,7 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                                   FFAppState().bookingStatus)
                                                                                 Row(
                                                                                   mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.end,
+                                                                                  mainAxisAlignment: MainAxisAlignment.start,
                                                                                   children: [
                                                                                     FaIcon(
                                                                                       FontAwesomeIcons.solidCheckCircle,

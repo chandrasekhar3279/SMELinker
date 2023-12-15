@@ -99,7 +99,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
                     border: Border.all(
-                      color: FlutterFlowTheme.of(context).secondaryText,
+                      color: FlutterFlowTheme.of(context).accent1,
                       width: 1.0,
                     ),
                   ),
@@ -121,7 +121,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                 r'''$.image''',
                               ).toString()),
                         r'''$.image''',
-                      ),
+                      ).toString(),
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 1.0,
                       fit: BoxFit.contain,
@@ -169,7 +169,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                               r'''$.companyLogo''',
                             ).toString()),
                             r'''$.image''',
-                          ),
+                          ).toString(),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -183,7 +183,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                             widget.productinfo,
                             r'''$.companyName''',
                           ).toString(),
-                          style: FlutterFlowTheme.of(context).titleLarge,
+                          style: FlutterFlowTheme.of(context).labelMedium,
                         ),
                       ),
                     ),
@@ -201,7 +201,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                         widget.productinfo,
                         r'''$.productName''',
                       ).toString(),
-                      style: FlutterFlowTheme.of(context).titleMedium,
+                      style: FlutterFlowTheme.of(context).labelLarge,
                     ),
                   ),
                 ],
@@ -226,19 +226,15 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                         ).toString(),
                         'N/A',
                       ),
-                      style: FlutterFlowTheme.of(context).titleMedium,
+                      style: FlutterFlowTheme.of(context).labelSmall,
                     ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                        child: FaIcon(
-                          FontAwesomeIcons.briefcase,
-                          color: FlutterFlowTheme.of(context).primary,
-                          size: 22.0,
-                        ),
+                      FaIcon(
+                        FontAwesomeIcons.fileInvoiceDollar,
+                        color: FlutterFlowTheme.of(context).primary,
+                        size: 20.0,
                       ),
                       Text(
                         '${getJsonField(
@@ -246,7 +242,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                           r'''$.price''',
                         ).toString()} AED',
                         textAlign: TextAlign.end,
-                        style: FlutterFlowTheme.of(context).bodyLarge,
+                        style: FlutterFlowTheme.of(context).bodySmall,
                       ),
                     ],
                   ),
@@ -274,7 +270,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                               widget.productinfo,
                               r'''$.productDescription''',
                             ).toString(),
-                      style: FlutterFlowTheme.of(context).bodyLarge,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
                 ],

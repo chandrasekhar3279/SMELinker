@@ -194,8 +194,8 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                       MediaQuery.sizeOf(context).height * 1.0,
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
+                                      color:
+                                          FlutterFlowTheme.of(context).accent1,
                                       width: 1.0,
                                     ),
                                   ),
@@ -218,7 +218,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                   r'''$.success''',
                                                 ).toString()),
                                                 r'''$.image''',
-                                              ),
+                                              ).toString(),
                                               fit: BoxFit.contain,
                                             ),
                                             allowRotation: true,
@@ -229,7 +229,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                 r'''$.success''',
                                               ).toString()),
                                               r'''$.image''',
-                                            ),
+                                            ).toString(),
                                             useHeroAnimation: true,
                                           ),
                                         ),
@@ -243,7 +243,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                           r'''$.success''',
                                         ).toString()),
                                         r'''$.image''',
-                                      ),
+                                      ).toString(),
                                       transitionOnUserGestures: true,
                                       child: ClipRRect(
                                         borderRadius:
@@ -256,7 +256,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                               r'''$.success''',
                                             ).toString()),
                                             r'''$.image''',
-                                          ),
+                                          ).toString(),
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   1.0,
@@ -366,8 +366,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             decoration: BoxDecoration(),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 16.0),
+                              padding: EdgeInsets.all(16.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment:
@@ -415,7 +414,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                         r'''$.logo''',
                                                       ).toString()),
                                                       r'''$.image''',
-                                                    ),
+                                                    ).toString(),
                                                     'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                   ),
                                                   fit: BoxFit.contain,
@@ -430,7 +429,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                       r'''$.logo''',
                                                     ).toString()),
                                                     r'''$.image''',
-                                                  ),
+                                                  ).toString(),
                                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                 ),
                                                 useHeroAnimation: true,
@@ -447,7 +446,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                 r'''$.logo''',
                                               ).toString()),
                                               r'''$.image''',
-                                            ),
+                                            ).toString(),
                                             'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                           ),
                                           transitionOnUserGestures: true,
@@ -467,7 +466,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                     r'''$.logo''',
                                                   ).toString()),
                                                   r'''$.image''',
-                                                ),
+                                                ).toString(),
                                                 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                               ),
                                               fit: BoxFit.contain,
@@ -540,11 +539,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                   ).toString(),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 18.0,
-                                                      ),
+                                                      .titleLarge,
                                                 ),
                                               ),
                                               if (getJsonField(
@@ -914,7 +909,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                         Text(
                                           'About',
                                           style: FlutterFlowTheme.of(context)
-                                              .titleLarge,
+                                              .labelLarge,
                                         ),
                                         if (widget.userId == 0)
                                           FlutterFlowIconButton(
@@ -1592,11 +1587,9 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          16.0,
-                                                                          16.0,
-                                                                          16.0,
-                                                                          16.0),
+                                                                      padding:
+                                                                          EdgeInsets.all(
+                                                                              16.0),
                                                                       child:
                                                                           Column(
                                                                         mainAxisSize:
@@ -1623,7 +1616,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                       r'''$.productName''',
                                                                                     ).toString(),
                                                                                     maxLines: 1,
-                                                                                    style: FlutterFlowTheme.of(context).labelLarge,
+                                                                                    style: FlutterFlowTheme.of(context).labelMedium,
                                                                                   ),
                                                                                 ),
                                                                               ),
@@ -1693,7 +1686,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                                 r'''$.featuredImage''',
                                                                                               ).toString()),
                                                                                               r'''$.image''',
-                                                                                            ),
+                                                                                            ).toString(),
                                                                                             'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                           ),
                                                                                           fit: BoxFit.contain,
@@ -1706,7 +1699,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                               r'''$.featuredImage''',
                                                                                             ).toString()),
                                                                                             r'''$.image''',
-                                                                                          ),
+                                                                                          ).toString(),
                                                                                           'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentIndex',
                                                                                         ),
                                                                                         useHeroAnimation: true,
@@ -1722,7 +1715,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                         r'''$.featuredImage''',
                                                                                       ).toString()),
                                                                                       r'''$.image''',
-                                                                                    ),
+                                                                                    ).toString(),
                                                                                     'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentIndex',
                                                                                   ),
                                                                                   transitionOnUserGestures: true,
@@ -1736,7 +1729,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                             r'''$.featuredImage''',
                                                                                           ).toString()),
                                                                                           r'''$.image''',
-                                                                                        ),
+                                                                                        ).toString(),
                                                                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                       ),
                                                                                       width: double.infinity,
@@ -1762,13 +1755,10 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                                     children: [
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
-                                                                                        child: FaIcon(
-                                                                                          FontAwesomeIcons.briefcase,
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          size: 18.0,
-                                                                                        ),
+                                                                                      FaIcon(
+                                                                                        FontAwesomeIcons.fileInvoiceDollar,
+                                                                                        color: FlutterFlowTheme.of(context).primary,
+                                                                                        size: 20.0,
                                                                                       ),
                                                                                       Text(
                                                                                         '${getJsonField(
@@ -2228,11 +2218,8 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                       ),
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            16.0,
-                                                                            16.0,
-                                                                            16.0,
-                                                                            16.0),
+                                                                        padding:
+                                                                            EdgeInsets.all(16.0),
                                                                         child:
                                                                             InkWell(
                                                                           splashColor:
@@ -2288,7 +2275,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                           contentServiceItem,
                                                                                           r'''$.name''',
                                                                                         ).toString().maybeHandleOverflow(maxChars: 50),
-                                                                                        style: FlutterFlowTheme.of(context).labelLarge,
+                                                                                        style: FlutterFlowTheme.of(context).labelMedium,
                                                                                       ),
                                                                                     ),
                                                                                   ),
@@ -2354,7 +2341,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                                     r'''$.image''',
                                                                                                   ).toString()),
                                                                                                   r'''$.image''',
-                                                                                                ),
+                                                                                                ).toString(),
                                                                                                 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                               ),
                                                                                               fit: BoxFit.contain,
@@ -2367,7 +2354,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                                   r'''$.image''',
                                                                                                 ).toString()),
                                                                                                 r'''$.image''',
-                                                                                              ),
+                                                                                              ).toString(),
                                                                                               'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentServiceIndex',
                                                                                             ),
                                                                                             useHeroAnimation: true,
@@ -2383,7 +2370,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                             r'''$.image''',
                                                                                           ).toString()),
                                                                                           r'''$.image''',
-                                                                                        ),
+                                                                                        ).toString(),
                                                                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentServiceIndex',
                                                                                       ),
                                                                                       transitionOnUserGestures: true,
@@ -2397,7 +2384,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                                 r'''$.image''',
                                                                                               ).toString()),
                                                                                               r'''$.image''',
-                                                                                            ),
+                                                                                            ).toString(),
                                                                                             'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                           ),
                                                                                           width: double.infinity,
@@ -2420,9 +2407,9 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       children: [
                                                                                         FaIcon(
-                                                                                          FontAwesomeIcons.briefcase,
+                                                                                          FontAwesomeIcons.fileInvoiceDollar,
                                                                                           color: FlutterFlowTheme.of(context).primary,
-                                                                                          size: 18.0,
+                                                                                          size: 20.0,
                                                                                         ),
                                                                                         Padding(
                                                                                           padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
@@ -3804,7 +3791,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                   r'''$.image''',
                                                                                 ).toString()),
                                                                                 r'''$.image''',
-                                                                              ),
+                                                                              ).toString(),
                                                                               'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                             ),
                                                                             width:
@@ -3831,7 +3818,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                           textAlign:
                                                                               TextAlign.center,
                                                                           style:
-                                                                              FlutterFlowTheme.of(context).titleMedium,
+                                                                              FlutterFlowTheme.of(context).labelMedium,
                                                                         ),
                                                                       ),
                                                                     ],
@@ -4011,7 +3998,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                   ).toString(),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .labelLarge,
+                                                      .labelMedium,
                                                 ),
                                               ),
                                               Padding(
@@ -4045,7 +4032,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                   ).toString(),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .labelLarge,
+                                                      .labelMedium,
                                                 ),
                                               ),
                                               Padding(
@@ -4079,7 +4066,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                   ).toString(),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .labelLarge,
+                                                      .labelMedium,
                                                 ),
                                               ),
                                               Padding(

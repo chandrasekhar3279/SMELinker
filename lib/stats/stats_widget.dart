@@ -132,7 +132,7 @@ class _StatsWidgetState extends State<StatsWidget> {
                     ),
                   ),
                   child: Align(
-                    alignment: AlignmentDirectional(-0.75, 0.00),
+                    alignment: AlignmentDirectional(-0.75, 0.0),
                     child: Text(
                       'Search',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -208,7 +208,7 @@ class _StatsWidgetState extends State<StatsWidget> {
                                           r'''$.image''',
                                         ).toString()),
                                         r'''$.image''',
-                                      ),
+                                      ).toString(),
                                       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                     ),
                                     fit: BoxFit.cover,
@@ -265,8 +265,7 @@ class _StatsWidgetState extends State<StatsWidget> {
                 scrollDirection: Axis.vertical,
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                    padding: EdgeInsets.all(10.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -391,7 +390,7 @@ class _StatsWidgetState extends State<StatsWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -639,7 +638,7 @@ class _StatsWidgetState extends State<StatsWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(

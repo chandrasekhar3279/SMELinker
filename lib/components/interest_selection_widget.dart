@@ -233,7 +233,7 @@ class _InterestSelectionWidgetState extends State<InterestSelectionWidget> {
                   options: FFButtonOptions(
                     width: 130.0,
                     height: 40.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsets.all(0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).secondary,
@@ -266,7 +266,7 @@ class _InterestSelectionWidgetState extends State<InterestSelectionWidget> {
                   options: FFButtonOptions(
                     width: 130.0,
                     height: 40.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsets.all(0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,

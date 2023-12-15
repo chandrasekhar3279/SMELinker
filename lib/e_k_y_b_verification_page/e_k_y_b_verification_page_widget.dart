@@ -108,7 +108,7 @@ class _EKYBVerificationPageWidgetState
               ),
               title: Text(
                 'eKYB ',
-                style: FlutterFlowTheme.of(context).headlineSmall,
+                style: FlutterFlowTheme.of(context).headlineLarge,
               ),
               actions: [],
               centerTitle: true,
@@ -144,8 +144,7 @@ class _EKYBVerificationPageWidgetState
                                     .secondaryBackground,
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 8.0, 8.0, 8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -575,7 +574,7 @@ class _EKYBVerificationPageWidgetState
                                               width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(30.0),
                                           ),
                                         ),
                                       ],

@@ -78,7 +78,7 @@ class _ScanADocumentWidgetState extends State<ScanADocumentWidget> {
             child: Text(
               'Scan a document',
               textAlign: TextAlign.center,
-              style: FlutterFlowTheme.of(context).headlineMedium,
+              style: FlutterFlowTheme.of(context).headlineLarge,
             ),
           ),
           actions: [],
@@ -115,7 +115,7 @@ class _ScanADocumentWidgetState extends State<ScanADocumentWidget> {
                           child: Text(
                             'Please hold the document in front of the camera',
                             textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).headlineMedium,
+                            style: FlutterFlowTheme.of(context).labelLarge,
                           ),
                         ),
                       ],

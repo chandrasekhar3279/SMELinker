@@ -13,7 +13,6 @@ export '/my_growth/my_growth_widget.dart' show MyGrowthWidget;
 export '/profile/profile_widget.dart' show ProfileWidget;
 export '/feed_detail/feed_detail_widget.dart' show FeedDetailWidget;
 export '/share_post/share_post_widget.dart' show SharePostWidget;
-export '/browse/browse_widget.dart' show BrowseWidget;
 export '/product_detail/product_detail_widget.dart' show ProductDetailWidget;
 export '/service_detail/service_detail_widget.dart' show ServiceDetailWidget;
 export '/growth_card_detail/growth_card_detail_widget.dart'

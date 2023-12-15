@@ -117,7 +117,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Container(
                       constraints: BoxConstraints(
                         maxWidth: 700.0,
@@ -144,8 +144,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                         .secondaryBackground,
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 16.0, 16.0, 16.0),
+                                    padding: EdgeInsets.all(16.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1184,7 +1183,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                             decoration: BoxDecoration(),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -1317,7 +1316,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 30.0, 16.0, 0.0),
@@ -1413,8 +1412,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 16.0, 16.0, 16.0),
+                                  padding: EdgeInsets.all(16.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -1458,8 +1456,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                 ),
                                 if (_model.switchValue != true)
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 16.0, 16.0, 16.0),
+                                    padding: EdgeInsets.all(16.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1508,7 +1505,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                             },
                                             text: 'Select groups to visible',
                                             options: FFButtonOptions(
-                                              height: 40.0,
+                                              height: 50.0,
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       24.0, 0.0, 24.0, 0.0),

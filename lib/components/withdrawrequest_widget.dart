@@ -42,9 +42,9 @@ class _WithdrawrequestWidgetState extends State<WithdrawrequestWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.00),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+        padding: EdgeInsets.all(16.0),
         child: Container(
           width: double.infinity,
           constraints: BoxConstraints(
@@ -58,7 +58,7 @@ class _WithdrawrequestWidgetState extends State<WithdrawrequestWidget> {
             ),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+            padding: EdgeInsets.all(12.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -110,7 +110,7 @@ class _WithdrawrequestWidgetState extends State<WithdrawrequestWidget> {
                                 .secondaryBackground,
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
                               'Cancel',
                               style: FlutterFlowTheme.of(context)
@@ -147,7 +147,7 @@ class _WithdrawrequestWidgetState extends State<WithdrawrequestWidget> {
                                 .secondaryBackground,
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
                               'With draw',
                               style: FlutterFlowTheme.of(context)

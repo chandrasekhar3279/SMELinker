@@ -193,7 +193,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                   ),
                   Expanded(
                     child: Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),

@@ -113,7 +113,7 @@ class _OnboardingGetstartedWidgetState
                         children: [
                           Text(
                             'Please authenticate yourself',
-                            style: FlutterFlowTheme.of(context).headlineMedium,
+                            style: FlutterFlowTheme.of(context).labelLarge,
                           ),
                         ],
                       ),
@@ -128,13 +128,7 @@ class _OnboardingGetstartedWidgetState
                             child: Text(
                               'Please provide an identity proof by either scanning the ID or filling in the details manually.',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                  ),
+                              style: FlutterFlowTheme.of(context).bodyLarge,
                             ),
                           ),
                         ],

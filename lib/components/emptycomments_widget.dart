@@ -47,13 +47,10 @@ class _EmptycommentsWidgetState extends State<EmptycommentsWidget> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Align(
-          alignment: AlignmentDirectional(0.00, 0.00),
+          alignment: AlignmentDirectional(0.0, 0.0),
           child: Text(
             'Be the first to comment',
-            style: FlutterFlowTheme.of(context).labelLarge.override(
-                  fontFamily: 'Roboto',
-                  color: FlutterFlowTheme.of(context).secondaryText,
-                ),
+            style: FlutterFlowTheme.of(context).bodyLarge,
           ),
         ),
       ],

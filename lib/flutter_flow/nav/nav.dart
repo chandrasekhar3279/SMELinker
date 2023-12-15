@@ -136,11 +136,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : SharePostWidget(),
         ),
         FFRoute(
-          name: 'Browse',
-          path: '/browse',
-          builder: (context, params) => BrowseWidget(),
-        ),
-        FFRoute(
           name: 'ProductDetail',
           path: '/productDetail',
           builder: (context, params) => ProductDetailWidget(
@@ -428,13 +423,20 @@ class FFRoute {
                   key: state.pageKey,
                   child: child,
                   transitionDuration: transitionInfo.duration,
-                  transitionsBuilder: PageTransition(
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) =>
+                          PageTransition(
                     type: transitionInfo.transitionType,
                     duration: transitionInfo.duration,
                     reverseDuration: transitionInfo.duration,
                     alignment: transitionInfo.alignment,
                     child: child,
-                  ).transitionsBuilder,
+                  ).buildTransitions(
+                    context,
+                    animation,
+                    secondaryAnimation,
+                    child,
+                  ),
                 )
               : MaterialPage(key: state.pageKey, child: child);
         },

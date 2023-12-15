@@ -197,7 +197,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                       ),
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(-0.75, 0.00),
+                      alignment: AlignmentDirectional(-0.75, 0.0),
                       child: Text(
                         'Search',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -276,7 +276,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                             r'''$.image''',
                                           ).toString()),
                                           r'''$.image''',
-                                        ),
+                                        ).toString(),
                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                       ),
                                       fit: BoxFit.contain,
@@ -766,7 +766,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                       ),
                                                                                     ),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                                                                                      padding: EdgeInsets.all(12.0),
                                                                                       child: Column(
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -806,7 +806,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                     r'''$.image''',
                                                                                                   ).toString()),
                                                                                                   r'''$.image''',
-                                                                                                ),
+                                                                                                ).toString(),
                                                                                                 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                               ),
                                                                                               width: double.infinity,
@@ -846,7 +846,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                           r'''$.growthPartnerLogo''',
                                                                                                         ).toString()),
                                                                                                         r'''$.image''',
-                                                                                                      ),
+                                                                                                      ).toString(),
                                                                                                       fit: BoxFit.contain,
                                                                                                     ),
                                                                                                   ),
@@ -970,7 +970,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
                                                                                                       child: AlignedTooltip(
                                                                                                         content: Padding(
-                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                                            padding: EdgeInsets.all(8.0),
                                                                                                             child: Text(
                                                                                                               getJsonField(
                                                                                                                 gropsistItem,
@@ -999,7 +999,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                             ),
                                                                                                           ),
                                                                                                           child: Padding(
-                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(1.0, 1.0, 1.0, 1.0),
+                                                                                                            padding: EdgeInsets.all(1.0),
                                                                                                             child: Container(
                                                                                                               width: 40.0,
                                                                                                               height: 40.0,
@@ -1014,7 +1014,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                                     r'''$.groupImg''',
                                                                                                                   ).toString()),
                                                                                                                   r'''$.image''',
-                                                                                                                ),
+                                                                                                                ).toString(),
                                                                                                                 fit: BoxFit.cover,
                                                                                                               ),
                                                                                                             ),
@@ -1333,7 +1333,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                       ),
                                                                                     ),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                                                                                      padding: EdgeInsets.all(12.0),
                                                                                       child: Column(
                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1373,7 +1373,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                     r'''$.image''',
                                                                                                   ).toString()),
                                                                                                   r'''$.image''',
-                                                                                                ),
+                                                                                                ).toString(),
                                                                                                 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                               ),
                                                                                               width: double.infinity,
@@ -1400,7 +1400,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                     ),
                                                                                                   ),
                                                                                                   child: Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                                                                                    padding: EdgeInsets.all(2.0),
                                                                                                     child: Container(
                                                                                                       clipBehavior: Clip.antiAlias,
                                                                                                       decoration: BoxDecoration(
@@ -1413,7 +1413,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                             r'''$.growthPartnerLogo''',
                                                                                                           ).toString()),
                                                                                                           r'''$.image''',
-                                                                                                        ),
+                                                                                                        ).toString(),
                                                                                                         fit: BoxFit.contain,
                                                                                                       ),
                                                                                                     ),
@@ -1470,10 +1470,10 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 crossAxisAlignment: CrossAxisAlignment.center,
                                                                                                 children: [
-                                                                                                  Icon(
-                                                                                                    Icons.business_center_rounded,
+                                                                                                  FaIcon(
+                                                                                                    FontAwesomeIcons.fileInvoiceDollar,
                                                                                                     color: FlutterFlowTheme.of(context).primary,
-                                                                                                    size: 16.0,
+                                                                                                    size: 20.0,
                                                                                                   ),
                                                                                                   Padding(
                                                                                                     padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
@@ -1538,7 +1538,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
                                                                                                       child: AlignedTooltip(
                                                                                                         content: Padding(
-                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+                                                                                                            padding: EdgeInsets.all(4.0),
                                                                                                             child: Text(
                                                                                                               getJsonField(
                                                                                                                 gropsistItem,
@@ -1567,7 +1567,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                             ),
                                                                                                           ),
                                                                                                           child: Padding(
-                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(1.0, 1.0, 1.0, 1.0),
+                                                                                                            padding: EdgeInsets.all(1.0),
                                                                                                             child: Container(
                                                                                                               clipBehavior: Clip.antiAlias,
                                                                                                               decoration: BoxDecoration(
@@ -1580,7 +1580,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                                     r'''$.groupImg''',
                                                                                                                   ).toString()),
                                                                                                                   r'''$.image''',
-                                                                                                                ),
+                                                                                                                ).toString(),
                                                                                                                 fit: BoxFit.cover,
                                                                                                               ),
                                                                                                             ),
@@ -1926,11 +1926,8 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            16.0,
-                                                                            16.0,
-                                                                            16.0,
+                                                                    padding:
+                                                                        EdgeInsets.all(
                                                                             16.0),
                                                                     child:
                                                                         Column(
@@ -1970,7 +1967,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                               getJsonField(
                                                                                 contentItem,
                                                                                 r'''$.image''',
-                                                                              ),
+                                                                              ).toString(),
                                                                               width: double.infinity,
                                                                               height: 130.0,
                                                                               fit: BoxFit.contain,
@@ -2007,7 +2004,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                                                                              padding: EdgeInsets.all(12.0),
                                                                               child: Column(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
@@ -2158,7 +2155,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                                                                              padding: EdgeInsets.all(12.0),
                                                                               child: Column(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
@@ -2168,7 +2165,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                                                     children: [
                                                                                       FaIcon(
-                                                                                        FontAwesomeIcons.coins,
+                                                                                        FontAwesomeIcons.fileInvoiceDollar,
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         size: 20.0,
                                                                                       ),
@@ -2259,7 +2256,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                     ],
                                                                                   ),
                                                                                   Align(
-                                                                                    alignment: AlignmentDirectional(0.00, -1.00),
+                                                                                    alignment: AlignmentDirectional(0.0, -1.0),
                                                                                     child: FFButtonWidget(
                                                                                       onPressed: () async {
                                                                                         context.pushNamed(
@@ -2310,7 +2307,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                             ),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                                                                              padding: EdgeInsets.all(12.0),
                                                                               child: Column(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
@@ -2320,7 +2317,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                                                     children: [
                                                                                       FaIcon(
-                                                                                        FontAwesomeIcons.coins,
+                                                                                        FontAwesomeIcons.fileInvoiceDollar,
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         size: 20.0,
                                                                                       ),
@@ -2416,7 +2413,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                     ],
                                                                                   ),
                                                                                   Align(
-                                                                                    alignment: AlignmentDirectional(0.00, -1.00),
+                                                                                    alignment: AlignmentDirectional(0.0, -1.0),
                                                                                     child: FFButtonWidget(
                                                                                       onPressed: () async {
                                                                                         context.pushNamed(
@@ -2631,11 +2628,8 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                       ),
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            16.0,
-                                                                            16.0,
-                                                                            16.0,
-                                                                            16.0),
+                                                                        padding:
+                                                                            EdgeInsets.all(16.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -2695,7 +2689,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                                                 children: [
                                                                                   FaIcon(
-                                                                                    FontAwesomeIcons.moneyBill,
+                                                                                    FontAwesomeIcons.fileInvoiceDollar,
                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                     size: 20.0,
                                                                                   ),
@@ -2830,7 +2824,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                             getJsonField(
                                                                                               dataItem,
                                                                                               r'''$.partners[:].logo''',
-                                                                                            ),
+                                                                                            ).toString(),
                                                                                             'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                           ),
                                                                                           fit: BoxFit.contain,

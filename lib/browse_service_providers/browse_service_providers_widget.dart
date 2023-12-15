@@ -138,8 +138,8 @@ class _BrowseServiceProvidersWidgetState
                                       0.0, 12.0, 0.0, 12.0),
                                   child: Text(
                                     'Based on your interests',
-                                    style:
-                                        FlutterFlowTheme.of(context).labelLarge,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium,
                                   ),
                                 ),
                                 Container(
@@ -166,9 +166,7 @@ class _BrowseServiceProvidersWidgetState
                                           final interestsItem =
                                               interests[interestsIndex];
                                           return Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    4.0, 4.0, 4.0, 4.0),
+                                            padding: EdgeInsets.all(4.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
@@ -213,9 +211,7 @@ class _BrowseServiceProvidersWidgetState
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(2.0, 2.0,
-                                                                2.0, 2.0),
+                                                        EdgeInsets.all(2.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -229,9 +225,10 @@ class _BrowseServiceProvidersWidgetState
                                                               double.infinity,
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16.0),
                                                             border: Border.all(
                                                               color: FlutterFlowTheme
                                                                       .of(context)
@@ -253,7 +250,7 @@ class _BrowseServiceProvidersWidgetState
                                                                   r'''$.logo''',
                                                                 ).toString()),
                                                                 r'''$.image''',
-                                                              ),
+                                                              ).toString(),
                                                               height: double
                                                                   .infinity,
                                                               fit: BoxFit
@@ -294,7 +291,7 @@ class _BrowseServiceProvidersWidgetState
                                                                       ).toString(),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .titleMedium,
+                                                                          .labelMedium,
                                                                     ),
                                                                   ),
                                                                 ),
@@ -314,7 +311,7 @@ class _BrowseServiceProvidersWidgetState
                                                                       ).toString(),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .titleSmall,
+                                                                          .labelSmall,
                                                                     ),
                                                                   ),
                                                                 ),
@@ -354,8 +351,7 @@ class _BrowseServiceProvidersWidgetState
                                 ),
                                 if (false)
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 8.0, 8.0, 8.0),
+                                    padding: EdgeInsets.all(8.0),
                                     child: FutureBuilder<ApiCallResponse>(
                                       future: SmeGroup.getIndustriesCall.call(),
                                       builder: (context, snapshot) {
@@ -498,8 +494,7 @@ class _BrowseServiceProvidersWidgetState
                                       height: 10.0,
                                       decoration: BoxDecoration(),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            4.0, 4.0, 4.0, 4.0),
+                                        padding: EdgeInsets.all(4.0),
                                         child: PagedListView<ApiPagingParams,
                                             dynamic>(
                                           pagingController:
@@ -562,9 +557,7 @@ class _BrowseServiceProvidersWidgetState
                                                       .itemList![
                                                   serviceprovidersIndex];
                                               return Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        4.0, 4.0, 4.0, 4.0),
+                                                padding: EdgeInsets.all(4.0),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -613,12 +606,7 @@ class _BrowseServiceProvidersWidgetState
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    2.0,
-                                                                    2.0,
-                                                                    2.0,
-                                                                    2.0),
+                                                            EdgeInsets.all(2.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -635,6 +623,10 @@ class _BrowseServiceProvidersWidgetState
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryBackground,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            16.0),
                                                                 border:
                                                                     Border.all(
                                                                   color: FlutterFlowTheme.of(
@@ -657,7 +649,7 @@ class _BrowseServiceProvidersWidgetState
                                                                       r'''$.logo''',
                                                                     ).toString()),
                                                                     r'''$.image''',
-                                                                  ),
+                                                                  ).toString(),
                                                                   height: double
                                                                       .infinity,
                                                                   fit: BoxFit

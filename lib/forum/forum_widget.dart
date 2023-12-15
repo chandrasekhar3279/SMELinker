@@ -167,7 +167,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                       ),
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(-0.75, 0.00),
+                      alignment: AlignmentDirectional(-0.75, 0.0),
                       child: Text(
                         'Search',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -217,6 +217,10 @@ class _ForumWidgetState extends State<ForumWidget> {
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 1.0,
+                                  ),
                                 ),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -242,7 +246,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                             r'''$.image''',
                                           ).toString()),
                                           r'''$.image''',
-                                        ),
+                                        ).toString(),
                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                       ),
                                       fit: BoxFit.contain,
@@ -340,7 +344,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 20.0, 0.0, 0.0),
+                                  0.0, 16.0, 0.0, 0.0),
                               child: Text(
                                 'Need help? Ask a question  to the community.',
                                 textAlign: TextAlign.start,
@@ -475,7 +479,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                               r'''$.logo''',
                                                             ).toString()),
                                                             r'''$.image''',
-                                                          ),
+                                                          ).toString(),
                                                           'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                         ),
                                                         fit: BoxFit.contain,
@@ -559,255 +563,258 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                           autovalidateMode:
                                                               AutovalidateMode
                                                                   .disabled,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        8.0,
-                                                                        0.0,
-                                                                        8.0,
-                                                                        0.0),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Expanded(
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            20.0),
-                                                                    child:
-                                                                        TextFormField(
-                                                                      controller:
-                                                                          _model
-                                                                              .questionTextController,
-                                                                      focusNode:
-                                                                          _model
-                                                                              .questionTextFocusNode,
-                                                                      onChanged:
-                                                                          (_) =>
-                                                                              EasyDebounce.debounce(
-                                                                        '_model.questionTextController',
-                                                                        Duration(
-                                                                            milliseconds:
-                                                                                100),
-                                                                        () async {
-                                                                          if ((_model.submittedForumQuestionForm == true) &&
-                                                                              ((_model.questionTextController.text != null && _model.questionTextController.text != '') || (_model.questionTextController.text == null || _model.questionTextController.text == ''))) {
-                                                                            if (_model.formKey.currentState == null ||
-                                                                                !_model.formKey.currentState!.validate()) {
-                                                                              return;
-                                                                            }
-                                                                          }
-                                                                        },
-                                                                      ),
-                                                                      textCapitalization:
-                                                                          TextCapitalization
-                                                                              .sentences,
-                                                                      obscureText:
-                                                                          false,
-                                                                      decoration:
-                                                                          InputDecoration(
-                                                                        labelStyle:
-                                                                            FlutterFlowTheme.of(context).bodyLarge,
-                                                                        hintText:
-                                                                            'Ask a question',
-                                                                        hintStyle: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              fontFamily: 'Roboto',
-                                                                              color: FlutterFlowTheme.of(context).accent2,
-                                                                            ),
-                                                                        enabledBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).borderColor,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(40.0),
-                                                                        ),
-                                                                        focusedBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryText,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(40.0),
-                                                                        ),
-                                                                        errorBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).error,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(40.0),
-                                                                        ),
-                                                                        focusedErrorBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).error,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(40.0),
-                                                                        ),
-                                                                        filled:
-                                                                            true,
-                                                                        fillColor:
-                                                                            FlutterFlowTheme.of(context).secondaryBackground,
-                                                                        contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                            15.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyLarge,
-                                                                      validator: _model
-                                                                          .questionTextControllerValidator
-                                                                          .asValidator(
-                                                                              context),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Padding(
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Expanded(
+                                                                child: Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
-                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          20.0),
+                                                                  child:
+                                                                      TextFormField(
+                                                                    controller:
+                                                                        _model
+                                                                            .questionTextController,
+                                                                    focusNode:
+                                                                        _model
+                                                                            .questionTextFocusNode,
+                                                                    onChanged: (_) =>
+                                                                        EasyDebounce
+                                                                            .debounce(
+                                                                      '_model.questionTextController',
+                                                                      Duration(
+                                                                          milliseconds:
+                                                                              100),
+                                                                      () async {
+                                                                        if ((_model.submittedForumQuestionForm ==
+                                                                                true) &&
+                                                                            ((_model.questionTextController.text != null && _model.questionTextController.text != '') ||
+                                                                                (_model.questionTextController.text == null || _model.questionTextController.text == ''))) {
+                                                                          if (_model.formKey.currentState == null ||
+                                                                              !_model.formKey.currentState!.validate()) {
+                                                                            return;
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                    ),
+                                                                    textCapitalization:
+                                                                        TextCapitalization
+                                                                            .sentences,
+                                                                    obscureText:
+                                                                        false,
+                                                                    decoration:
+                                                                        InputDecoration(
+                                                                      labelStyle:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyLarge,
+                                                                      hintText:
+                                                                          'Ask a question',
+                                                                      hintStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Roboto',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).accent2,
+                                                                          ),
+                                                                      enabledBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).borderColor,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(40.0),
+                                                                      ),
+                                                                      focusedBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(40.0),
+                                                                      ),
+                                                                      errorBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).error,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(40.0),
+                                                                      ),
+                                                                      focusedErrorBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).error,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(40.0),
+                                                                      ),
+                                                                      filled:
+                                                                          true,
+                                                                      fillColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .secondaryBackground,
+                                                                      contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          15.0,
+                                                                          0.0,
                                                                           0.0,
                                                                           0.0),
-                                                                  child:
-                                                                      FlutterFlowIconButton(
-                                                                    borderColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    borderRadius:
-                                                                        30.0,
-                                                                    borderWidth:
-                                                                        1.0,
-                                                                    buttonSize:
-                                                                        40.0,
-                                                                    icon: Icon(
-                                                                      Icons
-                                                                          .send_sharp,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      size:
-                                                                          22.0,
                                                                     ),
-                                                                    showLoadingIndicator:
-                                                                        true,
-                                                                    onPressed:
-                                                                        () async {
-                                                                      setState(
-                                                                          () {
-                                                                        _model.submittedForumQuestionForm =
-                                                                            true;
-                                                                      });
-                                                                      if (_model.formKey.currentState ==
-                                                                              null ||
-                                                                          !_model
-                                                                              .formKey
-                                                                              .currentState!
-                                                                              .validate()) {
-                                                                        return;
-                                                                      }
-                                                                      _model.apiResult9fnCopyCopy = await SmeGroup
-                                                                          .submitQuestionCall
-                                                                          .call(
-                                                                        accessToken:
-                                                                            FFAppState().accessToken,
-                                                                        question: _model
-                                                                            .questionTextController
-                                                                            .text,
-                                                                      );
-                                                                      if ((_model
-                                                                              .apiResult9fnCopyCopy
-                                                                              ?.succeeded ??
-                                                                          true)) {
-                                                                        await showDialog(
-                                                                          context:
-                                                                              context,
-                                                                          builder:
-                                                                              (alertDialogContext) {
-                                                                            return WebViewAware(
-                                                                                child: AlertDialog(
-                                                                              title: Text('Great'),
-                                                                              content: Text('We’ve received your question.'),
-                                                                              actions: [
-                                                                                TextButton(
-                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                  child: Text('Ok'),
-                                                                                ),
-                                                                              ],
-                                                                            ));
-                                                                          },
-                                                                        );
-                                                                        setState(
-                                                                            () {});
-                                                                        setState(
-                                                                            () {
-                                                                          _model
-                                                                              .questionTextController
-                                                                              ?.clear();
-                                                                        });
-
-                                                                        context.pushNamed(
-                                                                            'Forum');
-                                                                      } else {
-                                                                        await showDialog(
-                                                                          context:
-                                                                              context,
-                                                                          builder:
-                                                                              (alertDialogContext) {
-                                                                            return WebViewAware(
-                                                                                child: AlertDialog(
-                                                                              title: Text('Error'),
-                                                                              content: Text('This Question seems irrelevant or inappropriate and can\'t be posted'),
-                                                                              actions: [
-                                                                                TextButton(
-                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                  child: Text('Close'),
-                                                                                ),
-                                                                              ],
-                                                                            ));
-                                                                          },
-                                                                        );
-                                                                      }
-
-                                                                      setState(
-                                                                          () {});
-                                                                    },
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyLarge,
+                                                                    validator: _model
+                                                                        .questionTextControllerValidator
+                                                                        .asValidator(
+                                                                            context),
                                                                   ),
                                                                 ),
-                                                              ],
-                                                            ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child:
+                                                                    FlutterFlowIconButton(
+                                                                  borderColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  borderRadius:
+                                                                      30.0,
+                                                                  borderWidth:
+                                                                      1.0,
+                                                                  buttonSize:
+                                                                      40.0,
+                                                                  icon: Icon(
+                                                                    Icons
+                                                                        .send_rounded,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    size: 20.0,
+                                                                  ),
+                                                                  showLoadingIndicator:
+                                                                      true,
+                                                                  onPressed:
+                                                                      () async {
+                                                                    setState(
+                                                                        () {
+                                                                      _model.submittedForumQuestionForm =
+                                                                          true;
+                                                                    });
+                                                                    if (_model.formKey.currentState ==
+                                                                            null ||
+                                                                        !_model
+                                                                            .formKey
+                                                                            .currentState!
+                                                                            .validate()) {
+                                                                      return;
+                                                                    }
+                                                                    _model.apiResult9fnCopyCopy =
+                                                                        await SmeGroup
+                                                                            .submitQuestionCall
+                                                                            .call(
+                                                                      accessToken:
+                                                                          FFAppState()
+                                                                              .accessToken,
+                                                                      question: _model
+                                                                          .questionTextController
+                                                                          .text,
+                                                                    );
+                                                                    if ((_model
+                                                                            .apiResult9fnCopyCopy
+                                                                            ?.succeeded ??
+                                                                        true)) {
+                                                                      await showDialog(
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (alertDialogContext) {
+                                                                          return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                            title:
+                                                                                Text('Great'),
+                                                                            content:
+                                                                                Text('We’ve received your question.'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                child: Text('Ok'),
+                                                                              ),
+                                                                            ],
+                                                                          ));
+                                                                        },
+                                                                      );
+                                                                      setState(
+                                                                          () {});
+                                                                      setState(
+                                                                          () {
+                                                                        _model
+                                                                            .questionTextController
+                                                                            ?.clear();
+                                                                      });
+
+                                                                      context.pushNamed(
+                                                                          'Forum');
+                                                                    } else {
+                                                                      await showDialog(
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (alertDialogContext) {
+                                                                          return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                            title:
+                                                                                Text('Error'),
+                                                                            content:
+                                                                                Text('This Question seems irrelevant or inappropriate and can\'t be posted'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                child: Text('Close'),
+                                                                              ),
+                                                                            ],
+                                                                          ));
+                                                                        },
+                                                                      );
+                                                                    }
+
+                                                                    setState(
+                                                                        () {});
+                                                                  },
+                                                                ),
+                                                              ),
+                                                            ],
                                                           ),
                                                         ),
                                                       ),
@@ -966,7 +973,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                         r'''$.companyLogo''',
                                                                                       ).toString()),
                                                                                       r'''$.image''',
-                                                                                    ),
+                                                                                    ).toString(),
                                                                                     'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                   ),
                                                                                   fit: BoxFit.contain,
@@ -1077,7 +1084,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                       alignment: AlignmentDirectional(0.6499999999999999, -0.6),
                                                                                       children: [
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                          padding: EdgeInsets.all(8.0),
                                                                                           child: Column(
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1103,10 +1110,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                     maxChars: 14,
                                                                                                                     replacement: '…',
                                                                                                                   ),
-                                                                                                              style: FlutterFlowTheme.of(context).titleLarge.override(
-                                                                                                                    fontFamily: 'Roboto',
-                                                                                                                    fontSize: 14.0,
-                                                                                                                  ),
+                                                                                                              style: FlutterFlowTheme.of(context).labelMedium,
                                                                                                             ),
                                                                                                           ),
                                                                                                           if (getJsonField(
@@ -1182,16 +1186,19 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 children: [
                                                                                                   Expanded(
-                                                                                                    child: Text(
-                                                                                                      valueOrDefault<String>(
-                                                                                                        getJsonField(
-                                                                                                          contentItem,
-                                                                                                          r'''$.question''',
-                                                                                                        ).toString(),
-                                                                                                        'ask a question',
+                                                                                                    child: Padding(
+                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 6.0),
+                                                                                                      child: Text(
+                                                                                                        valueOrDefault<String>(
+                                                                                                          getJsonField(
+                                                                                                            contentItem,
+                                                                                                            r'''$.question''',
+                                                                                                          ).toString(),
+                                                                                                          'ask a question',
+                                                                                                        ),
+                                                                                                        textAlign: TextAlign.start,
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                                       ),
-                                                                                                      textAlign: TextAlign.start,
-                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                                     ),
                                                                                                   ),
                                                                                                 ],
@@ -1226,7 +1233,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                   padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
                                                                                                                   child: AlignedTooltip(
                                                                                                                     content: Padding(
-                                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                                                        padding: EdgeInsets.all(8.0),
                                                                                                                         child: Text(
                                                                                                                           getJsonField(
                                                                                                                             groupsDataItem,
@@ -1245,8 +1252,8 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                     showDuration: Duration(milliseconds: 1500),
                                                                                                                     triggerMode: TooltipTriggerMode.tap,
                                                                                                                     child: Container(
-                                                                                                                      width: 35.0,
-                                                                                                                      height: 35.0,
+                                                                                                                      width: 30.0,
+                                                                                                                      height: 30.0,
                                                                                                                       decoration: BoxDecoration(
                                                                                                                         color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                                         shape: BoxShape.circle,
@@ -1256,7 +1263,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                         ),
                                                                                                                       ),
                                                                                                                       child: Padding(
-                                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(1.0, 1.0, 1.0, 1.0),
+                                                                                                                        padding: EdgeInsets.all(1.0),
                                                                                                                         child: Container(
                                                                                                                           width: 11.0,
                                                                                                                           height: 11.0,
@@ -1271,7 +1278,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                                 r'''$.groupImg''',
                                                                                                                               ).toString()),
                                                                                                                               r'''$.image''',
-                                                                                                                            ),
+                                                                                                                            ).toString(),
                                                                                                                             fit: BoxFit.cover,
                                                                                                                           ),
                                                                                                                         ),
@@ -1322,7 +1329,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                 FFAppState().showMoreQstn) &&
                                                                                             (FFAppState().showForumQuestionActions == true))
                                                                                           Align(
-                                                                                            alignment: AlignmentDirectional(0.60, -1.12),
+                                                                                            alignment: AlignmentDirectional(0.6, -1.12),
                                                                                             child: wrapWithModel(
                                                                                               model: _model.moreDetailsModels1.getModel(
                                                                                                 getJsonField(
@@ -1419,8 +1426,8 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                                   children: [
                                                                                                                     Container(
-                                                                                                                      width: 30.0,
-                                                                                                                      height: 30.0,
+                                                                                                                      width: 35.0,
+                                                                                                                      height: 35.0,
                                                                                                                       decoration: BoxDecoration(
                                                                                                                         shape: BoxShape.circle,
                                                                                                                         border: Border.all(
@@ -1469,7 +1476,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                                       r'''$.companyLogo''',
                                                                                                                                     ).toString()),
                                                                                                                                     r'''$.image''',
-                                                                                                                                  ),
+                                                                                                                                  ).toString(),
                                                                                                                                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                                                                 ),
                                                                                                                                 fit: BoxFit.contain,
@@ -1506,8 +1513,8 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                             );
                                                                                                                           },
                                                                                                                           child: Container(
-                                                                                                                            width: 30.0,
-                                                                                                                            height: 30.0,
+                                                                                                                            width: 35.0,
+                                                                                                                            height: 35.0,
                                                                                                                             decoration: BoxDecoration(
                                                                                                                               color: Color(0xFFFA6400),
                                                                                                                               shape: BoxShape.circle,
@@ -1549,7 +1556,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                         ),
                                                                                                                       ),
                                                                                                                       child: Padding(
-                                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                                                        padding: EdgeInsets.all(8.0),
                                                                                                                         child: Column(
                                                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                                                           children: [
@@ -1592,10 +1599,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                                                       maxChars: 12,
                                                                                                                                                       replacement: '…',
                                                                                                                                                     ),
-                                                                                                                                                style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                                                                                      fontFamily: 'Roboto',
-                                                                                                                                                      fontSize: 14.0,
-                                                                                                                                                    ),
+                                                                                                                                                style: FlutterFlowTheme.of(context).labelMedium,
                                                                                                                                               ),
                                                                                                                                               if (getJsonField(
                                                                                                                                                     answersContentItem,
@@ -1671,23 +1675,26 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                                         mainAxisSize: MainAxisSize.max,
                                                                                                                                         children: [
                                                                                                                                           Expanded(
-                                                                                                                                            child: Text(
-                                                                                                                                              (String myAnswer) {
-                                                                                                                                                return myAnswer.contains('@');
-                                                                                                                                              }(getJsonField(
-                                                                                                                                                answersContentItem,
-                                                                                                                                                r'''$.answer''',
-                                                                                                                                              ).toString())
-                                                                                                                                                  ? functions.commentTextConvertToString(getJsonField(
-                                                                                                                                                      answersContentItem,
-                                                                                                                                                      r'''$.answer''',
-                                                                                                                                                    ).toString())
-                                                                                                                                                  : getJsonField(
-                                                                                                                                                      answersContentItem,
-                                                                                                                                                      r'''$.answer''',
-                                                                                                                                                    ).toString(),
-                                                                                                                                              textAlign: TextAlign.start,
-                                                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                                            child: Padding(
+                                                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 6.0),
+                                                                                                                                              child: Text(
+                                                                                                                                                (String myAnswer) {
+                                                                                                                                                  return myAnswer.contains('@');
+                                                                                                                                                }(getJsonField(
+                                                                                                                                                  answersContentItem,
+                                                                                                                                                  r'''$.answer''',
+                                                                                                                                                ).toString())
+                                                                                                                                                    ? functions.commentTextConvertToString(getJsonField(
+                                                                                                                                                        answersContentItem,
+                                                                                                                                                        r'''$.answer''',
+                                                                                                                                                      ).toString())
+                                                                                                                                                    : getJsonField(
+                                                                                                                                                        answersContentItem,
+                                                                                                                                                        r'''$.answer''',
+                                                                                                                                                      ).toString(),
+                                                                                                                                                textAlign: TextAlign.start,
+                                                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                                                              ),
                                                                                                                                             ),
                                                                                                                                           ),
                                                                                                                                         ],
@@ -2202,7 +2209,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                         r'''$.companyLogo''',
                                                                                       ).toString()),
                                                                                       r'''$.image''',
-                                                                                    ),
+                                                                                    ).toString(),
                                                                                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw-bEkdCP8SGyEaKUiE-SXLonzfXIp8mgi546odmsBpwOkDRE5maYDfkPxtSORlCwA9znDkOmbi94&usqp=CAU&ec=48600113',
                                                                                   ),
                                                                                   fit: BoxFit.contain,

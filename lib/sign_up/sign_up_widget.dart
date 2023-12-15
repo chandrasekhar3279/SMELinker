@@ -2011,16 +2011,10 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                 decoration: InputDecoration(
                                                   labelText:
                                                       'Are you a Business Banking Customer of our Bank?',
-                                                  labelStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodyLarge
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                      ),
+                                                  labelStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyLarge,
                                                   hintText: ' Yes/No',
                                                   hintStyle: FlutterFlowTheme
                                                           .of(context)
@@ -2092,7 +2086,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                   contentPadding:
                                                       EdgeInsetsDirectional
                                                           .fromSTEB(16.0, 24.0,
-                                                              0.0, 24.0),
+                                                              16.0, 24.0),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -2194,7 +2188,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                     textStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyMedium,
+                                                            .bodyLarge,
                                                     hintText:
                                                         'Tell us how you learned about SMELinker',
                                                     fillColor: FlutterFlowTheme

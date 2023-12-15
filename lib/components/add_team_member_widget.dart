@@ -94,7 +94,7 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                   ),
                   Expanded(
                     child: Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
@@ -475,8 +475,7 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                   Container(
                                     decoration: BoxDecoration(),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:

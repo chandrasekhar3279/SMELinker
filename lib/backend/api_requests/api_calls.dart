@@ -289,6 +289,7 @@ class LoginAuthenticationCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -351,6 +352,7 @@ class RegisterUserCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -367,14 +369,17 @@ class GetIndustriesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic industryName(dynamic response) => getJsonField(
+  List<String>? industryName(dynamic response) => (getJsonField(
         response,
         r'''$[:].industryName''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .cast<String>();
 }
 
 class GetFeedCall {
@@ -400,34 +405,35 @@ class GetFeedCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic feed(dynamic response) => getJsonField(
+  List? feed(dynamic response) => getJsonField(
         response,
         r'''$.feed''',
         true,
-      );
-  dynamic latestFeedComment(dynamic response) => getJsonField(
+      ) as List?;
+  List? latestFeedComment(dynamic response) => getJsonField(
         response,
         r'''$.feed[:]..latestFeedComment.feedId''',
         true,
-      );
-  dynamic feedComment(dynamic response) => getJsonField(
+      ) as List?;
+  List? feedComment(dynamic response) => getJsonField(
         response,
         r'''$.feed[:].latestFeedComment.feedId''',
         true,
-      );
-  dynamic commentList(dynamic response) => getJsonField(
+      ) as List?;
+  List? commentList(dynamic response) => getJsonField(
         response,
         r'''$.feed[:].latestFeedComment..commentText''',
         true,
-      );
-  dynamic groupsData(dynamic response) => getJsonField(
+      ) as List?;
+  List? groupsData(dynamic response) => getJsonField(
         response,
         r'''$.feed[:].groupsData''',
         true,
-      );
+      ) as List?;
 }
 
 class GetRegisterReasonsCall {
@@ -444,6 +450,7 @@ class GetRegisterReasonsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -467,6 +474,7 @@ class GetAllGrowthCardsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -492,6 +500,7 @@ class DownloadFileCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -509,6 +518,7 @@ class UploadFileCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -538,6 +548,7 @@ class RegisterSmeCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -555,6 +566,7 @@ class ForcedPasswordResetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -571,6 +583,7 @@ class GetCaptchaCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -587,6 +600,7 @@ class RefreshAuthCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -604,6 +618,7 @@ class RegisterGrowthPartnerCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -621,6 +636,7 @@ class RegisterSMECall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -638,6 +654,7 @@ class ConfirmRegistrationCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -655,6 +672,7 @@ class ResendRegistrationTokenCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -671,6 +689,7 @@ class ResendRegistrationTokenExistingCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -695,6 +714,7 @@ class ResetPasswordCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -712,6 +732,7 @@ class SavePasswordCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -728,6 +749,7 @@ class ShowCaptchaCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -745,6 +767,7 @@ class AuthenticateUserCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -762,6 +785,7 @@ class SignupGPCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -779,6 +803,7 @@ class VerifyGPRegisterCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -796,6 +821,7 @@ class CreateContainerCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -812,6 +838,7 @@ class DeleteContainerCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -828,6 +855,7 @@ class DeleteFileCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -845,6 +873,7 @@ class AddBookmarkCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -867,6 +896,7 @@ class GetBookmarksCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -885,6 +915,7 @@ class UpdateGrowthCardApprovalStatusCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -902,6 +933,7 @@ class ApproveUserCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -919,6 +951,7 @@ class GetUserQuestionsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -936,6 +969,7 @@ class GetUsersCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -952,6 +986,7 @@ class GetGrowthCardsPendingForApprovalCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -975,6 +1010,7 @@ class DeleteAnswerCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -998,6 +1034,7 @@ class DeleteQuestionCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1027,6 +1064,7 @@ class GetAnswersCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1054,24 +1092,25 @@ class GetQuestionsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic content(dynamic response) => getJsonField(
+  List? content(dynamic response) => getJsonField(
         response,
         r'''$.content[:]''',
         true,
-      );
-  dynamic answerList(dynamic response) => getJsonField(
+      ) as List?;
+  List? answerList(dynamic response) => getJsonField(
         response,
         r'''$.content[:].answerList''',
         true,
-      );
-  dynamic answerContentList(dynamic response) => getJsonField(
+      ) as List?;
+  List? answerContentList(dynamic response) => getJsonField(
         response,
         r'''$.content[:].answerList.content''',
         true,
-      );
+      ) as List?;
 }
 
 class MarkBestAnswerCall {
@@ -1087,6 +1126,7 @@ class MarkBestAnswerCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1120,6 +1160,7 @@ class SubmitAnswersCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1150,6 +1191,7 @@ class SubmitQuestionCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1181,6 +1223,7 @@ class UpdateAnswerCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1199,6 +1242,7 @@ class UpdateAnswerStatusCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1230,6 +1274,7 @@ class UpdateQuestionCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1248,6 +1293,7 @@ class UpdateQuestionStatusCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1265,6 +1311,7 @@ class SubmitCustomQuestionCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1283,6 +1330,7 @@ class GetFaqContentCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1310,14 +1358,15 @@ class GetCommentsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic comments(dynamic response) => getJsonField(
+  List? comments(dynamic response) => getJsonField(
         response,
         r'''$.comments''',
         true,
-      );
+      ) as List?;
 }
 
 class DeleteFeedCommentCall {
@@ -1339,6 +1388,7 @@ class DeleteFeedCommentCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1356,6 +1406,7 @@ class GetFeedCommentsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1372,6 +1423,7 @@ class GetFeedCommentsCountCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1389,6 +1441,7 @@ class GetFeedFavoriteCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1406,6 +1459,7 @@ class GetFeedForApprovalCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1423,6 +1477,7 @@ class GetFeedForManagerViewCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1440,6 +1495,7 @@ class GetMostTrendingCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1467,19 +1523,20 @@ class GetMyContentCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic myContent(dynamic response) => getJsonField(
+  List? myContent(dynamic response) => getJsonField(
         response,
         r'''$.myContent''',
         true,
-      );
-  dynamic description(dynamic response) => getJsonField(
+      ) as List?;
+  List? description(dynamic response) => getJsonField(
         response,
         r'''$.myContent[:].description''',
         true,
-      );
+      ) as List?;
 }
 
 class GetRejectedFeedListCall {
@@ -1495,6 +1552,7 @@ class GetRejectedFeedListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1521,14 +1579,15 @@ class GetTopArticlesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic feedTopActive(dynamic response) => getJsonField(
+  List? feedTopActive(dynamic response) => getJsonField(
         response,
         r'''$.feed[:]''',
         true,
-      );
+      ) as List?;
 }
 
 class ShareFeedCall {
@@ -1564,6 +1623,7 @@ class ShareFeedCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1599,6 +1659,7 @@ class SubmitFeedCommentCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1616,6 +1677,7 @@ class SubmitReviewCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1633,6 +1695,7 @@ class UpdateFeedCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1666,6 +1729,7 @@ class UpdateFeedCommentCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1683,6 +1747,7 @@ class SaveCategoryGrowthCardMappingCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1700,6 +1765,7 @@ class UpdateGrowthCardFeaturedStatusCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1716,6 +1782,7 @@ class DeleteGrowthCardCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1733,6 +1800,7 @@ class CreateGrowthCardCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1750,6 +1818,7 @@ class GetAllGrowthCardstwoCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1766,6 +1835,7 @@ class GetPublishedUtilityCategoriesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1786,14 +1856,15 @@ class GetFeaturedGrowthCardsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic featuredGrowthCards(dynamic response) => getJsonField(
+  List? featuredGrowthCards(dynamic response) => getJsonField(
         response,
         r'''$''',
         true,
-      );
+      ) as List?;
 }
 
 class GetGCByIdCall {
@@ -1809,6 +1880,7 @@ class GetGCByIdCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1826,6 +1898,7 @@ class UpdateGrowthCardCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1850,6 +1923,7 @@ class ViewGCAsPDFCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1867,6 +1941,7 @@ class AddCustomGrowthPlansCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1898,6 +1973,7 @@ class ApplyForGrowthPlanCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1923,14 +1999,15 @@ class GetCheckListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic success(dynamic response) => getJsonField(
+  List? success(dynamic response) => getJsonField(
         response,
         r'''$.success''',
         true,
-      );
+      ) as List?;
 }
 
 class SearchGrowthPlansCall {
@@ -1955,14 +2032,15 @@ class SearchGrowthPlansCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic data(dynamic response) => getJsonField(
+  List? data(dynamic response) => getJsonField(
         response,
         r'''$.content[:]''',
         true,
-      );
+      ) as List?;
 }
 
 class SearchGrowthPackagesCall {
@@ -1979,6 +2057,7 @@ class SearchGrowthPackagesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2004,19 +2083,20 @@ class GetHealthCheckContentCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic question(dynamic response) => getJsonField(
+  List? question(dynamic response) => getJsonField(
         response,
         r'''$.topic[:].questions[:]''',
         true,
-      );
-  dynamic topic(dynamic response) => getJsonField(
+      ) as List?;
+  List? topic(dynamic response) => getJsonField(
         response,
         r'''$.topic[:]''',
         true,
-      );
+      ) as List?;
 }
 
 class GetHealthChecksCall {
@@ -2042,14 +2122,15 @@ class GetHealthChecksCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic content(dynamic response) => getJsonField(
+  List? content(dynamic response) => getJsonField(
         response,
         r'''$.content[:]''',
         true,
-      );
+      ) as List?;
 }
 
 class GetSavedUserResponsesCall {
@@ -2074,6 +2155,7 @@ class GetSavedUserResponsesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2101,6 +2183,7 @@ ${healthCheckAnswers}''';
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2129,6 +2212,7 @@ ${healthCheckAnswers}''';
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2154,14 +2238,15 @@ class SubmitAnswersViewReportCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic moredetials(dynamic response) => getJsonField(
+  List? moredetials(dynamic response) => getJsonField(
         response,
         r'''$''',
         true,
-      );
+      ) as List?;
 }
 
 class GetUserPortfolioCall {
@@ -2177,6 +2262,7 @@ class GetUserPortfolioCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2201,6 +2287,7 @@ class GetContactDetailCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2227,6 +2314,7 @@ class EditContactDetailCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2251,6 +2339,7 @@ class GetContactDetailPubicCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -2285,19 +2374,22 @@ class GetProductsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic content(dynamic response) => getJsonField(
+  List? content(dynamic response) => getJsonField(
         response,
         r'''$.content''',
         true,
-      );
-  dynamic featuredImage(dynamic response) => getJsonField(
+      ) as List?;
+  List<String>? featuredImage(dynamic response) => (getJsonField(
         response,
         r'''$.content[:].featuredImage''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .cast<String>();
 }
 
 class CreateProductCall {
@@ -2324,6 +2416,7 @@ class CreateProductCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2354,6 +2447,7 @@ class UpdateProductCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2380,6 +2474,7 @@ class BookProductCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2404,6 +2499,7 @@ class DeleteProductCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2422,6 +2518,7 @@ class GetBookingsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2444,6 +2541,7 @@ class GetProductCategoriesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2460,6 +2558,7 @@ class GetLatestProductsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2476,6 +2575,7 @@ class GetLatestProductUserIdCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2508,6 +2608,7 @@ class ReplyToBookingCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2525,6 +2626,7 @@ class AddResourceCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2541,6 +2643,7 @@ class GetViewCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2572,14 +2675,15 @@ class SearchResourcesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic content(dynamic response) => getJsonField(
+  List? content(dynamic response) => getJsonField(
         response,
         r'''$.content''',
         true,
-      );
+      ) as List?;
 }
 
 class SearchByCategoryCall {
@@ -2602,39 +2706,40 @@ class SearchByCategoryCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic companies(dynamic response) => getJsonField(
+  List? companies(dynamic response) => getJsonField(
         response,
         r'''$.companies''',
         true,
-      );
-  dynamic services(dynamic response) => getJsonField(
+      ) as List?;
+  List? services(dynamic response) => getJsonField(
         response,
         r'''$.service_cards''',
         true,
-      );
-  dynamic growthPartners(dynamic response) => getJsonField(
+      ) as List?;
+  List? growthPartners(dynamic response) => getJsonField(
         response,
         r'''$.growth_partners''',
         true,
-      );
-  dynamic feeds(dynamic response) => getJsonField(
+      ) as List?;
+  List? feeds(dynamic response) => getJsonField(
         response,
         r'''$.feeds''',
         true,
-      );
-  dynamic growthcards(dynamic response) => getJsonField(
+      ) as List?;
+  List? growthcards(dynamic response) => getJsonField(
         response,
         r'''$.growth_cards''',
         true,
-      );
-  dynamic products(dynamic response) => getJsonField(
+      ) as List?;
+  List? products(dynamic response) => getJsonField(
         response,
         r'''$.products''',
         true,
-      );
+      ) as List?;
 }
 
 class SearchProductsCall {
@@ -2650,6 +2755,7 @@ class SearchProductsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2667,6 +2773,7 @@ class SearchServicesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2696,14 +2803,15 @@ class SearchUsersCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic searchedUsers(dynamic response) => getJsonField(
+  List? searchedUsers(dynamic response) => getJsonField(
         response,
         r'''$.content''',
         true,
-      );
+      ) as List?;
 }
 
 class GetServiceCardListCall {
@@ -2731,14 +2839,15 @@ class GetServiceCardListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic content(dynamic response) => getJsonField(
+  List? content(dynamic response) => getJsonField(
         response,
         r'''$.content''',
         true,
-      );
+      ) as List?;
 }
 
 class CreateServiceCardCall {
@@ -2765,6 +2874,7 @@ class CreateServiceCardCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2795,6 +2905,7 @@ class UpdateServiceCardCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2821,6 +2932,7 @@ class BookServiceCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2845,6 +2957,7 @@ class DeleteProductServiceCardCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2881,14 +2994,15 @@ class GetAllBookingsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic bookings(dynamic response) => getJsonField(
+  List? bookings(dynamic response) => getJsonField(
         response,
         r'''$.bookings''',
         true,
-      );
+      ) as List?;
 }
 
 class GetBookingsServiceCardCall {
@@ -2905,6 +3019,7 @@ class GetBookingsServiceCardCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2921,14 +3036,15 @@ class GetServiceCategoriesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic category(dynamic response) => getJsonField(
+  List? category(dynamic response) => getJsonField(
         response,
         r'''$''',
         true,
-      );
+      ) as List?;
 }
 
 class GetLatestServiceCardsCall {
@@ -2943,6 +3059,7 @@ class GetLatestServiceCardsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2959,6 +3076,7 @@ class GetLatestServiceCardsUserIdCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2976,6 +3094,7 @@ class ReplyToBookingServiceCardCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2993,6 +3112,7 @@ class AddServiceProviderCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3010,6 +3130,7 @@ class AddSmeProfileCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3032,6 +3153,7 @@ class GetSmeProfileCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3057,6 +3179,7 @@ class GetSmeStatsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3075,6 +3198,7 @@ class SearchSmeProfilesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3092,6 +3216,7 @@ class UpdateAboutCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3109,6 +3234,7 @@ class AddAboutCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3138,6 +3264,7 @@ class AddFollowerCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3176,6 +3303,7 @@ class AddStoryCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3193,6 +3321,7 @@ class ContactSmeCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3209,6 +3338,7 @@ class ExportContactsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3225,6 +3355,7 @@ class GetAboutCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3254,14 +3385,15 @@ class GetFolloweesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic followingList(dynamic response) => getJsonField(
+  List? followingList(dynamic response) => getJsonField(
         response,
         r'''$.followList''',
         true,
-      );
+      ) as List?;
 }
 
 class GetFollowersCall {
@@ -3291,6 +3423,7 @@ class GetFollowersCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -3298,11 +3431,11 @@ class GetFollowersCall {
         response,
         r'''$''',
       );
-  dynamic followList(dynamic response) => getJsonField(
+  List? followList(dynamic response) => getJsonField(
         response,
         r'''$.followList''',
         true,
-      );
+      ) as List?;
 }
 
 class GetHeaderBannerInfoCall {
@@ -3326,14 +3459,15 @@ class GetHeaderBannerInfoCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic healthCheckContent(dynamic response) => getJsonField(
+  List? healthCheckContent(dynamic response) => getJsonField(
         response,
         r'''$.healthChecks''',
         true,
-      );
+      ) as List?;
 }
 
 class GetHeaderBannerInfoUserIdCall {
@@ -3348,6 +3482,7 @@ class GetHeaderBannerInfoUserIdCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3373,6 +3508,7 @@ class GetOrgDetailsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3389,6 +3525,7 @@ class GetPasswordLastUpdatedDateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3412,6 +3549,7 @@ class GetProfileDetailsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3437,14 +3575,15 @@ class GetTaggableUsersCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic taggableList(dynamic response) => getJsonField(
+  List? taggableList(dynamic response) => getJsonField(
         response,
         r'''$[:].companyName''',
         true,
-      );
+      ) as List?;
   dynamic taggableUesr(dynamic response) => getJsonField(
         response,
         r'''$''',
@@ -3472,6 +3611,7 @@ class GetUserStoryCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3488,6 +3628,7 @@ class GetUserStoryUserIdCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3504,6 +3645,7 @@ class GetUserInfoCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3526,6 +3668,7 @@ class BrnNumberCheckCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3551,6 +3694,7 @@ class IsFollowingCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3576,6 +3720,7 @@ class UnFollowCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3593,6 +3738,7 @@ class UpdateBRNNumberCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3622,6 +3768,7 @@ class UpdateOrgDetailsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3653,6 +3800,7 @@ class ChangeUserPasswordCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3683,6 +3831,7 @@ class UpdateProfileCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3708,14 +3857,15 @@ class GetTeamMemberListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic teamList(dynamic response) => getJsonField(
+  List? teamList(dynamic response) => getJsonField(
         response,
         r'''$[:]''',
         true,
-      );
+      ) as List?;
 }
 
 class CreateTeamMemberCall {
@@ -3742,6 +3892,7 @@ class CreateTeamMemberCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3767,6 +3918,7 @@ class DeleteTeamMemberCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3783,6 +3935,7 @@ class GetTeamMemberListPublicCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3799,6 +3952,7 @@ class GetAllUtilityCategoriesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3816,6 +3970,7 @@ class CreateUtilityCategoryCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3833,6 +3988,7 @@ class UpdateUtilityCategoryCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3849,6 +4005,7 @@ class DeleteUtilityCategoryCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3865,6 +4022,7 @@ class GetAllUtilityCategoriestwoCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3886,24 +4044,25 @@ class GetCategoryWiseGrowthCardsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic growthCardViewList(dynamic response) => getJsonField(
+  List? growthCardViewList(dynamic response) => getJsonField(
         response,
         r'''$[:].growthCardViewList[:]''',
         true,
-      );
-  dynamic categoryTitle(dynamic response) => getJsonField(
+      ) as List?;
+  List? categoryTitle(dynamic response) => getJsonField(
         response,
         r'''$''',
         true,
-      );
-  dynamic groupList(dynamic response) => getJsonField(
+      ) as List?;
+  List? groupList(dynamic response) => getJsonField(
         response,
         r'''$[:].growthCardViewList[:].groupsData[:]''',
         true,
-      );
+      ) as List?;
 }
 
 class GetCategoryWiseGrowthPartnersCall {
@@ -3918,6 +4077,7 @@ class GetCategoryWiseGrowthPartnersCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3935,6 +4095,7 @@ class GetAllGrowthPatnersCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3952,6 +4113,7 @@ class UpdatePriorityOrderCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3969,6 +4131,7 @@ class UpdateStatusCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3996,6 +4159,7 @@ class SetHelpfulnessCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4023,6 +4187,7 @@ class SetUnHelpfulnessCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4049,6 +4214,7 @@ class SetForumHelpfulnessCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4075,6 +4241,7 @@ class SetForumUnHelpfulnessCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4096,14 +4263,15 @@ class GetTopActiveCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic topActiveContent(dynamic response) => getJsonField(
+  List? topActiveContent(dynamic response) => getJsonField(
         response,
         r'''$.content''',
         true,
-      );
+      ) as List?;
 }
 
 class GetMoreDetailsCall {
@@ -4127,24 +4295,25 @@ class GetMoreDetailsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic milestones(dynamic response) => getJsonField(
+  List? milestones(dynamic response) => getJsonField(
         response,
         r'''$.milestones''',
         true,
-      );
-  dynamic milestoneDesc(dynamic response) => getJsonField(
+      ) as List?;
+  List? milestoneDesc(dynamic response) => getJsonField(
         response,
         r'''$.milestones[:].milestoneDescription''',
         true,
-      );
-  dynamic milestoneTasks(dynamic response) => getJsonField(
+      ) as List?;
+  List? milestoneTasks(dynamic response) => getJsonField(
         response,
         r'''$.milestones[:].tasks''',
         true,
-      );
+      ) as List?;
 }
 
 class RegisterUqudoSMECall {
@@ -4170,6 +4339,7 @@ class RegisterUqudoSMECall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4193,6 +4363,7 @@ class GetBannerUserIdCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4221,6 +4392,7 @@ class GenerateAiResponseCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -4254,6 +4426,7 @@ class UpdateBannerCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4287,6 +4460,7 @@ class EkybverifycompanyCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -4323,6 +4497,7 @@ class SetVerifiedCompanyCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4350,14 +4525,15 @@ class GetAllServiceProvidersCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic allServiceProvide(dynamic response) => getJsonField(
+  List? allServiceProvide(dynamic response) => getJsonField(
         response,
         r'''$.content''',
         true,
-      );
+      ) as List?;
 }
 
 class SearchServiceProvidersCall {
@@ -4385,14 +4561,15 @@ class SearchServiceProvidersCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic serviceProvider(dynamic response) => getJsonField(
+  List? serviceProvider(dynamic response) => getJsonField(
         response,
         r'''$.content''',
         true,
-      );
+      ) as List?;
 }
 
 class GetMessagingUsersCall {
@@ -4413,6 +4590,7 @@ class GetMessagingUsersCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -4445,14 +4623,15 @@ class GetMessagesForUserCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic chatList(dynamic response) => getJsonField(
+  List? chatList(dynamic response) => getJsonField(
         response,
         r'''$[:]''',
         true,
-      );
+      ) as List?;
 }
 
 class SendMessageCall {
@@ -4484,6 +4663,7 @@ class SendMessageCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4506,14 +4686,15 @@ class GetGroupsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic groups(dynamic response) => getJsonField(
+  List? groups(dynamic response) => getJsonField(
         response,
         r'''$''',
         true,
-      );
+      ) as List?;
 }
 
 class GetAllJoinedGroupsCall {
@@ -4534,14 +4715,15 @@ class GetAllJoinedGroupsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic requestedgroups(dynamic response) => getJsonField(
+  List? requestedgroups(dynamic response) => getJsonField(
         response,
         r'''$''',
         true,
-      );
+      ) as List?;
 }
 
 class GetMyGroupsCall {
@@ -4559,6 +4741,7 @@ class GetMyGroupsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4581,6 +4764,7 @@ class GetReqJoinedGroupsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4608,6 +4792,7 @@ class JoinGroupsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4631,6 +4816,7 @@ class GetGroupBannerCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4654,14 +4840,15 @@ class GetGroupDetailsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic membersList(dynamic response) => getJsonField(
+  List? membersList(dynamic response) => getJsonField(
         response,
         r'''$.groupMemberViews''',
         true,
-      );
+      ) as List?;
 }
 
 class LeaveGroupCall {
@@ -4686,6 +4873,7 @@ class LeaveGroupCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4731,6 +4919,7 @@ class SendFullPromptCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -4746,11 +4935,13 @@ class SendFullPromptCall {
         response,
         r'''$.choices[:].message.content''',
       );
-  dynamic receivedText(dynamic response) => getJsonField(
+  List<String>? receivedText(dynamic response) => (getJsonField(
         response,
         r'''$.choices[:].text''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .cast<String>();
 }
 
 /// End OpenAI ChatGPT Group Code
@@ -4784,6 +4975,7 @@ class AuthApiCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -4829,6 +5021,7 @@ class KybApiCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }

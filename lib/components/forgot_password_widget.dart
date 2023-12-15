@@ -69,7 +69,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Align(
-                  alignment: AlignmentDirectional(-0.90, -0.45),
+                  alignment: AlignmentDirectional(-0.9, -0.45),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -87,7 +87,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                 ),
                 Expanded(
                   child: Align(
-                    alignment: AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
