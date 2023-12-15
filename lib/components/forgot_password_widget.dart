@@ -94,7 +94,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                       child: Text(
                         'Forgot Password',
                         textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).headlineSmall,
+                        style: FlutterFlowTheme.of(context).headlineLarge,
                       ),
                     ),
                   ),

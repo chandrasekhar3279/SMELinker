@@ -67,10 +67,7 @@ class _WithdrawrequestWidgetState extends State<WithdrawrequestWidget> {
                 Flexible(
                   child: Text(
                     'Withdraw request',
-                    style: FlutterFlowTheme.of(context).headlineMedium.override(
-                          fontFamily: 'Roboto',
-                          color: FlutterFlowTheme.of(context).accent1,
-                        ),
+                    style: FlutterFlowTheme.of(context).labelLarge,
                   ),
                 ),
                 Padding(
@@ -78,11 +75,7 @@ class _WithdrawrequestWidgetState extends State<WithdrawrequestWidget> {
                   child: Text(
                     'You\'re about to withdraw your request to join the group groupname',
                     textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).labelSmall.override(
-                          fontFamily: 'Roboto',
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.normal,
-                        ),
+                    style: FlutterFlowTheme.of(context).bodyLarge,
                   ),
                 ),
                 Divider(

@@ -147,7 +147,7 @@ class _UpdateOrgDetailsPageWidgetState
                           child: Text(
                             'Edit Company Profile',
                             textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).headlineSmall,
+                            style: FlutterFlowTheme.of(context).headlineLarge,
                           ),
                         ),
                       ),
@@ -1355,7 +1355,7 @@ class _UpdateOrgDetailsPageWidgetState
                                           FlutterFlowTheme.of(context).primary,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(30.0),
                                   ),
                                 ),
                                 Padding(
@@ -1478,7 +1478,7 @@ class _UpdateOrgDetailsPageWidgetState
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(30.0),
                                     ),
                                   ),
                                 ),

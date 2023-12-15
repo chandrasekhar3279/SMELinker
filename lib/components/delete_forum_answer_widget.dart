@@ -101,7 +101,7 @@ class _DeleteForumAnswerWidgetState extends State<DeleteForumAnswerWidget> {
                       child: Text(
                         'Are you sure you want to delete your answer?',
                         textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).headlineSmall,
+                        style: FlutterFlowTheme.of(context).bodyLarge,
                       ),
                     ),
                   ],

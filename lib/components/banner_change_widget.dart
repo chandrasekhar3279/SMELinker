@@ -75,7 +75,7 @@ class _BannerChangeWidgetState extends State<BannerChangeWidget> {
                         Text(
                           'Upload New Banner',
                           textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context).titleLarge,
+                          style: FlutterFlowTheme.of(context).headlineLarge,
                         ),
                       ],
                     ),

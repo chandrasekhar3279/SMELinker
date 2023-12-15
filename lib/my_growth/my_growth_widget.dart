@@ -902,10 +902,10 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                                                                 children: [
-                                                                                                  Icon(
-                                                                                                    Icons.business_center_rounded,
+                                                                                                  FaIcon(
+                                                                                                    FontAwesomeIcons.fileInvoiceDollar,
                                                                                                     color: FlutterFlowTheme.of(context).primary,
-                                                                                                    size: 16.0,
+                                                                                                    size: 20.0,
                                                                                                   ),
                                                                                                   Padding(
                                                                                                     padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),

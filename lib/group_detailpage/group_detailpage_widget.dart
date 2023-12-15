@@ -252,8 +252,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                        MainAxisAlignment.end,
                                                     children: [
                                                       if (getJsonField(
                                                             groupDetailpageGetGroupDetailsResponse
@@ -668,9 +667,10 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                               .jsonBody,
                                           r'''$.description''',
                                         ).toString().maybeHandleOverflow(
-                                              maxChars: 40,
+                                              maxChars: 100,
                                               replacement: '…',
                                             ),
+                                        textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -743,6 +743,7 @@ class _GroupDetailpageWidgetState extends State<GroupDetailpageWidget> {
                                               .jsonBody,
                                           r'''$.description''',
                                         ).toString(),
+                                        textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(

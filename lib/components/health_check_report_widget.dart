@@ -127,7 +127,7 @@ class _HealthCheckReportWidgetState extends State<HealthCheckReportWidget> {
                             child: Text(
                               'Business Resilience Health Check',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).headlineSmall,
+                              style: FlutterFlowTheme.of(context).headlineLarge,
                             ),
                           ),
                         ),

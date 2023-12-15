@@ -99,7 +99,7 @@ class _DeleteProductItemWidgetState extends State<DeleteProductItemWidget> {
                     child: Text(
                       'Are you sure you want to delete the product?',
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).headlineSmall,
+                      style: FlutterFlowTheme.of(context).bodyLarge,
                     ),
                   ),
                 ],

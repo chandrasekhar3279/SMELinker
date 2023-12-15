@@ -139,7 +139,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           child: Text(
                             'Edit Personal Details',
                             textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).headlineSmall,
+                            style: FlutterFlowTheme.of(context).headlineLarge,
                           ),
                         ),
                       ),
@@ -857,7 +857,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(30.0),
                                         ),
                                       ),
                                     ],
@@ -989,7 +989,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(30.0),
                                         ),
                                       ),
                                     ),

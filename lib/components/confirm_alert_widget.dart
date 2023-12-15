@@ -97,18 +97,18 @@ class _ConfirmAlertWidgetState extends State<ConfirmAlertWidget> {
                           EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).accent1,
+                      color: FlutterFlowTheme.of(context).secondary,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Roboto',
-                                color: Colors.white,
+                                color: FlutterFlowTheme.of(context).primary,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(
-                        color: Colors.transparent,
+                        color: FlutterFlowTheme.of(context).primary,
                         width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(8.0),
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
                   ),
                   FFButtonWidget(
@@ -141,7 +141,7 @@ class _ConfirmAlertWidgetState extends State<ConfirmAlertWidget> {
                         color: Colors.transparent,
                         width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(8.0),
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
                   ),
                 ],

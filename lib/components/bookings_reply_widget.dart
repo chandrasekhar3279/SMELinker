@@ -109,7 +109,7 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                             child: Text(
                               'Booking Service',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).headlineSmall,
+                              style: FlutterFlowTheme.of(context).headlineLarge,
                             ),
                           ),
                         ),

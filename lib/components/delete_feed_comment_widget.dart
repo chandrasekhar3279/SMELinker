@@ -105,7 +105,7 @@ class _DeleteFeedCommentWidgetState extends State<DeleteFeedCommentWidget> {
                       child: Text(
                         'Are you sure you want to delete the comment?',
                         textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).headlineSmall,
+                        style: FlutterFlowTheme.of(context).bodyLarge,
                       ),
                     ),
                   ],

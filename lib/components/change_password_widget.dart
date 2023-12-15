@@ -99,7 +99,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       child: Text(
                         'Change Password',
                         textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).headlineSmall,
+                        style: FlutterFlowTheme.of(context).headlineLarge,
                       ),
                     ),
                   ),

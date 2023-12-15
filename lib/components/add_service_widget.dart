@@ -113,7 +113,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                           child: Text(
                             'Add Service',
                             textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).headlineSmall,
+                            style: FlutterFlowTheme.of(context).headlineLarge,
                           ),
                         ),
                       ),
@@ -1219,7 +1219,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(30.0),
                                         ),
                                       ),
                                     ],
@@ -1410,7 +1410,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(30.0),
                                         ),
                                       ),
                                     ],

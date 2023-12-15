@@ -98,7 +98,7 @@ class _DeleteTeamMemberWidgetState extends State<DeleteTeamMemberWidget> {
                     child: Text(
                       'Are you sure you want to delete the team member?',
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).headlineSmall,
+                      style: FlutterFlowTheme.of(context).bodyLarge,
                     ),
                   ),
                 ],

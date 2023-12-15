@@ -98,7 +98,7 @@ class _GroupsSelectionPopupWidgetState
                                   16.0, 12.0, 0.0, 0.0),
                               child: Text(
                                 'Select groups to visible',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context).bodyLarge,
                               ),
                             ),
                           ),
@@ -207,7 +207,7 @@ class _GroupsSelectionPopupWidgetState
                                                   ).toString(),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyLarge
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
                                                         lineHeight: 2.0,

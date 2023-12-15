@@ -158,7 +158,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                           child: Text(
                             'Edit Service',
                             textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).headlineSmall,
+                            style: FlutterFlowTheme.of(context).headlineLarge,
                           ),
                         ),
                       ),
@@ -1265,7 +1265,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(30.0),
                                         ),
                                       ),
                                     ],
@@ -1441,7 +1441,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(30.0),
                                         ),
                                       ),
                                     ],

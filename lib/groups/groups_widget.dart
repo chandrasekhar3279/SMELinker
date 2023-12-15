@@ -1037,7 +1037,7 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                       Text(
                                                                         'Sent on',
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .labelMedium,
+                                                                            .labelSmall,
                                                                       ),
                                                                       Text(
                                                                         functions
@@ -1046,7 +1046,7 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                           r'''$.joinDate''',
                                                                         )),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .titleMedium,
+                                                                            .bodySmall,
                                                                       ),
                                                                     ],
                                                                   ),

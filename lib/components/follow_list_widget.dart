@@ -99,7 +99,7 @@ class _FollowListWidgetState extends State<FollowListWidget>
                   child: TabBar(
                     labelColor: FlutterFlowTheme.of(context).primary,
                     unselectedLabelColor: FlutterFlowTheme.of(context).accent2,
-                    labelStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    labelStyle: FlutterFlowTheme.of(context).labelMedium,
                     unselectedLabelStyle: TextStyle(),
                     indicatorColor: FlutterFlowTheme.of(context).primary,
                     tabs: [

@@ -99,7 +99,7 @@ class _DeleteServiceItemWidgetState extends State<DeleteServiceItemWidget> {
                     child: Text(
                       'Are you sure you want to delete the service?',
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).headlineSmall,
+                      style: FlutterFlowTheme.of(context).bodyLarge,
                     ),
                   ),
                 ],

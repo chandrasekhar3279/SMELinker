@@ -76,7 +76,7 @@ class _InterestSelectionWidgetState extends State<InterestSelectionWidget> {
                               16.0, 12.0, 0.0, 0.0),
                           child: Text(
                             'Please select your areas of interests',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context).bodyLarge,
                           ),
                         ),
                       ),

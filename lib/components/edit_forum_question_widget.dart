@@ -108,7 +108,7 @@ class _EditForumQuestionWidgetState extends State<EditForumQuestionWidget> {
                           child: Text(
                             'Edit Question',
                             textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).headlineSmall,
+                            style: FlutterFlowTheme.of(context).headlineLarge,
                           ),
                         ),
                       ),
@@ -270,7 +270,7 @@ class _EditForumQuestionWidgetState extends State<EditForumQuestionWidget> {
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(30.0),
                                         ),
                                       ),
                                     ],
@@ -404,7 +404,7 @@ class _EditForumQuestionWidgetState extends State<EditForumQuestionWidget> {
                                               width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(30.0),
                                           ),
                                         ),
                                       ),

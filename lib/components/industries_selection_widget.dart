@@ -94,7 +94,7 @@ class _IndustriesSelectionWidgetState extends State<IndustriesSelectionWidget> {
                             child: Text(
                               'Please select industries',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).labelLarge,
+                              style: FlutterFlowTheme.of(context).headlineLarge,
                             ),
                           ),
                           Text(
@@ -270,7 +270,7 @@ class _IndustriesSelectionWidgetState extends State<IndustriesSelectionWidget> {
                                                     industriesItem,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyLarge
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           lineHeight: 2.0,
