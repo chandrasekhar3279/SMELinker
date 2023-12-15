@@ -391,10 +391,12 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                           child: Text(
                                             'I\'m interested',
                                             style: FlutterFlowTheme.of(context)
-                                                .labelLarge
+                                                .labelMedium
                                                 .override(
                                                   fontFamily: 'Roboto',
-                                                  color: Colors.white,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary,
                                                 ),
                                           ),
                                         ),

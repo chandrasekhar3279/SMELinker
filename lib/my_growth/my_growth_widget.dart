@@ -1134,9 +1134,9 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                                 padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                                                 child: Text(
                                                                                                                   'I\'m interested',
-                                                                                                                  style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                                                  style: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                                                         fontFamily: 'Roboto',
-                                                                                                                        color: Colors.white,
+                                                                                                                        color: FlutterFlowTheme.of(context).secondary,
                                                                                                                       ),
                                                                                                                 ),
                                                                                                               ),
@@ -1700,9 +1700,9 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                                 padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                                                 child: Text(
                                                                                                                   'I\'m interested',
-                                                                                                                  style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                         fontFamily: 'Roboto',
-                                                                                                                        color: Colors.white,
+                                                                                                                        color: FlutterFlowTheme.of(context).secondary,
                                                                                                                       ),
                                                                                                                 ),
                                                                                                               ),

@@ -429,10 +429,12 @@ class _ServiceDetailWidgetState extends State<ServiceDetailWidget> {
                                           child: Text(
                                             'I\'m interested',
                                             style: FlutterFlowTheme.of(context)
-                                                .labelLarge
+                                                .labelMedium
                                                 .override(
                                                   fontFamily: 'Roboto',
-                                                  color: Colors.white,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary,
                                                 ),
                                           ),
                                         ),

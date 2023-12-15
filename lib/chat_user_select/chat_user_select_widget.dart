@@ -108,7 +108,7 @@ class _ChatUserSelectWidgetState extends State<ChatUserSelectWidget> {
           children: [
             Expanded(
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 30.0),
                 child: Builder(
                   builder: (context) {
                     final users = getJsonField(

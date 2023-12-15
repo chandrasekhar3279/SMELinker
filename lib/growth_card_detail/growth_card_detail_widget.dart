@@ -489,10 +489,12 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                                 'I\'m interested',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelLarge
+                                                        .labelMedium
                                                         .override(
                                                           fontFamily: 'Roboto',
-                                                          color: Colors.white,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
                                                         ),
                                               ),
                                             ),

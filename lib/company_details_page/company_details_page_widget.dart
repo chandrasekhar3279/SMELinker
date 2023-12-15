@@ -1863,9 +1863,9 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                                           padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                                           child: Text(
                                                                                                             'I\'m interested',
-                                                                                                            style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                                            style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                                   fontFamily: 'Roboto',
-                                                                                                                  color: Colors.white,
+                                                                                                                  color: FlutterFlowTheme.of(context).secondary,
                                                                                                                 ),
                                                                                                           ),
                                                                                                         ),
@@ -2563,9 +2563,9 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                                               padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                                               child: Text(
                                                                                                                 'I\'m interested',
-                                                                                                                style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                                                style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                                                       fontFamily: 'Roboto',
-                                                                                                                      color: Colors.white,
+                                                                                                                      color: FlutterFlowTheme.of(context).secondary,
                                                                                                                     ),
                                                                                                               ),
                                                                                                             ),

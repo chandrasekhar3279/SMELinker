@@ -1424,7 +1424,7 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                         child: Text(
                                           'Article Visible to Public',
                                           style: FlutterFlowTheme.of(context)
-                                              .titleMedium,
+                                              .labelLarge,
                                         ),
                                       ),
                                       Switch.adaptive(
