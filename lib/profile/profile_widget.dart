@@ -142,7 +142,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 12.0, 16.0, 12.0),
                           child: Row(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -370,18 +370,21 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                       .accent1,
                                               size: 20.0,
                                             ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                getJsonField(
-                                                  profileGetProfileDetailsResponse
-                                                      .jsonBody,
-                                                  r'''$.email''',
-                                                ).toString(),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge,
+                                            Flexible(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        4.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  getJsonField(
+                                                    profileGetProfileDetailsResponse
+                                                        .jsonBody,
+                                                    r'''$.email''',
+                                                  ).toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyLarge,
+                                                ),
                                               ),
                                             ),
                                           ],

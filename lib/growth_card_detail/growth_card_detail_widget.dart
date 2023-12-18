@@ -870,7 +870,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 24.0, 16.0, 0.0),
+                            16.0, 24.0, 16.0, 24.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
