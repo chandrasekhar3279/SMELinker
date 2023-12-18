@@ -401,26 +401,31 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                 }
                               }
 
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                context: context,
-                                builder: (context) {
-                                  return WebViewAware(
-                                      child: Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: Container(
-                                      height:
-                                          MediaQuery.sizeOf(context).height *
-                                              1.0,
-                                      child: SelectImageWidget(
-                                        selectedImage: _model.uploadedLocalFile,
+                              if (_model.uploadedLocalFile != null &&
+                                  (_model.uploadedLocalFile.bytes?.isNotEmpty ??
+                                      false)) {
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return WebViewAware(
+                                        child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: Container(
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                1.0,
+                                        child: SelectImageWidget(
+                                          selectedImage:
+                                              _model.uploadedLocalFile,
+                                        ),
                                       ),
-                                    ),
-                                  ));
-                                },
-                              ).then((value) => safeSetState(() {}));
+                                    ));
+                                  },
+                                ).then((value) => safeSetState(() {}));
+                              }
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
