@@ -1262,25 +1262,22 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                           width: 1.0,
                                                                                                                         ),
                                                                                                                       ),
-                                                                                                                      child: Padding(
-                                                                                                                        padding: EdgeInsets.all(1.0),
-                                                                                                                        child: Container(
-                                                                                                                          width: 11.0,
-                                                                                                                          height: 11.0,
-                                                                                                                          clipBehavior: Clip.antiAlias,
-                                                                                                                          decoration: BoxDecoration(
-                                                                                                                            shape: BoxShape.circle,
-                                                                                                                          ),
-                                                                                                                          child: Image.network(
-                                                                                                                            getJsonField(
-                                                                                                                              functions.image(getJsonField(
-                                                                                                                                groupsDataItem,
-                                                                                                                                r'''$.groupImg''',
-                                                                                                                              ).toString()),
-                                                                                                                              r'''$.image''',
-                                                                                                                            ).toString(),
-                                                                                                                            fit: BoxFit.cover,
-                                                                                                                          ),
+                                                                                                                      child: Container(
+                                                                                                                        width: 11.0,
+                                                                                                                        height: 11.0,
+                                                                                                                        clipBehavior: Clip.antiAlias,
+                                                                                                                        decoration: BoxDecoration(
+                                                                                                                          shape: BoxShape.circle,
+                                                                                                                        ),
+                                                                                                                        child: Image.network(
+                                                                                                                          getJsonField(
+                                                                                                                            functions.image(getJsonField(
+                                                                                                                              groupsDataItem,
+                                                                                                                              r'''$.groupImg''',
+                                                                                                                            ).toString()),
+                                                                                                                            r'''$.image''',
+                                                                                                                          ).toString(),
+                                                                                                                          fit: BoxFit.cover,
                                                                                                                         ),
                                                                                                                       ),
                                                                                                                     ),
@@ -1440,47 +1437,44 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                               r'''$.companyLogo''',
                                                                                                                             ) !=
                                                                                                                             null,
-                                                                                                                        child: Padding(
-                                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                                                                                                                          child: InkWell(
-                                                                                                                            splashColor: Colors.transparent,
-                                                                                                                            focusColor: Colors.transparent,
-                                                                                                                            hoverColor: Colors.transparent,
-                                                                                                                            highlightColor: Colors.transparent,
-                                                                                                                            onTap: () async {
-                                                                                                                              context.pushNamed(
-                                                                                                                                'CompanyDetailsPage',
-                                                                                                                                queryParameters: {
-                                                                                                                                  'userId': serializeParam(
-                                                                                                                                    getJsonField(
-                                                                                                                                      answersContentItem,
-                                                                                                                                      r'''$.userId''',
-                                                                                                                                    ),
-                                                                                                                                    ParamType.int,
-                                                                                                                                  ),
-                                                                                                                                }.withoutNulls,
-                                                                                                                              );
-                                                                                                                            },
-                                                                                                                            child: Container(
-                                                                                                                              width: 30.0,
-                                                                                                                              height: 30.0,
-                                                                                                                              clipBehavior: Clip.antiAlias,
-                                                                                                                              decoration: BoxDecoration(
-                                                                                                                                shape: BoxShape.circle,
-                                                                                                                              ),
-                                                                                                                              child: Image.network(
-                                                                                                                                valueOrDefault<String>(
+                                                                                                                        child: InkWell(
+                                                                                                                          splashColor: Colors.transparent,
+                                                                                                                          focusColor: Colors.transparent,
+                                                                                                                          hoverColor: Colors.transparent,
+                                                                                                                          highlightColor: Colors.transparent,
+                                                                                                                          onTap: () async {
+                                                                                                                            context.pushNamed(
+                                                                                                                              'CompanyDetailsPage',
+                                                                                                                              queryParameters: {
+                                                                                                                                'userId': serializeParam(
                                                                                                                                   getJsonField(
-                                                                                                                                    functions.image(getJsonField(
-                                                                                                                                      answersContentItem,
-                                                                                                                                      r'''$.companyLogo''',
-                                                                                                                                    ).toString()),
-                                                                                                                                    r'''$.image''',
-                                                                                                                                  ).toString(),
-                                                                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                                                                    answersContentItem,
+                                                                                                                                    r'''$.userId''',
+                                                                                                                                  ),
+                                                                                                                                  ParamType.int,
                                                                                                                                 ),
-                                                                                                                                fit: BoxFit.contain,
+                                                                                                                              }.withoutNulls,
+                                                                                                                            );
+                                                                                                                          },
+                                                                                                                          child: Container(
+                                                                                                                            width: 30.0,
+                                                                                                                            height: 30.0,
+                                                                                                                            clipBehavior: Clip.antiAlias,
+                                                                                                                            decoration: BoxDecoration(
+                                                                                                                              shape: BoxShape.circle,
+                                                                                                                            ),
+                                                                                                                            child: Image.network(
+                                                                                                                              valueOrDefault<String>(
+                                                                                                                                getJsonField(
+                                                                                                                                  functions.image(getJsonField(
+                                                                                                                                    answersContentItem,
+                                                                                                                                    r'''$.companyLogo''',
+                                                                                                                                  ).toString()),
+                                                                                                                                  r'''$.image''',
+                                                                                                                                ).toString(),
+                                                                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                                                               ),
+                                                                                                                              fit: BoxFit.contain,
                                                                                                                             ),
                                                                                                                           ),
                                                                                                                         ),

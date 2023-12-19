@@ -118,13 +118,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                         topRight: Radius.circular(16.0),
                       ),
                     ),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Form(
                       key: _model.formKey,
                       autovalidateMode: AutovalidateMode.disabled,
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(

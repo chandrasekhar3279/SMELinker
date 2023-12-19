@@ -505,32 +505,29 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                                           ),
                                                                         ),
                                                                         child:
-                                                                            Padding(
-                                                                          padding:
-                                                                              EdgeInsets.all(1.0),
+                                                                            Container(
+                                                                          width:
+                                                                              11.0,
+                                                                          height:
+                                                                              11.0,
+                                                                          clipBehavior:
+                                                                              Clip.antiAlias,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            shape:
+                                                                                BoxShape.circle,
+                                                                          ),
                                                                           child:
-                                                                              Container(
-                                                                            width:
-                                                                                11.0,
-                                                                            height:
-                                                                                11.0,
-                                                                            clipBehavior:
-                                                                                Clip.antiAlias,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              shape: BoxShape.circle,
-                                                                            ),
-                                                                            child:
-                                                                                Image.network(
-                                                                              getJsonField(
-                                                                                functions.image(getJsonField(
-                                                                                  groupsDataItem,
-                                                                                  r'''$.groupImg''',
-                                                                                ).toString()),
-                                                                                r'''$.image''',
-                                                                              ).toString(),
-                                                                              fit: BoxFit.cover,
-                                                                            ),
+                                                                              Image.network(
+                                                                            getJsonField(
+                                                                              functions.image(getJsonField(
+                                                                                groupsDataItem,
+                                                                                r'''$.groupImg''',
+                                                                              ).toString()),
+                                                                              r'''$.image''',
+                                                                            ).toString(),
+                                                                            fit:
+                                                                                BoxFit.cover,
                                                                           ),
                                                                         ),
                                                                       ),

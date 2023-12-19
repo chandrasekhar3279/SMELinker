@@ -1478,7 +1478,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                               textStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyMedium,
+                                                                      .bodyLarge,
                                                               hintText:
                                                                   'Select your Industry',
                                                               fillColor: FlutterFlowTheme
@@ -1873,7 +1873,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                           textStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyMedium,
+                                                                  .bodyLarge,
                                                           hintText:
                                                               'Select your country region',
                                                           fillColor: FlutterFlowTheme

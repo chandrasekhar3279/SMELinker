@@ -853,29 +853,26 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                 width: 1.0,
                                               ),
                                             ),
-                                            child: Padding(
-                                              padding: EdgeInsets.all(1.0),
-                                              child: Container(
-                                                width: 40.0,
-                                                height: 40.0,
-                                                clipBehavior: Clip.antiAlias,
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
+                                            child: Container(
+                                              width: 40.0,
+                                              height: 40.0,
+                                              clipBehavior: Clip.antiAlias,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: Image.network(
+                                                valueOrDefault<String>(
+                                                  getJsonField(
+                                                    functions
+                                                        .image(getJsonField(
+                                                      gropusdataItem,
+                                                      r'''$.groupImg''',
+                                                    ).toString()),
+                                                    r'''$.image''',
+                                                  ).toString(),
+                                                  'https://images.unsplash.com/photo-1614436163996-25cee5f54290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80',
                                                 ),
-                                                child: Image.network(
-                                                  valueOrDefault<String>(
-                                                    getJsonField(
-                                                      functions
-                                                          .image(getJsonField(
-                                                        gropusdataItem,
-                                                        r'''$.groupImg''',
-                                                      ).toString()),
-                                                      r'''$.image''',
-                                                    ).toString(),
-                                                    'https://images.unsplash.com/photo-1614436163996-25cee5f54290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80',
-                                                  ),
-                                                  fit: BoxFit.contain,
-                                                ),
+                                                fit: BoxFit.contain,
                                               ),
                                             ),
                                           ),
@@ -1536,27 +1533,46 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                                     children: [
                                                                       Container(
                                                                         width:
-                                                                            40.0,
+                                                                            35.0,
                                                                         height:
-                                                                            40.0,
-                                                                        clipBehavior:
-                                                                            Clip.antiAlias,
+                                                                            35.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           shape:
                                                                               BoxShape.circle,
+                                                                          border:
+                                                                              Border.all(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            width:
+                                                                                1.0,
+                                                                          ),
                                                                         ),
-                                                                        child: Image
-                                                                            .network(
-                                                                          getJsonField(
-                                                                            functions.image(getJsonField(
-                                                                              tagListItemItem,
-                                                                              r'''$.companyLogo''',
-                                                                            ).toString()),
-                                                                            r'''$.image''',
-                                                                          ).toString(),
-                                                                          fit: BoxFit
-                                                                              .cover,
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              35.0,
+                                                                          height:
+                                                                              35.0,
+                                                                          clipBehavior:
+                                                                              Clip.antiAlias,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            shape:
+                                                                                BoxShape.circle,
+                                                                          ),
+                                                                          child:
+                                                                              Image.network(
+                                                                            getJsonField(
+                                                                              functions.image(getJsonField(
+                                                                                tagListItemItem,
+                                                                                r'''$.companyLogo''',
+                                                                              ).toString()),
+                                                                              r'''$.image''',
+                                                                            ).toString(),
+                                                                            fit:
+                                                                                BoxFit.cover,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                       Flexible(
@@ -1574,7 +1590,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                                               r'''$..companyName''',
                                                                             ).toString(),
                                                                             style:
-                                                                                FlutterFlowTheme.of(context).labelMedium,
+                                                                                FlutterFlowTheme.of(context).labelSmall,
                                                                           ),
                                                                         ),
                                                                       ),

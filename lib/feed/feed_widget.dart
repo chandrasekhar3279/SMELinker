@@ -675,28 +675,25 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                             r'''$.companyLogo''',
                                                                                           ) !=
                                                                                           ''),
-                                                                                  child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
-                                                                                    child: Container(
-                                                                                      width: 40.0,
-                                                                                      height: 40.0,
-                                                                                      clipBehavior: Clip.antiAlias,
-                                                                                      decoration: BoxDecoration(
-                                                                                        shape: BoxShape.circle,
+                                                                                  child: Container(
+                                                                                    width: 40.0,
+                                                                                    height: 40.0,
+                                                                                    clipBehavior: Clip.antiAlias,
+                                                                                    decoration: BoxDecoration(
+                                                                                      shape: BoxShape.circle,
+                                                                                    ),
+                                                                                    child: Image.network(
+                                                                                      valueOrDefault<String>(
+                                                                                        getJsonField(
+                                                                                          functions.image(getJsonField(
+                                                                                            feedItem,
+                                                                                            r'''$.companyLogo''',
+                                                                                          ).toString()),
+                                                                                          r'''$.image''',
+                                                                                        ).toString(),
+                                                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                       ),
-                                                                                      child: Image.network(
-                                                                                        valueOrDefault<String>(
-                                                                                          getJsonField(
-                                                                                            functions.image(getJsonField(
-                                                                                              feedItem,
-                                                                                              r'''$.companyLogo''',
-                                                                                            ).toString()),
-                                                                                            r'''$.image''',
-                                                                                          ).toString(),
-                                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
-                                                                                        ),
-                                                                                        fit: BoxFit.contain,
-                                                                                      ),
+                                                                                      fit: BoxFit.contain,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -1031,25 +1028,22 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                                 width: 1.0,
                                                                                               ),
                                                                                             ),
-                                                                                            child: Padding(
-                                                                                              padding: EdgeInsets.all(1.0),
-                                                                                              child: Container(
-                                                                                                width: 11.0,
-                                                                                                height: 11.0,
-                                                                                                clipBehavior: Clip.antiAlias,
-                                                                                                decoration: BoxDecoration(
-                                                                                                  shape: BoxShape.circle,
-                                                                                                ),
-                                                                                                child: Image.network(
-                                                                                                  getJsonField(
-                                                                                                    functions.image(getJsonField(
-                                                                                                      groupsDataItem,
-                                                                                                      r'''$.groupImg''',
-                                                                                                    ).toString()),
-                                                                                                    r'''$.image''',
-                                                                                                  ).toString(),
-                                                                                                  fit: BoxFit.cover,
-                                                                                                ),
+                                                                                            child: Container(
+                                                                                              width: 11.0,
+                                                                                              height: 11.0,
+                                                                                              clipBehavior: Clip.antiAlias,
+                                                                                              decoration: BoxDecoration(
+                                                                                                shape: BoxShape.circle,
+                                                                                              ),
+                                                                                              child: Image.network(
+                                                                                                getJsonField(
+                                                                                                  functions.image(getJsonField(
+                                                                                                    groupsDataItem,
+                                                                                                    r'''$.groupImg''',
+                                                                                                  ).toString()),
+                                                                                                  r'''$.image''',
+                                                                                                ).toString(),
+                                                                                                fit: BoxFit.cover,
                                                                                               ),
                                                                                             ),
                                                                                           ),
