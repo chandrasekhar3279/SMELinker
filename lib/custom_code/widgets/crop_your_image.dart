@@ -59,7 +59,10 @@ class _CropYourImageState extends State<CropYourImage> {
                 DotControl(color: FlutterFlowTheme.of(context).primary),
             baseColor: FlutterFlowTheme.of(context).secondaryBackground,
             image: imageDataBytes!,
-            aspectRatio: 1.0,
+            aspectRatio: 5 / 3,
+            // initialAreaBuilder: (rect) => Rect.fromLTRB(rect.left + 24,
+            //     rect.top + 32, rect.right - 24, rect.bottom - 32),
+
             onCropped: (Uint8List croppedData) async {
               // Convert Uint8List to base64-encoded string
               String base64String = base64Encode(croppedData);

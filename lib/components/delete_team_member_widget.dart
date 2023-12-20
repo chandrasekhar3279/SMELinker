@@ -165,8 +165,8 @@ class _DeleteTeamMemberWidgetState extends State<DeleteTeamMemberWidget> {
                             ));
                           },
                         );
-                        Navigator.pop(context);
                         setState(() {});
+                        Navigator.pop(context);
                       } else {
                         await showDialog(
                           context: context,
@@ -187,6 +187,8 @@ class _DeleteTeamMemberWidgetState extends State<DeleteTeamMemberWidget> {
                         );
                         Navigator.pop(context);
                       }
+
+                      setState(() {});
 
                       setState(() {});
                     },

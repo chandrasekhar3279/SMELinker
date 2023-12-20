@@ -297,23 +297,12 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                         },
                                       ),
                                       if (widget.userId == 0)
-                                        FlutterFlowIconButton(
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryText,
-                                          borderRadius: 8.0,
-                                          borderWidth: 1.0,
-                                          buttonSize: 40.0,
-                                          fillColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryBackground,
-                                          icon: Icon(
-                                            Icons.cloud_upload_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 22.0,
-                                          ),
-                                          onPressed: () async {
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
                                             await showModalBottomSheet(
                                               isScrollControlled: true,
                                               backgroundColor:
@@ -355,6 +344,12 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                             ).then(
                                                 (value) => safeSetState(() {}));
                                           },
+                                          child: Icon(
+                                            Icons.camera_alt,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
+                                            size: 40.0,
+                                          ),
                                         ),
                                     ],
                                   ),
@@ -1984,7 +1979,7 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 16.0, 16.0, 0.0),
+                                                  16.0, 16.0, 16.0, 8.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2097,251 +2092,268 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                 width: double.infinity,
                                                 height: 350.0,
                                                 decoration: BoxDecoration(),
-                                                child: FutureBuilder<
-                                                    ApiCallResponse>(
-                                                  future: (_model
-                                                              .apiRequestCompleter3 ??=
-                                                          Completer<
-                                                              ApiCallResponse>()
-                                                            ..complete(SmeGroup
-                                                                .getServiceCardListCall
-                                                                .call(
-                                                              accessToken:
-                                                                  FFAppState()
-                                                                      .accessToken,
-                                                              userId:
-                                                                  valueOrDefault<
-                                                                      int>(
-                                                                widget.userId,
-                                                                0,
-                                                              ),
-                                                              pageNumber: 0,
-                                                              pageSize: 100,
-                                                            )))
-                                                      .future,
-                                                  builder: (context, snapshot) {
-                                                    // Customize what your widget looks like when it's loading.
-                                                    if (!snapshot.hasData) {
-                                                      return Center(
-                                                        child: SizedBox(
-                                                          width: 50.0,
-                                                          height: 50.0,
-                                                          child:
-                                                              SpinKitFadingCircle(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondary,
-                                                            size: 50.0,
-                                                          ),
-                                                        ),
-                                                      );
-                                                    }
-                                                    final servicesListViewGetServiceCardListResponse =
-                                                        snapshot.data!;
-                                                    return Builder(
-                                                      builder: (context) {
-                                                        final contentService =
-                                                            SmeGroup
-                                                                    .getServiceCardListCall
-                                                                    .content(
-                                                                      servicesListViewGetServiceCardListResponse
-                                                                          .jsonBody,
-                                                                    )
-                                                                    ?.map((e) =>
-                                                                        e)
-                                                                    .toList()
-                                                                    ?.toList() ??
-                                                                [];
-                                                        if (contentService
-                                                            .isEmpty) {
-                                                          return Center(
-                                                            child:
-                                                                ServiceEmptyListWidget(
-                                                              userId:
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: FutureBuilder<
+                                                      ApiCallResponse>(
+                                                    future: (_model
+                                                                .apiRequestCompleter3 ??=
+                                                            Completer<
+                                                                ApiCallResponse>()
+                                                              ..complete(SmeGroup
+                                                                  .getServiceCardListCall
+                                                                  .call(
+                                                                accessToken:
+                                                                    FFAppState()
+                                                                        .accessToken,
+                                                                userId:
+                                                                    valueOrDefault<
+                                                                        int>(
                                                                   widget.userId,
+                                                                  0,
+                                                                ),
+                                                                pageNumber: 0,
+                                                                pageSize: 100,
+                                                              )))
+                                                        .future,
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 50.0,
+                                                            height: 50.0,
+                                                            child:
+                                                                SpinKitFadingCircle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondary,
+                                                              size: 50.0,
                                                             ),
-                                                          );
-                                                        }
-                                                        return ListView.builder(
-                                                          padding:
-                                                              EdgeInsets.zero,
-                                                          scrollDirection:
-                                                              Axis.horizontal,
-                                                          itemCount:
-                                                              contentService
-                                                                  .length,
-                                                          itemBuilder: (context,
-                                                              contentServiceIndex) {
-                                                            final contentServiceItem =
-                                                                contentService[
-                                                                    contentServiceIndex];
-                                                            return Stack(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.45,
-                                                                      -0.7),
-                                                              children: [
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          16.0,
-                                                                          10.0),
-                                                                  child:
-                                                                      InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      setState(
-                                                                          () {
-                                                                        _model.showServiceActions =
-                                                                            false;
-                                                                      });
-                                                                    },
+                                                          ),
+                                                        );
+                                                      }
+                                                      final servicesListViewGetServiceCardListResponse =
+                                                          snapshot.data!;
+                                                      return Builder(
+                                                        builder: (context) {
+                                                          final contentService =
+                                                              SmeGroup
+                                                                      .getServiceCardListCall
+                                                                      .content(
+                                                                        servicesListViewGetServiceCardListResponse
+                                                                            .jsonBody,
+                                                                      )
+                                                                      ?.map(
+                                                                          (e) =>
+                                                                              e)
+                                                                      .toList()
+                                                                      ?.toList() ??
+                                                                  [];
+                                                          if (contentService
+                                                              .isEmpty) {
+                                                            return Center(
+                                                              child:
+                                                                  ServiceEmptyListWidget(
+                                                                userId: widget
+                                                                    .userId,
+                                                              ),
+                                                            );
+                                                          }
+                                                          return ListView
+                                                              .builder(
+                                                            padding:
+                                                                EdgeInsets.zero,
+                                                            scrollDirection:
+                                                                Axis.horizontal,
+                                                            itemCount:
+                                                                contentService
+                                                                    .length,
+                                                            itemBuilder: (context,
+                                                                contentServiceIndex) {
+                                                              final contentServiceItem =
+                                                                  contentService[
+                                                                      contentServiceIndex];
+                                                              return Stack(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.45,
+                                                                        -0.7),
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            10.0,
+                                                                            16.0,
+                                                                            10.0),
                                                                     child:
-                                                                        Container(
-                                                                      width:
-                                                                          300.0,
-                                                                      height:
-                                                                          330.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryBackground,
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(8.0),
-                                                                      ),
+                                                                        InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        setState(
+                                                                            () {
+                                                                          _model.showServiceActions =
+                                                                              false;
+                                                                        });
+                                                                      },
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            EdgeInsets.all(16.0),
+                                                                          Container(
+                                                                        width:
+                                                                            300.0,
+                                                                        height:
+                                                                            330.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(8.0),
+                                                                        ),
                                                                         child:
-                                                                            InkWell(
-                                                                          splashColor:
-                                                                              Colors.transparent,
-                                                                          focusColor:
-                                                                              Colors.transparent,
-                                                                          hoverColor:
-                                                                              Colors.transparent,
-                                                                          highlightColor:
-                                                                              Colors.transparent,
-                                                                          onTap:
-                                                                              () async {
-                                                                            context.pushNamed(
-                                                                              'ServiceDetail',
-                                                                              queryParameters: {
-                                                                                'servicecardInfo': serializeParam(
-                                                                                  contentServiceItem,
-                                                                                  ParamType.JSON,
-                                                                                ),
-                                                                                'userId': serializeParam(
-                                                                                  widget.userId,
-                                                                                  ParamType.int,
-                                                                                ),
-                                                                                'orgDetail': serializeParam(
-                                                                                  getJsonField(
-                                                                                    companyDetailsPageGetOrgDetailsResponse.jsonBody,
-                                                                                    r'''$''',
-                                                                                  ),
-                                                                                  ParamType.JSON,
-                                                                                ),
-                                                                              }.withoutNulls,
-                                                                            );
-                                                                          },
+                                                                            Padding(
+                                                                          padding:
+                                                                              EdgeInsets.all(16.0),
                                                                           child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.spaceBetween,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.center,
-                                                                            children: [
-                                                                              Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: [
-                                                                                  Expanded(
-                                                                                    child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        getJsonField(
-                                                                                          contentServiceItem,
-                                                                                          r'''$.name''',
-                                                                                        ).toString().maybeHandleOverflow(maxChars: 50),
-                                                                                        style: FlutterFlowTheme.of(context).labelMedium,
-                                                                                      ),
-                                                                                    ),
+                                                                              InkWell(
+                                                                            splashColor:
+                                                                                Colors.transparent,
+                                                                            focusColor:
+                                                                                Colors.transparent,
+                                                                            hoverColor:
+                                                                                Colors.transparent,
+                                                                            highlightColor:
+                                                                                Colors.transparent,
+                                                                            onTap:
+                                                                                () async {
+                                                                              context.pushNamed(
+                                                                                'ServiceDetail',
+                                                                                queryParameters: {
+                                                                                  'servicecardInfo': serializeParam(
+                                                                                    contentServiceItem,
+                                                                                    ParamType.JSON,
                                                                                   ),
-                                                                                  if (widget.userId == 0)
-                                                                                    FlutterFlowIconButton(
-                                                                                      borderColor: Colors.transparent,
-                                                                                      borderRadius: 30.0,
-                                                                                      borderWidth: 1.0,
-                                                                                      buttonSize: 30.0,
-                                                                                      icon: Icon(
-                                                                                        Icons.more_vert,
-                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        size: 20.0,
-                                                                                      ),
-                                                                                      onPressed: () async {
-                                                                                        setState(() {
-                                                                                          FFAppState().EditService = getJsonField(
+                                                                                  'userId': serializeParam(
+                                                                                    widget.userId,
+                                                                                    ParamType.int,
+                                                                                  ),
+                                                                                  'orgDetail': serializeParam(
+                                                                                    getJsonField(
+                                                                                      companyDetailsPageGetOrgDetailsResponse.jsonBody,
+                                                                                      r'''$''',
+                                                                                    ),
+                                                                                    ParamType.JSON,
+                                                                                  ),
+                                                                                }.withoutNulls,
+                                                                              );
+                                                                            },
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                                                              children: [
+                                                                                Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                  children: [
+                                                                                    Expanded(
+                                                                                      child: Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          getJsonField(
                                                                                             contentServiceItem,
-                                                                                            r'''$.id''',
-                                                                                          );
-                                                                                        });
-                                                                                        setState(() {
-                                                                                          _model.showProductActions = false;
-                                                                                        });
-                                                                                        if (_model.showServiceActions == false) {
-                                                                                          setState(() {
-                                                                                            _model.showServiceActions = true;
-                                                                                          });
-                                                                                        } else {
-                                                                                          setState(() {
-                                                                                            _model.showServiceActions = false;
-                                                                                          });
-                                                                                        }
-                                                                                      },
+                                                                                            r'''$.name''',
+                                                                                          ).toString().maybeHandleOverflow(maxChars: 50),
+                                                                                          style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                        ),
+                                                                                      ),
                                                                                     ),
-                                                                                ],
-                                                                              ),
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                                                                                child: Container(
-                                                                                  decoration: BoxDecoration(
-                                                                                    border: Border.all(
-                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                      width: 1.0,
+                                                                                    if (widget.userId == 0)
+                                                                                      FlutterFlowIconButton(
+                                                                                        borderColor: Colors.transparent,
+                                                                                        borderRadius: 30.0,
+                                                                                        borderWidth: 1.0,
+                                                                                        buttonSize: 30.0,
+                                                                                        icon: Icon(
+                                                                                          Icons.more_vert,
+                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                          size: 20.0,
+                                                                                        ),
+                                                                                        onPressed: () async {
+                                                                                          setState(() {
+                                                                                            FFAppState().EditService = getJsonField(
+                                                                                              contentServiceItem,
+                                                                                              r'''$.id''',
+                                                                                            );
+                                                                                          });
+                                                                                          setState(() {
+                                                                                            _model.showProductActions = false;
+                                                                                          });
+                                                                                          if (_model.showServiceActions == false) {
+                                                                                            setState(() {
+                                                                                              _model.showServiceActions = true;
+                                                                                            });
+                                                                                          } else {
+                                                                                            setState(() {
+                                                                                              _model.showServiceActions = false;
+                                                                                            });
+                                                                                          }
+                                                                                        },
+                                                                                      ),
+                                                                                  ],
+                                                                                ),
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                                                                                  child: Container(
+                                                                                    decoration: BoxDecoration(
+                                                                                      border: Border.all(
+                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                        width: 1.0,
+                                                                                      ),
                                                                                     ),
-                                                                                  ),
-                                                                                  child: InkWell(
-                                                                                    splashColor: Colors.transparent,
-                                                                                    focusColor: Colors.transparent,
-                                                                                    hoverColor: Colors.transparent,
-                                                                                    highlightColor: Colors.transparent,
-                                                                                    onTap: () async {
-                                                                                      await Navigator.push(
-                                                                                        context,
-                                                                                        PageTransition(
-                                                                                          type: PageTransitionType.fade,
-                                                                                          child: FlutterFlowExpandedImageView(
-                                                                                            image: Image.network(
-                                                                                              valueOrDefault<String>(
+                                                                                    child: InkWell(
+                                                                                      splashColor: Colors.transparent,
+                                                                                      focusColor: Colors.transparent,
+                                                                                      hoverColor: Colors.transparent,
+                                                                                      highlightColor: Colors.transparent,
+                                                                                      onTap: () async {
+                                                                                        await Navigator.push(
+                                                                                          context,
+                                                                                          PageTransition(
+                                                                                            type: PageTransitionType.fade,
+                                                                                            child: FlutterFlowExpandedImageView(
+                                                                                              image: Image.network(
+                                                                                                valueOrDefault<String>(
+                                                                                                  getJsonField(
+                                                                                                    functions.image(getJsonField(
+                                                                                                      contentServiceItem,
+                                                                                                      r'''$.image''',
+                                                                                                    ).toString()),
+                                                                                                    r'''$.image''',
+                                                                                                  ).toString(),
+                                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                                ),
+                                                                                                fit: BoxFit.contain,
+                                                                                              ),
+                                                                                              allowRotation: false,
+                                                                                              tag: valueOrDefault<String>(
                                                                                                 getJsonField(
                                                                                                   functions.image(getJsonField(
                                                                                                     contentServiceItem,
@@ -2349,12 +2361,29 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                                   ).toString()),
                                                                                                   r'''$.image''',
                                                                                                 ).toString(),
-                                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentServiceIndex',
                                                                                               ),
-                                                                                              fit: BoxFit.contain,
+                                                                                              useHeroAnimation: true,
                                                                                             ),
-                                                                                            allowRotation: false,
-                                                                                            tag: valueOrDefault<String>(
+                                                                                          ),
+                                                                                        );
+                                                                                      },
+                                                                                      child: Hero(
+                                                                                        tag: valueOrDefault<String>(
+                                                                                          getJsonField(
+                                                                                            functions.image(getJsonField(
+                                                                                              contentServiceItem,
+                                                                                              r'''$.image''',
+                                                                                            ).toString()),
+                                                                                            r'''$.image''',
+                                                                                          ).toString(),
+                                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentServiceIndex',
+                                                                                        ),
+                                                                                        transitionOnUserGestures: true,
+                                                                                        child: ClipRRect(
+                                                                                          borderRadius: BorderRadius.circular(8.0),
+                                                                                          child: Image.network(
+                                                                                            valueOrDefault<String>(
                                                                                               getJsonField(
                                                                                                 functions.image(getJsonField(
                                                                                                   contentServiceItem,
@@ -2362,320 +2391,291 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                                 ).toString()),
                                                                                                 r'''$.image''',
                                                                                               ).toString(),
-                                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentServiceIndex',
+                                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                             ),
-                                                                                            useHeroAnimation: true,
+                                                                                            width: double.infinity,
+                                                                                            height: 150.0,
+                                                                                            fit: BoxFit.contain,
                                                                                           ),
-                                                                                        ),
-                                                                                      );
-                                                                                    },
-                                                                                    child: Hero(
-                                                                                      tag: valueOrDefault<String>(
-                                                                                        getJsonField(
-                                                                                          functions.image(getJsonField(
-                                                                                            contentServiceItem,
-                                                                                            r'''$.image''',
-                                                                                          ).toString()),
-                                                                                          r'''$.image''',
-                                                                                        ).toString(),
-                                                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png' + '$contentServiceIndex',
-                                                                                      ),
-                                                                                      transitionOnUserGestures: true,
-                                                                                      child: ClipRRect(
-                                                                                        borderRadius: BorderRadius.circular(8.0),
-                                                                                        child: Image.network(
-                                                                                          valueOrDefault<String>(
-                                                                                            getJsonField(
-                                                                                              functions.image(getJsonField(
-                                                                                                contentServiceItem,
-                                                                                                r'''$.image''',
-                                                                                              ).toString()),
-                                                                                              r'''$.image''',
-                                                                                            ).toString(),
-                                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
-                                                                                          ),
-                                                                                          width: double.infinity,
-                                                                                          height: 150.0,
-                                                                                          fit: BoxFit.contain,
                                                                                         ),
                                                                                       ),
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                                                                                child: Row(
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                    children: [
+                                                                                      Row(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        children: [
+                                                                                          FaIcon(
+                                                                                            FontAwesomeIcons.fileInvoiceDollar,
+                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                            size: 20.0,
+                                                                                          ),
+                                                                                          Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                            child: Column(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                              children: [
+                                                                                                Text(
+                                                                                                  getJsonField(
+                                                                                                    contentServiceItem,
+                                                                                                    r'''$.priceEstimate''',
+                                                                                                  ).toString(),
+                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                        fontFamily: 'Roboto',
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                      ),
+                                                                                                ),
+                                                                                                Text(
+                                                                                                  'AED',
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'Roboto',
+                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                        fontSize: 12.0,
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                      Row(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        mainAxisAlignment: MainAxisAlignment.end,
+                                                                                        children: [
+                                                                                          Icon(
+                                                                                            Icons.calendar_today,
+                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                            size: 18.0,
+                                                                                          ),
+                                                                                          Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                            child: Text(
+                                                                                              getJsonField(
+                                                                                                contentServiceItem,
+                                                                                                r'''$.timeEstimate''',
+                                                                                              ).toString(),
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Roboto',
+                                                                                                    fontSize: 12.0,
+                                                                                                  ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                                Row(
                                                                                   mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                  mainAxisAlignment: MainAxisAlignment.center,
                                                                                   children: [
-                                                                                    Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        FaIcon(
-                                                                                          FontAwesomeIcons.fileInvoiceDollar,
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          size: 20.0,
-                                                                                        ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                          child: Column(
+                                                                                    if (!((widget.userId == 0) ||
+                                                                                        (getJsonField(
+                                                                                              contentServiceItem,
+                                                                                              r'''$.isOwnService''',
+                                                                                            ) ==
+                                                                                            true)))
+                                                                                      Column(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        children: [
+                                                                                          Row(
                                                                                             mainAxisSize: MainAxisSize.max,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
                                                                                             children: [
-                                                                                              Text(
-                                                                                                getJsonField(
-                                                                                                  contentServiceItem,
-                                                                                                  r'''$.priceEstimate''',
-                                                                                                ).toString(),
-                                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                      fontFamily: 'Roboto',
-                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                              Column(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                children: [
+                                                                                                  if (getJsonField(
+                                                                                                        contentServiceItem,
+                                                                                                        r'''$.booked''',
+                                                                                                      ) ==
+                                                                                                      false)
+                                                                                                    InkWell(
+                                                                                                      splashColor: Colors.transparent,
+                                                                                                      focusColor: Colors.transparent,
+                                                                                                      hoverColor: Colors.transparent,
+                                                                                                      highlightColor: Colors.transparent,
+                                                                                                      onTap: () async {
+                                                                                                        _model.apiResultService = await SmeGroup.bookServiceCall.call(
+                                                                                                          serviceId: getJsonField(
+                                                                                                            contentServiceItem,
+                                                                                                            r'''$.id''',
+                                                                                                          ),
+                                                                                                          accessToken: FFAppState().accessToken,
+                                                                                                        );
+                                                                                                        if ((_model.apiResultService?.succeeded ?? true)) {
+                                                                                                          await showDialog(
+                                                                                                            context: context,
+                                                                                                            builder: (alertDialogContext) {
+                                                                                                              return WebViewAware(
+                                                                                                                  child: AlertDialog(
+                                                                                                                title: Text('Success'),
+                                                                                                                content: Text('Service booked successfully.'),
+                                                                                                                actions: [
+                                                                                                                  TextButton(
+                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                    child: Text('Ok'),
+                                                                                                                  ),
+                                                                                                                ],
+                                                                                                              ));
+                                                                                                            },
+                                                                                                          );
+                                                                                                          setState(() => _model.apiRequestCompleter3 = null);
+                                                                                                          await _model.waitForApiRequestCompleted3();
+                                                                                                        } else {
+                                                                                                          await showDialog(
+                                                                                                            context: context,
+                                                                                                            builder: (alertDialogContext) {
+                                                                                                              return WebViewAware(
+                                                                                                                  child: AlertDialog(
+                                                                                                                title: Text('Error'),
+                                                                                                                content: Text('Something went wrong!'),
+                                                                                                                actions: [
+                                                                                                                  TextButton(
+                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                    child: Text('Try again'),
+                                                                                                                  ),
+                                                                                                                ],
+                                                                                                              ));
+                                                                                                            },
+                                                                                                          );
+                                                                                                        }
+
+                                                                                                        setState(() {});
+                                                                                                      },
+                                                                                                      child: Container(
+                                                                                                        decoration: BoxDecoration(
+                                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                                          borderRadius: BorderRadius.circular(100.0),
+                                                                                                        ),
+                                                                                                        child: Padding(
+                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(12.0, 6.0, 12.0, 6.0),
+                                                                                                          child: Row(
+                                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                                            children: [
+                                                                                                              Icon(
+                                                                                                                Icons.message,
+                                                                                                                color: Colors.white,
+                                                                                                                size: 14.0,
+                                                                                                              ),
+                                                                                                              Padding(
+                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                                                child: Text(
+                                                                                                                  'I\'m interested',
+                                                                                                                  style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                                                        fontFamily: 'Roboto',
+                                                                                                                        color: FlutterFlowTheme.of(context).secondary,
+                                                                                                                      ),
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                      ),
                                                                                                     ),
-                                                                                              ),
-                                                                                              Text(
-                                                                                                'AED',
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      fontFamily: 'Roboto',
-                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                      fontSize: 12.0,
+                                                                                                  if (getJsonField(
+                                                                                                        contentServiceItem,
+                                                                                                        r'''$.booked''',
+                                                                                                      ) ==
+                                                                                                      true)
+                                                                                                    Container(
+                                                                                                      decoration: BoxDecoration(
+                                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                      ),
+                                                                                                      child: Row(
+                                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                                        mainAxisAlignment: MainAxisAlignment.end,
+                                                                                                        children: [
+                                                                                                          FaIcon(
+                                                                                                            FontAwesomeIcons.solidCheckCircle,
+                                                                                                            color: Color(0xFF67CB45),
+                                                                                                            size: 16.0,
+                                                                                                          ),
+                                                                                                          Padding(
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                                            child: Text(
+                                                                                                              'Booked',
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ],
+                                                                                                      ),
                                                                                                     ),
+                                                                                                ],
                                                                                               ),
                                                                                             ],
                                                                                           ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                    Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.end,
-                                                                                      children: [
-                                                                                        Icon(
-                                                                                          Icons.calendar_today,
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          size: 18.0,
-                                                                                        ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                          child: Text(
-                                                                                            getJsonField(
-                                                                                              contentServiceItem,
-                                                                                              r'''$.timeEstimate''',
-                                                                                            ).toString(),
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Roboto',
-                                                                                                  fontSize: 12.0,
-                                                                                                ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
+                                                                                        ],
+                                                                                      ),
                                                                                   ],
                                                                                 ),
-                                                                              ),
-                                                                              Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                                                children: [
-                                                                                  if (!((widget.userId == 0) ||
-                                                                                      (getJsonField(
-                                                                                            contentServiceItem,
-                                                                                            r'''$.isOwnService''',
-                                                                                          ) ==
-                                                                                          true)))
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Row(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          children: [
-                                                                                            Column(
-                                                                                              mainAxisSize: MainAxisSize.max,
-                                                                                              children: [
-                                                                                                if (getJsonField(
-                                                                                                      contentServiceItem,
-                                                                                                      r'''$.booked''',
-                                                                                                    ) ==
-                                                                                                    false)
-                                                                                                  InkWell(
-                                                                                                    splashColor: Colors.transparent,
-                                                                                                    focusColor: Colors.transparent,
-                                                                                                    hoverColor: Colors.transparent,
-                                                                                                    highlightColor: Colors.transparent,
-                                                                                                    onTap: () async {
-                                                                                                      _model.apiResultService = await SmeGroup.bookServiceCall.call(
-                                                                                                        serviceId: getJsonField(
-                                                                                                          contentServiceItem,
-                                                                                                          r'''$.id''',
-                                                                                                        ),
-                                                                                                        accessToken: FFAppState().accessToken,
-                                                                                                      );
-                                                                                                      if ((_model.apiResultService?.succeeded ?? true)) {
-                                                                                                        await showDialog(
-                                                                                                          context: context,
-                                                                                                          builder: (alertDialogContext) {
-                                                                                                            return WebViewAware(
-                                                                                                                child: AlertDialog(
-                                                                                                              title: Text('Success'),
-                                                                                                              content: Text('Service booked successfully.'),
-                                                                                                              actions: [
-                                                                                                                TextButton(
-                                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                  child: Text('Ok'),
-                                                                                                                ),
-                                                                                                              ],
-                                                                                                            ));
-                                                                                                          },
-                                                                                                        );
-                                                                                                        setState(() => _model.apiRequestCompleter3 = null);
-                                                                                                        await _model.waitForApiRequestCompleted3();
-                                                                                                      } else {
-                                                                                                        await showDialog(
-                                                                                                          context: context,
-                                                                                                          builder: (alertDialogContext) {
-                                                                                                            return WebViewAware(
-                                                                                                                child: AlertDialog(
-                                                                                                              title: Text('Error'),
-                                                                                                              content: Text('Something went wrong!'),
-                                                                                                              actions: [
-                                                                                                                TextButton(
-                                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                  child: Text('Try again'),
-                                                                                                                ),
-                                                                                                              ],
-                                                                                                            ));
-                                                                                                          },
-                                                                                                        );
-                                                                                                      }
-
-                                                                                                      setState(() {});
-                                                                                                    },
-                                                                                                    child: Container(
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                                        borderRadius: BorderRadius.circular(100.0),
-                                                                                                      ),
-                                                                                                      child: Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(12.0, 6.0, 12.0, 6.0),
-                                                                                                        child: Row(
-                                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                                          children: [
-                                                                                                            Icon(
-                                                                                                              Icons.message,
-                                                                                                              color: Colors.white,
-                                                                                                              size: 14.0,
-                                                                                                            ),
-                                                                                                            Padding(
-                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                                              child: Text(
-                                                                                                                'I\'m interested',
-                                                                                                                style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                                      fontFamily: 'Roboto',
-                                                                                                                      color: FlutterFlowTheme.of(context).secondary,
-                                                                                                                    ),
-                                                                                                              ),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                if (getJsonField(
-                                                                                                      contentServiceItem,
-                                                                                                      r'''$.booked''',
-                                                                                                    ) ==
-                                                                                                    true)
-                                                                                                  Container(
-                                                                                                    decoration: BoxDecoration(
-                                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                    ),
-                                                                                                    child: Row(
-                                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                                      mainAxisAlignment: MainAxisAlignment.end,
-                                                                                                      children: [
-                                                                                                        FaIcon(
-                                                                                                          FontAwesomeIcons.solidCheckCircle,
-                                                                                                          color: Color(0xFF67CB45),
-                                                                                                          size: 16.0,
-                                                                                                        ),
-                                                                                                        Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                                          child: Text(
-                                                                                                            'Booked',
-                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                      ],
-                                                                                                    ),
-                                                                                                  ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                ],
-                                                                              ),
-                                                                            ],
+                                                                              ],
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ),
-                                                                if ((getJsonField(
-                                                                          contentServiceItem,
-                                                                          r'''$.id''',
-                                                                        ) ==
-                                                                        FFAppState()
-                                                                            .EditService) &&
-                                                                    (_model.showServiceActions ==
-                                                                        true))
-                                                                  Container(
-                                                                    decoration:
-                                                                        BoxDecoration(),
-                                                                    child:
-                                                                        wrapWithModel(
-                                                                      model: _model
-                                                                          .moreDetailsModels2
-                                                                          .getModel(
-                                                                        getJsonField(
-                                                                          contentServiceItem,
-                                                                          r'''$.id''',
-                                                                        ).toString(),
-                                                                        contentServiceIndex,
-                                                                      ),
-                                                                      updateCallback:
-                                                                          () =>
-                                                                              setState(() {}),
-                                                                      child:
-                                                                          MoreDetailsWidget(
-                                                                        key:
-                                                                            Key(
-                                                                          'Keys58_${getJsonField(
+                                                                  if ((getJsonField(
                                                                             contentServiceItem,
                                                                             r'''$.id''',
-                                                                          ).toString()}',
-                                                                        ),
-                                                                        question:
-                                                                            null,
-                                                                        productItem:
-                                                                            null,
-                                                                        serviceItem:
+                                                                          ) ==
+                                                                          FFAppState()
+                                                                              .EditService) &&
+                                                                      (_model.showServiceActions ==
+                                                                          true))
+                                                                    Container(
+                                                                      decoration:
+                                                                          BoxDecoration(),
+                                                                      child:
+                                                                          wrapWithModel(
+                                                                        model: _model
+                                                                            .moreDetailsModels2
+                                                                            .getModel(
+                                                                          getJsonField(
                                                                             contentServiceItem,
-                                                                        answerItem:
-                                                                            null,
+                                                                            r'''$.id''',
+                                                                          ).toString(),
+                                                                          contentServiceIndex,
+                                                                        ),
+                                                                        updateCallback:
+                                                                            () =>
+                                                                                setState(() {}),
+                                                                        child:
+                                                                            MoreDetailsWidget(
+                                                                          key:
+                                                                              Key(
+                                                                            'Keys58_${getJsonField(
+                                                                              contentServiceItem,
+                                                                              r'''$.id''',
+                                                                            ).toString()}',
+                                                                          ),
+                                                                          question:
+                                                                              null,
+                                                                          productItem:
+                                                                              null,
+                                                                          serviceItem:
+                                                                              contentServiceItem,
+                                                                          answerItem:
+                                                                              null,
+                                                                        ),
                                                                       ),
                                                                     ),
-                                                                  ),
-                                                              ],
-                                                            );
-                                                          },
-                                                        );
-                                                      },
-                                                    );
-                                                  },
+                                                                ],
+                                                              );
+                                                            },
+                                                          );
+                                                        },
+                                                      );
+                                                    },
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -3267,7 +3267,14 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                         16.0, 10.0, 16.0, 0.0),
                                                 child: Container(
                                                   width: double.infinity,
-                                                  decoration: BoxDecoration(),
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -3521,83 +3528,90 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              'Team',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelLarge,
-                                            ),
-                                            if (widget.userId == 0)
-                                              FlutterFlowIconButton(
-                                                borderColor: Colors.transparent,
-                                                borderRadius: 20.0,
-                                                borderWidth: 1.0,
-                                                buttonSize: 40.0,
-                                                icon: Icon(
-                                                  Icons
-                                                      .person_add_alt_1_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  size: 20.0,
-                                                ),
-                                                onPressed: () async {
-                                                  await showModalBottomSheet(
-                                                    isScrollControlled: true,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    barrierColor:
-                                                        Color(0x00000000),
-                                                    enableDrag: false,
-                                                    context: context,
-                                                    builder: (context) {
-                                                      return WebViewAware(
-                                                          child:
-                                                              GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
-                                                        child: Padding(
-                                                          padding: MediaQuery
-                                                              .viewInsetsOf(
-                                                                  context),
-                                                          child: Container(
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                1.0,
-                                                            child:
-                                                                AddTeamMemberWidget(),
-                                                          ),
-                                                        ),
-                                                      ));
-                                                    },
-                                                  ).then((value) =>
-                                                      safeSetState(() {}));
-
-                                                  setState(() => _model
-                                                          .apiRequestCompleter4 =
-                                                      null);
-                                                  await _model
-                                                      .waitForApiRequestCompleted4();
-                                                },
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 8.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                'Team',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelLarge,
                                               ),
-                                          ],
+                                              if (widget.userId == 0)
+                                                FlutterFlowIconButton(
+                                                  borderColor:
+                                                      Colors.transparent,
+                                                  borderRadius: 20.0,
+                                                  borderWidth: 1.0,
+                                                  buttonSize: 40.0,
+                                                  icon: Icon(
+                                                    Icons
+                                                        .person_add_alt_1_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    size: 20.0,
+                                                  ),
+                                                  onPressed: () async {
+                                                    await showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      barrierColor:
+                                                          Color(0x00000000),
+                                                      enableDrag: false,
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return WebViewAware(
+                                                            child:
+                                                                GestureDetector(
+                                                          onTap: () => _model
+                                                                  .unfocusNode
+                                                                  .canRequestFocus
+                                                              ? FocusScope.of(
+                                                                      context)
+                                                                  .requestFocus(
+                                                                      _model
+                                                                          .unfocusNode)
+                                                              : FocusScope.of(
+                                                                      context)
+                                                                  .unfocus(),
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child: Container(
+                                                              height: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .height *
+                                                                  1.0,
+                                                              child:
+                                                                  AddTeamMemberWidget(),
+                                                            ),
+                                                          ),
+                                                        ));
+                                                      },
+                                                    ).then((value) =>
+                                                        safeSetState(() {}));
+
+                                                    setState(() => _model
+                                                            .apiRequestCompleter4 =
+                                                        null);
+                                                    await _model
+                                                        .waitForApiRequestCompleted4();
+                                                  },
+                                                ),
+                                            ],
+                                          ),
                                         ),
                                         Align(
                                           alignment:

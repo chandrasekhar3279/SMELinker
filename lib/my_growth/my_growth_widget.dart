@@ -900,12 +900,12 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                             children: [
                                                                                               Row(
                                                                                                 mainAxisSize: MainAxisSize.max,
-                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                crossAxisAlignment: CrossAxisAlignment.center,
                                                                                                 children: [
                                                                                                   FaIcon(
-                                                                                                    FontAwesomeIcons.fileInvoiceDollar,
+                                                                                                    FontAwesomeIcons.dollarSign,
                                                                                                     color: FlutterFlowTheme.of(context).primary,
-                                                                                                    size: 20.0,
+                                                                                                    size: 16.0,
                                                                                                   ),
                                                                                                   Padding(
                                                                                                     padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
@@ -938,7 +938,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                     size: 16.0,
                                                                                                   ),
                                                                                                   Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                                     child: Text(
                                                                                                       getJsonField(
                                                                                                         featuredGrowthCardItemItem,
@@ -998,25 +998,22 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                               width: 1.0,
                                                                                                             ),
                                                                                                           ),
-                                                                                                          child: Padding(
-                                                                                                            padding: EdgeInsets.all(1.0),
-                                                                                                            child: Container(
-                                                                                                              width: 40.0,
-                                                                                                              height: 40.0,
-                                                                                                              clipBehavior: Clip.antiAlias,
-                                                                                                              decoration: BoxDecoration(
-                                                                                                                shape: BoxShape.circle,
-                                                                                                              ),
-                                                                                                              child: Image.network(
-                                                                                                                getJsonField(
-                                                                                                                  functions.image(getJsonField(
-                                                                                                                    gropsistItem,
-                                                                                                                    r'''$.groupImg''',
-                                                                                                                  ).toString()),
-                                                                                                                  r'''$.image''',
-                                                                                                                ).toString(),
-                                                                                                                fit: BoxFit.cover,
-                                                                                                              ),
+                                                                                                          child: Container(
+                                                                                                            width: 40.0,
+                                                                                                            height: 40.0,
+                                                                                                            clipBehavior: Clip.antiAlias,
+                                                                                                            decoration: BoxDecoration(
+                                                                                                              shape: BoxShape.circle,
+                                                                                                            ),
+                                                                                                            child: Image.network(
+                                                                                                              getJsonField(
+                                                                                                                functions.image(getJsonField(
+                                                                                                                  gropsistItem,
+                                                                                                                  r'''$.groupImg''',
+                                                                                                                ).toString()),
+                                                                                                                r'''$.image''',
+                                                                                                              ).toString(),
+                                                                                                              fit: BoxFit.cover,
                                                                                                             ),
                                                                                                           ),
                                                                                                         ),
@@ -1396,26 +1393,23 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                     shape: BoxShape.circle,
                                                                                                     border: Border.all(
                                                                                                       color: FlutterFlowTheme.of(context).primary,
-                                                                                                      width: 2.0,
+                                                                                                      width: 1.0,
                                                                                                     ),
                                                                                                   ),
-                                                                                                  child: Padding(
-                                                                                                    padding: EdgeInsets.all(2.0),
-                                                                                                    child: Container(
-                                                                                                      clipBehavior: Clip.antiAlias,
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        shape: BoxShape.circle,
-                                                                                                      ),
-                                                                                                      child: Image.network(
-                                                                                                        getJsonField(
-                                                                                                          functions.image(getJsonField(
-                                                                                                            growthCardsItem,
-                                                                                                            r'''$.growthPartnerLogo''',
-                                                                                                          ).toString()),
-                                                                                                          r'''$.image''',
-                                                                                                        ).toString(),
-                                                                                                        fit: BoxFit.contain,
-                                                                                                      ),
+                                                                                                  child: Container(
+                                                                                                    clipBehavior: Clip.antiAlias,
+                                                                                                    decoration: BoxDecoration(
+                                                                                                      shape: BoxShape.circle,
+                                                                                                    ),
+                                                                                                    child: Image.network(
+                                                                                                      getJsonField(
+                                                                                                        functions.image(getJsonField(
+                                                                                                          growthCardsItem,
+                                                                                                          r'''$.growthPartnerLogo''',
+                                                                                                        ).toString()),
+                                                                                                        r'''$.image''',
+                                                                                                      ).toString(),
+                                                                                                      fit: BoxFit.contain,
                                                                                                     ),
                                                                                                   ),
                                                                                                 ),
@@ -1471,9 +1465,9 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                 crossAxisAlignment: CrossAxisAlignment.center,
                                                                                                 children: [
                                                                                                   FaIcon(
-                                                                                                    FontAwesomeIcons.fileInvoiceDollar,
+                                                                                                    FontAwesomeIcons.dollarSign,
                                                                                                     color: FlutterFlowTheme.of(context).primary,
-                                                                                                    size: 20.0,
+                                                                                                    size: 16.0,
                                                                                                   ),
                                                                                                   Padding(
                                                                                                     padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
@@ -1506,7 +1500,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                     size: 16.0,
                                                                                                   ),
                                                                                                   Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                                     child: Text(
                                                                                                       getJsonField(
                                                                                                         growthCardsItem,
@@ -2011,7 +2005,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                   Row(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                    crossAxisAlignment: CrossAxisAlignment.center,
                                                                                     children: [
                                                                                       Row(
                                                                                         mainAxisSize: MainAxisSize.max,
@@ -2162,16 +2156,16 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                   Row(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
-                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                    crossAxisAlignment: CrossAxisAlignment.center,
                                                                                     children: [
                                                                                       FaIcon(
-                                                                                        FontAwesomeIcons.fileInvoiceDollar,
+                                                                                        FontAwesomeIcons.dollarSign,
                                                                                         color: FlutterFlowTheme.of(context).primary,
-                                                                                        size: 20.0,
+                                                                                        size: 16.0,
                                                                                       ),
                                                                                       Expanded(
                                                                                         child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                           child: Column(
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -2201,7 +2195,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                       ),
                                                                                       Expanded(
                                                                                         child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                           child: Column(
                                                                                             mainAxisSize: MainAxisSize.max,
                                                                                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -2314,15 +2308,15 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                   Row(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
-                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                    crossAxisAlignment: CrossAxisAlignment.center,
                                                                                     children: [
                                                                                       FaIcon(
-                                                                                        FontAwesomeIcons.fileInvoiceDollar,
+                                                                                        FontAwesomeIcons.dollarSign,
                                                                                         color: FlutterFlowTheme.of(context).primary,
-                                                                                        size: 20.0,
+                                                                                        size: 16.0,
                                                                                       ),
                                                                                       Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                         child: Column(
                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -2350,7 +2344,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                         ),
                                                                                       ),
                                                                                       Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                         child: Column(
                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                           crossAxisAlignment: CrossAxisAlignment.start,
