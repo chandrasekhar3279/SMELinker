@@ -598,6 +598,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           child: SelectImageWidget(
                                             selectedImage:
                                                 _model.uploadedLocalFile,
+                                            ratio: 1.0,
                                           ),
                                         ),
                                       ));

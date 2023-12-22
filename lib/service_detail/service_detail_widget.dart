@@ -230,8 +230,8 @@ class _ServiceDetailWidgetState extends State<ServiceDetailWidget> {
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      FaIcon(
-                        FontAwesomeIcons.fileInvoiceDollar,
+                      Icon(
+                        Icons.payments_outlined,
                         color: FlutterFlowTheme.of(context).primary,
                         size: 20.0,
                       ),

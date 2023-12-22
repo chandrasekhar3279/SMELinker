@@ -260,19 +260,20 @@ class _StatsWidgetState extends State<StatsWidget> {
             ),
             body: SafeArea(
               top: true,
-              child: ListView(
-                padding: EdgeInsets.zero,
-                scrollDirection: Axis.vertical,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Row(
+              child: Container(
+                decoration: BoxDecoration(),
+                child: Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: SingleChildScrollView(
+                    child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Column(
+                        Row(
                           mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             InkWell(
                               splashColor: Colors.transparent,
@@ -289,468 +290,506 @@ class _StatsWidgetState extends State<StatsWidget> {
                                 size: 24.0,
                               ),
                             ),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    2.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Welcome  ${getJsonField(
+                                    statsGetProfileDetailsResponse.jsonBody,
+                                    r'''$.firstName''',
+                                  ).toString()}',
+                                  textAlign: TextAlign.center,
+                                  style:
+                                      FlutterFlowTheme.of(context).displayLarge,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
-                        Expanded(
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                2.0, 0.0, 0.0, 0.0),
+                                0.0, 16.0, 0.0, 0.0),
                             child: Text(
-                              'Welcome  ${getJsonField(
-                                statsGetProfileDetailsResponse.jsonBody,
-                                r'''$.firstName''',
-                              ).toString()}',
+                              'Below is a summary of how your page performed.',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context)
-                                  .headlineMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                              style: FlutterFlowTheme.of(context).bodyLarge,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 16.0, 0.0, 16.0),
+                            child: FutureBuilder<ApiCallResponse>(
+                              future: SmeGroup.getSmeStatsCall.call(
+                                filter: 'All',
+                                accessToken: FFAppState().accessToken,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: SpinKitFadingCircle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        size: 50.0,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                final columnGetSmeStatsResponse =
+                                    snapshot.data!;
+                                return Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(12.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Your Visibility',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelLarge,
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 8.0, 0.0, 8.0),
+                                                child: Text(
+                                                  'Your page is getting noticed. Keep up the good work.',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 4.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          5.0),
+                                                              child: Text(
+                                                                getJsonField(
+                                                                  columnGetSmeStatsResponse
+                                                                      .jsonBody,
+                                                                  r'''$.pageViews''',
+                                                                ).toString(),
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge,
+                                                              ),
+                                                            ),
+                                                            Text(
+                                                              'UNIQUE PAGE VIEWS',
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium,
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        height: 40.0,
+                                                        child: VerticalDivider(
+                                                          thickness: 1.0,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent3,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          5.0),
+                                                              child: Text(
+                                                                getJsonField(
+                                                                  columnGetSmeStatsResponse
+                                                                      .jsonBody,
+                                                                  r'''$.booked''',
+                                                                ).toString(),
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge,
+                                                              ),
+                                                            ),
+                                                            Text(
+                                                              'PRODUCT & SERVICE BOOKED',
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium,
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ]
+                                                .divide(SizedBox(height: 4.0))
+                                                .around(SizedBox(height: 4.0)),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8.0, 0.0, 8.0, 8.0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(12.0),
+                                          child: FutureBuilder<ApiCallResponse>(
+                                            future:
+                                                SmeGroup.getFollowersCall.call(
+                                              pageNumber: 0,
+                                              pageSize: 10,
+                                              accessToken:
+                                                  FFAppState().accessToken,
+                                              userId: 0,
+                                            ),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    child: SpinKitFadingCircle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                      size: 50.0,
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                              final columnGetFollowersResponse =
+                                                  snapshot.data!;
+                                              return Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        'Follow',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge,
+                                                      ),
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            enableDrag: false,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return WebViewAware(
+                                                                  child:
+                                                                      GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      Container(
+                                                                    height:
+                                                                        MediaQuery.sizeOf(context).height *
+                                                                            1.0,
+                                                                    child:
+                                                                        FollowListWidget(
+                                                                      followersList:
+                                                                          getJsonField(
+                                                                        columnGetFollowersResponse
+                                                                            .jsonBody,
+                                                                        r'''$''',
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ));
+                                                            },
+                                                          ).then((value) =>
+                                                              safeSetState(
+                                                                  () {}));
+                                                        },
+                                                        child: Text(
+                                                          'View All',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 8.0,
+                                                                0.0, 8.0),
+                                                    child: Text(
+                                                      'See who you are following and who is following your page.',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  4.0,
+                                                                  0.0,
+                                                                  4.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Expanded(
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .min,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          5.0),
+                                                                  child: Text(
+                                                                    getJsonField(
+                                                                      columnGetSmeStatsResponse
+                                                                          .jsonBody,
+                                                                      r'''$.totalFollowees''',
+                                                                    ).toString(),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge,
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  'PAGES YOU ARE FOLLOWING',
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .center,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                          SizedBox(
+                                                            height: 40.0,
+                                                            child:
+                                                                VerticalDivider(
+                                                              thickness: 1.0,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .accent3,
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .min,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          5.0),
+                                                                  child: Text(
+                                                                    getJsonField(
+                                                                      columnGetSmeStatsResponse
+                                                                          .jsonBody,
+                                                                      r'''$.totalFollowers''',
+                                                                    ).toString(),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge,
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  'ARE FOLLOWING YOUR PAGE',
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .center,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ]
+                                                    .divide(
+                                                        SizedBox(height: 4.0))
+                                                    .around(
+                                                        SizedBox(height: 4.0)),
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ].divide(SizedBox(height: 8.0)),
+                                );
+                              },
                             ),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  Text(
-                    'Below is a summary of how your page performed.',
-                    textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                  ),
-                  Container(
-                    height: MediaQuery.sizeOf(context).height * 1.0,
-                    decoration: BoxDecoration(),
-                    child: FutureBuilder<ApiCallResponse>(
-                      future: SmeGroup.getSmeStatsCall.call(
-                        filter: 'All',
-                        accessToken: FFAppState().accessToken,
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: SpinKitFadingCircle(
-                                color: FlutterFlowTheme.of(context).secondary,
-                                size: 50.0,
-                              ),
-                            ),
-                          );
-                        }
-                        final columnGetSmeStatsResponse = snapshot.data!;
-                        return SingleChildScrollView(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 20.0, 20.0, 0.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 200.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Stack(
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 10.0, 0.0, 0.0),
-                                        child: Text(
-                                          'Your visibility',
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelLarge,
-                                        ),
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Expanded(
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 40.0, 0.0, 0.0),
-                                              child: Text(
-                                                '\nYour page is getting noticed. Keep up the good work.',
-                                                textAlign: TextAlign.justify,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 120.0, 10.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Expanded(
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  5.0),
-                                                      child: Text(
-                                                        getJsonField(
-                                                          columnGetSmeStatsResponse
-                                                              .jsonBody,
-                                                          r'''$.pageViews''',
-                                                        ).toString(),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineMedium,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      'UNIQUE PAGE VIEWS',
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 100.0,
-                                                child: VerticalDivider(
-                                                  thickness: 1.0,
-                                                ),
-                                              ),
-                                              Expanded(
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  5.0),
-                                                      child: Text(
-                                                        getJsonField(
-                                                          columnGetSmeStatsResponse
-                                                              .jsonBody,
-                                                          r'''$.booked''',
-                                                        ).toString(),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineMedium,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      'PRODUCT & SERVICE BOOKED',
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 20.0, 20.0, 0.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 200.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Stack(
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 10.0, 10.0, 0.0),
-                                        child: FutureBuilder<ApiCallResponse>(
-                                          future:
-                                              SmeGroup.getFollowersCall.call(
-                                            pageNumber: 0,
-                                            pageSize: 10,
-                                            accessToken:
-                                                FFAppState().accessToken,
-                                            userId: 0,
-                                          ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 50.0,
-                                                  height: 50.0,
-                                                  child: SpinKitFadingCircle(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondary,
-                                                    size: 50.0,
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                            final rowGetFollowersResponse =
-                                                snapshot.data!;
-                                            return Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  'Follow',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelLarge,
-                                                ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    await showModalBottomSheet(
-                                                      isScrollControlled: true,
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      enableDrag: false,
-                                                      context: context,
-                                                      builder: (context) {
-                                                        return WebViewAware(
-                                                            child:
-                                                                GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
-                                                          child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child: Container(
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  1.0,
-                                                              child:
-                                                                  FollowListWidget(
-                                                                followersList:
-                                                                    getJsonField(
-                                                                  rowGetFollowersResponse
-                                                                      .jsonBody,
-                                                                  r'''$''',
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ));
-                                                      },
-                                                    ).then((value) =>
-                                                        safeSetState(() {}));
-                                                  },
-                                                  child: Text(
-                                                    'View All',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ],
-                                            );
-                                          },
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 50.0, 10.0, 0.0),
-                                        child: Text(
-                                          'See who you are following and who is following your page.',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 120.0, 10.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Expanded(
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  5.0),
-                                                      child: Text(
-                                                        getJsonField(
-                                                          columnGetSmeStatsResponse
-                                                              .jsonBody,
-                                                          r'''$.totalFollowees''',
-                                                        ).toString(),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineMedium,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      'PAGES YOU ARE FOLLOWING',
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 100.0,
-                                                child: VerticalDivider(
-                                                  thickness: 1.0,
-                                                ),
-                                              ),
-                                              Expanded(
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  5.0),
-                                                      child: Text(
-                                                        getJsonField(
-                                                          columnGetSmeStatsResponse
-                                                              .jsonBody,
-                                                          r'''$.totalFollowers''',
-                                                        ).toString(),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineMedium,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      'ARE FOLLOWING YOUR PAGE',
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
           ),

@@ -22,11 +22,13 @@ class CropYourImage extends StatefulWidget {
     this.width,
     this.height,
     this.oldImage,
+    this.ratio,
     required this.onCrop,
   }) : super(key: key);
 
   final double? width;
   final double? height;
+  final double? ratio;
   final FFUploadedFile? oldImage;
   final Future<dynamic> Function() onCrop;
 
@@ -40,6 +42,7 @@ class _CropYourImageState extends State<CropYourImage> {
   @override
   Widget build(BuildContext context) {
     final _imageData = widget.oldImage;
+    final _cropRatio = widget.ratio;
 
     // Convert FFUploadedFile to Uint8List
     final Uint8List? imageDataBytes =
@@ -59,7 +62,7 @@ class _CropYourImageState extends State<CropYourImage> {
                 DotControl(color: FlutterFlowTheme.of(context).primary),
             baseColor: FlutterFlowTheme.of(context).secondaryBackground,
             image: imageDataBytes!,
-            aspectRatio: 5 / 3,
+            aspectRatio: _cropRatio,
             // initialAreaBuilder: (rect) => Rect.fromLTRB(rect.left + 24,
             //     rect.top + 32, rect.right - 24, rect.bottom - 32),
 

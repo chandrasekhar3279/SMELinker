@@ -1105,6 +1105,7 @@ class _UpdateOrgDetailsPageWidgetState
                                           child: SelectImageWidget(
                                             selectedImage:
                                                 _model.uploadedLocalFile,
+                                            ratio: 1.0,
                                           ),
                                         ),
                                       ));

@@ -54,6 +54,7 @@ class _ServiceEmptyListWidgetState extends State<ServiceEmptyListWidget> {
         color: FlutterFlowTheme.of(context).secondary,
         borderRadius: BorderRadius.circular(8.0),
       ),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
         padding: EdgeInsets.all(12.0),
         child: Column(

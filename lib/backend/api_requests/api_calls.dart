@@ -379,7 +379,9 @@ class GetIndustriesCall {
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<String>();
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetFeedCall {
@@ -2343,7 +2345,7 @@ class GetContactDetailPubicCall {
     );
   }
 
-  dynamic getContactDetails(dynamic response) => getJsonField(
+  dynamic? getContactDetails(dynamic response) => getJsonField(
         response,
         r'''$''',
       );
@@ -2389,7 +2391,9 @@ class GetProductsCall {
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<String>();
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class CreateProductCall {
@@ -3427,7 +3431,7 @@ class GetFollowersCall {
     );
   }
 
-  dynamic totalFollowers(dynamic response) => getJsonField(
+  dynamic? totalFollowers(dynamic response) => getJsonField(
         response,
         r'''$''',
       );
@@ -4464,10 +4468,10 @@ class EkybverifycompanyCall {
     );
   }
 
-  dynamic status(dynamic response) => getJsonField(
+  String? status(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.content.basic.companyStatus''',
-      );
+      ));
 }
 
 class SetVerifiedCompanyCall {
@@ -4923,10 +4927,10 @@ class SendFullPromptCall {
     );
   }
 
-  dynamic createdTimestamp(dynamic response) => getJsonField(
+  int? createdTimestamp(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.created''',
-      );
+      ));
   dynamic role(dynamic response) => getJsonField(
         response,
         r'''$.choices[:].message.role''',
@@ -4941,7 +4945,9 @@ class SendFullPromptCall {
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<String>();
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 /// End OpenAI ChatGPT Group Code
@@ -4979,10 +4985,10 @@ class AuthApiCall {
     );
   }
 
-  dynamic uqudoAccessToken(dynamic response) => getJsonField(
+  String? uqudoAccessToken(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.access_token''',
-      );
+      ));
 }
 
 /// End uqudoVerifyAPI Group Code

@@ -13,9 +13,11 @@ class SelectImageWidget extends StatefulWidget {
   const SelectImageWidget({
     Key? key,
     this.selectedImage,
+    this.ratio,
   }) : super(key: key);
 
   final FFUploadedFile? selectedImage;
+  final double? ratio;
 
   @override
   _SelectImageWidgetState createState() => _SelectImageWidgetState();
@@ -74,6 +76,7 @@ class _SelectImageWidgetState extends State<SelectImageWidget> {
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 1.0,
                     oldImage: widget.selectedImage,
+                    ratio: widget.ratio,
                     onCrop: () async {},
                   ),
                 ),

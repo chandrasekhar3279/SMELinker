@@ -56,6 +56,7 @@ class _TeamEmptyListWidgetState extends State<TeamEmptyListWidget> {
         color: FlutterFlowTheme.of(context).secondary,
         borderRadius: BorderRadius.circular(8.0),
       ),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
         padding: EdgeInsets.all(12.0),
         child: Column(

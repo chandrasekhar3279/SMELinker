@@ -162,6 +162,11 @@ class _FollowListWidgetState extends State<FollowListWidget>
                                               Clip.antiAliasWithSaveLayer,
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
+                                          elevation: 1.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -286,42 +291,54 @@ class _FollowListWidgetState extends State<FollowListWidget>
                                                                   .of(context)
                                                               .bodySmall,
                                                         ),
-                                                        InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            context.pushNamed(
-                                                              'CompanyDetailsPage',
-                                                              queryParameters: {
-                                                                'userId':
-                                                                    serializeParam(
-                                                                  getJsonField(
-                                                                    followersItem,
-                                                                    r'''$.userId''',
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      4.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              context.pushNamed(
+                                                                'CompanyDetailsPage',
+                                                                queryParameters:
+                                                                    {
+                                                                  'userId':
+                                                                      serializeParam(
+                                                                    getJsonField(
+                                                                      followersItem,
+                                                                      r'''$.userId''',
+                                                                    ),
+                                                                    ParamType
+                                                                        .int,
                                                                   ),
-                                                                  ParamType.int,
-                                                                ),
-                                                              }.withoutNulls,
-                                                            );
-                                                          },
-                                                          child: Text(
-                                                            'View Page',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            },
+                                                            child: Text(
+                                                              'View Page',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Roboto',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                  ),
+                                                            ),
                                                           ),
                                                         ),
                                                       ].divide(SizedBox(
@@ -409,6 +426,11 @@ class _FollowListWidgetState extends State<FollowListWidget>
                                                 Clip.antiAliasWithSaveLayer,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
+                                            elevation: 1.0,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -542,160 +564,169 @@ class _FollowListWidgetState extends State<FollowListWidget>
                                                                     .of(context)
                                                                 .bodySmall,
                                                           ),
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  context
-                                                                      .pushNamed(
-                                                                    'CompanyDetailsPage',
-                                                                    queryParameters:
-                                                                        {
-                                                                      'userId':
-                                                                          serializeParam(
-                                                                        getJsonField(
-                                                                          followeesItem,
-                                                                          r'''$.userId''',
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        4.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  onTap:
+                                                                      () async {
+                                                                    context
+                                                                        .pushNamed(
+                                                                      'CompanyDetailsPage',
+                                                                      queryParameters:
+                                                                          {
+                                                                        'userId':
+                                                                            serializeParam(
+                                                                          getJsonField(
+                                                                            followeesItem,
+                                                                            r'''$.userId''',
+                                                                          ),
+                                                                          ParamType
+                                                                              .int,
                                                                         ),
-                                                                        ParamType
-                                                                            .int,
-                                                                      ),
-                                                                    }.withoutNulls,
-                                                                  );
-                                                                },
-                                                                child: Text(
-                                                                  'View Page',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Roboto',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                              SizedBox(
-                                                                height: 20.0,
-                                                                child:
-                                                                    VerticalDivider(
-                                                                  thickness:
-                                                                      2.0,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .accent2,
-                                                                ),
-                                                              ),
-                                                              InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  _model.apiResultoyy =
-                                                                      await SmeGroup
-                                                                          .unFollowCall
-                                                                          .call(
-                                                                    followeeId:
-                                                                        getJsonField(
-                                                                      followeesItem,
-                                                                      r'''$.userId''',
-                                                                    ),
-                                                                    accessToken:
-                                                                        FFAppState()
-                                                                            .accessToken,
-                                                                  );
-                                                                  if ((_model
-                                                                          .apiResultoyy
-                                                                          ?.succeeded ??
-                                                                      true)) {
-                                                                    await showDialog(
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (alertDialogContext) {
-                                                                        return WebViewAware(
-                                                                            child:
-                                                                                AlertDialog(
-                                                                          title:
-                                                                              Text('Success!'),
-                                                                          content:
-                                                                              Text('You are now unfollowing the company.'),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                              child: Text('Ok'),
-                                                                            ),
-                                                                          ],
-                                                                        ));
-                                                                      },
+                                                                      }.withoutNulls,
                                                                     );
-                                                                    setState(() =>
-                                                                        _model.apiRequestCompleter =
-                                                                            null);
-                                                                    await _model
-                                                                        .waitForApiRequestCompleted();
-                                                                  } else {
-                                                                    await showDialog(
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (alertDialogContext) {
-                                                                        return WebViewAware(
-                                                                            child:
-                                                                                AlertDialog(
-                                                                          title:
-                                                                              Text('Error'),
-                                                                          content:
-                                                                              Text('Something went wrong'),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                              child: Text('TTry again'),
-                                                                            ),
-                                                                          ],
-                                                                        ));
-                                                                      },
+                                                                  },
+                                                                  child: Text(
+                                                                    'View Page',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                                SizedBox(
+                                                                  height: 18.0,
+                                                                  child:
+                                                                      VerticalDivider(
+                                                                    thickness:
+                                                                        2.0,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent3,
+                                                                  ),
+                                                                ),
+                                                                InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  onTap:
+                                                                      () async {
+                                                                    _model.apiResultoyy =
+                                                                        await SmeGroup
+                                                                            .unFollowCall
+                                                                            .call(
+                                                                      followeeId:
+                                                                          getJsonField(
+                                                                        followeesItem,
+                                                                        r'''$.userId''',
+                                                                      ),
+                                                                      accessToken:
+                                                                          FFAppState()
+                                                                              .accessToken,
                                                                     );
-                                                                  }
+                                                                    if ((_model
+                                                                            .apiResultoyy
+                                                                            ?.succeeded ??
+                                                                        true)) {
+                                                                      await showDialog(
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (alertDialogContext) {
+                                                                          return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                            title:
+                                                                                Text('Success!'),
+                                                                            content:
+                                                                                Text('You are now unfollowing the company.'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                child: Text('Ok'),
+                                                                              ),
+                                                                            ],
+                                                                          ));
+                                                                        },
+                                                                      );
+                                                                      setState(() =>
+                                                                          _model.apiRequestCompleter =
+                                                                              null);
+                                                                      await _model
+                                                                          .waitForApiRequestCompleted();
+                                                                    } else {
+                                                                      await showDialog(
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (alertDialogContext) {
+                                                                          return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                            title:
+                                                                                Text('Error'),
+                                                                            content:
+                                                                                Text('Something went wrong'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                child: Text('TTry again'),
+                                                                              ),
+                                                                            ],
+                                                                          ));
+                                                                        },
+                                                                      );
+                                                                    }
 
-                                                                  setState(
-                                                                      () {});
-                                                                },
-                                                                child: Text(
-                                                                  'Unfollow',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Roboto',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                      ),
+                                                                    setState(
+                                                                        () {});
+                                                                  },
+                                                                  child: Text(
+                                                                    'Unfollow',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                        ),
+                                                                  ),
                                                                 ),
-                                                              ),
-                                                            ],
+                                                              ],
+                                                            ),
                                                           ),
                                                         ].divide(SizedBox(
                                                             height: 4.0)),

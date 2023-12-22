@@ -902,8 +902,8 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 crossAxisAlignment: CrossAxisAlignment.center,
                                                                                                 children: [
-                                                                                                  FaIcon(
-                                                                                                    FontAwesomeIcons.dollarSign,
+                                                                                                  Icon(
+                                                                                                    Icons.payments_outlined,
                                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                                     size: 16.0,
                                                                                                   ),
@@ -1464,8 +1464,8 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 crossAxisAlignment: CrossAxisAlignment.center,
                                                                                                 children: [
-                                                                                                  FaIcon(
-                                                                                                    FontAwesomeIcons.dollarSign,
+                                                                                                  Icon(
+                                                                                                    Icons.payments_outlined,
                                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                                     size: 16.0,
                                                                                                   ),
@@ -2158,8 +2158,8 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                                     crossAxisAlignment: CrossAxisAlignment.center,
                                                                                     children: [
-                                                                                      FaIcon(
-                                                                                        FontAwesomeIcons.dollarSign,
+                                                                                      Icon(
+                                                                                        Icons.payments_outlined,
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         size: 16.0,
                                                                                       ),
@@ -2310,8 +2310,8 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                                     crossAxisAlignment: CrossAxisAlignment.center,
                                                                                     children: [
-                                                                                      FaIcon(
-                                                                                        FontAwesomeIcons.dollarSign,
+                                                                                      Icon(
+                                                                                        Icons.payments_outlined,
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         size: 16.0,
                                                                                       ),

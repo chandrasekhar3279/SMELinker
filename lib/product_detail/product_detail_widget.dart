@@ -231,8 +231,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      FaIcon(
-                        FontAwesomeIcons.fileInvoiceDollar,
+                      Icon(
+                        Icons.payments_outlined,
                         color: FlutterFlowTheme.of(context).primary,
                         size: 20.0,
                       ),

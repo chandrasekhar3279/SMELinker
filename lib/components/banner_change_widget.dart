@@ -70,7 +70,7 @@ class _BannerChangeWidgetState extends State<BannerChangeWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Upload New Banner',
+                  'Upload your banner image',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).headlineLarge,
                 ),
@@ -133,6 +133,7 @@ class _BannerChangeWidgetState extends State<BannerChangeWidget> {
                             height: MediaQuery.sizeOf(context).height * 1.0,
                             child: SelectImageWidget(
                               selectedImage: _model.uploadedLocalFile,
+                              ratio: 1.67,
                             ),
                           ),
                         ));
@@ -217,7 +218,7 @@ class _BannerChangeWidgetState extends State<BannerChangeWidget> {
                                   height: 40.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
+                                        .secondaryText,
                                     borderRadius: BorderRadius.circular(50.0),
                                     border: Border.all(
                                       color: FlutterFlowTheme.of(context)
@@ -225,9 +226,9 @@ class _BannerChangeWidgetState extends State<BannerChangeWidget> {
                                     ),
                                   ),
                                   child: Icon(
-                                    Icons.add_photo_alternate_outlined,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                    Icons.arrow_upward,
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
                                     size: 22.0,
                                   ),
                                 ),
@@ -260,7 +261,7 @@ class _BannerChangeWidgetState extends State<BannerChangeWidget> {
                                           .secondaryBackground,
                                     ),
                                     child: Text(
-                                      'Tap to add an image',
+                                      'upload your banner image',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -281,7 +282,7 @@ class _BannerChangeWidgetState extends State<BannerChangeWidget> {
                                           .secondaryBackground,
                                     ),
                                     child: Text(
-                                      'Image uploaded, tap to change',
+                                      'Banner Image uploaded, tap to change',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -395,7 +396,7 @@ class _BannerChangeWidgetState extends State<BannerChangeWidget> {
 
                       setState(() {});
                     },
-                    text: 'Save',
+                    text: 'Upload',
                     options: FFButtonOptions(
                       width: 130.0,
                       height: 40.0,

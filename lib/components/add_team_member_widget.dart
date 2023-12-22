@@ -420,6 +420,7 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                         child: SelectImageWidget(
                                           selectedImage:
                                               _model.uploadedLocalFile,
+                                          ratio: 1.0,
                                         ),
                                       ),
                                     ));
