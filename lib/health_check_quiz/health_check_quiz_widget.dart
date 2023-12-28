@@ -20,7 +20,7 @@ export 'health_check_quiz_model.dart';
 class HealthCheckQuizWidget extends StatefulWidget {
   const HealthCheckQuizWidget({
     Key? key,
-    this.healthCheckContent,
+    required this.healthCheckContent,
   }) : super(key: key);
 
   final dynamic healthCheckContent;

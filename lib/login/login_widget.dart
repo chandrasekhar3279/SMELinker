@@ -77,7 +77,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                 children: [
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 0.4,
+                    height: MediaQuery.sizeOf(context).height * 0.35,
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
                     ),
@@ -101,7 +101,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                   ),
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 0.6,
+                    height: MediaQuery.sizeOf(context).height * 0.65,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       boxShadow: [
@@ -118,14 +118,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                         topRight: Radius.circular(16.0),
                       ),
                     ),
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, -1.0),
                     child: Form(
                       key: _model.formKey,
                       autovalidateMode: AutovalidateMode.disabled,
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(

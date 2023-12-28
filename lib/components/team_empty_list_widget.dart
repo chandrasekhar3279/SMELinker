@@ -150,6 +150,7 @@ class _TeamEmptyListWidgetState extends State<TeamEmptyListWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
                       padding:
@@ -164,6 +165,7 @@ class _TeamEmptyListWidgetState extends State<TeamEmptyListWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                       child: Text(
                         'The user has not shared who is part of their team yet.',
+                        textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto',
                               color: FlutterFlowTheme.of(context).accent3,

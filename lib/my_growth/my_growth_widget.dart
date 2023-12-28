@@ -347,7 +347,6 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                           Align(
                             alignment: Alignment(0.0, 0),
                             child: TabBar(
-                              isScrollable: true,
                               labelColor: FlutterFlowTheme.of(context).primary,
                               unselectedLabelColor:
                                   FlutterFlowTheme.of(context).accent2,
@@ -2307,7 +2306,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                 children: [
                                                                                   Row(
                                                                                     mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                                                     crossAxisAlignment: CrossAxisAlignment.center,
                                                                                     children: [
                                                                                       Icon(

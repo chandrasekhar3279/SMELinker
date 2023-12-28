@@ -90,15 +90,16 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                           Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              width: double.infinity,
                               height: MediaQuery.sizeOf(context).height * 1.0,
                               decoration: BoxDecoration(
                                 color: Color(0xFFF2F3F5),
                               ),
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Container(
                                     width:
@@ -242,7 +243,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 80.0, 0.0, 90.0),
+                                        0.0, 70.0, 0.0, 80.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         context.pushNamed('SignUpSelection');

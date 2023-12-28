@@ -235,19 +235,23 @@ class _ServiceDetailWidgetState extends State<ServiceDetailWidget> {
                         color: FlutterFlowTheme.of(context).primary,
                         size: 20.0,
                       ),
-                      Text(
-                        '${getJsonField(
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          '${getJsonField(
+                                widget.servicecardInfo,
+                                r'''$.priceEstimate''',
+                              ) != null ? getJsonField(
                               widget.servicecardInfo,
                               r'''$.priceEstimate''',
-                            ) != null ? getJsonField(
-                            widget.servicecardInfo,
-                            r'''$.priceEstimate''',
-                          ).toString() : getJsonField(
-                            widget.servicecardInfo,
-                            r'''$.cost_estimate''',
-                          ).toString()} AED',
-                        textAlign: TextAlign.end,
-                        style: FlutterFlowTheme.of(context).bodySmall,
+                            ).toString() : getJsonField(
+                              widget.servicecardInfo,
+                              r'''$.cost_estimate''',
+                            ).toString()} AED',
+                          textAlign: TextAlign.end,
+                          style: FlutterFlowTheme.of(context).bodySmall,
+                        ),
                       ),
                     ],
                   ),
@@ -317,9 +321,9 @@ class _ServiceDetailWidgetState extends State<ServiceDetailWidget> {
                     ) ==
                     true)))
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 40.0),
                 child: Column(
-                  mainAxisSize: MainAxisSize.max,
+                  mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Row(

@@ -236,13 +236,17 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                         color: FlutterFlowTheme.of(context).primary,
                         size: 20.0,
                       ),
-                      Text(
-                        '${getJsonField(
-                          widget.productinfo,
-                          r'''$.price''',
-                        ).toString()} AED',
-                        textAlign: TextAlign.end,
-                        style: FlutterFlowTheme.of(context).bodySmall,
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          '${getJsonField(
+                            widget.productinfo,
+                            r'''$.price''',
+                          ).toString()} AED',
+                          textAlign: TextAlign.end,
+                          style: FlutterFlowTheme.of(context).bodySmall,
+                        ),
                       ),
                     ],
                   ),
@@ -283,9 +287,9 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                     ) ==
                     true)))
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 40.0),
                 child: Column(
-                  mainAxisSize: MainAxisSize.max,
+                  mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Row(

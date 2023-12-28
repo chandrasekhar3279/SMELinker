@@ -88,6 +88,7 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
         body: Container(
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondary,
+            borderRadius: BorderRadius.circular(0.0),
           ),
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 12.0),
