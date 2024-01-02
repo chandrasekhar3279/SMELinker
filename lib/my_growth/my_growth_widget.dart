@@ -276,7 +276,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                             r'''$.image''',
                                           ).toString()),
                                           r'''$.image''',
-                                        ).toString(),
+                                        )?.toString(),
                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                       ),
                                       fit: BoxFit.contain,
@@ -347,6 +347,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                           Align(
                             alignment: Alignment(0.0, 0),
                             child: TabBar(
+                              isScrollable: true,
                               labelColor: FlutterFlowTheme.of(context).primary,
                               unselectedLabelColor:
                                   FlutterFlowTheme.of(context).accent2,
@@ -805,7 +806,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                     r'''$.image''',
                                                                                                   ).toString()),
                                                                                                   r'''$.image''',
-                                                                                                ).toString(),
+                                                                                                )?.toString(),
                                                                                                 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                               ),
                                                                                               width: double.infinity,
@@ -1217,538 +1218,537 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                           final categoryItem =
                                                               category[
                                                                   categoryIndex];
-                                                          return Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        20.0),
-                                                            child: Container(
-                                                              decoration:
-                                                                  BoxDecoration(),
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            16.0,
-                                                                            12.0,
-                                                                            16.0,
-                                                                            12.0),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceBetween,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .center,
-                                                                      children: [
-                                                                        Expanded(
-                                                                          child:
-                                                                              Text(
-                                                                            getJsonField(
-                                                                              categoryItem,
-                                                                              r'''$.categoryTitle''',
-                                                                            ).toString(),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).titleLarge,
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                  Container(
-                                                                    width: double
-                                                                        .infinity,
-                                                                    height:
-                                                                        400.0,
-                                                                    decoration:
-                                                                        BoxDecoration(),
-                                                                    child:
-                                                                        Padding(
+                                                          return Visibility(
+                                                            visible:
+                                                                getJsonField(
+                                                                      categoryItem,
+                                                                      r'''$.growthCardViewList[:]''',
+                                                                    ) !=
+                                                                    null,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          20.0),
+                                                              child: Container(
+                                                                decoration:
+                                                                    BoxDecoration(),
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0),
+                                                                          12.0,
+                                                                          16.0,
+                                                                          12.0),
                                                                       child:
-                                                                          Builder(
-                                                                        builder:
-                                                                            (context) {
-                                                                          final growthCards =
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.center,
+                                                                        children: [
+                                                                          Expanded(
+                                                                            child:
+                                                                                Text(
                                                                               getJsonField(
-                                                                            categoryItem,
-                                                                            r'''$.growthCardViewList''',
-                                                                          ).toList();
-                                                                          return ListView
-                                                                              .builder(
-                                                                            padding:
-                                                                                EdgeInsets.zero,
-                                                                            scrollDirection:
-                                                                                Axis.horizontal,
-                                                                            itemCount:
-                                                                                growthCards.length,
-                                                                            itemBuilder:
-                                                                                (context, growthCardsIndex) {
-                                                                              final growthCardsItem = growthCards[growthCardsIndex];
-                                                                              return Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                                                                                child: InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    context.pushNamed(
-                                                                                      'GrowthCardDetail',
-                                                                                      queryParameters: {
-                                                                                        'growthCardInfo': serializeParam(
-                                                                                          growthCardsItem,
-                                                                                          ParamType.JSON,
+                                                                                categoryItem,
+                                                                                r'''$.categoryTitle''',
+                                                                              ).toString(),
+                                                                              style: FlutterFlowTheme.of(context).titleLarge,
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    Container(
+                                                                      width: double
+                                                                          .infinity,
+                                                                      height:
+                                                                          400.0,
+                                                                      decoration:
+                                                                          BoxDecoration(),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            16.0,
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Builder(
+                                                                          builder:
+                                                                              (context) {
+                                                                            final growthCards =
+                                                                                getJsonField(
+                                                                              categoryItem,
+                                                                              r'''$.growthCardViewList''',
+                                                                            ).toList();
+                                                                            return ListView.builder(
+                                                                              padding: EdgeInsets.zero,
+                                                                              scrollDirection: Axis.horizontal,
+                                                                              itemCount: growthCards.length,
+                                                                              itemBuilder: (context, growthCardsIndex) {
+                                                                                final growthCardsItem = growthCards[growthCardsIndex];
+                                                                                return Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                                  child: InkWell(
+                                                                                    splashColor: Colors.transparent,
+                                                                                    focusColor: Colors.transparent,
+                                                                                    hoverColor: Colors.transparent,
+                                                                                    highlightColor: Colors.transparent,
+                                                                                    onTap: () async {
+                                                                                      context.pushNamed(
+                                                                                        'GrowthCardDetail',
+                                                                                        queryParameters: {
+                                                                                          'growthCardInfo': serializeParam(
+                                                                                            growthCardsItem,
+                                                                                            ParamType.JSON,
+                                                                                          ),
+                                                                                        }.withoutNulls,
+                                                                                      );
+                                                                                    },
+                                                                                    child: Container(
+                                                                                      width: 264.0,
+                                                                                      height: 100.0,
+                                                                                      decoration: BoxDecoration(
+                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                        borderRadius: BorderRadius.circular(8.0),
+                                                                                        border: Border.all(
+                                                                                          color: Color(0xFFCBCBCB),
+                                                                                          width: 1.0,
                                                                                         ),
-                                                                                      }.withoutNulls,
-                                                                                    );
-                                                                                  },
-                                                                                  child: Container(
-                                                                                    width: 264.0,
-                                                                                    height: 100.0,
-                                                                                    decoration: BoxDecoration(
-                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                      borderRadius: BorderRadius.circular(8.0),
-                                                                                      border: Border.all(
-                                                                                        color: Color(0xFFCBCBCB),
-                                                                                        width: 1.0,
                                                                                       ),
-                                                                                    ),
-                                                                                    child: Padding(
-                                                                                      padding: EdgeInsets.all(12.0),
-                                                                                      child: Column(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                        children: [
-                                                                                          Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            children: [
-                                                                                              Expanded(
-                                                                                                child: Text(
-                                                                                                  getJsonField(
-                                                                                                    growthCardsItem,
-                                                                                                    r'''$.growthCardTitle''',
-                                                                                                  ).toString(),
-                                                                                                  maxLines: 2,
-                                                                                                  style: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                                        fontFamily: 'Roboto',
-                                                                                                        lineHeight: 1.4,
-                                                                                                      ),
+                                                                                      child: Padding(
+                                                                                        padding: EdgeInsets.all(12.0),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                          children: [
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                Expanded(
+                                                                                                  child: Text(
+                                                                                                    getJsonField(
+                                                                                                      growthCardsItem,
+                                                                                                      r'''$.growthCardTitle''',
+                                                                                                    ).toString(),
+                                                                                                    maxLines: 2,
+                                                                                                    style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                                          fontFamily: 'Roboto',
+                                                                                                          lineHeight: 1.4,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                            Container(
+                                                                                              width: double.infinity,
+                                                                                              height: 124.0,
+                                                                                              decoration: BoxDecoration(
+                                                                                                border: Border.all(
+                                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                  width: 1.0,
                                                                                                 ),
                                                                                               ),
-                                                                                            ],
-                                                                                          ),
-                                                                                          Container(
-                                                                                            width: double.infinity,
-                                                                                            height: 124.0,
-                                                                                            decoration: BoxDecoration(
-                                                                                              border: Border.all(
-                                                                                                color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                width: 1.0,
-                                                                                              ),
-                                                                                            ),
-                                                                                            child: Image.network(
-                                                                                              valueOrDefault<String>(
-                                                                                                getJsonField(
-                                                                                                  functions.image(getJsonField(
-                                                                                                    growthCardsItem,
+                                                                                              child: Image.network(
+                                                                                                valueOrDefault<String>(
+                                                                                                  getJsonField(
+                                                                                                    functions.image(getJsonField(
+                                                                                                      growthCardsItem,
+                                                                                                      r'''$.image''',
+                                                                                                    ).toString()),
                                                                                                     r'''$.image''',
-                                                                                                  ).toString()),
-                                                                                                  r'''$.image''',
-                                                                                                ).toString(),
-                                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                                  )?.toString(),
+                                                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                                ),
+                                                                                                width: double.infinity,
+                                                                                                height: double.infinity,
+                                                                                                fit: BoxFit.contain,
                                                                                               ),
-                                                                                              width: double.infinity,
-                                                                                              height: double.infinity,
-                                                                                              fit: BoxFit.contain,
                                                                                             ),
-                                                                                          ),
-                                                                                          Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            children: [
-                                                                                              if (getJsonField(
-                                                                                                    growthCardsItem,
-                                                                                                    r'''$.growthPartnerLogo''',
-                                                                                                  ) !=
-                                                                                                  null)
-                                                                                                Container(
-                                                                                                  width: 40.0,
-                                                                                                  height: 40.0,
-                                                                                                  decoration: BoxDecoration(
-                                                                                                    shape: BoxShape.circle,
-                                                                                                    border: Border.all(
-                                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                                      width: 1.0,
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                  child: Container(
-                                                                                                    clipBehavior: Clip.antiAlias,
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                if (getJsonField(
+                                                                                                      growthCardsItem,
+                                                                                                      r'''$.growthPartnerLogo''',
+                                                                                                    ) !=
+                                                                                                    null)
+                                                                                                  Container(
+                                                                                                    width: 40.0,
+                                                                                                    height: 40.0,
                                                                                                     decoration: BoxDecoration(
                                                                                                       shape: BoxShape.circle,
-                                                                                                    ),
-                                                                                                    child: Image.network(
-                                                                                                      getJsonField(
-                                                                                                        functions.image(getJsonField(
-                                                                                                          growthCardsItem,
-                                                                                                          r'''$.growthPartnerLogo''',
-                                                                                                        ).toString()),
-                                                                                                        r'''$.image''',
-                                                                                                      ).toString(),
-                                                                                                      fit: BoxFit.contain,
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              if (getJsonField(
-                                                                                                    growthCardsItem,
-                                                                                                    r'''$.growthPartnerLogo''',
-                                                                                                  ) ==
-                                                                                                  null)
-                                                                                                Container(
-                                                                                                  width: 40.0,
-                                                                                                  height: 40.0,
-                                                                                                  decoration: BoxDecoration(
-                                                                                                    color: Color(0xFFFA6400),
-                                                                                                    shape: BoxShape.circle,
-                                                                                                  ),
-                                                                                                  child: Row(
-                                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                                                                    children: [
-                                                                                                      Text(
-                                                                                                        functions.profilePicName(getJsonField(
-                                                                                                          growthCardsItem,
-                                                                                                          r'''$.growthPartnerName''',
-                                                                                                        ).toString()),
-                                                                                                        textAlign: TextAlign.center,
-                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                              fontFamily: 'Roboto',
-                                                                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                                                                            ),
+                                                                                                      border: Border.all(
+                                                                                                        color: FlutterFlowTheme.of(context).primary,
+                                                                                                        width: 1.0,
                                                                                                       ),
-                                                                                                    ],
+                                                                                                    ),
+                                                                                                    child: Container(
+                                                                                                      clipBehavior: Clip.antiAlias,
+                                                                                                      decoration: BoxDecoration(
+                                                                                                        shape: BoxShape.circle,
+                                                                                                      ),
+                                                                                                      child: Image.network(
+                                                                                                        getJsonField(
+                                                                                                          functions.image(getJsonField(
+                                                                                                            growthCardsItem,
+                                                                                                            r'''$.growthPartnerLogo''',
+                                                                                                          ).toString()),
+                                                                                                          r'''$.image''',
+                                                                                                        ).toString(),
+                                                                                                        fit: BoxFit.contain,
+                                                                                                      ),
+                                                                                                    ),
                                                                                                   ),
-                                                                                                ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                                child: Text(
-                                                                                                  getJsonField(
-                                                                                                    growthCardsItem,
-                                                                                                    r'''$.growthPartnerName''',
-                                                                                                  ).toString(),
-                                                                                                  style: FlutterFlowTheme.of(context).labelMedium,
-                                                                                                ),
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
-                                                                                          Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                            children: [
-                                                                                              Row(
-                                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                                crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                                children: [
-                                                                                                  Icon(
-                                                                                                    Icons.payments_outlined,
-                                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                                    size: 16.0,
-                                                                                                  ),
-                                                                                                  Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                                    child: Column(
+                                                                                                if (getJsonField(
+                                                                                                      growthCardsItem,
+                                                                                                      r'''$.growthPartnerLogo''',
+                                                                                                    ) ==
+                                                                                                    null)
+                                                                                                  Container(
+                                                                                                    width: 40.0,
+                                                                                                    height: 40.0,
+                                                                                                    decoration: BoxDecoration(
+                                                                                                      color: Color(0xFFFA6400),
+                                                                                                      shape: BoxShape.circle,
+                                                                                                    ),
+                                                                                                    child: Row(
                                                                                                       mainAxisSize: MainAxisSize.max,
-                                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                      mainAxisAlignment: MainAxisAlignment.center,
                                                                                                       children: [
                                                                                                         Text(
-                                                                                                          getJsonField(
+                                                                                                          functions.profilePicName(getJsonField(
                                                                                                             growthCardsItem,
-                                                                                                            r'''$.costEstimate''',
-                                                                                                          ).toString(),
-                                                                                                          style: FlutterFlowTheme.of(context).bodySmall,
-                                                                                                        ),
-                                                                                                        Text(
-                                                                                                          'AED',
-                                                                                                          style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                            r'''$.growthPartnerName''',
+                                                                                                          ).toString()),
+                                                                                                          textAlign: TextAlign.center,
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                fontFamily: 'Roboto',
+                                                                                                                color: FlutterFlowTheme.of(context).secondary,
+                                                                                                              ),
                                                                                                         ),
                                                                                                       ],
                                                                                                     ),
                                                                                                   ),
-                                                                                                ],
-                                                                                              ),
-                                                                                              Row(
-                                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                                children: [
-                                                                                                  Icon(
-                                                                                                    Icons.calendar_today_rounded,
-                                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                                    size: 16.0,
+                                                                                                Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                                  child: Text(
+                                                                                                    getJsonField(
+                                                                                                      growthCardsItem,
+                                                                                                      r'''$.growthPartnerName''',
+                                                                                                    ).toString(),
+                                                                                                    style: FlutterFlowTheme.of(context).labelMedium,
                                                                                                   ),
-                                                                                                  Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                                    child: Text(
-                                                                                                      getJsonField(
-                                                                                                        growthCardsItem,
-                                                                                                        r'''$.timeEstimate''',
-                                                                                                      ).toString(),
-                                                                                                      style: FlutterFlowTheme.of(context).bodySmall,
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
-                                                                                          if (getJsonField(
-                                                                                                growthCardsItem,
-                                                                                                r'''$.groupsData[:]''',
-                                                                                              ) !=
-                                                                                              null)
-                                                                                            Builder(
-                                                                                              builder: (context) {
-                                                                                                final gropsist = getJsonField(
-                                                                                                  growthCardsItem,
-                                                                                                  r'''$.groupsData[:]''',
-                                                                                                ).toList();
-                                                                                                return Row(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  children: List.generate(gropsist.length, (gropsistIndex) {
-                                                                                                    final gropsistItem = gropsist[gropsistIndex];
-                                                                                                    return Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
-                                                                                                      child: AlignedTooltip(
-                                                                                                        content: Padding(
-                                                                                                            padding: EdgeInsets.all(4.0),
-                                                                                                            child: Text(
-                                                                                                              getJsonField(
-                                                                                                                gropsistItem,
-                                                                                                                r'''$.groupName''',
-                                                                                                              ).toString(),
-                                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
-                                                                                                            )),
-                                                                                                        offset: 4.0,
-                                                                                                        preferredDirection: AxisDirection.up,
-                                                                                                        borderRadius: BorderRadius.circular(8.0),
-                                                                                                        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                        elevation: 4.0,
-                                                                                                        tailBaseWidth: 24.0,
-                                                                                                        tailLength: 12.0,
-                                                                                                        waitDuration: Duration(milliseconds: 100),
-                                                                                                        showDuration: Duration(milliseconds: 800),
-                                                                                                        triggerMode: TooltipTriggerMode.tap,
-                                                                                                        child: Container(
-                                                                                                          width: 35.0,
-                                                                                                          height: 35.0,
-                                                                                                          decoration: BoxDecoration(
-                                                                                                            shape: BoxShape.circle,
-                                                                                                            border: Border.all(
-                                                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                                                              width: 1.0,
-                                                                                                            ),
-                                                                                                          ),
-                                                                                                          child: Padding(
-                                                                                                            padding: EdgeInsets.all(1.0),
-                                                                                                            child: Container(
-                                                                                                              clipBehavior: Clip.antiAlias,
-                                                                                                              decoration: BoxDecoration(
-                                                                                                                shape: BoxShape.circle,
-                                                                                                              ),
-                                                                                                              child: Image.network(
-                                                                                                                getJsonField(
-                                                                                                                  functions.image(getJsonField(
-                                                                                                                    gropsistItem,
-                                                                                                                    r'''$.groupImg''',
-                                                                                                                  ).toString()),
-                                                                                                                  r'''$.image''',
-                                                                                                                ).toString(),
-                                                                                                                fit: BoxFit.cover,
-                                                                                                              ),
-                                                                                                            ),
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                    );
-                                                                                                  }),
-                                                                                                );
-                                                                                              },
-                                                                                            ),
-                                                                                          Row(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                            children: [
-                                                                                              InkWell(
-                                                                                                splashColor: Colors.transparent,
-                                                                                                focusColor: Colors.transparent,
-                                                                                                hoverColor: Colors.transparent,
-                                                                                                highlightColor: Colors.transparent,
-                                                                                                onTap: () async {
-                                                                                                  context.pushNamed(
-                                                                                                    'GrowthCardDetail',
-                                                                                                    queryParameters: {
-                                                                                                      'growthCardInfo': serializeParam(
-                                                                                                        growthCardsItem,
-                                                                                                        ParamType.JSON,
-                                                                                                      ),
-                                                                                                    }.withoutNulls,
-                                                                                                  );
-                                                                                                },
-                                                                                                child: Text(
-                                                                                                  'View Details',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        fontFamily: 'Roboto',
-                                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                                      ),
                                                                                                 ),
-                                                                                              ),
-                                                                                              Column(
-                                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                                children: [
-                                                                                                  if (getJsonField(
-                                                                                                        growthCardsItem,
-                                                                                                        r'''$.booked''',
-                                                                                                      ) ==
-                                                                                                      false)
-                                                                                                    InkWell(
-                                                                                                      splashColor: Colors.transparent,
-                                                                                                      focusColor: Colors.transparent,
-                                                                                                      hoverColor: Colors.transparent,
-                                                                                                      highlightColor: Colors.transparent,
-                                                                                                      onTap: () async {
-                                                                                                        _model.featuredServiceRes = await SmeGroup.bookServiceCall.call(
-                                                                                                          accessToken: FFAppState().accessToken,
-                                                                                                          serviceId: getJsonField(
-                                                                                                            growthCardsItem,
-                                                                                                            r'''$.growthCardId''',
-                                                                                                          ),
-                                                                                                        );
-                                                                                                        if ((_model.featuredServiceRes?.succeeded ?? true)) {
-                                                                                                          await showDialog(
-                                                                                                            context: context,
-                                                                                                            builder: (alertDialogContext) {
-                                                                                                              return WebViewAware(
-                                                                                                                  child: AlertDialog(
-                                                                                                                title: Text('Success'),
-                                                                                                                content: Text('Your request sent successfully'),
-                                                                                                                actions: [
-                                                                                                                  TextButton(
-                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                    child: Text('Ok'),
-                                                                                                                  ),
-                                                                                                                ],
-                                                                                                              ));
-                                                                                                            },
-                                                                                                          );
-                                                                                                          setState(() => _model.apiRequestCompleter = null);
-                                                                                                          await _model.waitForApiRequestCompleted();
-                                                                                                        } else {
-                                                                                                          await showDialog(
-                                                                                                            context: context,
-                                                                                                            builder: (alertDialogContext) {
-                                                                                                              return WebViewAware(
-                                                                                                                  child: AlertDialog(
-                                                                                                                title: Text('Error'),
-                                                                                                                content: Text('Something went wrong!'),
-                                                                                                                actions: [
-                                                                                                                  TextButton(
-                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                    child: Text('Ok'),
-                                                                                                                  ),
-                                                                                                                ],
-                                                                                                              ));
-                                                                                                            },
-                                                                                                          );
-                                                                                                        }
-
-                                                                                                        setState(() {});
-                                                                                                      },
-                                                                                                      child: Container(
-                                                                                                        decoration: BoxDecoration(
-                                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                                          borderRadius: BorderRadius.circular(100.0),
-                                                                                                        ),
-                                                                                                        child: Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(12.0, 6.0, 12.0, 6.0),
-                                                                                                          child: Row(
-                                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                                            children: [
-                                                                                                              Icon(
-                                                                                                                Icons.message,
-                                                                                                                color: Colors.white,
-                                                                                                                size: 14.0,
-                                                                                                              ),
-                                                                                                              Padding(
-                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                                                child: Text(
-                                                                                                                  'I\'m interested',
-                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                        fontFamily: 'Roboto',
-                                                                                                                        color: FlutterFlowTheme.of(context).secondary,
-                                                                                                                      ),
-                                                                                                                ),
-                                                                                                              ),
-                                                                                                            ],
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                      ),
+                                                                                              ],
+                                                                                            ),
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                              children: [
+                                                                                                Row(
+                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                                  children: [
+                                                                                                    Icon(
+                                                                                                      Icons.payments_outlined,
+                                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                                      size: 16.0,
                                                                                                     ),
-                                                                                                  if (getJsonField(
-                                                                                                        growthCardsItem,
-                                                                                                        r'''$.booked''',
-                                                                                                      ) ==
-                                                                                                      true)
-                                                                                                    Container(
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                      ),
-                                                                                                      child: Row(
+                                                                                                    Padding(
+                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                                      child: Column(
                                                                                                         mainAxisSize: MainAxisSize.max,
-                                                                                                        mainAxisAlignment: MainAxisAlignment.end,
+                                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
                                                                                                         children: [
-                                                                                                          FaIcon(
-                                                                                                            FontAwesomeIcons.solidCheckCircle,
-                                                                                                            color: Color(0xFF67CB45),
-                                                                                                            size: 16.0,
+                                                                                                          Text(
+                                                                                                            getJsonField(
+                                                                                                              growthCardsItem,
+                                                                                                              r'''$.costEstimate''',
+                                                                                                            ).toString(),
+                                                                                                            style: FlutterFlowTheme.of(context).bodySmall,
                                                                                                           ),
-                                                                                                          Padding(
-                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                                            child: Text(
-                                                                                                              'Booked',
-                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                                            ),
+                                                                                                          Text(
+                                                                                                            'AED',
+                                                                                                            style: FlutterFlowTheme.of(context).bodySmall,
                                                                                                           ),
                                                                                                         ],
                                                                                                       ),
                                                                                                     ),
-                                                                                                ],
+                                                                                                  ],
+                                                                                                ),
+                                                                                                Row(
+                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                  children: [
+                                                                                                    Icon(
+                                                                                                      Icons.calendar_today_rounded,
+                                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                                      size: 16.0,
+                                                                                                    ),
+                                                                                                    Padding(
+                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                                      child: Text(
+                                                                                                        getJsonField(
+                                                                                                          growthCardsItem,
+                                                                                                          r'''$.timeEstimate''',
+                                                                                                        ).toString(),
+                                                                                                        style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  ],
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                            if (getJsonField(
+                                                                                                  growthCardsItem,
+                                                                                                  r'''$.groupsData[:]''',
+                                                                                                ) !=
+                                                                                                null)
+                                                                                              Builder(
+                                                                                                builder: (context) {
+                                                                                                  final gropsist = getJsonField(
+                                                                                                    growthCardsItem,
+                                                                                                    r'''$.groupsData[:]''',
+                                                                                                  ).toList();
+                                                                                                  return Row(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    children: List.generate(gropsist.length, (gropsistIndex) {
+                                                                                                      final gropsistItem = gropsist[gropsistIndex];
+                                                                                                      return Padding(
+                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
+                                                                                                        child: AlignedTooltip(
+                                                                                                          content: Padding(
+                                                                                                              padding: EdgeInsets.all(4.0),
+                                                                                                              child: Text(
+                                                                                                                getJsonField(
+                                                                                                                  gropsistItem,
+                                                                                                                  r'''$.groupName''',
+                                                                                                                ).toString(),
+                                                                                                                style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                              )),
+                                                                                                          offset: 4.0,
+                                                                                                          preferredDirection: AxisDirection.up,
+                                                                                                          borderRadius: BorderRadius.circular(8.0),
+                                                                                                          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                          elevation: 4.0,
+                                                                                                          tailBaseWidth: 24.0,
+                                                                                                          tailLength: 12.0,
+                                                                                                          waitDuration: Duration(milliseconds: 100),
+                                                                                                          showDuration: Duration(milliseconds: 800),
+                                                                                                          triggerMode: TooltipTriggerMode.tap,
+                                                                                                          child: Container(
+                                                                                                            width: 35.0,
+                                                                                                            height: 35.0,
+                                                                                                            decoration: BoxDecoration(
+                                                                                                              shape: BoxShape.circle,
+                                                                                                              border: Border.all(
+                                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                                                width: 1.0,
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                            child: Padding(
+                                                                                                              padding: EdgeInsets.all(1.0),
+                                                                                                              child: Container(
+                                                                                                                clipBehavior: Clip.antiAlias,
+                                                                                                                decoration: BoxDecoration(
+                                                                                                                  shape: BoxShape.circle,
+                                                                                                                ),
+                                                                                                                child: Image.network(
+                                                                                                                  getJsonField(
+                                                                                                                    functions.image(getJsonField(
+                                                                                                                      gropsistItem,
+                                                                                                                      r'''$.groupImg''',
+                                                                                                                    ).toString()),
+                                                                                                                    r'''$.image''',
+                                                                                                                  ).toString(),
+                                                                                                                  fit: BoxFit.cover,
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                      );
+                                                                                                    }),
+                                                                                                  );
+                                                                                                },
                                                                                               ),
-                                                                                            ],
-                                                                                          ),
-                                                                                        ].divide(SizedBox(height: 4.0)).around(SizedBox(height: 4.0)),
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                              children: [
+                                                                                                InkWell(
+                                                                                                  splashColor: Colors.transparent,
+                                                                                                  focusColor: Colors.transparent,
+                                                                                                  hoverColor: Colors.transparent,
+                                                                                                  highlightColor: Colors.transparent,
+                                                                                                  onTap: () async {
+                                                                                                    context.pushNamed(
+                                                                                                      'GrowthCardDetail',
+                                                                                                      queryParameters: {
+                                                                                                        'growthCardInfo': serializeParam(
+                                                                                                          growthCardsItem,
+                                                                                                          ParamType.JSON,
+                                                                                                        ),
+                                                                                                      }.withoutNulls,
+                                                                                                    );
+                                                                                                  },
+                                                                                                  child: Text(
+                                                                                                    'View Details',
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          fontFamily: 'Roboto',
+                                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                                Column(
+                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                  children: [
+                                                                                                    if (getJsonField(
+                                                                                                          growthCardsItem,
+                                                                                                          r'''$.booked''',
+                                                                                                        ) ==
+                                                                                                        false)
+                                                                                                      InkWell(
+                                                                                                        splashColor: Colors.transparent,
+                                                                                                        focusColor: Colors.transparent,
+                                                                                                        hoverColor: Colors.transparent,
+                                                                                                        highlightColor: Colors.transparent,
+                                                                                                        onTap: () async {
+                                                                                                          _model.featuredServiceRes = await SmeGroup.bookServiceCall.call(
+                                                                                                            accessToken: FFAppState().accessToken,
+                                                                                                            serviceId: getJsonField(
+                                                                                                              growthCardsItem,
+                                                                                                              r'''$.growthCardId''',
+                                                                                                            ),
+                                                                                                          );
+                                                                                                          if ((_model.featuredServiceRes?.succeeded ?? true)) {
+                                                                                                            await showDialog(
+                                                                                                              context: context,
+                                                                                                              builder: (alertDialogContext) {
+                                                                                                                return WebViewAware(
+                                                                                                                    child: AlertDialog(
+                                                                                                                  title: Text('Success'),
+                                                                                                                  content: Text('Your request sent successfully'),
+                                                                                                                  actions: [
+                                                                                                                    TextButton(
+                                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                      child: Text('Ok'),
+                                                                                                                    ),
+                                                                                                                  ],
+                                                                                                                ));
+                                                                                                              },
+                                                                                                            );
+                                                                                                            setState(() => _model.apiRequestCompleter = null);
+                                                                                                            await _model.waitForApiRequestCompleted();
+                                                                                                          } else {
+                                                                                                            await showDialog(
+                                                                                                              context: context,
+                                                                                                              builder: (alertDialogContext) {
+                                                                                                                return WebViewAware(
+                                                                                                                    child: AlertDialog(
+                                                                                                                  title: Text('Error'),
+                                                                                                                  content: Text('Something went wrong!'),
+                                                                                                                  actions: [
+                                                                                                                    TextButton(
+                                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                      child: Text('Ok'),
+                                                                                                                    ),
+                                                                                                                  ],
+                                                                                                                ));
+                                                                                                              },
+                                                                                                            );
+                                                                                                          }
+
+                                                                                                          setState(() {});
+                                                                                                        },
+                                                                                                        child: Container(
+                                                                                                          decoration: BoxDecoration(
+                                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                                            borderRadius: BorderRadius.circular(100.0),
+                                                                                                          ),
+                                                                                                          child: Padding(
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(12.0, 6.0, 12.0, 6.0),
+                                                                                                            child: Row(
+                                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                                              children: [
+                                                                                                                Icon(
+                                                                                                                  Icons.message,
+                                                                                                                  color: Colors.white,
+                                                                                                                  size: 14.0,
+                                                                                                                ),
+                                                                                                                Padding(
+                                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                                                  child: Text(
+                                                                                                                    'I\'m interested',
+                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                          fontFamily: 'Roboto',
+                                                                                                                          color: FlutterFlowTheme.of(context).secondary,
+                                                                                                                        ),
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                              ],
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                    if (getJsonField(
+                                                                                                          growthCardsItem,
+                                                                                                          r'''$.booked''',
+                                                                                                        ) ==
+                                                                                                        true)
+                                                                                                      Container(
+                                                                                                        decoration: BoxDecoration(
+                                                                                                          color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                        ),
+                                                                                                        child: Row(
+                                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                                          mainAxisAlignment: MainAxisAlignment.end,
+                                                                                                          children: [
+                                                                                                            FaIcon(
+                                                                                                              FontAwesomeIcons.solidCheckCircle,
+                                                                                                              color: Color(0xFF67CB45),
+                                                                                                              size: 16.0,
+                                                                                                            ),
+                                                                                                            Padding(
+                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                                              child: Text(
+                                                                                                                'Booked',
+                                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                          ],
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                  ],
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ].divide(SizedBox(height: 4.0)).around(SizedBox(height: 4.0)),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ),
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          );
-                                                                        },
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                          },
+                                                                        ),
                                                                       ),
                                                                     ),
-                                                                  ),
-                                                                ],
+                                                                  ],
+                                                                ),
                                                               ),
                                                             ),
                                                           );
@@ -2817,7 +2817,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                             getJsonField(
                                                                                               dataItem,
                                                                                               r'''$.partners[:].logo''',
-                                                                                            ).toString(),
+                                                                                            )?.toString(),
                                                                                             'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                           ),
                                                                                           fit: BoxFit.contain,

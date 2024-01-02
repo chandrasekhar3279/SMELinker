@@ -416,7 +416,7 @@ class _BrowseEnterprenursWidgetState extends State<BrowseEnterprenursWidget> {
                                                                         getJsonField(
                                                                           searchedItem,
                                                                           r'''$.about''',
-                                                                        ).toString(),
+                                                                        )?.toString(),
                                                                         'N/A',
                                                                       )
                                                                     : '',

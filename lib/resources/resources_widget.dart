@@ -293,7 +293,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                     getJsonField(
                                                       contentItem,
                                                       r'''$.description''',
-                                                    ).toString(),
+                                                    )?.toString(),
                                                     'N/A',
                                                   ),
                                                   style: FlutterFlowTheme.of(
@@ -341,7 +341,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                           r'''$.companyLogo''',
                                                         ).toString()),
                                                         r'''$.image''',
-                                                      ).toString(),
+                                                      )?.toString(),
                                                       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                     ),
                                                     fit: BoxFit.contain,
@@ -358,7 +358,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                       getJsonField(
                                                         contentItem,
                                                         r'''$.resourceCompanyName''',
-                                                      ).toString(),
+                                                      )?.toString(),
                                                       'N/A',
                                                     ),
                                                     style: FlutterFlowTheme.of(

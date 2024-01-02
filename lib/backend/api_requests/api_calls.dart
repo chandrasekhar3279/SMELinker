@@ -262,6 +262,8 @@ class SmeGroup {
   static GetGroupBannerCall getGroupBannerCall = GetGroupBannerCall();
   static GetGroupDetailsCall getGroupDetailsCall = GetGroupDetailsCall();
   static LeaveGroupCall leaveGroupCall = LeaveGroupCall();
+  static GetGCDetailByIdCall getGCDetailByIdCall = GetGCDetailByIdCall();
+  static GetFeedDetailsCall getFeedDetailsCall = GetFeedDetailsCall();
 }
 
 class LoginAuthenticationCall {
@@ -4880,6 +4882,70 @@ class LeaveGroupCall {
       alwaysAllowBody: false,
     );
   }
+}
+
+class GetGCDetailByIdCall {
+  Future<ApiCallResponse> call({
+    int? gcId,
+    String? accessToken = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getGCDetailById',
+      apiUrl: '${SmeGroup.baseUrl}/growth-cards/getGCDetailById',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ${accessToken}',
+      },
+      params: {
+        'gcId': gcId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? groupsData(dynamic response) => getJsonField(
+        response,
+        r'''$.groupsData''',
+        true,
+      ) as List?;
+}
+
+class GetFeedDetailsCall {
+  Future<ApiCallResponse> call({
+    int? feedId,
+    String? accessToken = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getFeedDetails',
+      apiUrl: '${SmeGroup.baseUrl}/feed/getFeedDetails',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${accessToken}',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      params: {
+        'feedId': feedId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? groupsData(dynamic response) => getJsonField(
+        response,
+        r'''$.feed[:].groupsData''',
+        true,
+      ) as List?;
 }
 
 /// End SME Group Code

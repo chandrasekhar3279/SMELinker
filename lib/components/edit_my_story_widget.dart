@@ -51,7 +51,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
               getJsonField(
                 widget.myStory,
                 r'''$.pastTitle''',
-              ).toString().toString(),
+              )?.toString()?.toString(),
               'N/A',
             ),
       'N/A',
@@ -69,7 +69,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                 getJsonField(
                   widget.myStory,
                   r'''$.past''',
-                ).toString().toString(),
+                )?.toString()?.toString(),
                 'N/A',
               ));
     _model.pastDescFocusNode ??= FocusNode();
@@ -99,7 +99,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
               getJsonField(
                 widget.myStory,
                 r'''$.now''',
-              ).toString().toString(),
+              )?.toString()?.toString(),
               'N/A',
             ),
       'N/A',
@@ -118,7 +118,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
               getJsonField(
                 widget.myStory,
                 r'''$.futureTitle''',
-              ).toString().toString(),
+              )?.toString()?.toString(),
               'N/A',
             ),
       'N/A',
@@ -137,7 +137,7 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
               getJsonField(
                 widget.myStory,
                 r'''$.future''',
-              ).toString().toString(),
+              )?.toString()?.toString(),
               'N/A',
             ),
       'N/A',

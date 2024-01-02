@@ -121,7 +121,7 @@ class _ForumAnswerWidgetState extends State<ForumAnswerWidget> {
                                 r'''$.logo''',
                               ).toString()),
                               r'''$.image''',
-                            ).toString(),
+                            )?.toString(),
                             'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                           ),
                           fit: BoxFit.contain,

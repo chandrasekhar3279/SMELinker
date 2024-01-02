@@ -964,7 +964,10 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                     ParamType.JSON,
                                                   ),
                                                   'feedId': serializeParam(
-                                                    0,
+                                                    getJsonField(
+                                                      newsfeedPostsItem,
+                                                      r'''$.id''',
+                                                    ),
                                                     ParamType.int,
                                                   ),
                                                 }.withoutNulls,

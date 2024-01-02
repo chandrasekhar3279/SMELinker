@@ -213,7 +213,7 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                           r'''$.image''',
                                         ).toString()),
                                         r'''$.image''',
-                                      ).toString(),
+                                      )?.toString(),
                                       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                     ),
                                     fit: BoxFit.contain,
@@ -274,1850 +274,1514 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
             ),
             body: SafeArea(
               top: true,
-              child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  FFAppState().showFeedCommentActions = true;
-                },
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(4.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            FlutterFlowIconButton(
-                              borderColor: Colors.transparent,
-                              borderRadius: 30.0,
-                              borderWidth: 1.0,
-                              buttonSize: 40.0,
-                              icon: Icon(
-                                Icons.arrow_back,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 20.0,
-                              ),
-                              onPressed: () async {
-                                setState(() {
-                                  _model.submittedCommentForm = false;
-                                });
-                                FFAppState().showFeedCommentActions = false;
-                                context.safePop();
-                              },
-                            ),
-                          ],
+              child: FutureBuilder<ApiCallResponse>(
+                future: SmeGroup.getFeedDetailsCall.call(
+                  feedId: widget.feedId,
+                  accessToken: FFAppState().accessToken,
+                ),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 50.0,
+                        height: 50.0,
+                        child: SpinKitFadingCircle(
+                          color: FlutterFlowTheme.of(context).secondary,
+                          size: 50.0,
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 8.0, 16.0, 16.0),
-                        child: FutureBuilder<ApiCallResponse>(
-                          future: SmeGroup.getFollowersCall.call(
-                            pageNumber: 0,
-                            pageSize: 100,
-                            accessToken: FFAppState().accessToken,
-                            sortBy: getJsonField(
-                              widget.feedDetail,
-                              r'''$.companyName''',
-                            ).toString(),
-                          ),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  child: SpinKitFadingCircle(
-                                    color:
-                                        FlutterFlowTheme.of(context).secondary,
-                                    size: 50.0,
-                                  ),
-                                ),
-                              );
-                            }
-                            final rowGetFollowersResponse = snapshot.data!;
-                            return InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'CompanyDetailsPage',
-                                  queryParameters: {
-                                    'userId': serializeParam(
-                                      getJsonField(
-                                        widget.feedDetail,
-                                        r'''$.companyId''',
-                                      ),
-                                      ParamType.int,
-                                    ),
-                                  }.withoutNulls,
-                                );
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  if ((getJsonField(
-                                            widget.feedDetail,
-                                            r'''$.companyLogo''',
-                                          ) !=
-                                          null) &&
-                                      (getJsonField(
-                                            widget.feedDetail,
-                                            r'''$.companyLogo''',
-                                          ) !=
-                                          ''))
-                                    Container(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          width: 1.0,
-                                        ),
-                                      ),
-                                      child: Container(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Image.network(
-                                          valueOrDefault<String>(
-                                            getJsonField(
-                                              functions.image(getJsonField(
-                                                widget.feedDetail,
-                                                r'''$.companyLogo''',
-                                              ).toString()),
-                                              r'''$.image''',
-                                            ).toString(),
-                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
-                                          ),
-                                          fit: BoxFit.contain,
-                                        ),
-                                      ),
-                                    ),
-                                  if ((getJsonField(
-                                            widget.feedDetail,
-                                            r'''$.companyLogo''',
-                                          ) ==
-                                          null) ||
-                                      (getJsonField(
-                                            widget.feedDetail,
-                                            r'''$.companyLogo''',
-                                          ) ==
-                                          ''))
-                                    Container(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFFA6400),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            functions
-                                                .profilePicName(getJsonField(
-                                              widget.feedDetail,
-                                              r'''$.companyName''',
-                                            ).toString()),
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .titleLarge
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondary,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 0.0, 0.0),
-                                      child: FutureBuilder<ApiCallResponse>(
-                                        future: SmeGroup.getFollowersCall.call(
-                                          pageNumber: 0,
-                                          pageSize: 100,
-                                          accessToken: FFAppState().accessToken,
-                                          sortBy: getJsonField(
-                                            widget.feedDetail,
-                                            r'''$.companyName''',
-                                          ).toString(),
-                                        ),
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                child: SpinKitFadingCircle(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondary,
-                                                  size: 50.0,
-                                                ),
-                                              ),
-                                            );
-                                          }
-                                          final columnGetFollowersResponse =
-                                              snapshot.data!;
-                                          return Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Flexible(
-                                                    child: Text(
-                                                      valueOrDefault<String>(
-                                                        getJsonField(
-                                                          widget.feedDetail,
-                                                          r'''$.companyName''',
-                                                        ).toString(),
-                                                        'N/A',
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleLarge,
-                                                    ),
-                                                  ),
-                                                  if (getJsonField(
-                                                        widget.feedDetail,
-                                                        r'''$.verifiedCompany''',
-                                                      ) ==
-                                                      true)
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Icon(
-                                                        Icons.verified,
-                                                        color:
-                                                            Color(0xFF5191FF),
-                                                        size: 22.0,
-                                                      ),
-                                                    ),
-                                                ],
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 4.0, 0.0, 8.0),
-                                                child: Text(
-                                                  getJsonField(
-                                                            widget.feedDetail,
-                                                            r'''$.roleName''',
-                                                          ) !=
-                                                          null
-                                                      ? functions.smeroleName(
-                                                          getJsonField(
-                                                          widget.feedDetail,
-                                                          r'''$.roleName''',
-                                                        ).toString())
-                                                      : functions.smeroleName(
-                                                          getJsonField(
-                                                          widget.feedDetail,
-                                                          r'''$.name''',
-                                                        ).toString()),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodySmall,
-                                                ),
-                                              ),
-                                              if (false)
-                                                Text(
-                                                  '${valueOrDefault<String>(
-                                                    getJsonField(
-                                                      columnGetFollowersResponse
-                                                          .jsonBody,
-                                                      r'''$.total''',
-                                                    ).toString(),
-                                                    'zero',
-                                                  )} Followers',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                            ],
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          decoration: BoxDecoration(),
-                          child: Text(
-                            valueOrDefault<String>(
-                              getJsonField(
-                                widget.feedDetail,
-                                r'''$.title''',
-                              ).toString(),
-                              'N/A',
-                            ),
-                            textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context).titleMedium,
-                          ),
-                        ),
-                      ),
-                      Row(
+                    );
+                  }
+                  final columnGetFeedDetailsResponse = snapshot.data!;
+                  return InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      FFAppState().showFeedCommentActions = true;
+                    },
+                    child: SingleChildScrollView(
+                      child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 8.0, 0.0, 8.0),
-                            child: Text(
-                              '${valueOrDefault<String>(
-                                functions.submitedDate(getJsonField(
-                                          widget.feedDetail,
-                                          r'''$.updatedTime''',
-                                        ) !=
-                                        null
-                                    ? getJsonField(
-                                        widget.feedDetail,
-                                        r'''$.updatedTime''',
-                                      )
-                                    : getJsonField(
-                                        widget.feedDetail,
-                                        r'''$.updated_time''',
-                                      )),
-                                'N/A',
-                              )} ago',
-                              textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context).bodySmall,
-                            ),
-                          ),
-                        ],
-                      ),
-                      if ((getJsonField(
-                                widget.feedDetail,
-                                r'''$.featuredImage''',
-                              ) ==
-                              null) &&
-                          (getJsonField(
-                                widget.feedDetail,
-                                r'''$.featured_image''',
-                              ) ==
-                              null))
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            FlutterFlowYoutubePlayer(
-                              url: getJsonField(
-                                        widget.feedDetail,
-                                        r'''$.feedUrl''',
-                                      ) !=
-                                      null
-                                  ? getJsonField(
-                                      widget.feedDetail,
-                                      r'''$.feedUrl''',
-                                    ).toString()
-                                  : getJsonField(
-                                      widget.feedDetail,
-                                      r'''$.feed_url''',
-                                    ).toString(),
-                              autoPlay: false,
-                              looping: false,
-                              mute: false,
-                              showControls: true,
-                              showFullScreen: false,
-                            ),
-                          ],
-                        ),
-                      if ((getJsonField(
-                                widget.feedDetail,
-                                r'''$.featuredImage''',
-                              ) !=
-                              null) ||
-                          (getJsonField(
-                                widget.feedDetail,
-                                r'''$.featured_image''',
-                              ) !=
-                              null))
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  width: 1.0,
-                                ),
-                              ),
-                              child: Image.network(
-                                valueOrDefault<String>(
-                                  getJsonField(
-                                    functions.image(valueOrDefault<String>(
-                                      getJsonField(
-                                                widget.feedDetail,
-                                                r'''$.featuredImage''',
-                                              ) !=
-                                              null
-                                          ? valueOrDefault<String>(
-                                              getJsonField(
-                                                widget.feedDetail,
-                                                r'''$.featuredImage''',
-                                              ).toString(),
-                                              'http://smeconnectdev.cloudseed.io/assets/images/news/newsfeed-square.jpg',
-                                            )
-                                          : getJsonField(
-                                              widget.feedDetail,
-                                              r'''$.featured_image''',
-                                            ).toString(),
-                                      'http://smeconnectdev.cloudseed.io/assets/images/news/newsfeed-square.jpg',
-                                    )),
-                                    r'''$.image''',
-                                  ).toString(),
-                                  'http://smeconnectdev.cloudseed.io/assets/images/news/newsfeed-square.jpg',
-                                ),
-                                width: double.infinity,
-                                height: 200.0,
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 12.0, 0.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  await launchURL(getJsonField(
-                                            widget.feedDetail,
-                                            r'''$.feedUrl''',
-                                          ) !=
-                                          null
-                                      ? getJsonField(
-                                          widget.feedDetail,
-                                          r'''$.feedUrl''',
-                                        ).toString()
-                                      : getJsonField(
-                                          widget.feedDetail,
-                                          r'''$.feed_url''',
-                                        ).toString());
-                                },
-                                child: Text(
-                                  'Visit link',
-                                  textAlign: TextAlign.center,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                      ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 10.0, 16.0, 10.0),
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          decoration: BoxDecoration(),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 8.0),
-                            child: Text(
-                              valueOrDefault<String>(
-                                getJsonField(
-                                  widget.feedDetail,
-                                  r'''$.description''',
-                                ).toString(),
-                                'N/A',
-                              ),
-                              textAlign: TextAlign.start,
-                              maxLines: 5,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    lineHeight: 1.4,
+                            padding: EdgeInsets.all(4.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                FlutterFlowIconButton(
+                                  borderColor: Colors.transparent,
+                                  borderRadius: 30.0,
+                                  borderWidth: 1.0,
+                                  buttonSize: 40.0,
+                                  icon: Icon(
+                                    Icons.arrow_back,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 20.0,
                                   ),
+                                  onPressed: () async {
+                                    setState(() {
+                                      _model.submittedCommentForm = false;
+                                    });
+                                    FFAppState().showFeedCommentActions = false;
+                                    context.safePop();
+                                  },
+                                ),
+                              ],
                             ),
                           ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              decoration: BoxDecoration(),
-                              child: Builder(
-                                builder: (context) {
-                                  final gropusdata = getJsonField(
-                                    widget.feedDetail,
-                                    r'''$.groupsData''',
-                                  ).toList();
-                                  return Wrap(
-                                    spacing: 0.0,
-                                    runSpacing: 0.0,
-                                    alignment: WrapAlignment.start,
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 8.0, 16.0, 16.0),
+                            child: FutureBuilder<ApiCallResponse>(
+                              future: SmeGroup.getFollowersCall.call(
+                                pageNumber: 0,
+                                pageSize: 100,
+                                accessToken: FFAppState().accessToken,
+                                sortBy: getJsonField(
+                                  widget.feedDetail,
+                                  r'''$.companyName''',
+                                ).toString(),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: SpinKitFadingCircle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        size: 50.0,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                final rowGetFollowersResponse = snapshot.data!;
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'CompanyDetailsPage',
+                                      queryParameters: {
+                                        'userId': serializeParam(
+                                          getJsonField(
+                                            widget.feedDetail,
+                                            r'''$.companyId''',
+                                          ),
+                                          ParamType.int,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
-                                        WrapCrossAlignment.start,
-                                    direction: Axis.horizontal,
-                                    runAlignment: WrapAlignment.start,
-                                    verticalDirection: VerticalDirection.down,
-                                    clipBehavior: Clip.none,
-                                    children: List.generate(gropusdata.length,
-                                        (gropusdataIndex) {
-                                      final gropusdataItem =
-                                          gropusdata[gropusdataIndex];
-                                      return Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 6.0, 0.0),
-                                        child: AlignedTooltip(
-                                          content: Padding(
-                                              padding: EdgeInsets.all(8.0),
-                                              child: Text(
-                                                getJsonField(
-                                                  gropusdataItem,
-                                                  r'''$.groupName''',
-                                                ).toString(),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              )),
-                                          offset: 4.0,
-                                          preferredDirection: AxisDirection.up,
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          elevation: 4.0,
-                                          tailBaseWidth: 24.0,
-                                          tailLength: 12.0,
-                                          waitDuration:
-                                              Duration(milliseconds: 100),
-                                          showDuration:
-                                              Duration(milliseconds: 1500),
-                                          triggerMode: TooltipTriggerMode.tap,
-                                          child: Container(
-                                            width: 45.0,
-                                            height: 45.0,
-                                            decoration: BoxDecoration(
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      if ((getJsonField(
+                                                widget.feedDetail,
+                                                r'''$.companyLogo''',
+                                              ) !=
+                                              null) &&
+                                          (getJsonField(
+                                                widget.feedDetail,
+                                                r'''$.companyLogo''',
+                                              ) !=
+                                              ''))
+                                        Container(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              shape: BoxShape.circle,
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                width: 1.0,
-                                              ),
+                                                      .primary,
+                                              width: 1.0,
                                             ),
-                                            child: Container(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              clipBehavior: Clip.antiAlias,
-                                              decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
+                                          ),
+                                          child: Container(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Image.network(
+                                              valueOrDefault<String>(
+                                                getJsonField(
+                                                  functions.image(getJsonField(
+                                                    columnGetFeedDetailsResponse
+                                                        .jsonBody,
+                                                    r'''$.feed[:].companyLogo''',
+                                                  ).toString()),
+                                                  r'''$.image''',
+                                                )?.toString(),
+                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                               ),
-                                              child: Image.network(
-                                                valueOrDefault<String>(
-                                                  getJsonField(
-                                                    functions
-                                                        .image(getJsonField(
-                                                      gropusdataItem,
-                                                      r'''$.groupImg''',
-                                                    ).toString()),
-                                                    r'''$.image''',
-                                                  ).toString(),
-                                                  'https://images.unsplash.com/photo-1614436163996-25cee5f54290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80',
-                                                ),
-                                                fit: BoxFit.contain,
-                                              ),
+                                              fit: BoxFit.contain,
                                             ),
                                           ),
                                         ),
-                                      );
-                                    }),
-                                  );
-                                },
+                                      if ((getJsonField(
+                                                widget.feedDetail,
+                                                r'''$.companyLogo''',
+                                              ) ==
+                                              null) ||
+                                          (getJsonField(
+                                                widget.feedDetail,
+                                                r'''$.companyLogo''',
+                                              ) ==
+                                              ''))
+                                        Container(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFFA6400),
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                functions.profilePicName(
+                                                    getJsonField(
+                                                  columnGetFeedDetailsResponse
+                                                      .jsonBody,
+                                                  r'''$.feed[:].companyName''',
+                                                ).toString()),
+                                                textAlign: TextAlign.center,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 0.0, 0.0),
+                                          child: FutureBuilder<ApiCallResponse>(
+                                            future:
+                                                SmeGroup.getFollowersCall.call(
+                                              pageNumber: 0,
+                                              pageSize: 100,
+                                              accessToken:
+                                                  FFAppState().accessToken,
+                                              sortBy: getJsonField(
+                                                widget.feedDetail,
+                                                r'''$.companyName''',
+                                              ).toString(),
+                                            ),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    child: SpinKitFadingCircle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                      size: 50.0,
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                              final columnGetFollowersResponse =
+                                                  snapshot.data!;
+                                              return Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Flexible(
+                                                        child: Text(
+                                                          getJsonField(
+                                                            columnGetFeedDetailsResponse
+                                                                .jsonBody,
+                                                            r'''$.feed[:].companyName''',
+                                                          ).toString(),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleLarge,
+                                                        ),
+                                                      ),
+                                                      if (getJsonField(
+                                                            widget.feedDetail,
+                                                            r'''$.verifiedCompany''',
+                                                          ) ==
+                                                          true)
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      4.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Icon(
+                                                            Icons.verified,
+                                                            color: Color(
+                                                                0xFF5191FF),
+                                                            size: 22.0,
+                                                          ),
+                                                        ),
+                                                    ],
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 4.0,
+                                                                0.0, 8.0),
+                                                    child: Text(
+                                                      getJsonField(
+                                                        columnGetFeedDetailsResponse
+                                                            .jsonBody,
+                                                        r'''$.feed[:].roleName''',
+                                                      ).toString(),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodySmall,
+                                                    ),
+                                                  ),
+                                                  if (false)
+                                                    Text(
+                                                      '${valueOrDefault<String>(
+                                                        getJsonField(
+                                                          columnGetFollowersResponse
+                                                              .jsonBody,
+                                                          r'''$.total''',
+                                                        )?.toString(),
+                                                        'zero',
+                                                      )} Followers',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                ],
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              decoration: BoxDecoration(),
+                              child: Text(
+                                getJsonField(
+                                  columnGetFeedDetailsResponse.jsonBody,
+                                  r'''$.feed[:].title''',
+                                ).toString(),
+                                textAlign: TextAlign.start,
+                                style: FlutterFlowTheme.of(context).titleMedium,
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                      if (false)
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 8.0, 16.0, 8.0),
-                          child: Row(
+                          ),
+                          Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Last Updated',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 8.0, 0.0, 0.0),
-                                    child: Text(
-                                      valueOrDefault<String>(
-                                        functions.submitedDate(getJsonField(
-                                                  widget.feedDetail,
-                                                  r'''$.updatedTime''',
-                                                ) !=
-                                                null
-                                            ? getJsonField(
-                                                widget.feedDetail,
-                                                r'''$.updatedTime''',
-                                              )
-                                            : getJsonField(
-                                                widget.feedDetail,
-                                                r'''$.updated_time''',
-                                              )),
-                                        'N/A',
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                    ),
-                                  ),
-                                ],
-                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    36.0, 0.0, 0.0, 0.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Status',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          FaIcon(
-                                            FontAwesomeIcons.solidCheckCircle,
-                                            color: Color(0xFF069422),
-                                            size: 16.0,
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 0.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Approved',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
+                                    16.0, 8.0, 0.0, 8.0),
+                                child: Text(
+                                  '${valueOrDefault<String>(
+                                    functions.submitedDate(getJsonField(
+                                      columnGetFeedDetailsResponse.jsonBody,
+                                      r'''$.feed[:].updatedTime''',
+                                    )),
+                                    'N/A',
+                                  )} ago',
+                                  textAlign: TextAlign.start,
+                                  style: FlutterFlowTheme.of(context).bodySmall,
                                 ),
                               ),
                             ],
                           ),
-                        ),
-                      Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: FutureBuilder<ApiCallResponse>(
-                          future: SmeGroup.getOrgDetailsCall.call(
-                            accessToken: FFAppState().accessToken,
-                            userId: 0,
-                          ),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  child: SpinKitFadingCircle(
-                                    color:
-                                        FlutterFlowTheme.of(context).secondary,
-                                    size: 50.0,
+                          if (getJsonField(
+                                columnGetFeedDetailsResponse.jsonBody,
+                                r'''$.feed[:].featuredImage''',
+                              ) ==
+                              null)
+                            Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                FlutterFlowYoutubePlayer(
+                                  url: getJsonField(
+                                    columnGetFeedDetailsResponse.jsonBody,
+                                    r'''$.feed[:].feedUrl''',
+                                  ).toString(),
+                                  autoPlay: false,
+                                  looping: false,
+                                  mute: false,
+                                  showControls: true,
+                                  showFullScreen: false,
+                                ),
+                              ],
+                            ),
+                          if (getJsonField(
+                                columnGetFeedDetailsResponse.jsonBody,
+                                r'''$.feed[:].featuredImage''',
+                              ) !=
+                              null)
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      width: 1.0,
+                                    ),
+                                  ),
+                                  child: Image.network(
+                                    valueOrDefault<String>(
+                                      getJsonField(
+                                        functions.image(getJsonField(
+                                          columnGetFeedDetailsResponse.jsonBody,
+                                          r'''$.feed[:].featuredImage''',
+                                        ).toString()),
+                                        r'''$.image''',
+                                      )?.toString(),
+                                      'http://smeconnectdev.cloudseed.io/assets/images/news/newsfeed-square.jpg',
+                                    ),
+                                    width: double.infinity,
+                                    height: 200.0,
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
-                              );
-                            }
-                            final rowGetOrgDetailsResponse = snapshot.data!;
-                            return Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                if (getJsonField(
-                                      rowGetOrgDetailsResponse.jsonBody,
-                                      r'''$.logo''',
-                                    ) !=
-                                    null)
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 4.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: 40.0,
-                                      height: 40.0,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          width: 1.0,
-                                        ),
-                                      ),
-                                      child: Container(
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Image.network(
-                                          valueOrDefault<String>(
-                                            getJsonField(
-                                              functions.image(getJsonField(
-                                                rowGetOrgDetailsResponse
-                                                    .jsonBody,
-                                                r'''$.logo''',
-                                              ).toString()),
-                                              r'''$.image''',
-                                            ).toString(),
-                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw-bEkdCP8SGyEaKUiE-SXLonzfXIp8mgi546odmsBpwOkDRE5maYDfkPxtSORlCwA9znDkOmbi94&usqp=CAU&ec=48600113',
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 12.0, 0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      await launchURL(getJsonField(
+                                        columnGetFeedDetailsResponse.jsonBody,
+                                        r'''$.feed[:].feedUrl''',
+                                      ).toString());
+                                    },
+                                    child: Text(
+                                      'Visit link',
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
                                           ),
-                                          fit: BoxFit.contain,
-                                        ),
-                                      ),
                                     ),
                                   ),
-                                if (getJsonField(
-                                      rowGetOrgDetailsResponse.jsonBody,
-                                      r'''$.logo''',
-                                    ) ==
-                                    null)
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 4.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: 40.0,
-                                      height: 40.0,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFFA6400),
-                                        shape: BoxShape.circle,
+                                ),
+                              ],
+                            ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 10.0, 16.0, 10.0),
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              decoration: BoxDecoration(),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 8.0, 0.0, 8.0),
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    getJsonField(
+                                      columnGetFeedDetailsResponse.jsonBody,
+                                      r'''$.feed[:].description''',
+                                    )?.toString(),
+                                    'N/A',
+                                  ),
+                                  textAlign: TextAlign.start,
+                                  maxLines: 5,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        lineHeight: 1.4,
                                       ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            functions
-                                                .profilePicName(getJsonField(
-                                              rowGetOrgDetailsResponse.jsonBody,
-                                              r'''$.companyName''',
-                                            ).toString()),
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  decoration: BoxDecoration(),
+                                  child: Builder(
+                                    builder: (context) {
+                                      final gropusdata =
+                                          SmeGroup.getFeedDetailsCall
+                                                  .groupsData(
+                                                    columnGetFeedDetailsResponse
+                                                        .jsonBody,
+                                                  )
+                                                  ?.map((e) => e)
+                                                  .toList()
+                                                  ?.toList() ??
+                                              [];
+                                      return Wrap(
+                                        spacing: 0.0,
+                                        runSpacing: 0.0,
+                                        alignment: WrapAlignment.start,
+                                        crossAxisAlignment:
+                                            WrapCrossAlignment.start,
+                                        direction: Axis.horizontal,
+                                        runAlignment: WrapAlignment.start,
+                                        verticalDirection:
+                                            VerticalDirection.down,
+                                        clipBehavior: Clip.none,
+                                        children:
+                                            List.generate(gropusdata.length,
+                                                (gropusdataIndex) {
+                                          final gropusdataItem =
+                                              gropusdata[gropusdataIndex];
+                                          return Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 6.0, 0.0),
+                                            child: AlignedTooltip(
+                                              content: Padding(
+                                                  padding: EdgeInsets.all(8.0),
+                                                  child: Text(
+                                                    getJsonField(
+                                                      gropusdataItem,
+                                                      r'''$.groupName''',
+                                                    ).toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  )),
+                                              offset: 4.0,
+                                              preferredDirection:
+                                                  AxisDirection.up,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              elevation: 4.0,
+                                              tailBaseWidth: 24.0,
+                                              tailLength: 12.0,
+                                              waitDuration:
+                                                  Duration(milliseconds: 100),
+                                              showDuration:
+                                                  Duration(milliseconds: 1500),
+                                              triggerMode:
+                                                  TooltipTriggerMode.tap,
+                                              child: Container(
+                                                width: 45.0,
+                                                height: 45.0,
+                                                decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .secondary,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 0.0, 0.0),
-                                    child: Material(
-                                      color: Colors.transparent,
-                                      elevation: 0.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(40.0),
-                                      ),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(40.0),
-                                        ),
-                                        child: Stack(
-                                          children: [
-                                            Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Form(
-                                                  key: _model.formKey,
-                                                  autovalidateMode:
-                                                      AutovalidateMode.disabled,
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      20.0),
-                                                          child: TextFormField(
-                                                            controller: _model
-                                                                .commentTextController,
-                                                            focusNode: _model
-                                                                .commentTextFocusNode,
-                                                            onChanged: (_) =>
-                                                                EasyDebounce
-                                                                    .debounce(
-                                                              '_model.commentTextController',
-                                                              Duration(
-                                                                  milliseconds:
-                                                                      100),
-                                                              () async {
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                          .tagListPopup =
-                                                                      false;
-                                                                });
-                                                                if ((String
-                                                                    commentedText) {
-                                                                  return commentedText
-                                                                      .contains(
-                                                                          '@');
-                                                                }(_model
-                                                                    .commentTextController
-                                                                    .text)) {
-                                                                  _model.gettingTagableAPIres =
-                                                                      await SmeGroup
-                                                                          .getTaggableUsersCall
-                                                                          .call(
-                                                                    accessToken:
-                                                                        FFAppState()
-                                                                            .accessToken,
-                                                                    companyNameWithChars:
-                                                                        functions.findMyText(_model
-                                                                            .commentTextController
-                                                                            .text),
-                                                                  );
-                                                                  setState(() =>
-                                                                      _model.apiRequestCompleter2 =
-                                                                          null);
-                                                                  await _model
-                                                                      .waitForApiRequestCompleted2();
-                                                                  setState(() {
-                                                                    FFAppState()
-                                                                            .tagListPopup =
-                                                                        true;
-                                                                    FFAppState()
-                                                                        .taggableUsersList = getJsonField(
-                                                                      (_model.gettingTagableAPIres
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                      r'''$[:]''',
-                                                                      true,
-                                                                    )!
-                                                                        .toList()
-                                                                        .cast<dynamic>();
-                                                                  });
-                                                                } else {
-                                                                  setState(() {
-                                                                    FFAppState()
-                                                                            .tagListPopup =
-                                                                        false;
-                                                                    FFAppState()
-                                                                        .taggableUsersList = [];
-                                                                  });
-                                                                }
-
-                                                                setState(() {});
-                                                              },
-                                                            ),
-                                                            textCapitalization:
-                                                                TextCapitalization
-                                                                    .sentences,
-                                                            obscureText: false,
-                                                            decoration:
-                                                                InputDecoration(
-                                                              hintText:
-                                                                  'Write a comment...',
-                                                              hintStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                              enabledBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .borderColor,
-                                                                  width: 1.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            40.0),
-                                                              ),
-                                                              focusedBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  width: 1.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            40.0),
-                                                              ),
-                                                              errorBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .error,
-                                                                  width: 1.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            40.0),
-                                                              ),
-                                                              focusedErrorBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .error,
-                                                                  width: 1.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            40.0),
-                                                              ),
-                                                              filled: true,
-                                                              fillColor: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                              contentPadding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          15.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyLarge,
-                                                            validator: _model
-                                                                .commentTextControllerValidator
-                                                                .asValidator(
-                                                                    context),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      FlutterFlowIconButton(
-                                                        borderColor:
-                                                            Colors.transparent,
-                                                        borderRadius: 30.0,
-                                                        borderWidth: 1.0,
-                                                        buttonSize: 40.0,
-                                                        icon: Icon(
-                                                          Icons.send_rounded,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          size: 20.0,
-                                                        ),
-                                                        onPressed: () async {
-                                                          setState(() {
-                                                            _model.submittedCommentForm =
-                                                                true;
-                                                          });
-                                                          if (_model.formKey
-                                                                      .currentState ==
-                                                                  null ||
-                                                              !_model.formKey
-                                                                  .currentState!
-                                                                  .validate()) {
-                                                            return;
-                                                          }
-                                                          _model.apiResult6c1 =
-                                                              await SmeGroup
-                                                                  .submitFeedCommentCall
-                                                                  .call(
-                                                            accessToken:
-                                                                FFAppState()
-                                                                    .accessToken,
-                                                            feedId:
-                                                                getJsonField(
-                                                              widget.feedDetail,
-                                                              r'''$.id''',
-                                                            ),
-                                                            comment: (String
-                                                                    myComment) {
-                                                              return myComment
-                                                                  .contains(
-                                                                      '@');
-                                                            }(_model.commentTextController
-                                                                    .text)
-                                                                ? functions.commentTaggableFeed(
-                                                                    _model
-                                                                        .mentions
-                                                                        .toList(),
-                                                                    _model
-                                                                        .mentionsCompanyNames
-                                                                        .toList(),
-                                                                    _model
-                                                                        .commentTextController
-                                                                        .text)
-                                                                : _model
-                                                                    .commentTextController
-                                                                    .text,
-                                                            mentionsList:
-                                                                _model.mentions,
-                                                          );
-                                                          if ((_model
-                                                                  .apiResult6c1
-                                                                  ?.succeeded ??
-                                                              true)) {
-                                                            setState(() => _model
-                                                                    .apiRequestCompleter1 =
-                                                                null);
-                                                            await _model
-                                                                .waitForApiRequestCompleted1();
-                                                            FFAppState()
-                                                                .update(() {
-                                                              FFAppState()
-                                                                      .dummyBoolean =
-                                                                  true;
-                                                              FFAppState()
-                                                                      .tagListPopup =
-                                                                  false;
-                                                            });
-                                                            setState(() {
-                                                              _model.submittedCommentForm =
-                                                                  false;
-                                                            });
-                                                            setState(() {
-                                                              _model
-                                                                  .commentTextController
-                                                                  ?.clear();
-                                                            });
-                                                          } else {
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Something went wrong please try again.',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondary,
-                                                                  ),
-                                                                ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .error,
-                                                              ),
-                                                            );
-                                                          }
-
-                                                          setState(() {});
-                                                        },
-                                                      ),
-                                                    ],
+                                                      .secondaryBackground,
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    width: 1.0,
                                                   ),
                                                 ),
-                                              ],
+                                                child: Container(
+                                                  width: 40.0,
+                                                  height: 40.0,
+                                                  clipBehavior: Clip.antiAlias,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Image.network(
+                                                    valueOrDefault<String>(
+                                                      getJsonField(
+                                                        functions
+                                                            .image(getJsonField(
+                                                          gropusdataItem,
+                                                          r'''$.groupImg''',
+                                                        ).toString()),
+                                                        r'''$.image''',
+                                                      )?.toString(),
+                                                      'https://images.unsplash.com/photo-1614436163996-25cee5f54290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80',
+                                                    ),
+                                                    fit: BoxFit.contain,
+                                                  ),
+                                                ),
+                                              ),
                                             ),
-                                            if (FFAppState().tagListPopup ==
-                                                true)
+                                          );
+                                        }),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          if (false)
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 8.0, 16.0, 8.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Last Updated',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 8.0, 0.0, 0.0),
+                                        child: Text(
+                                          valueOrDefault<String>(
+                                            functions.submitedDate(getJsonField(
+                                              columnGetFeedDetailsResponse
+                                                  .jsonBody,
+                                              r'''$.feed[:].submittedDate''',
+                                            )),
+                                            'N/A',
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        36.0, 0.0, 0.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Status',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              FaIcon(
+                                                FontAwesomeIcons
+                                                    .solidCheckCircle,
+                                                color: Color(0xFF069422),
+                                                size: 16.0,
+                                              ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        0.0, 45.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  height: 180.0,
-                                                  decoration: BoxDecoration(),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                    ),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final tagListItem =
-                                                            FFAppState()
-                                                                .taggableUsersList
-                                                                .map((e) => e)
-                                                                .toList();
-                                                        return SingleChildScrollView(
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: List.generate(
-                                                                tagListItem
-                                                                    .length,
-                                                                (tagListItemIndex) {
-                                                              final tagListItemItem =
-                                                                  tagListItem[
-                                                                      tagListItemIndex];
-                                                              return Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            5.0,
-                                                                            5.0,
-                                                                            0.0),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
+                                                        8.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'Approved',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: FutureBuilder<ApiCallResponse>(
+                              future: SmeGroup.getOrgDetailsCall.call(
+                                accessToken: FFAppState().accessToken,
+                                userId: 0,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: SpinKitFadingCircle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        size: 50.0,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                final rowGetOrgDetailsResponse = snapshot.data!;
+                                return Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    if (getJsonField(
+                                          rowGetOrgDetailsResponse.jsonBody,
+                                          r'''$.logo''',
+                                        ) !=
+                                        null)
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 4.0, 0.0, 0.0),
+                                        child: Container(
+                                          width: 40.0,
+                                          height: 40.0,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              width: 1.0,
+                                            ),
+                                          ),
+                                          child: Container(
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Image.network(
+                                              valueOrDefault<String>(
+                                                getJsonField(
+                                                  functions.image(getJsonField(
+                                                    rowGetOrgDetailsResponse
+                                                        .jsonBody,
+                                                    r'''$.logo''',
+                                                  ).toString()),
+                                                  r'''$.image''',
+                                                )?.toString(),
+                                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw-bEkdCP8SGyEaKUiE-SXLonzfXIp8mgi546odmsBpwOkDRE5maYDfkPxtSORlCwA9znDkOmbi94&usqp=CAU&ec=48600113',
+                                              ),
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    if (getJsonField(
+                                          rowGetOrgDetailsResponse.jsonBody,
+                                          r'''$.logo''',
+                                        ) ==
+                                        null)
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 4.0, 0.0, 0.0),
+                                        child: Container(
+                                          width: 40.0,
+                                          height: 40.0,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFFA6400),
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                functions.profilePicName(
+                                                    getJsonField(
+                                                  rowGetOrgDetailsResponse
+                                                      .jsonBody,
+                                                  r'''$.companyName''',
+                                                ).toString()),
+                                                textAlign: TextAlign.center,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 0.0, 0.0),
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          elevation: 0.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(40.0),
+                                          ),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(40.0),
+                                            ),
+                                            child: Stack(
+                                              children: [
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Form(
+                                                      key: _model.formKey,
+                                                      autovalidateMode:
+                                                          AutovalidateMode
+                                                              .disabled,
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Expanded(
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          20.0),
+                                                              child:
+                                                                  TextFormField(
+                                                                controller: _model
+                                                                    .commentTextController,
+                                                                focusNode: _model
+                                                                    .commentTextFocusNode,
+                                                                onChanged: (_) =>
+                                                                    EasyDebounce
+                                                                        .debounce(
+                                                                  '_model.commentTextController',
+                                                                  Duration(
+                                                                      milliseconds:
+                                                                          100),
+                                                                  () async {
                                                                     setState(
                                                                         () {
                                                                       FFAppState()
                                                                               .tagListPopup =
                                                                           false;
-                                                                      FFAppState()
-                                                                          .addToTaggedCompanyList(
-                                                                              getJsonField(
-                                                                        tagListItemItem,
-                                                                        r'''$.companyName''',
-                                                                      ));
-                                                                      FFAppState()
-                                                                              .taggedEnterprenurName =
-                                                                          getJsonField(
-                                                                        tagListItemItem,
-                                                                        r'''$.companyName''',
-                                                                      ).toString();
                                                                     });
-                                                                    setState(
-                                                                        () {
-                                                                      _model.taggedId =
-                                                                          getJsonField(
-                                                                        tagListItemItem,
-                                                                        r'''$.userId''',
+                                                                    if ((String
+                                                                        commentedText) {
+                                                                      return commentedText
+                                                                          .contains(
+                                                                              '@');
+                                                                    }(_model
+                                                                        .commentTextController
+                                                                        .text)) {
+                                                                      _model.gettingTagableAPIres = await SmeGroup
+                                                                          .getTaggableUsersCall
+                                                                          .call(
+                                                                        accessToken:
+                                                                            FFAppState().accessToken,
+                                                                        companyNameWithChars: functions.findMyText(_model
+                                                                            .commentTextController
+                                                                            .text),
                                                                       );
-                                                                      _model.taggedCompanyName =
-                                                                          getJsonField(
-                                                                        tagListItemItem,
-                                                                        r'''$.companyName''',
-                                                                      ).toString();
-                                                                      _model.addToMentions(
-                                                                          getJsonField(
-                                                                        tagListItemItem,
-                                                                        r'''$.userId''',
-                                                                      ));
-                                                                      _model.addToMentionsCompanyNames(
-                                                                          getJsonField(
-                                                                        tagListItemItem,
-                                                                        r'''$.companyName''',
-                                                                      ).toString());
-                                                                    });
+                                                                      setState(() =>
+                                                                          _model.apiRequestCompleter2 =
+                                                                              null);
+                                                                      await _model
+                                                                          .waitForApiRequestCompleted2();
+                                                                      setState(
+                                                                          () {
+                                                                        FFAppState().tagListPopup =
+                                                                            true;
+                                                                        FFAppState()
+                                                                            .taggableUsersList = getJsonField(
+                                                                          (_model.gettingTagableAPIres?.jsonBody ??
+                                                                              ''),
+                                                                          r'''$[:]''',
+                                                                          true,
+                                                                        )!
+                                                                            .toList()
+                                                                            .cast<dynamic>();
+                                                                      });
+                                                                    } else {
+                                                                      setState(
+                                                                          () {
+                                                                        FFAppState().tagListPopup =
+                                                                            false;
+                                                                        FFAppState().taggableUsersList =
+                                                                            [];
+                                                                      });
+                                                                    }
+
                                                                     setState(
-                                                                        () {
-                                                                      _model.commentTextController?.text = functions.fInalCommentInputText(
-                                                                          _model
-                                                                              .commentTextController
-                                                                              .text,
-                                                                          FFAppState()
-                                                                              .taggedEnterprenurName)!;
-                                                                    });
+                                                                        () {});
                                                                   },
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Container(
-                                                                        width:
-                                                                            35.0,
-                                                                        height:
-                                                                            35.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          shape:
-                                                                              BoxShape.circle,
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                        ),
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              35.0,
-                                                                          height:
-                                                                              35.0,
-                                                                          clipBehavior:
-                                                                              Clip.antiAlias,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            shape:
-                                                                                BoxShape.circle,
-                                                                          ),
-                                                                          child:
-                                                                              Image.network(
-                                                                            getJsonField(
-                                                                              functions.image(getJsonField(
-                                                                                tagListItemItem,
-                                                                                r'''$.companyLogo''',
-                                                                              ).toString()),
-                                                                              r'''$.image''',
-                                                                            ).toString(),
-                                                                            fit:
-                                                                                BoxFit.cover,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Flexible(
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              4.0,
-                                                                              0.0,
-                                                                              4.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            getJsonField(
-                                                                              tagListItemItem,
-                                                                              r'''$..companyName''',
-                                                                            ).toString(),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).labelSmall,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Container(
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(30.0),
-                                                                        ),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              8.0,
-                                                                              6.0,
-                                                                              8.0,
-                                                                              6.0),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              Text(
-                                                                                'Enterprenur',
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Roboto',
-                                                                                      color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                      fontSize: 12.0,
-                                                                                    ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
                                                                 ),
-                                                              );
-                                                            }),
-                                                          ),
-                                                        );
-                                                      },
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            );
-                          },
-                        ),
-                      ),
-                      FutureBuilder<ApiCallResponse>(
-                        future: (_model.apiRequestCompleter1 ??=
-                                Completer<ApiCallResponse>()
-                                  ..complete(SmeGroup.getCommentsCall.call(
-                                    accessToken: FFAppState().accessToken,
-                                    feedId: getJsonField(
-                                      widget.feedDetail,
-                                      r'''$.id''',
-                                    ),
-                                    size: 100,
-                                  )))
-                            .future,
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: SpinKitFadingCircle(
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                  size: 50.0,
-                                ),
-                              ),
-                            );
-                          }
-                          final listViewGetCommentsResponse = snapshot.data!;
-                          return Builder(
-                            builder: (context) {
-                              final comments = SmeGroup.getCommentsCall
-                                      .comments(
-                                        listViewGetCommentsResponse.jsonBody,
-                                      )
-                                      ?.map((e) => e)
-                                      .toList()
-                                      ?.toList() ??
-                                  [];
-                              if (comments.isEmpty) {
-                                return Center(
-                                  child: EmptycommentsWidget(),
-                                );
-                              }
-                              return ListView.builder(
-                                padding: EdgeInsets.zero,
-                                primary: false,
-                                shrinkWrap: true,
-                                scrollDirection: Axis.vertical,
-                                itemCount: comments.length,
-                                itemBuilder: (context, commentsIndex) {
-                                  final commentsItem = comments[commentsIndex];
-                                  return Visibility(
-                                    visible: getJsonField(
-                                          widget.feedDetail,
-                                          r'''$.id''',
-                                        ) ==
-                                        getJsonField(
-                                          commentsItem,
-                                          r'''$.feedId''',
-                                        ),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(16.0),
-                                      child: Container(
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        child: Stack(
-                                          alignment: AlignmentDirectional(
-                                              0.7, -0.30000000000000004),
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsets.all(2.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.min,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  if (getJsonField(
-                                                        commentsItem,
-                                                        r'''$.userCompanyLogo''',
-                                                      ) !=
-                                                      null)
-                                                    Container(
-                                                      width: 35.0,
-                                                      height: 35.0,
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                        border: Border.all(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: Visibility(
-                                                        visible: getJsonField(
-                                                              commentsItem,
-                                                              r'''$.userCompanyLogo''',
-                                                            ) !=
-                                                            null,
-                                                        child: Container(
-                                                          width: 35.0,
-                                                          height: 35.0,
-                                                          clipBehavior:
-                                                              Clip.antiAlias,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            shape:
-                                                                BoxShape.circle,
-                                                          ),
-                                                          child: Image.network(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              getJsonField(
-                                                                functions.image(
-                                                                    getJsonField(
-                                                                  commentsItem,
-                                                                  r'''$.userCompanyLogo''',
-                                                                ).toString()),
-                                                                r'''$.image''',
-                                                              ).toString(),
-                                                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw-bEkdCP8SGyEaKUiE-SXLonzfXIp8mgi546odmsBpwOkDRE5maYDfkPxtSORlCwA9znDkOmbi94&usqp=CAU&ec=48600113',
-                                                            ),
-                                                            fit: BoxFit.contain,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  if (getJsonField(
-                                                        commentsItem,
-                                                        r'''$.userCompanyLogo''',
-                                                      ) ==
-                                                      null)
-                                                    Container(
-                                                      width: 35.0,
-                                                      height: 35.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFFFA6400),
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Text(
-                                                            functions
-                                                                .profilePicName(
-                                                                    getJsonField(
-                                                              commentsItem,
-                                                              r'''$.userCompanyName''',
-                                                            ).toString()),
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
+                                                                textCapitalization:
+                                                                    TextCapitalization
+                                                                        .sentences,
+                                                                obscureText:
+                                                                    false,
+                                                                decoration:
+                                                                    InputDecoration(
+                                                                  hintText:
+                                                                      'Write a comment...',
+                                                                  hintStyle: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondary,
+                                                                      .bodyMedium,
+                                                                  enabledBorder:
+                                                                      OutlineInputBorder(
+                                                                    borderSide:
+                                                                        BorderSide(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .borderColor,
+                                                                      width:
+                                                                          1.0,
+                                                                    ),
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            40.0),
+                                                                  ),
+                                                                  focusedBorder:
+                                                                      OutlineInputBorder(
+                                                                    borderSide:
+                                                                        BorderSide(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      width:
+                                                                          1.0,
+                                                                    ),
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            40.0),
+                                                                  ),
+                                                                  errorBorder:
+                                                                      OutlineInputBorder(
+                                                                    borderSide:
+                                                                        BorderSide(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .error,
+                                                                      width:
+                                                                          1.0,
+                                                                    ),
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            40.0),
+                                                                  ),
+                                                                  focusedErrorBorder:
+                                                                      OutlineInputBorder(
+                                                                    borderSide:
+                                                                        BorderSide(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .error,
+                                                                      width:
+                                                                          1.0,
+                                                                    ),
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            40.0),
+                                                                  ),
+                                                                  filled: true,
+                                                                  fillColor: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  contentPadding:
+                                                                      EdgeInsetsDirectional.fromSTEB(
+                                                                          15.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                 ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge,
+                                                                validator: _model
+                                                                    .commentTextControllerValidator
+                                                                    .asValidator(
+                                                                        context),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          FlutterFlowIconButton(
+                                                            borderColor: Colors
+                                                                .transparent,
+                                                            borderRadius: 30.0,
+                                                            borderWidth: 1.0,
+                                                            buttonSize: 40.0,
+                                                            icon: Icon(
+                                                              Icons
+                                                                  .send_rounded,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              size: 20.0,
+                                                            ),
+                                                            onPressed:
+                                                                () async {
+                                                              setState(() {
+                                                                _model.submittedCommentForm =
+                                                                    true;
+                                                              });
+                                                              if (_model.formKey
+                                                                          .currentState ==
+                                                                      null ||
+                                                                  !_model
+                                                                      .formKey
+                                                                      .currentState!
+                                                                      .validate()) {
+                                                                return;
+                                                              }
+                                                              _model.apiResult6c1 =
+                                                                  await SmeGroup
+                                                                      .submitFeedCommentCall
+                                                                      .call(
+                                                                accessToken:
+                                                                    FFAppState()
+                                                                        .accessToken,
+                                                                feedId:
+                                                                    getJsonField(
+                                                                  widget
+                                                                      .feedDetail,
+                                                                  r'''$.id''',
+                                                                ),
+                                                                comment: (String
+                                                                        myComment) {
+                                                                  return myComment
+                                                                      .contains(
+                                                                          '@');
+                                                                }(_model.commentTextController
+                                                                        .text)
+                                                                    ? functions.commentTaggableFeed(
+                                                                        _model
+                                                                            .mentions
+                                                                            .toList(),
+                                                                        _model
+                                                                            .mentionsCompanyNames
+                                                                            .toList(),
+                                                                        _model
+                                                                            .commentTextController
+                                                                            .text)
+                                                                    : _model
+                                                                        .commentTextController
+                                                                        .text,
+                                                                mentionsList:
+                                                                    _model
+                                                                        .mentions,
+                                                              );
+                                                              if ((_model
+                                                                      .apiResult6c1
+                                                                      ?.succeeded ??
+                                                                  true)) {
+                                                                setState(() =>
+                                                                    _model.apiRequestCompleter1 =
+                                                                        null);
+                                                                await _model
+                                                                    .waitForApiRequestCompleted1();
+                                                                FFAppState()
+                                                                    .update(() {
+                                                                  FFAppState()
+                                                                          .dummyBoolean =
+                                                                      true;
+                                                                  FFAppState()
+                                                                          .tagListPopup =
+                                                                      false;
+                                                                });
+                                                                setState(() {
+                                                                  _model.submittedCommentForm =
+                                                                      false;
+                                                                });
+                                                                setState(() {
+                                                                  _model
+                                                                      .commentTextController
+                                                                      ?.clear();
+                                                                });
+                                                              } else {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'Something went wrong please try again.',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondary,
+                                                                      ),
+                                                                    ),
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            4000),
+                                                                    backgroundColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .error,
+                                                                  ),
+                                                                );
+                                                              }
+
+                                                              setState(() {});
+                                                            },
                                                           ),
                                                         ],
                                                       ),
                                                     ),
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsets.all(8.0),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Flexible(
-                                                                child: Text(
-                                                                  getJsonField(
-                                                                    commentsItem,
-                                                                    r'''$.userCompanyName''',
-                                                                  ).toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium,
-                                                                ),
-                                                              ),
-                                                              if (getJsonField(
-                                                                    commentsItem,
-                                                                    r'''$.verifiedCompany''',
-                                                                  ) ==
-                                                                  true)
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          4.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Icon(
-                                                                    Icons
-                                                                        .verified,
-                                                                    color: Color(
-                                                                        0xFF5191FF),
-                                                                    size: 20.0,
-                                                                  ),
-                                                                ),
-                                                            ],
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        8.0,
-                                                                        0.0,
-                                                                        8.0),
-                                                            child: Text(
-                                                              (String
-                                                                      myComment) {
-                                                                return myComment
-                                                                    .contains(
-                                                                        '@');
-                                                              }(getJsonField(
-                                                                commentsItem,
-                                                                r'''$.commentText''',
-                                                              ).toString())
-                                                                  ? functions
-                                                                      .commentTextConvertToString(
-                                                                          getJsonField(
-                                                                      commentsItem,
-                                                                      r'''$.commentText''',
-                                                                    ).toString())
-                                                                  : getJsonField(
-                                                                      commentsItem,
-                                                                      r'''$.commentText''',
-                                                                    ).toString(),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .start,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ),
-                                                          if (false)
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          16.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Row(
+                                                  ],
+                                                ),
+                                                if (FFAppState().tagListPopup ==
+                                                    true)
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 45.0,
+                                                                0.0, 0.0),
+                                                    child: Container(
+                                                      width: double.infinity,
+                                                      height: 180.0,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Container(
+                                                        width: 100.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                        ),
+                                                        child: Builder(
+                                                          builder: (context) {
+                                                            final tagListItem =
+                                                                FFAppState()
+                                                                    .taggableUsersList
+                                                                    .map((e) =>
+                                                                        e)
+                                                                    .toList();
+                                                            return SingleChildScrollView(
+                                                              child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
                                                                         .max,
-                                                                children: [
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      ToggleIcon(
-                                                                        onPressed:
-                                                                            () async {
-                                                                          setState(() =>
-                                                                              FFAppState().feedLike = !FFAppState().feedLike);
-                                                                        },
-                                                                        value: FFAppState()
-                                                                            .feedLike,
-                                                                        onIcon:
-                                                                            FaIcon(
-                                                                          FontAwesomeIcons
-                                                                              .solidThumbsUp,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondary,
-                                                                          size:
-                                                                              18.0,
-                                                                        ),
-                                                                        offIcon:
-                                                                            FaIcon(
-                                                                          FontAwesomeIcons
-                                                                              .thumbsUp,
-                                                                          color:
-                                                                              Color(0xFF57636C),
-                                                                          size:
-                                                                              18.0,
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
-                                                                          '4',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodySmall
-                                                                              .override(
-                                                                                fontFamily: 'Outfit',
-                                                                                color: Color(0xFF57636C),
-                                                                                fontSize: 14.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                  Padding(
+                                                                children: List.generate(
+                                                                    tagListItem
+                                                                        .length,
+                                                                    (tagListItemIndex) {
+                                                                  final tagListItemItem =
+                                                                      tagListItem[
+                                                                          tagListItemIndex];
+                                                                  return Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            4.0,
+                                                                            5.0,
+                                                                            5.0,
+                                                                            5.0,
                                                                             0.0),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        ToggleIcon(
-                                                                          onPressed:
-                                                                              () async {
-                                                                            setState(() =>
-                                                                                FFAppState().feedUnlike = !FFAppState().feedUnlike);
-                                                                          },
-                                                                          value:
-                                                                              FFAppState().feedUnlike,
-                                                                          onIcon:
-                                                                              FaIcon(
-                                                                            FontAwesomeIcons.solidThumbsDown,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                            size:
-                                                                                18.0,
-                                                                          ),
-                                                                          offIcon:
-                                                                              FaIcon(
-                                                                            FontAwesomeIcons.thumbsDown,
-                                                                            color:
-                                                                                Color(0xFF57636C),
-                                                                            size:
-                                                                                18.0,
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              4.0,
-                                                                              0.0,
-                                                                              8.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            '0',
-                                                                            style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Outfit',
-                                                                                  color: Color(0xFF57636C),
-                                                                                  fontSize: 14.0,
-                                                                                  fontWeight: FontWeight.normal,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      FaIcon(
-                                                                        FontAwesomeIcons
-                                                                            .reply,
-                                                                        color: Color(
-                                                                            0xFF57636C),
-                                                                        size:
-                                                                            18.0,
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
-                                                                          'Reply',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodySmall
-                                                                              .override(
-                                                                                fontFamily: 'Outfit',
-                                                                                color: Color(0xFF57636C),
-                                                                                fontSize: 14.0,
-                                                                                fontWeight: FontWeight.normal,
+                                                                    child:
+                                                                        InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        setState(
+                                                                            () {
+                                                                          FFAppState().tagListPopup =
+                                                                              false;
+                                                                          FFAppState()
+                                                                              .addToTaggedCompanyList(getJsonField(
+                                                                            tagListItemItem,
+                                                                            r'''$.companyName''',
+                                                                          ));
+                                                                          FFAppState().taggedEnterprenurName =
+                                                                              getJsonField(
+                                                                            tagListItemItem,
+                                                                            r'''$.companyName''',
+                                                                          ).toString();
+                                                                        });
+                                                                        setState(
+                                                                            () {
+                                                                          _model.taggedId =
+                                                                              getJsonField(
+                                                                            tagListItemItem,
+                                                                            r'''$.userId''',
+                                                                          );
+                                                                          _model.taggedCompanyName =
+                                                                              getJsonField(
+                                                                            tagListItemItem,
+                                                                            r'''$.companyName''',
+                                                                          ).toString();
+                                                                          _model
+                                                                              .addToMentions(getJsonField(
+                                                                            tagListItemItem,
+                                                                            r'''$.userId''',
+                                                                          ));
+                                                                          _model
+                                                                              .addToMentionsCompanyNames(getJsonField(
+                                                                            tagListItemItem,
+                                                                            r'''$.companyName''',
+                                                                          ).toString());
+                                                                        });
+                                                                        setState(
+                                                                            () {
+                                                                          _model.commentTextController?.text = functions.fInalCommentInputText(
+                                                                              _model.commentTextController.text,
+                                                                              FFAppState().taggedEnterprenurName)!;
+                                                                        });
+                                                                      },
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Container(
+                                                                            width:
+                                                                                35.0,
+                                                                            height:
+                                                                                35.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              shape: BoxShape.circle,
+                                                                              border: Border.all(
+                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                width: 1.0,
                                                                               ),
-                                                                        ),
+                                                                            ),
+                                                                            child:
+                                                                                Container(
+                                                                              width: 35.0,
+                                                                              height: 35.0,
+                                                                              clipBehavior: Clip.antiAlias,
+                                                                              decoration: BoxDecoration(
+                                                                                shape: BoxShape.circle,
+                                                                              ),
+                                                                              child: Image.network(
+                                                                                getJsonField(
+                                                                                  functions.image(getJsonField(
+                                                                                    tagListItemItem,
+                                                                                    r'''$.companyLogo''',
+                                                                                  ).toString()),
+                                                                                  r'''$.image''',
+                                                                                ).toString(),
+                                                                                fit: BoxFit.cover,
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Flexible(
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                              child: Text(
+                                                                                getJsonField(
+                                                                                  tagListItemItem,
+                                                                                  r'''$..companyName''',
+                                                                                ).toString(),
+                                                                                style: FlutterFlowTheme.of(context).labelSmall,
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                              borderRadius: BorderRadius.circular(30.0),
+                                                                            ),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(8.0, 6.0, 8.0, 6.0),
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  Text(
+                                                                                    'Enterprenur',
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Roboto',
+                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                          fontSize: 12.0,
+                                                                                        ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
                                                                       ),
-                                                                    ],
-                                                                  ),
-                                                                  Expanded(
-                                                                    child: Text(
-                                                                      '2d',
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .center,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium,
                                                                     ),
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            12.0,
-                                                                            0.0),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Icon(
-                                                                          Icons
-                                                                              .more_vert,
-                                                                          color:
-                                                                              Color(0xFF57636C),
-                                                                          size:
-                                                                              18.0,
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ],
+                                                                  );
+                                                                }),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
+                          ),
+                          FutureBuilder<ApiCallResponse>(
+                            future: (_model.apiRequestCompleter1 ??=
+                                    Completer<ApiCallResponse>()
+                                      ..complete(SmeGroup.getCommentsCall.call(
+                                        accessToken: FFAppState().accessToken,
+                                        feedId: getJsonField(
+                                          widget.feedDetail,
+                                          r'''$.id''',
+                                        ),
+                                        size: 100,
+                                      )))
+                                .future,
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: SpinKitFadingCircle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      size: 50.0,
+                                    ),
+                                  ),
+                                );
+                              }
+                              final listViewGetCommentsResponse =
+                                  snapshot.data!;
+                              return Builder(
+                                builder: (context) {
+                                  final comments = SmeGroup.getCommentsCall
+                                          .comments(
+                                            listViewGetCommentsResponse
+                                                .jsonBody,
+                                          )
+                                          ?.map((e) => e)
+                                          .toList()
+                                          ?.toList() ??
+                                      [];
+                                  if (comments.isEmpty) {
+                                    return Center(
+                                      child: EmptycommentsWidget(),
+                                    );
+                                  }
+                                  return ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    primary: false,
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: comments.length,
+                                    itemBuilder: (context, commentsIndex) {
+                                      final commentsItem =
+                                          comments[commentsIndex];
+                                      return Visibility(
+                                        visible: getJsonField(
+                                              widget.feedDetail,
+                                              r'''$.id''',
+                                            ) ==
+                                            getJsonField(
+                                              commentsItem,
+                                              r'''$.feedId''',
+                                            ),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(16.0),
+                                          child: Container(
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            child: Stack(
+                                              alignment: AlignmentDirectional(
+                                                  0.7, -0.30000000000000004),
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.all(2.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      if (getJsonField(
+                                                            commentsItem,
+                                                            r'''$.userCompanyLogo''',
+                                                          ) !=
+                                                          null)
+                                                        Container(
+                                                          width: 35.0,
+                                                          height: 35.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            border: Border.all(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              width: 1.0,
+                                                            ),
+                                                          ),
+                                                          child: Visibility(
+                                                            visible:
+                                                                getJsonField(
+                                                                      commentsItem,
+                                                                      r'''$.userCompanyLogo''',
+                                                                    ) !=
+                                                                    null,
+                                                            child: Container(
+                                                              width: 35.0,
+                                                              height: 35.0,
+                                                              clipBehavior: Clip
+                                                                  .antiAlias,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                              ),
+                                                              child:
+                                                                  Image.network(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  getJsonField(
+                                                                    functions.image(
+                                                                        getJsonField(
+                                                                      commentsItem,
+                                                                      r'''$.userCompanyLogo''',
+                                                                    ).toString()),
+                                                                    r'''$.image''',
+                                                                  )?.toString(),
+                                                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw-bEkdCP8SGyEaKUiE-SXLonzfXIp8mgi546odmsBpwOkDRE5maYDfkPxtSORlCwA9znDkOmbi94&usqp=CAU&ec=48600113',
+                                                                ),
+                                                                fit: BoxFit
+                                                                    .contain,
                                                               ),
                                                             ),
-                                                          Row(
+                                                          ),
+                                                        ),
+                                                      if (getJsonField(
+                                                            commentsItem,
+                                                            r'''$.userCompanyLogo''',
+                                                          ) ==
+                                                          null)
+                                                        Container(
+                                                          width: 35.0,
+                                                          height: 35.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xFFFA6400),
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
                                                                     .max,
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
-                                                                    .spaceBetween,
+                                                                    .center,
                                                             children: [
                                                               Text(
                                                                 functions
-                                                                    .submittedDateString(
+                                                                    .profilePicName(
                                                                         getJsonField(
                                                                   commentsItem,
-                                                                  r'''$.submittedOn''',
+                                                                  r'''$.userCompanyName''',
                                                                 ).toString()),
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -2126,126 +1790,401 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                                           'Roboto',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .accent2,
-                                                                    ),
-                                                              ),
-                                                              Text(
-                                                                'Reply',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Roboto',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .accent1,
+                                                                          .secondary,
                                                                     ),
                                                               ),
                                                             ],
                                                           ),
-                                                        ],
+                                                        ),
+                                                      Expanded(
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  8.0),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Flexible(
+                                                                    child: Text(
+                                                                      getJsonField(
+                                                                        commentsItem,
+                                                                        r'''$.userCompanyName''',
+                                                                      ).toString(),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium,
+                                                                    ),
+                                                                  ),
+                                                                  if (getJsonField(
+                                                                        commentsItem,
+                                                                        r'''$.verifiedCompany''',
+                                                                      ) ==
+                                                                      true)
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .verified,
+                                                                        color: Color(
+                                                                            0xFF5191FF),
+                                                                        size:
+                                                                            20.0,
+                                                                      ),
+                                                                    ),
+                                                                ],
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0,
+                                                                            8.0),
+                                                                child: Text(
+                                                                  (String myComment) {
+                                                                    return myComment
+                                                                        .contains(
+                                                                            '@');
+                                                                  }(getJsonField(
+                                                                    commentsItem,
+                                                                    r'''$.commentText''',
+                                                                  ).toString())
+                                                                      ? functions.commentTextConvertToString(getJsonField(
+                                                                          commentsItem,
+                                                                          r'''$.commentText''',
+                                                                        ).toString())
+                                                                      : getJsonField(
+                                                                          commentsItem,
+                                                                          r'''$.commentText''',
+                                                                        ).toString(),
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .start,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                              if (false)
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          ToggleIcon(
+                                                                            onPressed:
+                                                                                () async {
+                                                                              setState(() => FFAppState().feedLike = !FFAppState().feedLike);
+                                                                            },
+                                                                            value:
+                                                                                FFAppState().feedLike,
+                                                                            onIcon:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidThumbsUp,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 18.0,
+                                                                            ),
+                                                                            offIcon:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.thumbsUp,
+                                                                              color: Color(0xFF57636C),
+                                                                              size: 18.0,
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                4.0,
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Text(
+                                                                              '4',
+                                                                              style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                    fontFamily: 'Outfit',
+                                                                                    color: Color(0xFF57636C),
+                                                                                    fontSize: 14.0,
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            ToggleIcon(
+                                                                              onPressed: () async {
+                                                                                setState(() => FFAppState().feedUnlike = !FFAppState().feedUnlike);
+                                                                              },
+                                                                              value: FFAppState().feedUnlike,
+                                                                              onIcon: FaIcon(
+                                                                                FontAwesomeIcons.solidThumbsDown,
+                                                                                color: FlutterFlowTheme.of(context).secondary,
+                                                                                size: 18.0,
+                                                                              ),
+                                                                              offIcon: FaIcon(
+                                                                                FontAwesomeIcons.thumbsDown,
+                                                                                color: Color(0xFF57636C),
+                                                                                size: 18.0,
+                                                                              ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 8.0, 0.0),
+                                                                              child: Text(
+                                                                                '0',
+                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                      fontFamily: 'Outfit',
+                                                                                      color: Color(0xFF57636C),
+                                                                                      fontSize: 14.0,
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          FaIcon(
+                                                                            FontAwesomeIcons.reply,
+                                                                            color:
+                                                                                Color(0xFF57636C),
+                                                                            size:
+                                                                                18.0,
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                4.0,
+                                                                                0.0,
+                                                                                8.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Text(
+                                                                              'Reply',
+                                                                              style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                    fontFamily: 'Outfit',
+                                                                                    color: Color(0xFF57636C),
+                                                                                    fontSize: 14.0,
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      Expanded(
+                                                                        child:
+                                                                            Text(
+                                                                          '2d',
+                                                                          textAlign:
+                                                                              TextAlign.center,
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                        ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            12.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Icon(
+                                                                              Icons.more_vert,
+                                                                              color: Color(0xFF57636C),
+                                                                              size: 18.0,
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Text(
+                                                                    functions
+                                                                        .submittedDateString(
+                                                                            getJsonField(
+                                                                      commentsItem,
+                                                                      r'''$.submittedOn''',
+                                                                    ).toString()),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).accent2,
+                                                                        ),
+                                                                  ),
+                                                                  Text(
+                                                                    'Reply',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).accent1,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ),
-                                                  if ((getJsonField(
-                                                            commentsItem,
-                                                            r'''$.editable''',
-                                                          ) ==
-                                                          true) &&
-                                                      (getJsonField(
-                                                            commentsItem,
-                                                            r'''$.editableOwner''',
-                                                          ) ==
-                                                          true))
-                                                    FlutterFlowIconButton(
-                                                      borderColor:
-                                                          Colors.transparent,
-                                                      borderRadius: 20.0,
-                                                      borderWidth: 1.0,
-                                                      buttonSize: 40.0,
-                                                      icon: Icon(
-                                                        Icons.more_vert,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                      if ((getJsonField(
+                                                                commentsItem,
+                                                                r'''$.editable''',
+                                                              ) ==
+                                                              true) &&
+                                                          (getJsonField(
+                                                                commentsItem,
+                                                                r'''$.editableOwner''',
+                                                              ) ==
+                                                              true))
+                                                        FlutterFlowIconButton(
+                                                          borderColor: Colors
+                                                              .transparent,
+                                                          borderRadius: 20.0,
+                                                          borderWidth: 1.0,
+                                                          buttonSize: 40.0,
+                                                          icon: Icon(
+                                                            Icons.more_vert,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
                                                                 .primaryText,
-                                                        size: 20.0,
-                                                      ),
-                                                      onPressed: () async {
-                                                        setState(() {
-                                                          FFAppState()
-                                                                  .editCommentID =
-                                                              getJsonField(
-                                                            commentsItem,
-                                                            r'''$.id''',
-                                                          );
-                                                        });
-                                                        if (FFAppState()
-                                                                .showFeedCommentActions ==
-                                                            false) {
-                                                          FFAppState()
-                                                                  .showFeedCommentActions =
-                                                              true;
-                                                        } else {
-                                                          FFAppState()
-                                                                  .showFeedCommentActions =
-                                                              false;
-                                                        }
-                                                      },
-                                                    ),
-                                                ],
-                                              ),
-                                            ),
-                                            if ((getJsonField(
-                                                      commentsItem,
-                                                      r'''$.id''',
-                                                    ) ==
-                                                    FFAppState()
-                                                        .editCommentID) &&
-                                                (FFAppState()
-                                                        .showFeedCommentActions ==
-                                                    true))
-                                              wrapWithModel(
-                                                model: _model.moreDetailsModels
-                                                    .getModel(
-                                                  getJsonField(
-                                                    commentsItem,
-                                                    r'''$.feedId''',
-                                                  ).toString(),
-                                                  commentsIndex,
-                                                ),
-                                                updateCallback: () =>
-                                                    setState(() {}),
-                                                child: MoreDetailsWidget(
-                                                  key: Key(
-                                                    'Keydca_${getJsonField(
-                                                      commentsItem,
-                                                      r'''$.feedId''',
-                                                    ).toString()}',
+                                                            size: 20.0,
+                                                          ),
+                                                          onPressed: () async {
+                                                            setState(() {
+                                                              FFAppState()
+                                                                      .editCommentID =
+                                                                  getJsonField(
+                                                                commentsItem,
+                                                                r'''$.id''',
+                                                              );
+                                                            });
+                                                            if (FFAppState()
+                                                                    .showFeedCommentActions ==
+                                                                false) {
+                                                              FFAppState()
+                                                                      .showFeedCommentActions =
+                                                                  true;
+                                                            } else {
+                                                              FFAppState()
+                                                                      .showFeedCommentActions =
+                                                                  false;
+                                                            }
+                                                          },
+                                                        ),
+                                                    ],
                                                   ),
-                                                  question: null,
-                                                  productItem: null,
-                                                  serviceItem: null,
-                                                  answerItem: null,
-                                                  feedCommentInfo: commentsItem,
-                                                  feedID: widget.feedDetail,
                                                 ),
-                                              ),
-                                          ],
+                                                if ((getJsonField(
+                                                          commentsItem,
+                                                          r'''$.id''',
+                                                        ) ==
+                                                        FFAppState()
+                                                            .editCommentID) &&
+                                                    (FFAppState()
+                                                            .showFeedCommentActions ==
+                                                        true))
+                                                  wrapWithModel(
+                                                    model: _model
+                                                        .moreDetailsModels
+                                                        .getModel(
+                                                      getJsonField(
+                                                        commentsItem,
+                                                        r'''$.feedId''',
+                                                      ).toString(),
+                                                      commentsIndex,
+                                                    ),
+                                                    updateCallback: () =>
+                                                        setState(() {}),
+                                                    child: MoreDetailsWidget(
+                                                      key: Key(
+                                                        'Keydca_${getJsonField(
+                                                          commentsItem,
+                                                          r'''$.feedId''',
+                                                        ).toString()}',
+                                                      ),
+                                                      question: null,
+                                                      productItem: null,
+                                                      serviceItem: null,
+                                                      answerItem: null,
+                                                      feedCommentInfo:
+                                                          commentsItem,
+                                                      feedID: widget.feedDetail,
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
                                         ),
-                                      ),
-                                    ),
+                                      );
+                                    },
                                   );
                                 },
                               );
                             },
-                          );
-                        },
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
+                    ),
+                  );
+                },
               ),
             ),
           ),

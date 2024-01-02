@@ -270,7 +270,7 @@ class _EKYBVerificationPageWidgetState
                                             eKYBVerificationPageGetOrgDetailsResponse
                                                 .jsonBody,
                                             r'''$.tradeLicense''',
-                                          ).toString(),
+                                          )?.toString(),
                                           'N/A',
                                         ),
                                       ),

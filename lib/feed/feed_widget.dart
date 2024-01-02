@@ -288,7 +288,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                             r'''$.image''',
                                           ).toString()),
                                           r'''$.image''',
-                                        ).toString(),
+                                        )?.toString(),
                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                       ),
                                       fit: BoxFit.contain,
@@ -585,6 +585,21 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                       ParamType
                                                                           .JSON,
                                                                     ),
+                                                                    'feedId':
+                                                                        serializeParam(
+                                                                      getJsonField(
+                                                                        feedItem,
+                                                                        r'''$.id''',
+                                                                      ),
+                                                                      ParamType
+                                                                          .int,
+                                                                    ),
+                                                                    'userId':
+                                                                        serializeParam(
+                                                                      0,
+                                                                      ParamType
+                                                                          .int,
+                                                                    ),
                                                                   }.withoutNulls,
                                                                 );
                                                               },
@@ -690,7 +705,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                             r'''$.companyLogo''',
                                                                                           ).toString()),
                                                                                           r'''$.image''',
-                                                                                        ).toString(),
+                                                                                        )?.toString(),
                                                                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                                       ),
                                                                                       fit: BoxFit.contain,
@@ -749,7 +764,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                                 getJsonField(
                                                                                                   feedItem,
                                                                                                   r'''$.companyName''',
-                                                                                                ).toString(),
+                                                                                                )?.toString(),
                                                                                                 'companyName',
                                                                                               ).maybeHandleOverflow(
                                                                                                 maxChars: 35,
@@ -817,7 +832,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                   getJsonField(
                                                                                     feedItem,
                                                                                     r'''$.title''',
-                                                                                  ).toString(),
+                                                                                  )?.toString(),
                                                                                   'title',
                                                                                 ),
                                                                                 textAlign: TextAlign.start,
@@ -869,7 +884,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                     getJsonField(
                                                                                       feedItem,
                                                                                       r'''$.feedUrl''',
-                                                                                    ).toString(),
+                                                                                    )?.toString(),
                                                                                     'no link',
                                                                                   ),
                                                                                   width: MediaQuery.sizeOf(context).width * 1.0,
@@ -921,7 +936,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                             r'''$.featuredImage''',
                                                                                           ).toString()),
                                                                                           r'''$.image''',
-                                                                                        ).toString(),
+                                                                                        )?.toString(),
                                                                                         'no image',
                                                                                       ),
                                                                                       width: MediaQuery.sizeOf(context).width * 1.0,
@@ -947,7 +962,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                             getJsonField(
                                                                               feedItem,
                                                                               r'''$.description''',
-                                                                            ).toString(),
+                                                                            )?.toString(),
                                                                             'No Description',
                                                                           ),
                                                                           textAlign:
@@ -1743,7 +1758,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                   r'''$.featuredImage''',
                                                                                 ).toString()),
                                                                                 r'''$.image''',
-                                                                              ).toString(),
+                                                                              )?.toString(),
                                                                               'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
                                                                             ),
                                                                             width:
@@ -1924,7 +1939,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                                 getJsonField(
                                                                                   myContentItem,
                                                                                   r'''$.description''',
-                                                                                ).toString(),
+                                                                                )?.toString(),
                                                                                 'No description',
                                                                               ),
                                                                               textAlign: TextAlign.start,

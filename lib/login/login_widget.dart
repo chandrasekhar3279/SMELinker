@@ -77,7 +77,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                 children: [
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 0.35,
+                    height: MediaQuery.sizeOf(context).height * 0.3,
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
                     ),
@@ -101,7 +101,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                   ),
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 0.65,
+                    height: MediaQuery.sizeOf(context).height * 0.7,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       boxShadow: [

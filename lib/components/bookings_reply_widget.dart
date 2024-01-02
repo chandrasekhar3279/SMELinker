@@ -498,7 +498,7 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                                     getJsonField(
                                                       widget.bookedbyItemReply,
                                                       r'''$.bookedBy''',
-                                                    ).toString(),
+                                                    )?.toString(),
                                                     'N/A',
                                                   )}'),
                                                   actions: [

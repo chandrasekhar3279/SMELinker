@@ -223,7 +223,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                         getJsonField(
                           widget.productinfo,
                           r'''$.category''',
-                        ).toString(),
+                        )?.toString(),
                         'N/A',
                       ),
                       style: FlutterFlowTheme.of(context).labelSmall,
