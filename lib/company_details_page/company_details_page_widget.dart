@@ -1029,12 +1029,12 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                         r'''$..about''',
                                                       ) !=
                                                       null) &&
-                                                  (functions.lengthofMyString(
+                                                  ((functions.lengthofMyString(
                                                           getJsonField(
                                                         companyDetailsPageGetOrgDetailsResponse
                                                             .jsonBody,
                                                         r'''$..about''',
-                                                      ).toString())! >
+                                                      ).toString())!) >
                                                       100))
                                                 InkWell(
                                                   splashColor:
@@ -4004,103 +4004,120 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        0.0, 0.0, 0.0, 8.0),
-                                                child: Text(
-                                                  getJsonField(
-                                                    columnMyStoryGetUserStoryResponse
-                                                        .jsonBody,
-                                                    r'''$.myStory.pastTitle''',
-                                                  ).toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
                                                         0.0, 0.0, 0.0, 24.0),
-                                                child: Text(
-                                                  getJsonField(
-                                                    columnMyStoryGetUserStoryResponse
-                                                        .jsonBody,
-                                                    r'''$.myStory.past''',
-                                                  ).toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        lineHeight: 1.5,
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  12.0),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Text(
+                                                                getJsonField(
+                                                                  columnMyStoryGetUserStoryResponse
+                                                                      .jsonBody,
+                                                                  r'''$.myStory.futureTitle''',
+                                                                ).toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium,
+                                                              ),
+                                                              Text(
+                                                                getJsonField(
+                                                                  columnMyStoryGetUserStoryResponse
+                                                                      .jsonBody,
+                                                                  r'''$.myStory.future''',
+                                                                ).toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Roboto',
+                                                                      lineHeight:
+                                                                          1.5,
+                                                                    ),
+                                                              ),
+                                                              Text(
+                                                                getJsonField(
+                                                                  columnMyStoryGetUserStoryResponse
+                                                                      .jsonBody,
+                                                                  r'''$.myStory.nowTitle''',
+                                                                ).toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium,
+                                                              ),
+                                                              Text(
+                                                                getJsonField(
+                                                                  columnMyStoryGetUserStoryResponse
+                                                                      .jsonBody,
+                                                                  r'''$.myStory.now''',
+                                                                ).toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Roboto',
+                                                                      lineHeight:
+                                                                          1.5,
+                                                                    ),
+                                                              ),
+                                                              Text(
+                                                                getJsonField(
+                                                                  columnMyStoryGetUserStoryResponse
+                                                                      .jsonBody,
+                                                                  r'''$.myStory.pastTitle''',
+                                                                ).toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium,
+                                                              ),
+                                                              Text(
+                                                                getJsonField(
+                                                                  columnMyStoryGetUserStoryResponse
+                                                                      .jsonBody,
+                                                                  r'''$.myStory.past''',
+                                                                ).toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Roboto',
+                                                                      lineHeight:
+                                                                          1.5,
+                                                                    ),
+                                                              ),
+                                                            ].divide(SizedBox(
+                                                                height: 12.0)),
+                                                          ),
+                                                        ),
                                                       ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 8.0),
-                                                child: Text(
-                                                  getJsonField(
-                                                    columnMyStoryGetUserStoryResponse
-                                                        .jsonBody,
-                                                    r'''$.myStory.nowTitle''',
-                                                  ).toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 24.0),
-                                                child: Text(
-                                                  getJsonField(
-                                                    columnMyStoryGetUserStoryResponse
-                                                        .jsonBody,
-                                                    r'''$.myStory.now''',
-                                                  ).toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        lineHeight: 1.5,
-                                                      ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 8.0),
-                                                child: Text(
-                                                  getJsonField(
-                                                    columnMyStoryGetUserStoryResponse
-                                                        .jsonBody,
-                                                    r'''$.myStory.futureTitle''',
-                                                  ).toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 24.0),
-                                                child: Text(
-                                                  getJsonField(
-                                                    columnMyStoryGetUserStoryResponse
-                                                        .jsonBody,
-                                                    r'''$.myStory.future''',
-                                                  ).toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        lineHeight: 1.5,
-                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                             ],
@@ -4209,30 +4226,61 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        0.0, 10.0, 0.0, 10.0),
-                                                child: Text(
-                                                  'Past',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium,
+                                                        0.0, 0.0, 0.0, 24.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  12.0),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Text(
+                                                                'Past',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium,
+                                                              ),
+                                                              Text(
+                                                                'Present',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium,
+                                                              ),
+                                                              Text(
+                                                                'Future',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium,
+                                                              ),
+                                                            ].divide(SizedBox(
+                                                                height: 12.0)),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 10.0),
-                                                child: Text(
-                                                  'Present',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium,
-                                                ),
-                                              ),
-                                              Text(
-                                                'Future',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium,
                                               ),
                                             ],
                                           ),

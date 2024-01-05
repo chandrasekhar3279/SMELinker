@@ -1107,7 +1107,7 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                 contentItem,
                                                                                                                 r'''$.userName''',
                                                                                                               ).toString().maybeHandleOverflow(
-                                                                                                                    maxChars: 14,
+                                                                                                                    maxChars: 20,
                                                                                                                     replacement: '…',
                                                                                                                   ),
                                                                                                               style: FlutterFlowTheme.of(context).labelMedium,
@@ -1203,24 +1203,23 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                   ),
                                                                                                 ],
                                                                                               ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
-                                                                                                child: Container(
-                                                                                                  width: double.infinity,
-                                                                                                  decoration: BoxDecoration(),
-                                                                                                  child: Visibility(
-                                                                                                    visible: getJsonField(
-                                                                                                          contentItem,
-                                                                                                          r'''$.groupsData[:]''',
-                                                                                                        ) !=
-                                                                                                        null,
+                                                                                              if (getJsonField(
+                                                                                                    contentItem,
+                                                                                                    r'''$.groupsData[:]''',
+                                                                                                  ) !=
+                                                                                                  null)
+                                                                                                Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                                                                                                  child: Container(
+                                                                                                    width: double.infinity,
+                                                                                                    decoration: BoxDecoration(),
                                                                                                     child: Padding(
                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 6.0),
                                                                                                       child: Builder(
                                                                                                         builder: (context) {
                                                                                                           final groupsData = getJsonField(
                                                                                                             contentItem,
-                                                                                                            r'''$.groupsData[:]''',
+                                                                                                            r'''$..groupsData''',
                                                                                                           ).toList();
                                                                                                           return SingleChildScrollView(
                                                                                                             scrollDirection: Axis.horizontal,
@@ -1291,7 +1290,6 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                     ),
                                                                                                   ),
                                                                                                 ),
-                                                                                              ),
                                                                                               Divider(
                                                                                                 thickness: 1.0,
                                                                                               ),

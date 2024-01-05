@@ -409,6 +409,9 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                     ),
                                   ],
                                   controller: _model.tabBarController,
+                                  onTap: (i) async {
+                                    [() async {}, () async {}][i]();
+                                  },
                                 ),
                               ),
                               Expanded(
@@ -1495,117 +1498,170 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                           5.0,
                                                                           0.0,
                                                                           10.0),
-                                                              child: Container(
-                                                                width: double
-                                                                    .infinity,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8.0),
-                                                                ),
-                                                                child: Padding(
-                                                                  padding:
-                                                                      EdgeInsets
-                                                                          .all(
-                                                                              10.0),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.start,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.start,
-                                                                        children: [
-                                                                          Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              Container(
-                                                                                width: 100.0,
-                                                                                height: 90.0,
-                                                                                decoration: BoxDecoration(
-                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                ),
-                                                                                child: ClipRRect(
-                                                                                  borderRadius: BorderRadius.circular(8.0),
-                                                                                  child: Image.network(
-                                                                                    getJsonField(
-                                                                                      functions.image(getJsonField(
-                                                                                        feedTopActiveItem,
-                                                                                        r'''$.featuredImage''',
-                                                                                      ).toString()),
-                                                                                      r'''$.image''',
-                                                                                    ).toString(),
-                                                                                    width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                    height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                    fit: BoxFit.fill,
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'FeedDetail',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'feedDetail':
+                                                                          serializeParam(
+                                                                        getJsonField(
+                                                                          feedTopActiveItem,
+                                                                          r'''$''',
+                                                                        ),
+                                                                        ParamType
+                                                                            .JSON,
+                                                                      ),
+                                                                      'feedId':
+                                                                          serializeParam(
+                                                                        getJsonField(
+                                                                          feedTopActiveItem,
+                                                                          r'''$.id''',
+                                                                        ),
+                                                                        ParamType
+                                                                            .int,
+                                                                      ),
+                                                                      'userId':
+                                                                          serializeParam(
+                                                                        widget
+                                                                            .userId,
+                                                                        ParamType
+                                                                            .int,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                  );
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            10.0),
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.start,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children: [
+                                                                            Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Container(
+                                                                                  width: 100.0,
+                                                                                  height: 90.0,
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                  ),
+                                                                                  child: ClipRRect(
+                                                                                    borderRadius: BorderRadius.circular(8.0),
+                                                                                    child: Image.network(
+                                                                                      getJsonField(
+                                                                                        functions.image(getJsonField(
+                                                                                          feedTopActiveItem,
+                                                                                          r'''$.featuredImage''',
+                                                                                        ).toString()),
+                                                                                        r'''$.image''',
+                                                                                      ).toString(),
+                                                                                      width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                      height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                      fit: BoxFit.fill,
+                                                                                    ),
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                          Expanded(
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
-                                                                              child: Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: [
-                                                                                  Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: [
-                                                                                      Expanded(
-                                                                                        child: Text(
+                                                                              ],
+                                                                            ),
+                                                                            Expanded(
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                                                                                child: Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                  children: [
+                                                                                    Row(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      children: [
+                                                                                        Expanded(
+                                                                                          child: Text(
+                                                                                            getJsonField(
+                                                                                              feedTopActiveItem,
+                                                                                              r'''$.title''',
+                                                                                            ).toString(),
+                                                                                            textAlign: TextAlign.start,
+                                                                                            maxLines: 2,
+                                                                                            style: FlutterFlowTheme.of(context).labelLarge,
+                                                                                          ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                    Row(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      children: [
+                                                                                        Text(
+                                                                                          '${functions.submitedDate(getJsonField(
+                                                                                            feedTopActiveItem,
+                                                                                            r'''$.updatedTime''',
+                                                                                          ))} ago',
+                                                                                          style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                    if (false)
+                                                                                      Text(
+                                                                                        valueOrDefault<String>(
                                                                                           getJsonField(
                                                                                             feedTopActiveItem,
-                                                                                            r'''$.title''',
-                                                                                          ).toString(),
-                                                                                          textAlign: TextAlign.start,
-                                                                                          maxLines: 2,
-                                                                                          style: FlutterFlowTheme.of(context).titleMedium,
+                                                                                            r'''$.description''',
+                                                                                          )?.toString(),
+                                                                                          'N/A',
                                                                                         ),
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                       ),
-                                                                                    ],
-                                                                                  ),
-                                                                                  Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: [
-                                                                                      Text(
-                                                                                        '${functions.submitedDate(getJsonField(
-                                                                                          feedTopActiveItem,
-                                                                                          r'''$.updatedTime''',
-                                                                                        ))} ago',
-                                                                                        style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                              fontFamily: 'Roboto',
-                                                                                              fontSize: 12.0,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ],
+                                                                                  ],
+                                                                                ),
                                                                               ),
                                                                             ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ],
+                                                                          ],
+                                                                        ),
+                                                                      ],
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),

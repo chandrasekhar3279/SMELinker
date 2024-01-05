@@ -714,6 +714,23 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 thickness: 1.0,
                                 color: FlutterFlowTheme.of(context).accent4,
                               ),
+                              ListTile(
+                                title: Text(
+                                  'Subscribe',
+                                  style: FlutterFlowTheme.of(context).bodyLarge,
+                                ),
+                                trailing: Icon(
+                                  Icons.arrow_forward_ios,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 18.0,
+                                ),
+                                dense: false,
+                              ),
+                              Divider(
+                                thickness: 1.0,
+                                color: FlutterFlowTheme.of(context).accent4,
+                              ),
                               InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,

@@ -430,6 +430,9 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                 ),
                               ],
                               controller: _model.tabBarController,
+                              onTap: (i) async {
+                                [() async {}, () async {}, () async {}][i]();
+                              },
                             ),
                           ),
                           Expanded(

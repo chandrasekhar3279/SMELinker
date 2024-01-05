@@ -662,376 +662,296 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 24.0, 16.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                child: Wrap(
+                                  spacing: 12.0,
+                                  runSpacing: 12.0,
+                                  alignment: WrapAlignment.start,
+                                  crossAxisAlignment: WrapCrossAlignment.start,
+                                  direction: Axis.horizontal,
+                                  runAlignment: WrapAlignment.start,
+                                  verticalDirection: VerticalDirection.down,
+                                  clipBehavior: Clip.none,
                                   children: [
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            color: Color(0x1A003DA6),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            border: Border.all(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                            ),
-                                          ),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(12.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 5.0),
-                                                  child: Text(
-                                                    'COST',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleMedium,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '${valueOrDefault<String>(
-                                                    getJsonField(
-                                                      growthCardDetailGetGCDetailByIdResponse
-                                                          .jsonBody,
-                                                      r'''$.costEstimate''',
-                                                    )?.toString(),
-                                                    'N/A',
-                                                  )} AED',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ],
-                                            ),
-                                          ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: Color(0x1A003DA6),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
                                         ),
-                                      ],
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            decoration: BoxDecoration(
-                                              color: Color(0x1A003DA6),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              border: Border.all(
-                                                color:
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(12.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                              child: Text(
+                                                'COST',
+                                                style:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
+                                                        .titleMedium,
                                               ),
                                             ),
-                                            child: Padding(
-                                              padding: EdgeInsets.all(12.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 5.0),
-                                                    child: Text(
-                                                      'DURATION',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    valueOrDefault<String>(
-                                                      getJsonField(
+                                            Text(
+                                              '${valueOrDefault<String>(
+                                                getJsonField(
+                                                  growthCardDetailGetGCDetailByIdResponse
+                                                      .jsonBody,
+                                                  r'''$.costEstimate''',
+                                                )?.toString(),
+                                                'N/A',
+                                              )} AED',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: Color(0x1A003DA6),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(12.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                              child: Text(
+                                                'DURATION',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMedium,
+                                              ),
+                                            ),
+                                            Text(
+                                              valueOrDefault<String>(
+                                                getJsonField(
+                                                  growthCardDetailGetGCDetailByIdResponse
+                                                      .jsonBody,
+                                                  r'''$.timeEstimate''',
+                                                )?.toString(),
+                                                'N/A',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: Color(0x19003DA6),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(12.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                              child: Text(
+                                                'SERVICE',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMedium,
+                                              ),
+                                            ),
+                                            Text(
+                                              valueOrDefault<String>(
+                                                getJsonField(
+                                                  growthCardDetailGetGCDetailByIdResponse
+                                                      .jsonBody,
+                                                  r'''$.approvalStatus''',
+                                                )?.toString(),
+                                                'N/A',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: Color(0x19003DA6),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(12.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                              child: Text(
+                                                'LANGUAGE',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMedium,
+                                              ),
+                                            ),
+                                            Text(
+                                              valueOrDefault<String>(
+                                                getJsonField(
+                                                  growthCardDetailGetGCDetailByIdResponse
+                                                      .jsonBody,
+                                                  r'''$.languages''',
+                                                )?.toString(),
+                                                'N/A',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: Color(0x19003DA6),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(12.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                              child: Text(
+                                                'CREATED ON',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMedium,
+                                              ),
+                                            ),
+                                            Text(
+                                              valueOrDefault<String>(
+                                                getJsonField(
+                                                          growthCardDetailGetGCDetailByIdResponse
+                                                              .jsonBody,
+                                                          r'''$.createdTime''',
+                                                        ) ==
+                                                        null
+                                                    ? 'N/A'
+                                                    : getJsonField(
                                                         growthCardDetailGetGCDetailByIdResponse
                                                             .jsonBody,
-                                                        r'''$.timeEstimate''',
-                                                      )?.toString(),
-                                                      'N/A',
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
-                                                ],
+                                                        r'''$.createdTime''',
+                                                      ).toString(),
+                                                'N/A',
                                               ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Container(
-                                            decoration: BoxDecoration(
-                                              color: Color(0x19003DA6),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              border: Border.all(
-                                                color:
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: Color(0x19003DA6),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(12.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                              child: Text(
+                                                'UPDATED ON',
+                                                style:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
+                                                        .titleMedium,
                                               ),
                                             ),
-                                            child: Padding(
-                                              padding: EdgeInsets.all(12.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 5.0),
-                                                    child: Text(
-                                                      'SERVICE',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    valueOrDefault<String>(
-                                                      getJsonField(
+                                            Text(
+                                              valueOrDefault<String>(
+                                                getJsonField(
+                                                          growthCardDetailGetGCDetailByIdResponse
+                                                              .jsonBody,
+                                                          r'''$.updatedTime''',
+                                                        ) ==
+                                                        null
+                                                    ? 'N/A'
+                                                    : getJsonField(
                                                         growthCardDetailGetGCDetailByIdResponse
                                                             .jsonBody,
-                                                        r'''$.approvalStatus''',
-                                                      )?.toString(),
-                                                      'N/A',
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
-                                                ],
+                                                        r'''$.updatedTime''',
+                                                      ).toString(),
+                                                'N/A',
                                               ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 12.0, 16.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            color: Color(0x19003DA6),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            border: Border.all(
-                                              color:
+                                              style:
                                                   FlutterFlowTheme.of(context)
-                                                      .primary,
-                                            ),
-                                          ),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(12.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 5.0),
-                                                  child: Text(
-                                                    'LANGUAGE',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleMedium,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  valueOrDefault<String>(
-                                                    getJsonField(
-                                                      growthCardDetailGetGCDetailByIdResponse
-                                                          .jsonBody,
-                                                      r'''$.languages''',
-                                                    )?.toString(),
-                                                    'N/A',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
                                                       .bodyMedium,
-                                                ),
-                                              ],
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            decoration: BoxDecoration(
-                                              color: Color(0x19003DA6),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                              ),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsets.all(12.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 5.0),
-                                                    child: Text(
-                                                      'CREATED ON',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    valueOrDefault<String>(
-                                                      getJsonField(
-                                                                growthCardDetailGetGCDetailByIdResponse
-                                                                    .jsonBody,
-                                                                r'''$.createdTime''',
-                                                              ) ==
-                                                              null
-                                                          ? 'N/A'
-                                                          : getJsonField(
-                                                              growthCardDetailGetGCDetailByIdResponse
-                                                                  .jsonBody,
-                                                              r'''$.createdTime''',
-                                                            ).toString(),
-                                                      'N/A',
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            decoration: BoxDecoration(
-                                              color: Color(0x19003DA6),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                              ),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsets.all(12.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 5.0),
-                                                    child: Text(
-                                                      'UPDATED ON',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    valueOrDefault<String>(
-                                                      getJsonField(
-                                                                growthCardDetailGetGCDetailByIdResponse
-                                                                    .jsonBody,
-                                                                r'''$.updatedTime''',
-                                                              ) ==
-                                                              null
-                                                          ? 'N/A'
-                                                          : getJsonField(
-                                                              growthCardDetailGetGCDetailByIdResponse
-                                                                  .jsonBody,
-                                                              r'''$.updatedTime''',
-                                                            ).toString(),
-                                                      'N/A',
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
                                       ),
                                     ),
                                   ],

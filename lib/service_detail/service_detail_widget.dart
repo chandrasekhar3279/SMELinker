@@ -95,7 +95,7 @@ class _ServiceDetailWidgetState extends State<ServiceDetailWidget> {
               children: [
                 Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
-                  height: 400.0,
+                  height: 250.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
                     border: Border.all(

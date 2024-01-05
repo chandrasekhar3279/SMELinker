@@ -1115,6 +1115,11 @@ class GetQuestionsCall {
         r'''$.content[:].answerList.content''',
         true,
       ) as List?;
+  List? groupsData(dynamic response) => getJsonField(
+        response,
+        r'''$.content[:].groupsData[:]''',
+        true,
+      ) as List?;
 }
 
 class MarkBestAnswerCall {

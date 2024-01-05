@@ -24,6 +24,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
@@ -34,6 +35,7 @@ final _youtubeFullScreenControllerMap = <String, YoutubePlayerController>{};
 
 class FlutterFlowYoutubePlayer extends StatefulWidget {
   const FlutterFlowYoutubePlayer({
+    super.key,
     required this.url,
     this.width,
     this.height,
@@ -168,8 +170,16 @@ class _FlutterFlowYoutubePlayerState extends State<FlutterFlowYoutubePlayer>
                       controller: _controller!,
                       builder: (_, player) => player,
                       autoFullScreen: false,
+                      gestureRecognizers: const <Factory<
+                          TapGestureRecognizer>>{},
+                      enableFullScreenOnVerticalDrag: false,
                     )
-                  : YoutubePlayer(controller: _controller!)
+                  : YoutubePlayer(
+                      controller: _controller!,
+                      gestureRecognizers: const <Factory<
+                          TapGestureRecognizer>>{},
+                      enableFullScreenOnVerticalDrag: false,
+                    )
               : Container(color: Colors.transparent),
         ),
       );
@@ -214,6 +224,7 @@ class _YoutubeFullScreenWrapperState extends State<YoutubeFullScreenWrapper> {
       ? YoutubePlayerScaffold(
           controller: _controller!,
           builder: (_, player) => player,
+          enableFullScreenOnVerticalDrag: false,
         )
       : widget.child;
 }

@@ -111,6 +111,9 @@ class _FollowListWidgetState extends State<FollowListWidget>
                       ),
                     ],
                     controller: _model.tabBarController,
+                    onTap: (i) async {
+                      [() async {}, () async {}][i]();
+                    },
                   ),
                 ),
                 Expanded(
