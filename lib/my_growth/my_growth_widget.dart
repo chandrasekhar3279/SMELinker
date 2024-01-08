@@ -2006,53 +2006,59 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                 children: [
                                                                                   Row(
                                                                                     mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                    mainAxisAlignment: MainAxisAlignment.start,
                                                                                     crossAxisAlignment: CrossAxisAlignment.center,
                                                                                     children: [
-                                                                                      Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                        children: [
-                                                                                          FaIcon(
-                                                                                            FontAwesomeIcons.calendarMinus,
-                                                                                            color: FlutterFlowTheme.of(context).primary,
-                                                                                            size: 20.0,
-                                                                                          ),
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                            child: Column(
+                                                                                      Expanded(
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            Row(
                                                                                               mainAxisSize: MainAxisSize.max,
-                                                                                              crossAxisAlignment: CrossAxisAlignment.start,
                                                                                               children: [
-                                                                                                Text(
-                                                                                                  'DATE TAKEN',
-                                                                                                  style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                FaIcon(
+                                                                                                  FontAwesomeIcons.calendarMinus,
+                                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                                  size: 20.0,
                                                                                                 ),
-                                                                                                Text(
-                                                                                                  getJsonField(
-                                                                                                    contentItem,
-                                                                                                    r'''$.dateTaken''',
-                                                                                                  ).toString(),
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                                  child: Column(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                    children: [
+                                                                                                      Text(
+                                                                                                        'DATE TAKEN',
+                                                                                                        style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                      ),
+                                                                                                      Text(
+                                                                                                        getJsonField(
+                                                                                                          contentItem,
+                                                                                                          r'''$.dateTaken''',
+                                                                                                        ).toString(),
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
                                                                                                 ),
                                                                                               ],
                                                                                             ),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                      Expanded(
-                                                                                        child: Text(
-                                                                                          ' ',
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                          ],
                                                                                         ),
                                                                                       ),
                                                                                       Expanded(
-                                                                                        child: Text(
-                                                                                          'You can take the health  check again in ${getJsonField(
-                                                                                            contentItem,
-                                                                                            r'''$.numberOfDaysBefore''',
-                                                                                          ).toString()} days',
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          crossAxisAlignment: CrossAxisAlignment.end,
+                                                                                          children: [
+                                                                                            Text(
+                                                                                              'You can take the health  check again in ${getJsonField(
+                                                                                                contentItem,
+                                                                                                r'''$.numberOfDaysBefore''',
+                                                                                              ).toString()} days',
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                            ),
+                                                                                          ],
                                                                                         ),
                                                                                       ),
                                                                                     ],
@@ -2128,7 +2134,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                       ),
                                                                                     ],
                                                                                   ),
-                                                                                ].divide(SizedBox(height: 8.0)).around(SizedBox(height: 8.0)),
+                                                                                ].divide(SizedBox(height: 12.0)).around(SizedBox(height: 12.0)),
                                                                               ),
                                                                             ),
                                                                           ),
@@ -2154,67 +2160,87 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                               padding: EdgeInsets.all(12.0),
                                                                               child: Column(
                                                                                 mainAxisSize: MainAxisSize.max,
+                                                                                crossAxisAlignment: CrossAxisAlignment.center,
                                                                                 children: [
                                                                                   Row(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                                                     crossAxisAlignment: CrossAxisAlignment.center,
                                                                                     children: [
-                                                                                      Icon(
-                                                                                        Icons.payments_outlined,
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        size: 16.0,
-                                                                                      ),
                                                                                       Expanded(
-                                                                                        child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Text(
-                                                                                                'COST',
-                                                                                                style: FlutterFlowTheme.of(context).bodySmall,
-                                                                                              ),
-                                                                                              Text(
-                                                                                                getJsonField(
-                                                                                                  contentItem,
-                                                                                                  r'''$.cost''',
-                                                                                                ).toString(),
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                Icon(
+                                                                                                  Icons.payments_outlined,
+                                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                                  size: 16.0,
+                                                                                                ),
+                                                                                                Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                                  child: Column(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                    children: [
+                                                                                                      Text(
+                                                                                                        'COST',
+                                                                                                        style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                      ),
+                                                                                                      Text(
+                                                                                                        getJsonField(
+                                                                                                          contentItem,
+                                                                                                          r'''$.cost''',
+                                                                                                        ).toString(),
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ],
                                                                                         ),
                                                                                       ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(36.0, 0.0, 0.0, 0.0),
-                                                                                        child: FaIcon(
-                                                                                          FontAwesomeIcons.clock,
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          size: 20.0,
-                                                                                        ),
-                                                                                      ),
                                                                                       Expanded(
-                                                                                        child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Text(
-                                                                                                'DURATION',
-                                                                                                style: FlutterFlowTheme.of(context).bodySmall,
-                                                                                              ),
-                                                                                              Text(
-                                                                                                getJsonField(
-                                                                                                  contentItem,
-                                                                                                  r'''$.duration''',
-                                                                                                ).toString(),
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          crossAxisAlignment: CrossAxisAlignment.end,
+                                                                                          children: [
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              mainAxisAlignment: MainAxisAlignment.end,
+                                                                                              children: [
+                                                                                                FaIcon(
+                                                                                                  FontAwesomeIcons.clock,
+                                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                                  size: 20.0,
+                                                                                                ),
+                                                                                                Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                                  child: Column(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                    children: [
+                                                                                                      Text(
+                                                                                                        'DURATION',
+                                                                                                        style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                      ),
+                                                                                                      Text(
+                                                                                                        getJsonField(
+                                                                                                          contentItem,
+                                                                                                          r'''$.duration''',
+                                                                                                        ).toString(),
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ],
                                                                                         ),
                                                                                       ),
                                                                                     ],
@@ -2285,7 +2311,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                       ),
                                                                                     ),
                                                                                   ),
-                                                                                ].divide(SizedBox(height: 8.0)).around(SizedBox(height: 8.0)),
+                                                                                ].divide(SizedBox(height: 12.0)).around(SizedBox(height: 12.0)),
                                                                               ),
                                                                             ),
                                                                           ),
@@ -2309,66 +2335,83 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                 children: [
                                                                                   Row(
                                                                                     mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                                    mainAxisAlignment: MainAxisAlignment.start,
                                                                                     crossAxisAlignment: CrossAxisAlignment.center,
                                                                                     children: [
-                                                                                      Icon(
-                                                                                        Icons.payments_outlined,
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        size: 16.0,
-                                                                                      ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                      Expanded(
                                                                                         child: Column(
                                                                                           mainAxisSize: MainAxisSize.max,
-                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
                                                                                           children: [
-                                                                                            Text(
-                                                                                              'COST',
-                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
-                                                                                            ),
-                                                                                            Text(
-                                                                                              getJsonField(
-                                                                                                contentItem,
-                                                                                                r'''$.cost''',
-                                                                                              ).toString(),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                      ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(36.0, 0.0, 0.0, 0.0),
-                                                                                        child: FaIcon(
-                                                                                          FontAwesomeIcons.clock,
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          size: 20.0,
-                                                                                        ),
-                                                                                      ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                        child: Column(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                          children: [
-                                                                                            Text(
-                                                                                              'DURATION',
-                                                                                              style: FlutterFlowTheme.of(context).bodySmall,
-                                                                                            ),
-                                                                                            Text(
-                                                                                              getJsonField(
-                                                                                                contentItem,
-                                                                                                r'''$.duration''',
-                                                                                              ).toString(),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              children: [
+                                                                                                Icon(
+                                                                                                  Icons.payments_outlined,
+                                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                                  size: 16.0,
+                                                                                                ),
+                                                                                                Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                                  child: Column(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                    children: [
+                                                                                                      Text(
+                                                                                                        'COST',
+                                                                                                        style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                      ),
+                                                                                                      Text(
+                                                                                                        getJsonField(
+                                                                                                          contentItem,
+                                                                                                          r'''$.cost''',
+                                                                                                        ).toString(),
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
                                                                                             ),
                                                                                           ],
                                                                                         ),
                                                                                       ),
                                                                                       Expanded(
-                                                                                        child: Text(
-                                                                                          ' ',
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                          children: [
+                                                                                            Row(
+                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                              mainAxisAlignment: MainAxisAlignment.end,
+                                                                                              children: [
+                                                                                                FaIcon(
+                                                                                                  FontAwesomeIcons.clock,
+                                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                                  size: 20.0,
+                                                                                                ),
+                                                                                                Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                                  child: Column(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                    children: [
+                                                                                                      Text(
+                                                                                                        'DURATION',
+                                                                                                        style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                      ),
+                                                                                                      Text(
+                                                                                                        getJsonField(
+                                                                                                          contentItem,
+                                                                                                          r'''$.duration''',
+                                                                                                        ).toString(),
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ],
                                                                                         ),
                                                                                       ),
                                                                                     ],
@@ -2442,7 +2485,7 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                       ),
                                                                                     ),
                                                                                   ),
-                                                                                ].divide(SizedBox(height: 8.0)).around(SizedBox(height: 8.0)),
+                                                                                ].divide(SizedBox(height: 12.0)).around(SizedBox(height: 12.0)),
                                                                               ),
                                                                             ),
                                                                           ),
