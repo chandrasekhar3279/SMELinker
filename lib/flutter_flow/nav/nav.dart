@@ -294,6 +294,33 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => GroupDetailpageWidget(
             groupId: params.getParam('groupId', ParamType.int),
           ),
+        ),
+        FFRoute(
+          name: 'SubscribePlans',
+          path: '/subscribePlans',
+          builder: (context, params) => SubscribePlansWidget(),
+        ),
+        FFRoute(
+          name: 'MyContentDetail',
+          path: '/myContentDetail',
+          builder: (context, params) => MyContentDetailWidget(
+            myContent: params.getParam('myContent', ParamType.JSON),
+            pendingStatus: params.getParam('pendingStatus', ParamType.String),
+            rejectedStatus: params.getParam('rejectedStatus', ParamType.String),
+            approvedStatus: params.getParam('approvedStatus', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'PlanDetails',
+          path: '/planDetails',
+          builder: (context, params) => PlanDetailsWidget(
+            planDetails: params.getParam('planDetails', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'SubscribedDetails',
+          path: '/subscribedDetails',
+          builder: (context, params) => SubscribedDetailsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

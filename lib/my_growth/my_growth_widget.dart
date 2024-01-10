@@ -2211,31 +2211,33 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                           children: [
                                                                                             Row(
                                                                                               mainAxisSize: MainAxisSize.max,
-                                                                                              mainAxisAlignment: MainAxisAlignment.end,
+                                                                                              mainAxisAlignment: MainAxisAlignment.start,
                                                                                               children: [
                                                                                                 FaIcon(
                                                                                                   FontAwesomeIcons.clock,
                                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                                   size: 20.0,
                                                                                                 ),
-                                                                                                Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Column(
-                                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                    children: [
-                                                                                                      Text(
-                                                                                                        'DURATION',
-                                                                                                        style: FlutterFlowTheme.of(context).bodySmall,
-                                                                                                      ),
-                                                                                                      Text(
-                                                                                                        getJsonField(
-                                                                                                          contentItem,
-                                                                                                          r'''$.duration''',
-                                                                                                        ).toString(),
-                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                                      ),
-                                                                                                    ],
+                                                                                                Expanded(
+                                                                                                  child: Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                                    child: Column(
+                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                      children: [
+                                                                                                        Text(
+                                                                                                          'DURATION',
+                                                                                                          style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                        ),
+                                                                                                        Text(
+                                                                                                          getJsonField(
+                                                                                                            contentItem,
+                                                                                                            r'''$.duration''',
+                                                                                                          ).toString(),
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                        ),
+                                                                                                      ],
+                                                                                                    ),
                                                                                                   ),
                                                                                                 ),
                                                                                               ],
@@ -2382,31 +2384,33 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                           children: [
                                                                                             Row(
                                                                                               mainAxisSize: MainAxisSize.max,
-                                                                                              mainAxisAlignment: MainAxisAlignment.end,
+                                                                                              mainAxisAlignment: MainAxisAlignment.start,
                                                                                               children: [
                                                                                                 FaIcon(
                                                                                                   FontAwesomeIcons.clock,
                                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                                   size: 20.0,
                                                                                                 ),
-                                                                                                Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Column(
-                                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                    children: [
-                                                                                                      Text(
-                                                                                                        'DURATION',
-                                                                                                        style: FlutterFlowTheme.of(context).bodySmall,
-                                                                                                      ),
-                                                                                                      Text(
-                                                                                                        getJsonField(
-                                                                                                          contentItem,
-                                                                                                          r'''$.duration''',
-                                                                                                        ).toString(),
-                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                                      ),
-                                                                                                    ],
+                                                                                                Expanded(
+                                                                                                  child: Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                                    child: Column(
+                                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                      children: [
+                                                                                                        Text(
+                                                                                                          'DURATION',
+                                                                                                          style: FlutterFlowTheme.of(context).bodySmall,
+                                                                                                        ),
+                                                                                                        Text(
+                                                                                                          getJsonField(
+                                                                                                            contentItem,
+                                                                                                            r'''$.duration''',
+                                                                                                          ).toString(),
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                        ),
+                                                                                                      ],
+                                                                                                    ),
                                                                                                   ),
                                                                                                 ),
                                                                                               ],

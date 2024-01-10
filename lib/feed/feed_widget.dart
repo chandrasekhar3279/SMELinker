@@ -1744,268 +1744,301 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                       5.0,
                                                                       0.0,
                                                                       15.0),
-                                                          child: Container(
-                                                            width:
-                                                                double.infinity,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                            ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          15.0,
-                                                                          12.0,
-                                                                          15.0,
-                                                                          10.0),
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Container(
-                                                                        width:
-                                                                            100.0,
-                                                                        height:
-                                                                            90.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).accent1,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                        ),
-                                                                        child:
-                                                                            ClipRRect(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                          child:
-                                                                              Image.network(
-                                                                            valueOrDefault<String>(
-                                                                              getJsonField(
-                                                                                functions.image(getJsonField(
-                                                                                  myContentItem,
-                                                                                  r'''$.featuredImage''',
-                                                                                ).toString()),
-                                                                                r'''$.image''',
-                                                                              )?.toString(),
-                                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
-                                                                            ),
-                                                                            width:
-                                                                                MediaQuery.sizeOf(context).width * 1.0,
-                                                                            height:
-                                                                                MediaQuery.sizeOf(context).height * 1.0,
-                                                                            fit:
-                                                                                BoxFit.contain,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Expanded(
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              12.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children: [
-                                                                              Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                children: [
-                                                                                  Column(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                    children: [
-                                                                                      if (getJsonField(
-                                                                                            myContentItem,
-                                                                                            r'''$.reviewStatus''',
-                                                                                          ) ==
-                                                                                          _model.pendingStatus)
-                                                                                        Row(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          children: [
-                                                                                            FaIcon(
-                                                                                              FontAwesomeIcons.exclamationCircle,
-                                                                                              color: Color(0xFFFFBA57),
-                                                                                              size: 16.0,
-                                                                                            ),
-                                                                                            Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
-                                                                                              child: Text(
-                                                                                                'Review in Progress',
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      fontFamily: 'Roboto',
-                                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                    ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                      if (getJsonField(
-                                                                                            myContentItem,
-                                                                                            r'''$.reviewStatus''',
-                                                                                          ) ==
-                                                                                          _model.approvedStatus)
-                                                                                        Row(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          children: [
-                                                                                            FaIcon(
-                                                                                              FontAwesomeIcons.solidCheckCircle,
-                                                                                              color: FlutterFlowTheme.of(context).success,
-                                                                                              size: 16.0,
-                                                                                            ),
-                                                                                            Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
-                                                                                              child: Text(
-                                                                                                'Approved',
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      fontFamily: 'Roboto',
-                                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                    ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                      if (getJsonField(
-                                                                                            myContentItem,
-                                                                                            r'''$.reviewStatus''',
-                                                                                          ) ==
-                                                                                          _model.rejectedStatus)
-                                                                                        Row(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          children: [
-                                                                                            Icon(
-                                                                                              Icons.not_interested_sharp,
-                                                                                              color: FlutterFlowTheme.of(context).error,
-                                                                                              size: 16.0,
-                                                                                            ),
-                                                                                            Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
-                                                                                              child: Text(
-                                                                                                'Rejected',
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      fontFamily: 'Roboto',
-                                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                    ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                    ],
-                                                                                  ),
-                                                                                  Flexible(
-                                                                                    child: Text(
-                                                                                      getJsonField(
-                                                                                        myContentItem,
-                                                                                        r'''$.updatedTime''',
-                                                                                      ).toString(),
-                                                                                      style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                            fontFamily: 'Roboto',
-                                                                                            fontSize: 12.0,
-                                                                                          ),
-                                                                                    ),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 4.0),
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.min,
-                                                                                  mainAxisAlignment: MainAxisAlignment.end,
-                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Expanded(
-                                                                                      child: Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                                                                        child: Text(
-                                                                                          getJsonField(
-                                                                                            myContentItem,
-                                                                                            r'''$.title''',
-                                                                                          ).toString(),
-                                                                                          textAlign: TextAlign.start,
-                                                                                          maxLines: 2,
-                                                                                          style: FlutterFlowTheme.of(context).labelLarge,
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              context.pushNamed(
+                                                                'MyContentDetail',
+                                                                queryParameters:
+                                                                    {
+                                                                  'myContent':
+                                                                      serializeParam(
+                                                                    myContentItem,
+                                                                    ParamType
+                                                                        .JSON,
                                                                   ),
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      if (getJsonField(
-                                                                            myContentItem,
-                                                                            r'''$.description''',
-                                                                          ) !=
-                                                                          null)
+                                                                  'pendingStatus':
+                                                                      serializeParam(
+                                                                    _model
+                                                                        .pendingStatus,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'rejectedStatus':
+                                                                      serializeParam(
+                                                                    _model
+                                                                        .rejectedStatus,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'approvedStatus':
+                                                                      serializeParam(
+                                                                    _model
+                                                                        .approvedStatus,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            },
+                                                            child: Container(
+                                                              width: double
+                                                                  .infinity,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                              ),
+                                                              child: Padding(
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        15.0,
+                                                                        12.0,
+                                                                        15.0,
+                                                                        10.0),
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Container(
+                                                                          width:
+                                                                              100.0,
+                                                                          height:
+                                                                              90.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                            border:
+                                                                                Border.all(
+                                                                              color: FlutterFlowTheme.of(context).accent1,
+                                                                              width: 1.0,
+                                                                            ),
+                                                                          ),
+                                                                          child:
+                                                                              ClipRRect(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                            child:
+                                                                                Image.network(
+                                                                              valueOrDefault<String>(
+                                                                                getJsonField(
+                                                                                  functions.image(getJsonField(
+                                                                                    myContentItem,
+                                                                                    r'''$.featuredImage''',
+                                                                                  ).toString()),
+                                                                                  r'''$.image''',
+                                                                                )?.toString(),
+                                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                              ),
+                                                                              width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                              height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                              fit: BoxFit.contain,
+                                                                            ),
+                                                                          ),
+                                                                        ),
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                12.0,
                                                                                 0.0,
-                                                                                10.0,
                                                                                 0.0,
-                                                                                12.0),
+                                                                                0.0),
                                                                             child:
-                                                                                Text(
-                                                                              valueOrDefault<String>(
-                                                                                getJsonField(
-                                                                                  myContentItem,
-                                                                                  r'''$.description''',
-                                                                                )?.toString(),
-                                                                                'No description',
-                                                                              ),
-                                                                              textAlign: TextAlign.start,
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                                              children: [
+                                                                                Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                  children: [
+                                                                                    Column(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                      children: [
+                                                                                        if (getJsonField(
+                                                                                              myContentItem,
+                                                                                              r'''$.reviewStatus''',
+                                                                                            ) ==
+                                                                                            _model.pendingStatus)
+                                                                                          Row(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            children: [
+                                                                                              FaIcon(
+                                                                                                FontAwesomeIcons.exclamationCircle,
+                                                                                                color: Color(0xFFFFBA57),
+                                                                                                size: 16.0,
+                                                                                              ),
+                                                                                              Padding(
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
+                                                                                                child: Text(
+                                                                                                  'Review in Progress',
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'Roboto',
+                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        if (getJsonField(
+                                                                                              myContentItem,
+                                                                                              r'''$.reviewStatus''',
+                                                                                            ) ==
+                                                                                            _model.approvedStatus)
+                                                                                          Row(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            children: [
+                                                                                              FaIcon(
+                                                                                                FontAwesomeIcons.solidCheckCircle,
+                                                                                                color: FlutterFlowTheme.of(context).success,
+                                                                                                size: 16.0,
+                                                                                              ),
+                                                                                              Padding(
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
+                                                                                                child: Text(
+                                                                                                  'Approved',
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'Roboto',
+                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        if (getJsonField(
+                                                                                              myContentItem,
+                                                                                              r'''$.reviewStatus''',
+                                                                                            ) ==
+                                                                                            _model.rejectedStatus)
+                                                                                          Row(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            children: [
+                                                                                              Icon(
+                                                                                                Icons.not_interested_sharp,
+                                                                                                color: FlutterFlowTheme.of(context).error,
+                                                                                                size: 16.0,
+                                                                                              ),
+                                                                                              Padding(
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
+                                                                                                child: Text(
+                                                                                                  'Rejected',
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'Roboto',
+                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                      ],
+                                                                                    ),
+                                                                                    Flexible(
+                                                                                      child: Text(
+                                                                                        getJsonField(
+                                                                                          myContentItem,
+                                                                                          r'''$.updatedTime''',
+                                                                                        ).toString(),
+                                                                                        style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                              fontFamily: 'Roboto',
+                                                                                              fontSize: 12.0,
+                                                                                            ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 4.0),
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.min,
+                                                                                    mainAxisAlignment: MainAxisAlignment.end,
+                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                    children: [
+                                                                                      Expanded(
+                                                                                        child: Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                          child: Text(
+                                                                                            getJsonField(
+                                                                                              myContentItem,
+                                                                                              r'''$.title''',
+                                                                                            ).toString(),
+                                                                                            textAlign: TextAlign.start,
+                                                                                            maxLines: 2,
+                                                                                            style: FlutterFlowTheme.of(context).labelLarge,
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                              ],
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                    ],
-                                                                  ),
-                                                                ],
+                                                                      ],
+                                                                    ),
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        if (getJsonField(
+                                                                              myContentItem,
+                                                                              r'''$.description''',
+                                                                            ) !=
+                                                                            null)
+                                                                          Expanded(
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 12.0),
+                                                                              child: Text(
+                                                                                valueOrDefault<String>(
+                                                                                  getJsonField(
+                                                                                    myContentItem,
+                                                                                    r'''$.description''',
+                                                                                  )?.toString(),
+                                                                                  'No description',
+                                                                                ),
+                                                                                textAlign: TextAlign.start,
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                      ],
+                                                                    ),
+                                                                  ],
+                                                                ),
                                                               ),
                                                             ),
                                                           ),

@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/empty_list_view_forum_answer_component_widget.dart';
 import '/components/forum_answer_widget.dart';
 import '/components/forum_answer_with_in_reply_widget.dart';
 import '/components/more_details_widget.dart';
@@ -645,7 +646,13 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                             ),
                           ),
                         ),
-
+                        noItemsFoundIndicatorBuilder: (_) => Container(
+                          width: double.infinity,
+                          height: 200.0,
+                          child: EmptyListViewForumAnswerComponentWidget(
+                            listIsFor: 'Answer',
+                          ),
+                        ),
                         itemBuilder: (context, _, answersIndex) {
                           final answersItem = _model.listViewPagingController!
                               .itemList![answersIndex];

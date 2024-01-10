@@ -473,6 +473,59 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('SubscribePlans');
+                                },
+                                child: ListTile(
+                                  title: Text(
+                                    'Subscribe',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyLarge,
+                                  ),
+                                  trailing: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 18.0,
+                                  ),
+                                  dense: false,
+                                ),
+                              ),
+                              if (false)
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('SubscribedDetails');
+                                  },
+                                  child: ListTile(
+                                    title: Text(
+                                      'Subscription detials',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyLarge,
+                                    ),
+                                    trailing: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 20.0,
+                                    ),
+                                    tileColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    dense: false,
+                                  ),
+                                ),
+                              Divider(
+                                thickness: 1.0,
+                                color: FlutterFlowTheme.of(context).accent4,
+                              ),
                               if (false)
                                 InkWell(
                                   splashColor: Colors.transparent,
@@ -709,23 +762,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                       .secondaryBackground,
                                   dense: false,
                                 ),
-                              ),
-                              Divider(
-                                thickness: 1.0,
-                                color: FlutterFlowTheme.of(context).accent4,
-                              ),
-                              ListTile(
-                                title: Text(
-                                  'Subscribe',
-                                  style: FlutterFlowTheme.of(context).bodyLarge,
-                                ),
-                                trailing: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  size: 18.0,
-                                ),
-                                dense: false,
                               ),
                               Divider(
                                 thickness: 1.0,

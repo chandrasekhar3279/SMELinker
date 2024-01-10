@@ -745,124 +745,133 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 16.0, 0.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  decoration: BoxDecoration(),
-                                  child: Builder(
-                                    builder: (context) {
-                                      final gropusdata =
-                                          SmeGroup.getFeedDetailsCall
-                                                  .groupsData(
-                                                    columnGetFeedDetailsResponse
-                                                        .jsonBody,
-                                                  )
-                                                  ?.map((e) => e)
-                                                  .toList()
-                                                  ?.toList() ??
-                                              [];
-                                      return Wrap(
-                                        spacing: 0.0,
-                                        runSpacing: 0.0,
-                                        alignment: WrapAlignment.start,
-                                        crossAxisAlignment:
-                                            WrapCrossAlignment.start,
-                                        direction: Axis.horizontal,
-                                        runAlignment: WrapAlignment.start,
-                                        verticalDirection:
-                                            VerticalDirection.down,
-                                        clipBehavior: Clip.none,
-                                        children:
-                                            List.generate(gropusdata.length,
-                                                (gropusdataIndex) {
-                                          final gropusdataItem =
-                                              gropusdata[gropusdataIndex];
-                                          return Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 6.0, 0.0),
-                                            child: AlignedTooltip(
-                                              content: Padding(
-                                                  padding: EdgeInsets.all(8.0),
-                                                  child: Text(
-                                                    getJsonField(
-                                                      gropusdataItem,
-                                                      r'''$.groupName''',
-                                                    ).toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  )),
-                                              offset: 4.0,
-                                              preferredDirection:
-                                                  AxisDirection.up,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              elevation: 4.0,
-                                              tailBaseWidth: 24.0,
-                                              tailLength: 12.0,
-                                              waitDuration:
-                                                  Duration(milliseconds: 100),
-                                              showDuration:
-                                                  Duration(milliseconds: 1500),
-                                              triggerMode:
-                                                  TooltipTriggerMode.tap,
-                                              child: Container(
-                                                width: 45.0,
-                                                height: 45.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  shape: BoxShape.circle,
-                                                  border: Border.all(
+                          if (getJsonField(
+                                columnGetFeedDetailsResponse.jsonBody,
+                                r'''$.feed[:].groupsData''',
+                              ) !=
+                              null)
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    decoration: BoxDecoration(),
+                                    child: Builder(
+                                      builder: (context) {
+                                        final gropusdata =
+                                            SmeGroup.getFeedDetailsCall
+                                                    .groupsData(
+                                                      columnGetFeedDetailsResponse
+                                                          .jsonBody,
+                                                    )
+                                                    ?.map((e) => e)
+                                                    .toList()
+                                                    ?.toList() ??
+                                                [];
+                                        return Wrap(
+                                          spacing: 0.0,
+                                          runSpacing: 0.0,
+                                          alignment: WrapAlignment.start,
+                                          crossAxisAlignment:
+                                              WrapCrossAlignment.start,
+                                          direction: Axis.horizontal,
+                                          runAlignment: WrapAlignment.start,
+                                          verticalDirection:
+                                              VerticalDirection.down,
+                                          clipBehavior: Clip.none,
+                                          children:
+                                              List.generate(gropusdata.length,
+                                                  (gropusdataIndex) {
+                                            final gropusdataItem =
+                                                gropusdata[gropusdataIndex];
+                                            return Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 6.0, 0.0),
+                                              child: AlignedTooltip(
+                                                content: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(8.0),
+                                                    child: Text(
+                                                      getJsonField(
+                                                        gropusdataItem,
+                                                        r'''$.groupName''',
+                                                      ).toString(),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    )),
+                                                offset: 4.0,
+                                                preferredDirection:
+                                                    AxisDirection.up,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                elevation: 4.0,
+                                                tailBaseWidth: 24.0,
+                                                tailLength: 12.0,
+                                                waitDuration:
+                                                    Duration(milliseconds: 100),
+                                                showDuration: Duration(
+                                                    milliseconds: 1500),
+                                                triggerMode:
+                                                    TooltipTriggerMode.tap,
+                                                child: Container(
+                                                  width: 45.0,
+                                                  height: 45.0,
+                                                  decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primary,
-                                                    width: 1.0,
-                                                  ),
-                                                ),
-                                                child: Container(
-                                                  width: 40.0,
-                                                  height: 40.0,
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
+                                                        .secondaryBackground,
                                                     shape: BoxShape.circle,
-                                                  ),
-                                                  child: Image.network(
-                                                    valueOrDefault<String>(
-                                                      getJsonField(
-                                                        functions
-                                                            .image(getJsonField(
-                                                          gropusdataItem,
-                                                          r'''$.groupImg''',
-                                                        ).toString()),
-                                                        r'''$.image''',
-                                                      )?.toString(),
-                                                      'https://images.unsplash.com/photo-1614436163996-25cee5f54290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80',
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      width: 1.0,
                                                     ),
-                                                    fit: BoxFit.contain,
+                                                  ),
+                                                  child: Container(
+                                                    width: 40.0,
+                                                    height: 40.0,
+                                                    clipBehavior:
+                                                        Clip.antiAlias,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Image.network(
+                                                      valueOrDefault<String>(
+                                                        getJsonField(
+                                                          functions.image(
+                                                              getJsonField(
+                                                            gropusdataItem,
+                                                            r'''$.groupImg''',
+                                                          ).toString()),
+                                                          r'''$.image''',
+                                                        )?.toString(),
+                                                        'https://images.unsplash.com/photo-1614436163996-25cee5f54290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80',
+                                                      ),
+                                                      fit: BoxFit.contain,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          );
-                                        }),
-                                      );
-                                    },
+                                            );
+                                          }),
+                                        );
+                                      },
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
                           if (false)
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(

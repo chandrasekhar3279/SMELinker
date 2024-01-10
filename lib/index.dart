@@ -56,3 +56,9 @@ export '/chat_detail_page/chat_detail_page_widget.dart'
 export '/groups/groups_widget.dart' show GroupsWidget;
 export '/group_detailpage/group_detailpage_widget.dart'
     show GroupDetailpageWidget;
+export '/subscribe_plans/subscribe_plans_widget.dart' show SubscribePlansWidget;
+export '/my_content_detail/my_content_detail_widget.dart'
+    show MyContentDetailWidget;
+export '/plan_details/plan_details_widget.dart' show PlanDetailsWidget;
+export '/subscribed_details/subscribed_details_widget.dart'
+    show SubscribedDetailsWidget;
