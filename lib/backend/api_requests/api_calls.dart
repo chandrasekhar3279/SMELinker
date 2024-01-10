@@ -11,8 +11,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start SME Group Code
 
 class SmeGroup {
-  static String baseUrl =
-      'http://smelinker.southafricanorth.cloudapp.azure.com/api';
+  static String baseUrl = 'https://www.smelinker.co.za/api';
   static Map<String, String> headers = {};
   static LoginAuthenticationCall loginAuthenticationCall =
       LoginAuthenticationCall();

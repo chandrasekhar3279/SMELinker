@@ -53,18 +53,16 @@ dynamic image(String imagepath) {
   if (imagepath == "null") {
     return {
       "image":
-          "http://smelinker.southafricanorth.cloudapp.azure.com/assets/images/news/newsfeed-square.jpg"
+          "https://www.smelinker.co.za/assets/images/news/newsfeed-square.jpg"
     };
   }
   if (imagepath == "") {
     return {
       "image":
-          "http://smelinker.southafricanorth.cloudapp.azure.com/assets/images/news/newsfeed-square.jpg"
+          "https://www.smelinker.co.za/assets/images/news/newsfeed-square.jpg"
     };
   }
-  return {
-    "image": "http://smelinker.southafricanorth.cloudapp.azure.com" + imagepath
-  };
+  return {"image": "https://www.smelinker.co.za" + imagepath};
 }
 
 String submitedDate(int date) {
