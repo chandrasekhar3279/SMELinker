@@ -342,7 +342,7 @@ class RegisterUserCall {
       apiUrl: '${SmeGroup.baseUrl}/auth/register-sme',
       callType: ApiCallType.POST,
       headers: {
-        'x-base-href': 'http://smeconnect-dev.southindia.cloudapp.azure.com',
+        'x-base-href': 'https://www.smelinker.co.za',
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },

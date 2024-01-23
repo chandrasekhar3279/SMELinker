@@ -1625,7 +1625,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                                     context)
                                                                 .secondaryText,
                                                       ),
-                                                  hintText: 'YYYY/XXXXXX/ZZ',
+                                                  hintText: 'YYYYXXXXXX',
                                                   hintStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .labelMedium

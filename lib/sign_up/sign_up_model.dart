@@ -152,7 +152,7 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
       return 'Please insert a valid CRN';
     }
     if (val.length > 9) {
-      return 'The format is YYYY/XXXXXX/ZZ where YYYY is the Year and ZZ is the CompanyType';
+      return 'The format is YYYYXXXXXX where YYYY is the Year and ZZ is the CompanyType';
     }
 
     return null;

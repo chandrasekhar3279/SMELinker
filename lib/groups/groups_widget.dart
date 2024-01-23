@@ -924,7 +924,7 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                           getJsonField(
                                                                             functions.image(getJsonField(
                                                                               requestgroupsItem,
-                                                                              r'''$.companyLogo''',
+                                                                              r'''$.image''',
                                                                             ).toString()),
                                                                             r'''$.image''',
                                                                           ).toString(),
@@ -1280,7 +1280,7 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                           getJsonField(
                                                                             functions.image(getJsonField(
                                                                               groupItem,
-                                                                              r'''$.companyLogo''',
+                                                                              r'''$.image''',
                                                                             ).toString()),
                                                                             r'''$.image''',
                                                                           ).toString(),
