@@ -16,10 +16,10 @@ import 'a_i_bussiness_adviser_model.dart';
 export 'a_i_bussiness_adviser_model.dart';
 
 class AIBussinessAdviserWidget extends StatefulWidget {
-  const AIBussinessAdviserWidget({Key? key}) : super(key: key);
+  const AIBussinessAdviserWidget({super.key});
 
   @override
-  _AIBussinessAdviserWidgetState createState() =>
+  State<AIBussinessAdviserWidget> createState() =>
       _AIBussinessAdviserWidgetState();
 }
 

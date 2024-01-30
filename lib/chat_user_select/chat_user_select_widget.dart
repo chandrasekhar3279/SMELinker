@@ -15,14 +15,14 @@ export 'chat_user_select_model.dart';
 
 class ChatUserSelectWidget extends StatefulWidget {
   const ChatUserSelectWidget({
-    Key? key,
+    super.key,
     this.users,
-  }) : super(key: key);
+  });
 
   final dynamic users;
 
   @override
-  _ChatUserSelectWidgetState createState() => _ChatUserSelectWidgetState();
+  State<ChatUserSelectWidget> createState() => _ChatUserSelectWidgetState();
 }
 
 class _ChatUserSelectWidgetState extends State<ChatUserSelectWidget> {

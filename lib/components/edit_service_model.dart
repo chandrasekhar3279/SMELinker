@@ -55,8 +55,11 @@ class EditServiceModel extends FlutterFlowModel<EditServiceWidget> {
   }
 
   // State field(s) for editServicecategoryList widget.
-  String? editServicecategoryListValue;
-  FormFieldController<String>? editServicecategoryListValueController;
+  String? editServicecategoryListValue1;
+  FormFieldController<String>? editServicecategoryListValueController1;
+  // State field(s) for editServicecategoryList widget.
+  String? editServicecategoryListValue2;
+  FormFieldController<String>? editServicecategoryListValueController2;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;

@@ -21,14 +21,14 @@ export 'update_org_details_page_model.dart';
 
 class UpdateOrgDetailsPageWidget extends StatefulWidget {
   const UpdateOrgDetailsPageWidget({
-    Key? key,
+    super.key,
     this.orgDetails,
-  }) : super(key: key);
+  });
 
   final dynamic orgDetails;
 
   @override
-  _UpdateOrgDetailsPageWidgetState createState() =>
+  State<UpdateOrgDetailsPageWidget> createState() =>
       _UpdateOrgDetailsPageWidgetState();
 }
 
@@ -193,7 +193,7 @@ class _UpdateOrgDetailsPageWidgetState
                                           .validate()) {
                                     return;
                                   }
-                                  if (_model.industriesValue == null) {
+                                  if (_model.industriesValue1 == null) {
                                     return;
                                   }
                                   if (_model.yearofLaunchValue == null) {
@@ -282,7 +282,7 @@ class _UpdateOrgDetailsPageWidgetState
                                             .validate()) {
                                       return;
                                     }
-                                    if (_model.industriesValue == null) {
+                                    if (_model.industriesValue1 == null) {
                                       return;
                                     }
                                     if (_model.yearofLaunchValue == null) {
@@ -522,9 +522,9 @@ class _UpdateOrgDetailsPageWidgetState
                                               snapshot.data!;
                                           return FlutterFlowDropDown<String>(
                                             controller: _model
-                                                    .industriesValueController ??=
+                                                    .industriesValueController1 ??=
                                                 FormFieldController<String>(
-                                              _model.industriesValue ??=
+                                              _model.industriesValue1 ??=
                                                   getJsonField(
                                                 widget.orgDetails,
                                                 r'''$.industry''',
@@ -540,18 +540,18 @@ class _UpdateOrgDetailsPageWidgetState
                                                     (s) => s.toString())
                                                 .toList()!,
                                             onChanged: (val) async {
-                                              setState(() =>
-                                                  _model.industriesValue = val);
+                                              setState(() => _model
+                                                  .industriesValue1 = val);
                                               if ((FFAppState()
                                                           .submittedUpdateOrgDetailsForm ==
                                                       true) &&
-                                                  ((_model.industriesValue !=
+                                                  ((_model.industriesValue1 !=
                                                               null &&
-                                                          _model.industriesValue !=
+                                                          _model.industriesValue1 !=
                                                               '') ||
-                                                      (_model.industriesValue ==
+                                                      (_model.industriesValue1 ==
                                                               null ||
-                                                          _model.industriesValue ==
+                                                          _model.industriesValue1 ==
                                                               ''))) {
                                                 if (_model.formKey
                                                             .currentState ==
@@ -561,7 +561,7 @@ class _UpdateOrgDetailsPageWidgetState
                                                         .validate()) {
                                                   return;
                                                 }
-                                                if (_model.industriesValue ==
+                                                if (_model.industriesValue1 ==
                                                     null) {
                                                   return;
                                                 }
@@ -625,6 +625,147 @@ class _UpdateOrgDetailsPageWidgetState
                               ],
                             ),
                           ),
+                          if (false)
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 30.0, 0.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 7.0, 0.0, 0.0),
+                                        child: FutureBuilder<ApiCallResponse>(
+                                          future:
+                                              SmeGroup.getIndustriesCall.call(),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  child: SpinKitFadingCircle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
+                                                    size: 50.0,
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                            final industriesGetIndustriesResponse =
+                                                snapshot.data!;
+                                            return FlutterFlowDropDown<String>(
+                                              controller: _model
+                                                      .industriesValueController2 ??=
+                                                  FormFieldController<String>(
+                                                _model.industriesValue2 ??=
+                                                    getJsonField(
+                                                  widget.orgDetails,
+                                                  r'''$.industry''',
+                                                ).toString(),
+                                              ),
+                                              options: (getJsonField(
+                                                industriesGetIndustriesResponse
+                                                    .jsonBody,
+                                                r'''$..industryName''',
+                                                true,
+                                              ) as List)
+                                                  .map<String>(
+                                                      (s) => s.toString())
+                                                  .toList()!,
+                                              onChanged: (val) async {
+                                                setState(() => _model
+                                                    .industriesValue2 = val);
+                                                if ((FFAppState()
+                                                            .submittedUpdateOrgDetailsForm ==
+                                                        true) &&
+                                                    ((_model.industriesValue2 !=
+                                                                null &&
+                                                            _model.industriesValue2 !=
+                                                                '') ||
+                                                        (_model.industriesValue2 ==
+                                                                null ||
+                                                            _model.industriesValue2 ==
+                                                                ''))) {
+                                                  if (_model.formKey
+                                                              .currentState ==
+                                                          null ||
+                                                      !_model
+                                                          .formKey.currentState!
+                                                          .validate()) {
+                                                    return;
+                                                  }
+                                                  if (_model.industriesValue1 ==
+                                                      null) {
+                                                    return;
+                                                  }
+                                                  if (_model
+                                                          .yearofLaunchValue ==
+                                                      null) {
+                                                    return;
+                                                  }
+                                                }
+                                              },
+                                              width: double.infinity,
+                                              height: 60.0,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                              hintText:
+                                                  'Please select Industry',
+                                              fillColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                              elevation: 2.0,
+                                              borderColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent3,
+                                              borderWidth: 1.0,
+                                              borderRadius: 8.0,
+                                              margin: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 4.0, 12.0, 4.0),
+                                              hidesUnderline: true,
+                                              isSearchable: false,
+                                              isMultiSelect: false,
+                                            );
+                                          },
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 7.0, 0.0, 0.0),
+                                        child: Container(
+                                          width: 55.0,
+                                          height: 2.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 0.0, 0.0),
+                                        child: Container(
+                                          decoration: BoxDecoration(),
+                                          child: Text(
+                                            'Sub-industry',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 30.0, 0.0, 0.0),
@@ -676,7 +817,7 @@ class _UpdateOrgDetailsPageWidgetState
                                                     .validate()) {
                                               return;
                                             }
-                                            if (_model.industriesValue ==
+                                            if (_model.industriesValue1 ==
                                                 null) {
                                               return;
                                             }
@@ -763,7 +904,7 @@ class _UpdateOrgDetailsPageWidgetState
                                             .validate()) {
                                       return;
                                     }
-                                    if (_model.industriesValue == null) {
+                                    if (_model.industriesValue1 == null) {
                                       return;
                                     }
                                     if (_model.yearofLaunchValue == null) {
@@ -973,27 +1114,28 @@ class _UpdateOrgDetailsPageWidgetState
                                                     context: context,
                                                     builder: (context) {
                                                       return WebViewAware(
-                                                          child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child: Container(
-                                                          height:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .height *
-                                                                  1.0,
-                                                          child:
-                                                              ChangeInterestSelectionWidget(
-                                                            industries:
-                                                                getJsonField(
-                                                              interestGetIndustriesResponse
-                                                                  .jsonBody,
-                                                              r'''$''',
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child: Container(
+                                                            height: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .height *
+                                                                1.0,
+                                                            child:
+                                                                ChangeInterestSelectionWidget(
+                                                              industries:
+                                                                  getJsonField(
+                                                                interestGetIndustriesResponse
+                                                                    .jsonBody,
+                                                                r'''$''',
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
-                                                      ));
+                                                      );
                                                     },
                                                   ).then((value) =>
                                                       safeSetState(() {}));
@@ -1095,20 +1237,21 @@ class _UpdateOrgDetailsPageWidgetState
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: Container(
-                                          height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                              1.0,
-                                          child: SelectImageWidget(
-                                            selectedImage:
-                                                _model.uploadedLocalFile,
-                                            ratio: 1.0,
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: Container(
+                                            height: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                1.0,
+                                            child: SelectImageWidget(
+                                              selectedImage:
+                                                  _model.uploadedLocalFile,
+                                              ratio: 1.0,
+                                            ),
                                           ),
                                         ),
-                                      ));
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 }
@@ -1380,7 +1523,7 @@ class _UpdateOrgDetailsPageWidgetState
                                               .validate()) {
                                         return;
                                       }
-                                      if (_model.industriesValue == null) {
+                                      if (_model.industriesValue1 == null) {
                                         return;
                                       }
                                       if (_model.yearofLaunchValue == null) {
@@ -1393,7 +1536,7 @@ class _UpdateOrgDetailsPageWidgetState
                                           functions.updateOrgDetails(
                                               _model.companyNameController.text,
                                               _model.brnNumberController.text,
-                                              _model.industriesValue!,
+                                              _model.industriesValue1!,
                                               _model.yearofLaunchValue!,
                                               _model.descriptionController.text,
                                               _model
@@ -1412,19 +1555,20 @@ class _UpdateOrgDetailsPageWidgetState
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
-                                                child: AlertDialog(
-                                              title: Text('Org Details '),
-                                              content:
-                                                  Text('Updated Successfully'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ));
+                                              child: AlertDialog(
+                                                title: Text('Org Details '),
+                                                content: Text(
+                                                    'Updated Successfully'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
                                           },
                                         );
                                         setState(() {
@@ -1441,19 +1585,20 @@ class _UpdateOrgDetailsPageWidgetState
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
-                                                child: AlertDialog(
-                                              title: Text('Error'),
-                                              content: Text(
-                                                  'Something went wrong !'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Try again'),
-                                                ),
-                                              ],
-                                            ));
+                                              child: AlertDialog(
+                                                title: Text('Error'),
+                                                content: Text(
+                                                    'Something went wrong !'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Try again'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
                                           },
                                         );
                                         setState(() {

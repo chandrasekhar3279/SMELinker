@@ -15,16 +15,16 @@ export 'forum_answer_with_in_reply_model.dart';
 
 class ForumAnswerWithInReplyWidget extends StatefulWidget {
   const ForumAnswerWithInReplyWidget({
-    Key? key,
+    super.key,
     this.subAnswerQuestionItem,
     this.subAnswersList,
-  }) : super(key: key);
+  });
 
   final dynamic subAnswerQuestionItem;
   final dynamic subAnswersList;
 
   @override
-  _ForumAnswerWithInReplyWidgetState createState() =>
+  State<ForumAnswerWithInReplyWidget> createState() =>
       _ForumAnswerWithInReplyWidgetState();
 }
 
@@ -269,17 +269,18 @@ class _ForumAnswerWithInReplyWidgetState
                             context: context,
                             builder: (alertDialogContext) {
                               return WebViewAware(
-                                  child: AlertDialog(
-                                title: Text('Sucess'),
-                                content: Text('Your response stored'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ));
+                                child: AlertDialog(
+                                  title: Text('Sucess'),
+                                  content: Text('Your response stored'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                           );
                           setState(() {
@@ -290,17 +291,18 @@ class _ForumAnswerWithInReplyWidgetState
                             context: context,
                             builder: (alertDialogContext) {
                               return WebViewAware(
-                                  child: AlertDialog(
-                                title: Text('Error'),
-                                content: Text('Something went wrong'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ));
+                                child: AlertDialog(
+                                  title: Text('Error'),
+                                  content: Text('Something went wrong'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                           );
                         }

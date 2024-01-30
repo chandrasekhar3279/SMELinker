@@ -11,10 +11,10 @@ import 'onboarding_getstarted_model.dart';
 export 'onboarding_getstarted_model.dart';
 
 class OnboardingGetstartedWidget extends StatefulWidget {
-  const OnboardingGetstartedWidget({Key? key}) : super(key: key);
+  const OnboardingGetstartedWidget({super.key});
 
   @override
-  _OnboardingGetstartedWidgetState createState() =>
+  State<OnboardingGetstartedWidget> createState() =>
       _OnboardingGetstartedWidgetState();
 }
 

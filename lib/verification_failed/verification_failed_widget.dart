@@ -11,10 +11,10 @@ import 'verification_failed_model.dart';
 export 'verification_failed_model.dart';
 
 class VerificationFailedWidget extends StatefulWidget {
-  const VerificationFailedWidget({Key? key}) : super(key: key);
+  const VerificationFailedWidget({super.key});
 
   @override
-  _VerificationFailedWidgetState createState() =>
+  State<VerificationFailedWidget> createState() =>
       _VerificationFailedWidgetState();
 }
 

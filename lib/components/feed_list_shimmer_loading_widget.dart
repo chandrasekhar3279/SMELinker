@@ -9,10 +9,10 @@ import 'feed_list_shimmer_loading_model.dart';
 export 'feed_list_shimmer_loading_model.dart';
 
 class FeedListShimmerLoadingWidget extends StatefulWidget {
-  const FeedListShimmerLoadingWidget({Key? key}) : super(key: key);
+  const FeedListShimmerLoadingWidget({super.key});
 
   @override
-  _FeedListShimmerLoadingWidgetState createState() =>
+  State<FeedListShimmerLoadingWidget> createState() =>
       _FeedListShimmerLoadingWidgetState();
 }
 

@@ -19,16 +19,16 @@ export 'stats_model.dart';
 
 class StatsWidget extends StatefulWidget {
   const StatsWidget({
-    Key? key,
+    super.key,
     this.profileName,
     this.getOrgCompanyLogo,
-  }) : super(key: key);
+  });
 
   final String? profileName;
   final dynamic getOrgCompanyLogo;
 
   @override
-  _StatsWidgetState createState() => _StatsWidgetState();
+  State<StatsWidget> createState() => _StatsWidgetState();
 }
 
 class _StatsWidgetState extends State<StatsWidget> {
@@ -585,39 +585,41 @@ class _StatsWidgetState extends State<StatsWidget> {
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height:
-                                                                        MediaQuery.sizeOf(context).height *
-                                                                            1.0,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        FollowListWidget(
-                                                                      followersList:
-                                                                          getJsonField(
-                                                                        columnGetFollowersResponse
-                                                                            .jsonBody,
-                                                                        r'''$''',
+                                                                        Container(
+                                                                      height:
+                                                                          MediaQuery.sizeOf(context).height *
+                                                                              1.0,
+                                                                      child:
+                                                                          FollowListWidget(
+                                                                        followersList:
+                                                                            getJsonField(
+                                                                          columnGetFollowersResponse
+                                                                              .jsonBody,
+                                                                          r'''$''',
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(

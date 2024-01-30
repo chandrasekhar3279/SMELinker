@@ -11,10 +11,10 @@ import 'subscribe_plans_model.dart';
 export 'subscribe_plans_model.dart';
 
 class SubscribePlansWidget extends StatefulWidget {
-  const SubscribePlansWidget({Key? key}) : super(key: key);
+  const SubscribePlansWidget({super.key});
 
   @override
-  _SubscribePlansWidgetState createState() => _SubscribePlansWidgetState();
+  State<SubscribePlansWidget> createState() => _SubscribePlansWidgetState();
 }
 
 class _SubscribePlansWidgetState extends State<SubscribePlansWidget> {

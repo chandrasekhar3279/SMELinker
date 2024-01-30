@@ -27,14 +27,14 @@ export 'my_growth_model.dart';
 
 class MyGrowthWidget extends StatefulWidget {
   const MyGrowthWidget({
-    Key? key,
+    super.key,
     this.userId,
-  }) : super(key: key);
+  });
 
   final int? userId;
 
   @override
-  _MyGrowthWidgetState createState() => _MyGrowthWidgetState();
+  State<MyGrowthWidget> createState() => _MyGrowthWidgetState();
 }
 
 class _MyGrowthWidgetState extends State<MyGrowthWidget>
@@ -1080,16 +1080,17 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                             context: context,
                                                                                                             builder: (alertDialogContext) {
                                                                                                               return WebViewAware(
-                                                                                                                  child: AlertDialog(
-                                                                                                                title: Text('Success'),
-                                                                                                                content: Text('Your request sent successfully'),
-                                                                                                                actions: [
-                                                                                                                  TextButton(
-                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                    child: Text('Ok'),
-                                                                                                                  ),
-                                                                                                                ],
-                                                                                                              ));
+                                                                                                                child: AlertDialog(
+                                                                                                                  title: Text('Success'),
+                                                                                                                  content: Text('Your request sent successfully'),
+                                                                                                                  actions: [
+                                                                                                                    TextButton(
+                                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                      child: Text('Ok'),
+                                                                                                                    ),
+                                                                                                                  ],
+                                                                                                                ),
+                                                                                                              );
                                                                                                             },
                                                                                                           );
                                                                                                           setState(() => _model.apiRequestCompleter = null);
@@ -1099,16 +1100,17 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                             context: context,
                                                                                                             builder: (alertDialogContext) {
                                                                                                               return WebViewAware(
-                                                                                                                  child: AlertDialog(
-                                                                                                                title: Text('Error'),
-                                                                                                                content: Text('Something went wrong!'),
-                                                                                                                actions: [
-                                                                                                                  TextButton(
-                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                    child: Text('Ok'),
-                                                                                                                  ),
-                                                                                                                ],
-                                                                                                              ));
+                                                                                                                child: AlertDialog(
+                                                                                                                  title: Text('Error'),
+                                                                                                                  content: Text('Something went wrong!'),
+                                                                                                                  actions: [
+                                                                                                                    TextButton(
+                                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                      child: Text('Ok'),
+                                                                                                                    ),
+                                                                                                                  ],
+                                                                                                                ),
+                                                                                                              );
                                                                                                             },
                                                                                                           );
                                                                                                         }
@@ -1641,16 +1643,17 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                               context: context,
                                                                                                               builder: (alertDialogContext) {
                                                                                                                 return WebViewAware(
-                                                                                                                    child: AlertDialog(
-                                                                                                                  title: Text('Success'),
-                                                                                                                  content: Text('Your request sent successfully'),
-                                                                                                                  actions: [
-                                                                                                                    TextButton(
-                                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                      child: Text('Ok'),
-                                                                                                                    ),
-                                                                                                                  ],
-                                                                                                                ));
+                                                                                                                  child: AlertDialog(
+                                                                                                                    title: Text('Success'),
+                                                                                                                    content: Text('Your request sent successfully'),
+                                                                                                                    actions: [
+                                                                                                                      TextButton(
+                                                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                        child: Text('Ok'),
+                                                                                                                      ),
+                                                                                                                    ],
+                                                                                                                  ),
+                                                                                                                );
                                                                                                               },
                                                                                                             );
                                                                                                             setState(() => _model.apiRequestCompleter = null);
@@ -1660,16 +1663,17 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                               context: context,
                                                                                                               builder: (alertDialogContext) {
                                                                                                                 return WebViewAware(
-                                                                                                                    child: AlertDialog(
-                                                                                                                  title: Text('Error'),
-                                                                                                                  content: Text('Something went wrong!'),
-                                                                                                                  actions: [
-                                                                                                                    TextButton(
-                                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                      child: Text('Ok'),
-                                                                                                                    ),
-                                                                                                                  ],
-                                                                                                                ));
+                                                                                                                  child: AlertDialog(
+                                                                                                                    title: Text('Error'),
+                                                                                                                    content: Text('Something went wrong!'),
+                                                                                                                    actions: [
+                                                                                                                      TextButton(
+                                                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                        child: Text('Ok'),
+                                                                                                                      ),
+                                                                                                                    ],
+                                                                                                                  ),
+                                                                                                                );
                                                                                                               },
                                                                                                             );
                                                                                                           }
@@ -2101,18 +2105,19 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                             context: context,
                                                                                             builder: (context) {
                                                                                               return WebViewAware(
-                                                                                                  child: GestureDetector(
-                                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                                child: Padding(
-                                                                                                  padding: MediaQuery.viewInsetsOf(context),
-                                                                                                  child: Container(
-                                                                                                    height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                                    child: HealthCheckReportWidget(
-                                                                                                      healthcheckReport: contentItem,
+                                                                                                child: GestureDetector(
+                                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                                  child: Padding(
+                                                                                                    padding: MediaQuery.viewInsetsOf(context),
+                                                                                                    child: Container(
+                                                                                                      height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                                      child: HealthCheckReportWidget(
+                                                                                                        healthcheckReport: contentItem,
+                                                                                                      ),
                                                                                                     ),
                                                                                                   ),
                                                                                                 ),
-                                                                                              ));
+                                                                                              );
                                                                                             },
                                                                                           ).then((value) => safeSetState(() {}));
                                                                                         },

@@ -13,14 +13,14 @@ export 'health_check_options_component_model.dart';
 
 class HealthCheckOptionsComponentWidget extends StatefulWidget {
   const HealthCheckOptionsComponentWidget({
-    Key? key,
+    super.key,
     required this.options,
     required this.healthCheckId,
     required this.topic,
     required this.questionId,
     required this.healthCheckContentParameter,
     required this.healthCheckAnswersParameter,
-  }) : super(key: key);
+  });
 
   final List<dynamic>? options;
   final int? healthCheckId;
@@ -30,7 +30,7 @@ class HealthCheckOptionsComponentWidget extends StatefulWidget {
   final dynamic healthCheckAnswersParameter;
 
   @override
-  _HealthCheckOptionsComponentWidgetState createState() =>
+  State<HealthCheckOptionsComponentWidget> createState() =>
       _HealthCheckOptionsComponentWidgetState();
 }
 

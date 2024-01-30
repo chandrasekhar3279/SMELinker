@@ -9,10 +9,10 @@ import 'chat_placeholder_model.dart';
 export 'chat_placeholder_model.dart';
 
 class ChatPlaceholderWidget extends StatefulWidget {
-  const ChatPlaceholderWidget({Key? key}) : super(key: key);
+  const ChatPlaceholderWidget({super.key});
 
   @override
-  _ChatPlaceholderWidgetState createState() => _ChatPlaceholderWidgetState();
+  State<ChatPlaceholderWidget> createState() => _ChatPlaceholderWidgetState();
 }
 
 class _ChatPlaceholderWidgetState extends State<ChatPlaceholderWidget> {

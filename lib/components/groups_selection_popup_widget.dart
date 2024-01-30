@@ -12,14 +12,14 @@ export 'groups_selection_popup_model.dart';
 
 class GroupsSelectionPopupWidget extends StatefulWidget {
   const GroupsSelectionPopupWidget({
-    Key? key,
+    super.key,
     this.industries,
-  }) : super(key: key);
+  });
 
   final dynamic industries;
 
   @override
-  _GroupsSelectionPopupWidgetState createState() =>
+  State<GroupsSelectionPopupWidget> createState() =>
       _GroupsSelectionPopupWidgetState();
 }
 

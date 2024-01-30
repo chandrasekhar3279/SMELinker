@@ -137,8 +137,11 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   }
 
   // State field(s) for industry widget.
-  String? industryValue;
-  FormFieldController<String>? industryValueController;
+  String? industryValue1;
+  FormFieldController<String>? industryValueController1;
+  // State field(s) for industry widget.
+  String? industryValue2;
+  FormFieldController<String>? industryValueController2;
   // State field(s) for regNumber widget.
   FocusNode? regNumberFocusNode;
   TextEditingController? regNumberController;

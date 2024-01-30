@@ -15,16 +15,16 @@ export 'bookings_reply_model.dart';
 
 class BookingsReplyWidget extends StatefulWidget {
   const BookingsReplyWidget({
-    Key? key,
+    super.key,
     this.bookedbyItemReply,
     this.myProfileDetails,
-  }) : super(key: key);
+  });
 
   final dynamic bookedbyItemReply;
   final dynamic myProfileDetails;
 
   @override
-  _BookingsReplyWidgetState createState() => _BookingsReplyWidgetState();
+  State<BookingsReplyWidget> createState() => _BookingsReplyWidgetState();
 }
 
 class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
@@ -490,26 +490,28 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                               context: context,
                                               builder: (alertDialogContext) {
                                                 return WebViewAware(
-                                                    child: AlertDialog(
-                                                  title:
-                                                      Text('Booking Service'),
-                                                  content: Text(
-                                                      'Your message has been successfully sent to ${valueOrDefault<String>(
-                                                    getJsonField(
-                                                      widget.bookedbyItemReply,
-                                                      r'''$.bookedBy''',
-                                                    )?.toString(),
-                                                    'N/A',
-                                                  )}'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ));
+                                                  child: AlertDialog(
+                                                    title:
+                                                        Text('Booking Service'),
+                                                    content: Text(
+                                                        'Your message has been successfully sent to ${valueOrDefault<String>(
+                                                      getJsonField(
+                                                        widget
+                                                            .bookedbyItemReply,
+                                                        r'''$.bookedBy''',
+                                                      )?.toString(),
+                                                      'N/A',
+                                                    )}'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
                                               },
                                             );
                                             _model.updatePage(() {});
@@ -520,19 +522,21 @@ class _BookingsReplyWidgetState extends State<BookingsReplyWidget> {
                                               context: context,
                                               builder: (alertDialogContext) {
                                                 return WebViewAware(
-                                                    child: AlertDialog(
-                                                  title: Text('Error'),
-                                                  content: Text(
-                                                      'Something went wrong!'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Try again'),
-                                                    ),
-                                                  ],
-                                                ));
+                                                  child: AlertDialog(
+                                                    title: Text('Error'),
+                                                    content: Text(
+                                                        'Something went wrong!'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child:
+                                                            Text('Try again'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
                                               },
                                             );
                                           }

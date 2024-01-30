@@ -68,8 +68,11 @@ class EditProductModel extends FlutterFlowModel<EditProductWidget> {
   }
 
   // State field(s) for editProductDropDown widget.
-  String? editProductDropDownValue;
-  FormFieldController<String>? editProductDropDownValueController;
+  String? editProductDropDownValue1;
+  FormFieldController<String>? editProductDropDownValueController1;
+  // State field(s) for editProductDropDown widget.
+  String? editProductDropDownValue2;
+  FormFieldController<String>? editProductDropDownValueController2;
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));

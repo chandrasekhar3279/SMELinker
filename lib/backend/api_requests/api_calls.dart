@@ -4737,13 +4737,16 @@ class GetAllJoinedGroupsCall {
 }
 
 class GetMyGroupsCall {
-  Future<ApiCallResponse> call() async {
+  Future<ApiCallResponse> call({
+    String? accessToken = '',
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getMyGroups',
       apiUrl: '${SmeGroup.baseUrl}/getMyGroups',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${accessToken}',
         'Accept': 'application/json',
       },
       params: {},
@@ -4754,6 +4757,12 @@ class GetMyGroupsCall {
       alwaysAllowBody: false,
     );
   }
+
+  List? myGroups(dynamic response) => getJsonField(
+        response,
+        r'''$[:]''',
+        true,
+      ) as List?;
 }
 
 class GetReqJoinedGroupsCall {

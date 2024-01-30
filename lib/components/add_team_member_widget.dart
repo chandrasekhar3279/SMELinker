@@ -17,10 +17,10 @@ import 'add_team_member_model.dart';
 export 'add_team_member_model.dart';
 
 class AddTeamMemberWidget extends StatefulWidget {
-  const AddTeamMemberWidget({Key? key}) : super(key: key);
+  const AddTeamMemberWidget({super.key});
 
   @override
-  _AddTeamMemberWidgetState createState() => _AddTeamMemberWidgetState();
+  State<AddTeamMemberWidget> createState() => _AddTeamMemberWidgetState();
 }
 
 class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
@@ -411,19 +411,21 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: Container(
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                1.0,
-                                        child: SelectImageWidget(
-                                          selectedImage:
-                                              _model.uploadedLocalFile,
-                                          ratio: 1.0,
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: Container(
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              1.0,
+                                          child: SelectImageWidget(
+                                            selectedImage:
+                                                _model.uploadedLocalFile,
+                                            ratio: 1.0,
+                                          ),
                                         ),
                                       ),
-                                    ));
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
                               }
@@ -699,19 +701,20 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
-                                                  child: AlertDialog(
-                                                title: Text('Success'),
-                                                content: Text(
-                                                    'Team member added successfully'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ));
+                                                child: AlertDialog(
+                                                  title: Text('Success'),
+                                                  content: Text(
+                                                      'Team member added successfully'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
                                             },
                                           );
                                           setState(() {
@@ -728,19 +731,20 @@ class _AddTeamMemberWidgetState extends State<AddTeamMemberWidget> {
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
-                                                  child: AlertDialog(
-                                                title: Text('Error'),
-                                                content: Text(
-                                                    'Image size must be below 1MB.'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Try again'),
-                                                  ),
-                                                ],
-                                              ));
+                                                child: AlertDialog(
+                                                  title: Text('Error'),
+                                                  content: Text(
+                                                      'Image size must be below 1MB.'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Try again'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
                                             },
                                           );
                                           setState(() {

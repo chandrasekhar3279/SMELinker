@@ -25,15 +25,14 @@ export 'bookings_model.dart';
 
 class BookingsWidget extends StatefulWidget {
   const BookingsWidget({
-    Key? key,
+    super.key,
     int? userId,
-  })  : this.userId = userId ?? 0,
-        super(key: key);
+  }) : this.userId = userId ?? 0;
 
   final int userId;
 
   @override
-  _BookingsWidgetState createState() => _BookingsWidgetState();
+  State<BookingsWidget> createState() => _BookingsWidgetState();
 }
 
 class _BookingsWidgetState extends State<BookingsWidget>
@@ -882,22 +881,23 @@ class _BookingsWidgetState extends State<BookingsWidget>
                                                                                   context: context,
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
-                                                                                        child: GestureDetector(
-                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                      child: Padding(
-                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                        child: Container(
-                                                                                          height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                          child: BookingsReplyWidget(
-                                                                                            bookedbyItemReply: bookingsItem,
-                                                                                            myProfileDetails: getJsonField(
-                                                                                              bookingsGetProfileDetailsResponse.jsonBody,
-                                                                                              r'''$''',
+                                                                                      child: GestureDetector(
+                                                                                        onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                        child: Padding(
+                                                                                          padding: MediaQuery.viewInsetsOf(context),
+                                                                                          child: Container(
+                                                                                            height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                            child: BookingsReplyWidget(
+                                                                                              bookedbyItemReply: bookingsItem,
+                                                                                              myProfileDetails: getJsonField(
+                                                                                                bookingsGetProfileDetailsResponse.jsonBody,
+                                                                                                r'''$''',
+                                                                                              ),
                                                                                             ),
                                                                                           ),
                                                                                         ),
                                                                                       ),
-                                                                                    ));
+                                                                                    );
                                                                                   },
                                                                                 ).then((value) => safeSetState(() {}));
                                                                               },

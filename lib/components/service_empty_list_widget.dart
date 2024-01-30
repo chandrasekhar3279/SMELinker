@@ -13,14 +13,14 @@ export 'service_empty_list_model.dart';
 
 class ServiceEmptyListWidget extends StatefulWidget {
   const ServiceEmptyListWidget({
-    Key? key,
+    super.key,
     this.userId,
-  }) : super(key: key);
+  });
 
   final int? userId;
 
   @override
-  _ServiceEmptyListWidgetState createState() => _ServiceEmptyListWidgetState();
+  State<ServiceEmptyListWidget> createState() => _ServiceEmptyListWidgetState();
 }
 
 class _ServiceEmptyListWidgetState extends State<ServiceEmptyListWidget> {
@@ -97,13 +97,15 @@ class _ServiceEmptyListWidgetState extends State<ServiceEmptyListWidget> {
                           context: context,
                           builder: (context) {
                             return WebViewAware(
-                                child: Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: Container(
-                                height: MediaQuery.sizeOf(context).height * 1.0,
-                                child: AddServiceWidget(),
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: Container(
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 1.0,
+                                  child: AddServiceWidget(),
+                                ),
                               ),
-                            ));
+                            );
                           },
                         ).then((value) => safeSetState(() {}));
                       },

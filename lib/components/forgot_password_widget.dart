@@ -13,10 +13,10 @@ import 'forgot_password_model.dart';
 export 'forgot_password_model.dart';
 
 class ForgotPasswordWidget extends StatefulWidget {
-  const ForgotPasswordWidget({Key? key}) : super(key: key);
+  const ForgotPasswordWidget({super.key});
 
   @override
-  _ForgotPasswordWidgetState createState() => _ForgotPasswordWidgetState();
+  State<ForgotPasswordWidget> createState() => _ForgotPasswordWidgetState();
 }
 
 class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
@@ -229,18 +229,19 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                 context: context,
                                 builder: (alertDialogContext) {
                                   return WebViewAware(
-                                      child: AlertDialog(
-                                    title: Text('Congratulations'),
-                                    content: Text(
-                                        'we’ve sent you a link to your registered email to reset your password'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: Text('Ok'),
-                                      ),
-                                    ],
-                                  ));
+                                    child: AlertDialog(
+                                      title: Text('Congratulations'),
+                                      content: Text(
+                                          'we’ve sent you a link to your registered email to reset your password'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
                                 },
                               );
                               setState(() {});
@@ -255,18 +256,19 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                 context: context,
                                 builder: (alertDialogContext) {
                                   return WebViewAware(
-                                      child: AlertDialog(
-                                    title: Text('Error'),
-                                    content: Text(
-                                        'We did not find any account with the email address you provided.'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: Text('Close'),
-                                      ),
-                                    ],
-                                  ));
+                                    child: AlertDialog(
+                                      title: Text('Error'),
+                                      content: Text(
+                                          'We did not find any account with the email address you provided.'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Close'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
                                 },
                               );
                             }

@@ -15,16 +15,16 @@ export 'chat_detail_page_model.dart';
 
 class ChatDetailPageWidget extends StatefulWidget {
   const ChatDetailPageWidget({
-    Key? key,
+    super.key,
     this.selecteduser,
     this.userchat,
-  }) : super(key: key);
+  });
 
   final dynamic selecteduser;
   final List<dynamic>? userchat;
 
   @override
-  _ChatDetailPageWidgetState createState() => _ChatDetailPageWidgetState();
+  State<ChatDetailPageWidget> createState() => _ChatDetailPageWidgetState();
 }
 
 class _ChatDetailPageWidgetState extends State<ChatDetailPageWidget> {

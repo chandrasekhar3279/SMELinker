@@ -15,14 +15,14 @@ export 'follow_list_model.dart';
 
 class FollowListWidget extends StatefulWidget {
   const FollowListWidget({
-    Key? key,
+    super.key,
     this.followersList,
-  }) : super(key: key);
+  });
 
   final dynamic followersList;
 
   @override
-  _FollowListWidgetState createState() => _FollowListWidgetState();
+  State<FollowListWidget> createState() => _FollowListWidgetState();
 }
 
 class _FollowListWidgetState extends State<FollowListWidget>
@@ -670,18 +670,18 @@ class _FollowListWidgetState extends State<FollowListWidget>
                                                                         builder:
                                                                             (alertDialogContext) {
                                                                           return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                            title:
-                                                                                Text('Success!'),
-                                                                            content:
-                                                                                Text('You are now unfollowing the company.'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                child: Text('Ok'),
-                                                                              ),
-                                                                            ],
-                                                                          ));
+                                                                            child:
+                                                                                AlertDialog(
+                                                                              title: Text('Success!'),
+                                                                              content: Text('You are now unfollowing the company.'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                  child: Text('Ok'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
                                                                         },
                                                                       );
                                                                       setState(() =>
@@ -696,18 +696,18 @@ class _FollowListWidgetState extends State<FollowListWidget>
                                                                         builder:
                                                                             (alertDialogContext) {
                                                                           return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                            title:
-                                                                                Text('Error'),
-                                                                            content:
-                                                                                Text('Something went wrong'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                child: Text('TTry again'),
-                                                                              ),
-                                                                            ],
-                                                                          ));
+                                                                            child:
+                                                                                AlertDialog(
+                                                                              title: Text('Error'),
+                                                                              content: Text('Something went wrong'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                  child: Text('TTry again'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
                                                                         },
                                                                       );
                                                                     }

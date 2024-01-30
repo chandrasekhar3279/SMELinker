@@ -13,18 +13,18 @@ export 'delete_feed_comment_model.dart';
 
 class DeleteFeedCommentWidget extends StatefulWidget {
   const DeleteFeedCommentWidget({
-    Key? key,
+    super.key,
     this.deleteFeedCommentId,
     this.deleteFeedId,
     this.userId,
-  }) : super(key: key);
+  });
 
   final dynamic deleteFeedCommentId;
   final int? deleteFeedId;
   final int? userId;
 
   @override
-  _DeleteFeedCommentWidgetState createState() =>
+  State<DeleteFeedCommentWidget> createState() =>
       _DeleteFeedCommentWidgetState();
 }
 
@@ -160,18 +160,19 @@ class _DeleteFeedCommentWidgetState extends State<DeleteFeedCommentWidget> {
                             context: context,
                             builder: (alertDialogContext) {
                               return WebViewAware(
-                                  child: AlertDialog(
-                                title: Text('Success'),
-                                content:
-                                    Text('Your comment deleted successfully'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ));
+                                child: AlertDialog(
+                                  title: Text('Success'),
+                                  content:
+                                      Text('Your comment deleted successfully'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                           );
                           _model.updatePage(() {
@@ -188,17 +189,18 @@ class _DeleteFeedCommentWidgetState extends State<DeleteFeedCommentWidget> {
                             context: context,
                             builder: (alertDialogContext) {
                               return WebViewAware(
-                                  child: AlertDialog(
-                                title: Text('Error'),
-                                content: Text('Something went wrong !'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Try again'),
-                                  ),
-                                ],
-                              ));
+                                child: AlertDialog(
+                                  title: Text('Error'),
+                                  content: Text('Something went wrong !'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Try again'),
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                           );
                         }

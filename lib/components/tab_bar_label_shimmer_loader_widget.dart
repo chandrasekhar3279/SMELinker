@@ -9,10 +9,10 @@ import 'tab_bar_label_shimmer_loader_model.dart';
 export 'tab_bar_label_shimmer_loader_model.dart';
 
 class TabBarLabelShimmerLoaderWidget extends StatefulWidget {
-  const TabBarLabelShimmerLoaderWidget({Key? key}) : super(key: key);
+  const TabBarLabelShimmerLoaderWidget({super.key});
 
   @override
-  _TabBarLabelShimmerLoaderWidgetState createState() =>
+  State<TabBarLabelShimmerLoaderWidget> createState() =>
       _TabBarLabelShimmerLoaderWidgetState();
 }
 

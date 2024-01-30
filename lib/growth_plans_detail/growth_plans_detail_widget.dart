@@ -14,14 +14,14 @@ export 'growth_plans_detail_model.dart';
 
 class GrowthPlansDetailWidget extends StatefulWidget {
   const GrowthPlansDetailWidget({
-    Key? key,
+    super.key,
     this.growthPlanDetail,
-  }) : super(key: key);
+  });
 
   final dynamic growthPlanDetail;
 
   @override
-  _GrowthPlansDetailWidgetState createState() =>
+  State<GrowthPlansDetailWidget> createState() =>
       _GrowthPlansDetailWidgetState();
 }
 
@@ -324,6 +324,8 @@ class _GrowthPlansDetailWidgetState extends State<GrowthPlansDetailWidget> {
                                                                     .white,
                                                                 child:
                                                                     ExpandableNotifier(
+                                                                  initialExpanded:
+                                                                      false,
                                                                   child:
                                                                       ExpandablePanel(
                                                                     header:

@@ -9,10 +9,10 @@ import 'profile_image_shimmer_loader_model.dart';
 export 'profile_image_shimmer_loader_model.dart';
 
 class ProfileImageShimmerLoaderWidget extends StatefulWidget {
-  const ProfileImageShimmerLoaderWidget({Key? key}) : super(key: key);
+  const ProfileImageShimmerLoaderWidget({super.key});
 
   @override
-  _ProfileImageShimmerLoaderWidgetState createState() =>
+  State<ProfileImageShimmerLoaderWidget> createState() =>
       _ProfileImageShimmerLoaderWidgetState();
 }
 

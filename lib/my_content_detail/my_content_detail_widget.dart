@@ -14,12 +14,12 @@ export 'my_content_detail_model.dart';
 
 class MyContentDetailWidget extends StatefulWidget {
   const MyContentDetailWidget({
-    Key? key,
+    super.key,
     this.myContent,
     this.pendingStatus,
     this.rejectedStatus,
     this.approvedStatus,
-  }) : super(key: key);
+  });
 
   final dynamic myContent;
   final String? pendingStatus;
@@ -27,7 +27,7 @@ class MyContentDetailWidget extends StatefulWidget {
   final String? approvedStatus;
 
   @override
-  _MyContentDetailWidgetState createState() => _MyContentDetailWidgetState();
+  State<MyContentDetailWidget> createState() => _MyContentDetailWidgetState();
 }
 
 class _MyContentDetailWidgetState extends State<MyContentDetailWidget> {

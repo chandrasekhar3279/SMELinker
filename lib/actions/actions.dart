@@ -16,16 +16,17 @@ Future checkAuth(BuildContext context) async {
       context: context,
       builder: (alertDialogContext) {
         return WebViewAware(
-            child: AlertDialog(
-          title: Text('Session expired.'),
-          content: Text('Please login again.'),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(alertDialogContext),
-              child: Text('Ok'),
-            ),
-          ],
-        ));
+          child: AlertDialog(
+            title: Text('Session expired.'),
+            content: Text('Please login again.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(alertDialogContext),
+                child: Text('Ok'),
+              ),
+            ],
+          ),
+        );
       },
     );
     FFAppState().update(() {

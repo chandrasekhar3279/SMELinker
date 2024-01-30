@@ -17,14 +17,14 @@ export 'banner_change_model.dart';
 
 class BannerChangeWidget extends StatefulWidget {
   const BannerChangeWidget({
-    Key? key,
+    super.key,
     this.oldBannerImage,
-  }) : super(key: key);
+  });
 
   final dynamic oldBannerImage;
 
   @override
-  _BannerChangeWidgetState createState() => _BannerChangeWidgetState();
+  State<BannerChangeWidget> createState() => _BannerChangeWidgetState();
 }
 
 class _BannerChangeWidgetState extends State<BannerChangeWidget> {
@@ -127,16 +127,17 @@ class _BannerChangeWidgetState extends State<BannerChangeWidget> {
                       context: context,
                       builder: (context) {
                         return WebViewAware(
-                            child: Padding(
-                          padding: MediaQuery.viewInsetsOf(context),
-                          child: Container(
-                            height: MediaQuery.sizeOf(context).height * 1.0,
-                            child: SelectImageWidget(
-                              selectedImage: _model.uploadedLocalFile,
-                              ratio: 1.67,
+                          child: Padding(
+                            padding: MediaQuery.viewInsetsOf(context),
+                            child: Container(
+                              height: MediaQuery.sizeOf(context).height * 1.0,
+                              child: SelectImageWidget(
+                                selectedImage: _model.uploadedLocalFile,
+                                ratio: 1.67,
+                              ),
                             ),
                           ),
-                        ));
+                        );
                       },
                     ).then((value) => safeSetState(() {}));
                   }
@@ -351,18 +352,19 @@ class _BannerChangeWidgetState extends State<BannerChangeWidget> {
                           context: context,
                           builder: (alertDialogContext) {
                             return WebViewAware(
-                                child: AlertDialog(
-                              title: Text('Success'),
-                              content:
-                                  Text('Header Banner uploaded successfully'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Ok'),
-                                ),
-                              ],
-                            ));
+                              child: AlertDialog(
+                                title: Text('Success'),
+                                content:
+                                    Text('Header Banner uploaded successfully'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                         );
                         setState(() {
@@ -375,18 +377,19 @@ class _BannerChangeWidgetState extends State<BannerChangeWidget> {
                           context: context,
                           builder: (alertDialogContext) {
                             return WebViewAware(
-                                child: AlertDialog(
-                              title: Text('Error'),
-                              content: Text(
-                                  'Something went wrong! image size should be less than 1MB'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Try again'),
-                                ),
-                              ],
-                            ));
+                              child: AlertDialog(
+                                title: Text('Error'),
+                                content: Text(
+                                    'Something went wrong! image size should be less than 1MB'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Try again'),
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                         );
                         setState(() {

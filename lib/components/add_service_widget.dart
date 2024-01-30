@@ -18,10 +18,10 @@ import 'add_service_model.dart';
 export 'add_service_model.dart';
 
 class AddServiceWidget extends StatefulWidget {
-  const AddServiceWidget({Key? key}) : super(key: key);
+  const AddServiceWidget({super.key});
 
   @override
-  _AddServiceWidgetState createState() => _AddServiceWidgetState();
+  State<AddServiceWidget> createState() => _AddServiceWidgetState();
 }
 
 class _AddServiceWidgetState extends State<AddServiceWidget> {
@@ -368,6 +368,62 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                               isMultiSelect: false,
                             ),
                           ),
+                          if (false)
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 30.0, 0.0, 0.0),
+                              child: FlutterFlowDropDown<String>(
+                                controller:
+                                    _model.subcategoryListValueController ??=
+                                        FormFieldController<String>(null),
+                                options: (getJsonField(
+                                  columnGetServiceCategoriesResponse.jsonBody,
+                                  r'''$..category''',
+                                  true,
+                                ) as List)
+                                    .map<String>((s) => s.toString())
+                                    .toList()!,
+                                onChanged: (val) async {
+                                  setState(
+                                      () => _model.subcategoryListValue = val);
+                                  if ((FFAppState().submitteAddServiceForm ==
+                                          true) &&
+                                      ((_model.subcategoryListValue != null &&
+                                              _model.subcategoryListValue !=
+                                                  '') ||
+                                          (_model.subcategoryListValue ==
+                                                  null ||
+                                              _model.subcategoryListValue ==
+                                                  ''))) {
+                                    if (_model.formKey.currentState == null ||
+                                        !_model.formKey.currentState!
+                                            .validate()) {
+                                      return;
+                                    }
+                                    if (_model.categoryListValue == null) {
+                                      return;
+                                    }
+                                  }
+                                },
+                                width: double.infinity,
+                                height: 60.0,
+                                textStyle:
+                                    FlutterFlowTheme.of(context).bodyLarge,
+                                hintText: 'Please select category',
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                elevation: 2.0,
+                                borderColor:
+                                    FlutterFlowTheme.of(context).accent3,
+                                borderWidth: 1.0,
+                                borderRadius: 8.0,
+                                margin: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 4.0, 12.0, 4.0),
+                                hidesUnderline: true,
+                                isSearchable: false,
+                                isMultiSelect: false,
+                              ),
+                            ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 30.0, 0.0, 0.0),
@@ -1293,19 +1349,20 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                                   builder:
                                                       (alertDialogContext) {
                                                     return WebViewAware(
-                                                        child: AlertDialog(
-                                                      title: Text('Success'),
-                                                      content: Text(
-                                                          'Service added.'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
+                                                      child: AlertDialog(
+                                                        title: Text('Success'),
+                                                        content: Text(
+                                                            'Service added.'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
                                                   },
                                                 );
                                                 setState(() {
@@ -1320,20 +1377,21 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                                   builder:
                                                       (alertDialogContext) {
                                                     return WebViewAware(
-                                                        child: AlertDialog(
-                                                      title: Text('Error'),
-                                                      content: Text(
-                                                          'Image size must be below 1MB.'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child:
-                                                              Text('Try again'),
-                                                        ),
-                                                      ],
-                                                    ));
+                                                      child: AlertDialog(
+                                                        title: Text('Error'),
+                                                        content: Text(
+                                                            'Image size must be below 1MB.'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text(
+                                                                'Try again'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
                                                   },
                                                 );
                                               }
@@ -1342,19 +1400,20 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return WebViewAware(
-                                                      child: AlertDialog(
-                                                    title: Text('Required'),
-                                                    content: Text(
-                                                        'Please add an Image'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
+                                                    child: AlertDialog(
+                                                      title: Text('Required'),
+                                                      content: Text(
+                                                          'Please add an Image'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
                                                 },
                                               );
                                             }
@@ -1363,20 +1422,21 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                               context: context,
                                               builder: (alertDialogContext) {
                                                 return WebViewAware(
-                                                    child: AlertDialog(
-                                                  title: Text(
-                                                      'Invalid time or cost'),
-                                                  content: Text(
-                                                      'min cannot be greater than max'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ));
+                                                  child: AlertDialog(
+                                                    title: Text(
+                                                        'Invalid time or cost'),
+                                                    content: Text(
+                                                        'min cannot be greater than max'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
                                               },
                                             );
                                           }

@@ -13,14 +13,14 @@ export 'delete_team_member_model.dart';
 
 class DeleteTeamMemberWidget extends StatefulWidget {
   const DeleteTeamMemberWidget({
-    Key? key,
+    super.key,
     this.teamMemberID,
-  }) : super(key: key);
+  });
 
   final dynamic teamMemberID;
 
   @override
-  _DeleteTeamMemberWidgetState createState() => _DeleteTeamMemberWidgetState();
+  State<DeleteTeamMemberWidget> createState() => _DeleteTeamMemberWidgetState();
 }
 
 class _DeleteTeamMemberWidgetState extends State<DeleteTeamMemberWidget> {
@@ -152,17 +152,18 @@ class _DeleteTeamMemberWidgetState extends State<DeleteTeamMemberWidget> {
                           context: context,
                           builder: (alertDialogContext) {
                             return WebViewAware(
-                                child: AlertDialog(
-                              title: Text('Success'),
-                              content: Text('Team member deleted'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Ok'),
-                                ),
-                              ],
-                            ));
+                              child: AlertDialog(
+                                title: Text('Success'),
+                                content: Text('Team member deleted'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                         );
                         setState(() {});
@@ -172,17 +173,18 @@ class _DeleteTeamMemberWidgetState extends State<DeleteTeamMemberWidget> {
                           context: context,
                           builder: (alertDialogContext) {
                             return WebViewAware(
-                                child: AlertDialog(
-                              title: Text('Error'),
-                              content: Text('Something went wrong'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Try again'),
-                                ),
-                              ],
-                            ));
+                              child: AlertDialog(
+                                title: Text('Error'),
+                                content: Text('Something went wrong'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Try again'),
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                         );
                         Navigator.pop(context);

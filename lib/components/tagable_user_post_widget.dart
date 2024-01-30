@@ -11,10 +11,10 @@ import 'tagable_user_post_model.dart';
 export 'tagable_user_post_model.dart';
 
 class TagableUserPostWidget extends StatefulWidget {
-  const TagableUserPostWidget({Key? key}) : super(key: key);
+  const TagableUserPostWidget({super.key});
 
   @override
-  _TagableUserPostWidgetState createState() => _TagableUserPostWidgetState();
+  State<TagableUserPostWidget> createState() => _TagableUserPostWidgetState();
 }
 
 class _TagableUserPostWidgetState extends State<TagableUserPostWidget> {

@@ -9,10 +9,10 @@ import 'withdrawrequest_model.dart';
 export 'withdrawrequest_model.dart';
 
 class WithdrawrequestWidget extends StatefulWidget {
-  const WithdrawrequestWidget({Key? key}) : super(key: key);
+  const WithdrawrequestWidget({super.key});
 
   @override
-  _WithdrawrequestWidgetState createState() => _WithdrawrequestWidgetState();
+  State<WithdrawrequestWidget> createState() => _WithdrawrequestWidgetState();
 }
 
 class _WithdrawrequestWidgetState extends State<WithdrawrequestWidget> {

@@ -13,14 +13,14 @@ export 'delete_service_item_model.dart';
 
 class DeleteServiceItemWidget extends StatefulWidget {
   const DeleteServiceItemWidget({
-    Key? key,
+    super.key,
     this.deleteServiceId,
-  }) : super(key: key);
+  });
 
   final int? deleteServiceId;
 
   @override
-  _DeleteServiceItemWidgetState createState() =>
+  State<DeleteServiceItemWidget> createState() =>
       _DeleteServiceItemWidgetState();
 }
 
@@ -150,17 +150,18 @@ class _DeleteServiceItemWidgetState extends State<DeleteServiceItemWidget> {
                           context: context,
                           builder: (alertDialogContext) {
                             return WebViewAware(
-                                child: AlertDialog(
-                              title: Text('Service Deleted'),
-                              content: Text('Service deleted successfully'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Ok'),
-                                ),
-                              ],
-                            ));
+                              child: AlertDialog(
+                                title: Text('Service Deleted'),
+                                content: Text('Service deleted successfully'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                         );
                         setState(() {
@@ -173,17 +174,18 @@ class _DeleteServiceItemWidgetState extends State<DeleteServiceItemWidget> {
                           context: context,
                           builder: (alertDialogContext) {
                             return WebViewAware(
-                                child: AlertDialog(
-                              title: Text('Error'),
-                              content: Text('Something went wrong !'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Try again'),
-                                ),
-                              ],
-                            ));
+                              child: AlertDialog(
+                                title: Text('Error'),
+                                content: Text('Something went wrong !'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Try again'),
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                         );
                       }

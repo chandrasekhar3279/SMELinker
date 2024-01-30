@@ -17,18 +17,18 @@ export 'product_detail_model.dart';
 
 class ProductDetailWidget extends StatefulWidget {
   const ProductDetailWidget({
-    Key? key,
+    super.key,
     this.productinfo,
     this.userId,
     this.orgDeatils,
-  }) : super(key: key);
+  });
 
   final dynamic productinfo;
   final int? userId;
   final dynamic orgDeatils;
 
   @override
-  _ProductDetailWidgetState createState() => _ProductDetailWidgetState();
+  State<ProductDetailWidget> createState() => _ProductDetailWidgetState();
 }
 
 class _ProductDetailWidgetState extends State<ProductDetailWidget> {
@@ -332,18 +332,19 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          title: Text('Success'),
-                                          content:
-                                              Text('Your request hasbeen sent'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            title: Text('Success'),
+                                            content: Text(
+                                                'Your request hasbeen sent'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     setState(() {
@@ -354,18 +355,19 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          title: Text('Error'),
-                                          content:
-                                              Text('Something went wrong!'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Try again'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            title: Text('Error'),
+                                            content:
+                                                Text('Something went wrong!'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Try again'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                   }

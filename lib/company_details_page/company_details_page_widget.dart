@@ -36,15 +36,14 @@ export 'company_details_page_model.dart';
 
 class CompanyDetailsPageWidget extends StatefulWidget {
   const CompanyDetailsPageWidget({
-    Key? key,
+    super.key,
     int? userId,
-  })  : this.userId = userId ?? 0,
-        super(key: key);
+  }) : this.userId = userId ?? 0;
 
   final int userId;
 
   @override
-  _CompanyDetailsPageWidgetState createState() =>
+  State<CompanyDetailsPageWidget> createState() =>
       _CompanyDetailsPageWidgetState();
 }
 
@@ -311,35 +310,38 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                               context: context,
                                               builder: (context) {
                                                 return WebViewAware(
-                                                    child: GestureDetector(
-                                                  onTap: () => _model
-                                                          .unfocusNode
-                                                          .canRequestFocus
-                                                      ? FocusScope.of(context)
-                                                          .requestFocus(_model
-                                                              .unfocusNode)
-                                                      : FocusScope.of(context)
-                                                          .unfocus(),
-                                                  child: Padding(
-                                                    padding:
-                                                        MediaQuery.viewInsetsOf(
-                                                            context),
-                                                    child: Container(
-                                                      height: MediaQuery.sizeOf(
-                                                                  context)
-                                                              .height *
-                                                          1.0,
-                                                      child: BannerChangeWidget(
-                                                        oldBannerImage:
-                                                            getJsonField(
-                                                          columnGetBannerUserIdResponse
-                                                              .jsonBody,
-                                                          r'''$''',
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child: Container(
+                                                        height:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .height *
+                                                                1.0,
+                                                        child:
+                                                            BannerChangeWidget(
+                                                          oldBannerImage:
+                                                              getJsonField(
+                                                            columnGetBannerUserIdResponse
+                                                                .jsonBody,
+                                                            r'''$''',
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
                                                   ),
-                                                ));
+                                                );
                                               },
                                             ).then(
                                                 (value) => safeSetState(() {}));
@@ -658,34 +660,30 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              MediaQuery.sizeOf(context).height * 1.0,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              FollowListWidget(
-                                                                            followersList:
-                                                                                getJsonField(
-                                                                              textGetFollowersResponse.jsonBody,
-                                                                              r'''$''',
+                                                                              Container(
+                                                                            height:
+                                                                                MediaQuery.sizeOf(context).height * 1.0,
+                                                                            child:
+                                                                                FollowListWidget(
+                                                                              followersList: getJsonField(
+                                                                                textGetFollowersResponse.jsonBody,
+                                                                                r'''$''',
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -929,37 +927,40 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                 context: context,
                                                 builder: (context) {
                                                   return WebViewAware(
-                                                      child: GestureDetector(
-                                                    onTap: () => _model
-                                                            .unfocusNode
-                                                            .canRequestFocus
-                                                        ? FocusScope.of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode)
-                                                        : FocusScope.of(context)
-                                                            .unfocus(),
-                                                    child: Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child: Container(
-                                                        height:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .height *
-                                                                1.0,
-                                                        child:
-                                                            UpdateOrgDetailsPageWidget(
-                                                          orgDetails:
-                                                              getJsonField(
-                                                            companyDetailsPageGetOrgDetailsResponse
-                                                                .jsonBody,
-                                                            r'''$''',
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child: Container(
+                                                          height:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .height *
+                                                                  1.0,
+                                                          child:
+                                                              UpdateOrgDetailsPageWidget(
+                                                            orgDetails:
+                                                                getJsonField(
+                                                              companyDetailsPageGetOrgDetailsResponse
+                                                                  .jsonBody,
+                                                              r'''$''',
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
                                                     ),
-                                                  ));
+                                                  );
                                                 },
                                               ).then((value) =>
                                                   safeSetState(() {}));
@@ -1380,32 +1381,34 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height:
-                                                                        MediaQuery.sizeOf(context).height *
-                                                                            1.0,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        AddProductWidget(),
+                                                                        Container(
+                                                                      height:
+                                                                          MediaQuery.sizeOf(context).height *
+                                                                              1.0,
+                                                                      child:
+                                                                          AddProductWidget(),
+                                                                    ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -1804,16 +1807,17 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                                         context: context,
                                                                                                         builder: (alertDialogContext) {
                                                                                                           return WebViewAware(
-                                                                                                              child: AlertDialog(
-                                                                                                            title: Text('Success'),
-                                                                                                            content: Text('Product booked successfully.'),
-                                                                                                            actions: [
-                                                                                                              TextButton(
-                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                child: Text('Ok'),
-                                                                                                              ),
-                                                                                                            ],
-                                                                                                          ));
+                                                                                                            child: AlertDialog(
+                                                                                                              title: Text('Success'),
+                                                                                                              content: Text('Product booked successfully.'),
+                                                                                                              actions: [
+                                                                                                                TextButton(
+                                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                  child: Text('Ok'),
+                                                                                                                ),
+                                                                                                              ],
+                                                                                                            ),
+                                                                                                          );
                                                                                                         },
                                                                                                       );
                                                                                                       setState(() => _model.apiRequestCompleter5 = null);
@@ -1823,16 +1827,17 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                                         context: context,
                                                                                                         builder: (alertDialogContext) {
                                                                                                           return WebViewAware(
-                                                                                                              child: AlertDialog(
-                                                                                                            title: Text('Error'),
-                                                                                                            content: Text('Something went wrong!'),
-                                                                                                            actions: [
-                                                                                                              TextButton(
-                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                child: Text('Try again'),
-                                                                                                              ),
-                                                                                                            ],
-                                                                                                          ));
+                                                                                                            child: AlertDialog(
+                                                                                                              title: Text('Error'),
+                                                                                                              content: Text('Something went wrong!'),
+                                                                                                              actions: [
+                                                                                                                TextButton(
+                                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                  child: Text('Try again'),
+                                                                                                                ),
+                                                                                                              ],
+                                                                                                            ),
+                                                                                                          );
                                                                                                         },
                                                                                                       );
                                                                                                     }
@@ -2018,34 +2023,33 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .height *
-                                                                      1.0,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      AddServiceWidget(),
+                                                                      Container(
+                                                                    height:
+                                                                        MediaQuery.sizeOf(context).height *
+                                                                            1.0,
+                                                                    child:
+                                                                        AddServiceWidget(),
+                                                                  ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -2510,16 +2514,17 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                                             context: context,
                                                                                                             builder: (alertDialogContext) {
                                                                                                               return WebViewAware(
-                                                                                                                  child: AlertDialog(
-                                                                                                                title: Text('Success'),
-                                                                                                                content: Text('Service booked successfully.'),
-                                                                                                                actions: [
-                                                                                                                  TextButton(
-                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                    child: Text('Ok'),
-                                                                                                                  ),
-                                                                                                                ],
-                                                                                                              ));
+                                                                                                                child: AlertDialog(
+                                                                                                                  title: Text('Success'),
+                                                                                                                  content: Text('Service booked successfully.'),
+                                                                                                                  actions: [
+                                                                                                                    TextButton(
+                                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                      child: Text('Ok'),
+                                                                                                                    ),
+                                                                                                                  ],
+                                                                                                                ),
+                                                                                                              );
                                                                                                             },
                                                                                                           );
                                                                                                           setState(() => _model.apiRequestCompleter3 = null);
@@ -2529,16 +2534,17 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                                             context: context,
                                                                                                             builder: (alertDialogContext) {
                                                                                                               return WebViewAware(
-                                                                                                                  child: AlertDialog(
-                                                                                                                title: Text('Error'),
-                                                                                                                content: Text('Something went wrong!'),
-                                                                                                                actions: [
-                                                                                                                  TextButton(
-                                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                                    child: Text('Try again'),
-                                                                                                                  ),
-                                                                                                                ],
-                                                                                                              ));
+                                                                                                                child: AlertDialog(
+                                                                                                                  title: Text('Error'),
+                                                                                                                  content: Text('Something went wrong!'),
+                                                                                                                  actions: [
+                                                                                                                    TextButton(
+                                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                      child: Text('Try again'),
+                                                                                                                    ),
+                                                                                                                  ],
+                                                                                                                ),
+                                                                                                              );
                                                                                                             },
                                                                                                           );
                                                                                                         }
@@ -2769,41 +2775,40 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .height *
-                                                                      1.0,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      GetInTouchDetailsWidget(
-                                                                    getinTouch: SmeGroup
-                                                                        .getContactDetailPubicCall
-                                                                        .getContactDetails(
-                                                                      columnGetInTouchGetContactDetailPubicResponse
-                                                                          .jsonBody,
+                                                                      Container(
+                                                                    height:
+                                                                        MediaQuery.sizeOf(context).height *
+                                                                            1.0,
+                                                                    child:
+                                                                        GetInTouchDetailsWidget(
+                                                                      getinTouch: SmeGroup
+                                                                          .getContactDetailPubicCall
+                                                                          .getContactDetails(
+                                                                        columnGetInTouchGetContactDetailPubicResponse
+                                                                            .jsonBody,
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -3349,29 +3354,28 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                     builder:
                                                                         (context) {
                                                                       return WebViewAware(
-                                                                          child:
-                                                                              GestureDetector(
-                                                                        onTap: () => _model.unfocusNode.canRequestFocus
-                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Padding(
-                                                                          padding:
-                                                                              MediaQuery.viewInsetsOf(context),
+                                                                            GestureDetector(
+                                                                          onTap: () => _model.unfocusNode.canRequestFocus
+                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                              : FocusScope.of(context).unfocus(),
                                                                           child:
-                                                                              Container(
-                                                                            height:
-                                                                                MediaQuery.sizeOf(context).height * 1.0,
+                                                                              Padding(
+                                                                            padding:
+                                                                                MediaQuery.viewInsetsOf(context),
                                                                             child:
-                                                                                GetInTouchDetailsWidget(
-                                                                              getinTouch: getJsonField(
-                                                                                columnGetInTouchGetContactDetailPubicResponse.jsonBody,
-                                                                                r'''$''',
+                                                                                Container(
+                                                                              height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                              child: GetInTouchDetailsWidget(
+                                                                                getinTouch: getJsonField(
+                                                                                  columnGetInTouchGetContactDetailPubicResponse.jsonBody,
+                                                                                  r'''$''',
+                                                                                ),
                                                                               ),
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                      ));
+                                                                      );
                                                                     },
                                                                   ).then((value) =>
                                                                       safeSetState(
@@ -3566,34 +3570,34 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                       context: context,
                                                       builder: (context) {
                                                         return WebViewAware(
-                                                            child:
-                                                                GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
-                                                          child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child: Container(
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  1.0,
-                                                              child:
-                                                                  AddTeamMemberWidget(),
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () => _model
+                                                                    .unfocusNode
+                                                                    .canRequestFocus
+                                                                ? FocusScope.of(
+                                                                        context)
+                                                                    .requestFocus(
+                                                                        _model
+                                                                            .unfocusNode)
+                                                                : FocusScope.of(
+                                                                        context)
+                                                                    .unfocus(),
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child: Container(
+                                                                height: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .height *
+                                                                    1.0,
+                                                                child:
+                                                                    AddTeamMemberWidget(),
+                                                              ),
                                                             ),
                                                           ),
-                                                        ));
+                                                        );
                                                       },
                                                     ).then((value) =>
                                                         safeSetState(() {}));
@@ -3763,18 +3767,19 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                                                     context: context,
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
-                                                                                          child: GestureDetector(
-                                                                                        onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                        child: Padding(
-                                                                                          padding: MediaQuery.viewInsetsOf(context),
-                                                                                          child: Container(
-                                                                                            height: MediaQuery.sizeOf(context).height * 0.3,
-                                                                                            child: DeleteTeamMemberWidget(
-                                                                                              teamMemberID: teamListItem,
+                                                                                        child: GestureDetector(
+                                                                                          onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                          child: Padding(
+                                                                                            padding: MediaQuery.viewInsetsOf(context),
+                                                                                            child: Container(
+                                                                                              height: MediaQuery.sizeOf(context).height * 0.3,
+                                                                                              child: DeleteTeamMemberWidget(
+                                                                                                teamMemberID: teamListItem,
+                                                                                              ),
                                                                                             ),
                                                                                           ),
                                                                                         ),
-                                                                                      ));
+                                                                                      );
                                                                                     },
                                                                                   ).then((value) => safeSetState(() {}));
                                                                                 },
@@ -3959,39 +3964,41 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height:
-                                                                        MediaQuery.sizeOf(context).height *
-                                                                            1.0,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        EditMyStoryWidget(
-                                                                      myStory:
-                                                                          getJsonField(
-                                                                        columnMyStoryGetUserStoryResponse
-                                                                            .jsonBody,
-                                                                        r'''$.myStory''',
+                                                                        Container(
+                                                                      height:
+                                                                          MediaQuery.sizeOf(context).height *
+                                                                              1.0,
+                                                                      child:
+                                                                          EditMyStoryWidget(
+                                                                        myStory:
+                                                                            getJsonField(
+                                                                          columnMyStoryGetUserStoryResponse
+                                                                              .jsonBody,
+                                                                          r'''$.myStory''',
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -4179,39 +4186,41 @@ class _CompanyDetailsPageWidgetState extends State<CompanyDetailsPageWidget> {
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height:
-                                                                        MediaQuery.sizeOf(context).height *
-                                                                            1.0,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        EditMyStoryWidget(
-                                                                      myStory:
-                                                                          getJsonField(
-                                                                        columnMyStoryGetUserStoryResponse
-                                                                            .jsonBody,
-                                                                        r'''$.myStory''',
+                                                                        Container(
+                                                                      height:
+                                                                          MediaQuery.sizeOf(context).height *
+                                                                              1.0,
+                                                                      child:
+                                                                          EditMyStoryWidget(
+                                                                        myStory:
+                                                                            getJsonField(
+                                                                          columnMyStoryGetUserStoryResponse
+                                                                              .jsonBody,
+                                                                          r'''$.myStory''',
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(

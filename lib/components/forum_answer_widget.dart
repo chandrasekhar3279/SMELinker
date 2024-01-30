@@ -14,16 +14,16 @@ export 'forum_answer_model.dart';
 
 class ForumAnswerWidget extends StatefulWidget {
   const ForumAnswerWidget({
-    Key? key,
+    super.key,
     this.forumAnswer,
     this.questionId,
-  }) : super(key: key);
+  });
 
   final String? forumAnswer;
   final dynamic questionId;
 
   @override
-  _ForumAnswerWidgetState createState() => _ForumAnswerWidgetState();
+  State<ForumAnswerWidget> createState() => _ForumAnswerWidgetState();
 }
 
 class _ForumAnswerWidgetState extends State<ForumAnswerWidget> {
@@ -295,17 +295,18 @@ class _ForumAnswerWidgetState extends State<ForumAnswerWidget> {
                             context: context,
                             builder: (alertDialogContext) {
                               return WebViewAware(
-                                  child: AlertDialog(
-                                title: Text('Great!'),
-                                content: Text('We\'ve received your answer.'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ));
+                                child: AlertDialog(
+                                  title: Text('Great!'),
+                                  content: Text('We\'ve received your answer.'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                           );
 
@@ -319,18 +320,19 @@ class _ForumAnswerWidgetState extends State<ForumAnswerWidget> {
                             context: context,
                             builder: (alertDialogContext) {
                               return WebViewAware(
-                                  child: AlertDialog(
-                                title: Text('Error'),
-                                content: Text(
-                                    'This comment seems irrelevant or inappropriate and can\'t be posted'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Close'),
-                                  ),
-                                ],
-                              ));
+                                child: AlertDialog(
+                                  title: Text('Error'),
+                                  content: Text(
+                                      'This comment seems irrelevant or inappropriate and can\'t be posted'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Close'),
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                           );
                         }

@@ -10,10 +10,10 @@ import 'feed_page_shimmer_loading_model.dart';
 export 'feed_page_shimmer_loading_model.dart';
 
 class FeedPageShimmerLoadingWidget extends StatefulWidget {
-  const FeedPageShimmerLoadingWidget({Key? key}) : super(key: key);
+  const FeedPageShimmerLoadingWidget({super.key});
 
   @override
-  _FeedPageShimmerLoadingWidgetState createState() =>
+  State<FeedPageShimmerLoadingWidget> createState() =>
       _FeedPageShimmerLoadingWidgetState();
 }
 

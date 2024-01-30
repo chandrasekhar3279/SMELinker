@@ -10,14 +10,14 @@ export 'empty_list_view_component_model.dart';
 
 class EmptyListViewComponentWidget extends StatefulWidget {
   const EmptyListViewComponentWidget({
-    Key? key,
+    super.key,
     this.listIsFor,
-  }) : super(key: key);
+  });
 
   final String? listIsFor;
 
   @override
-  _EmptyListViewComponentWidgetState createState() =>
+  State<EmptyListViewComponentWidget> createState() =>
       _EmptyListViewComponentWidgetState();
 }
 

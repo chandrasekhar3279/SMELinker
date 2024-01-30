@@ -13,10 +13,10 @@ import 'get_verified_model.dart';
 export 'get_verified_model.dart';
 
 class GetVerifiedWidget extends StatefulWidget {
-  const GetVerifiedWidget({Key? key}) : super(key: key);
+  const GetVerifiedWidget({super.key});
 
   @override
-  _GetVerifiedWidgetState createState() => _GetVerifiedWidgetState();
+  State<GetVerifiedWidget> createState() => _GetVerifiedWidgetState();
 }
 
 class _GetVerifiedWidgetState extends State<GetVerifiedWidget> {

@@ -15,14 +15,14 @@ export 'edit_my_story_model.dart';
 
 class EditMyStoryWidget extends StatefulWidget {
   const EditMyStoryWidget({
-    Key? key,
+    super.key,
     this.myStory,
-  }) : super(key: key);
+  });
 
   final dynamic myStory;
 
   @override
-  _EditMyStoryWidgetState createState() => _EditMyStoryWidgetState();
+  State<EditMyStoryWidget> createState() => _EditMyStoryWidgetState();
 }
 
 class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
@@ -849,19 +849,20 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return WebViewAware(
-                                                      child: AlertDialog(
-                                                    title: Text('Success'),
-                                                    content:
-                                                        Text('Story updated.'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
+                                                    child: AlertDialog(
+                                                      title: Text('Success'),
+                                                      content: Text(
+                                                          'Story updated.'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
                                                 },
                                               );
                                               setState(() {
@@ -875,19 +876,20 @@ class _EditMyStoryWidgetState extends State<EditMyStoryWidget> {
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return WebViewAware(
-                                                      child: AlertDialog(
-                                                    title: Text('Error'),
-                                                    content: Text(
-                                                        'Image size must be below 1MB.'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
+                                                    child: AlertDialog(
+                                                      title: Text('Error'),
+                                                      content: Text(
+                                                          'Image size must be below 1MB.'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
                                                 },
                                               );
                                             }

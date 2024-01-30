@@ -19,10 +19,10 @@ import 'groups_model.dart';
 export 'groups_model.dart';
 
 class GroupsWidget extends StatefulWidget {
-  const GroupsWidget({Key? key}) : super(key: key);
+  const GroupsWidget({super.key});
 
   @override
-  _GroupsWidgetState createState() => _GroupsWidgetState();
+  State<GroupsWidget> createState() => _GroupsWidgetState();
 }
 
 class _GroupsWidgetState extends State<GroupsWidget>
@@ -340,9 +340,8 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                   FutureBuilder<ApiCallResponse>(
                                 future: (_model.apiRequestCompleter1 ??=
                                         Completer<ApiCallResponse>()
-                                          ..complete(SmeGroup
-                                              .getAllJoinedGroupsCall
-                                              .call(
+                                          ..complete(
+                                              SmeGroup.getMyGroupsCall.call(
                                             accessToken:
                                                 FFAppState().accessToken,
                                           )))
@@ -362,21 +361,20 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                       ),
                                     );
                                   }
-                                  final columnGetAllJoinedGroupsResponse =
+                                  final columnGetMyGroupsResponse =
                                       snapshot.data!;
                                   return Builder(
                                     builder: (context) {
-                                      final joinedGroups =
-                                          SmeGroup.getAllJoinedGroupsCall
-                                                  .requestedgroups(
-                                                    columnGetAllJoinedGroupsResponse
-                                                        .jsonBody,
-                                                  )
-                                                  ?.map((e) => e)
-                                                  .toList()
-                                                  ?.toList() ??
-                                              [];
-                                      if (joinedGroups.isEmpty) {
+                                      final myGroups = SmeGroup.getMyGroupsCall
+                                              .myGroups(
+                                                columnGetMyGroupsResponse
+                                                    .jsonBody,
+                                              )
+                                              ?.map((e) => e)
+                                              .toList()
+                                              ?.toList() ??
+                                          [];
+                                      if (myGroups.isEmpty) {
                                         return Center(
                                           child: JoinedEmptylistWidget(
                                             tabIndex: _model.tabBarCurrentIndex,
@@ -395,12 +393,11 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                               const AlwaysScrollableScrollPhysics(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
-                                            children: List.generate(
-                                                joinedGroups.length,
-                                                (joinedGroupsIndex) {
-                                              final joinedGroupsItem =
-                                                  joinedGroups[
-                                                      joinedGroupsIndex];
+                                            children:
+                                                List.generate(myGroups.length,
+                                                    (myGroupsIndex) {
+                                              final myGroupsItem =
+                                                  myGroups[myGroupsIndex];
                                               return Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -421,8 +418,8 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                         'groupId':
                                                             serializeParam(
                                                           getJsonField(
-                                                            joinedGroupsItem,
-                                                            r'''$.groupId''',
+                                                            myGroupsItem,
+                                                            r'''$.id''',
                                                           ),
                                                           ParamType.int,
                                                         ),
@@ -507,7 +504,7 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                             .network(
                                                                           getJsonField(
                                                                             functions.image(getJsonField(
-                                                                              joinedGroupsItem,
+                                                                              myGroupsItem,
                                                                               r'''$.image''',
                                                                             ).toString()),
                                                                             r'''$.image''',
@@ -542,7 +539,7 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                       children: [
                                                                         Text(
                                                                           getJsonField(
-                                                                            joinedGroupsItem,
+                                                                            myGroupsItem,
                                                                             r'''$.name''',
                                                                           ).toString(),
                                                                           style:
@@ -561,8 +558,8 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                               padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 functions.membersCount(getJsonField(
-                                                                                  joinedGroupsItem,
-                                                                                  r'''$.memberCount''',
+                                                                                  myGroupsItem,
+                                                                                  r'''$.membersCount''',
                                                                                 )),
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium,
                                                                               ),
@@ -585,7 +582,7 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                           8.0),
                                                               child: Text(
                                                                 getJsonField(
-                                                                  joinedGroupsItem,
+                                                                  myGroupsItem,
                                                                   r'''$.description''',
                                                                 ).toString(),
                                                                 textAlign:
@@ -637,7 +634,7 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
-                                                                            joinedGroupsItem,
+                                                                            myGroupsItem,
                                                                             r'''$.industry''',
                                                                           ).toString(),
                                                                           style: FlutterFlowTheme.of(context)
@@ -681,7 +678,7 @@ class _GroupsWidgetState extends State<GroupsWidget>
                                                                           child:
                                                                               Text(
                                                                             getJsonField(
-                                                                              joinedGroupsItem,
+                                                                              myGroupsItem,
                                                                               r'''$.type''',
                                                                             ).toString(),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(

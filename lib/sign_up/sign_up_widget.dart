@@ -18,10 +18,10 @@ import 'sign_up_model.dart';
 export 'sign_up_model.dart';
 
 class SignUpWidget extends StatefulWidget {
-  const SignUpWidget({Key? key}) : super(key: key);
+  const SignUpWidget({super.key});
 
   @override
-  _SignUpWidgetState createState() => _SignUpWidgetState();
+  State<SignUpWidget> createState() => _SignUpWidgetState();
 }
 
 class _SignUpWidgetState extends State<SignUpWidget>
@@ -283,7 +283,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                         return;
                                                       }
                                                       if (_model
-                                                              .industryValue ==
+                                                              .industryValue1 ==
                                                           null) {
                                                         return;
                                                       }
@@ -436,7 +436,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                         return;
                                                       }
                                                       if (_model
-                                                              .industryValue ==
+                                                              .industryValue1 ==
                                                           null) {
                                                         return;
                                                       }
@@ -595,7 +595,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                         return;
                                                       }
                                                       if (_model
-                                                              .industryValue ==
+                                                              .industryValue1 ==
                                                           null) {
                                                         return;
                                                       }
@@ -748,7 +748,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                         return;
                                                       }
                                                       if (_model
-                                                              .industryValue ==
+                                                              .industryValue1 ==
                                                           null) {
                                                         return;
                                                       }
@@ -901,7 +901,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                         return;
                                                       }
                                                       if (_model
-                                                              .industryValue ==
+                                                              .industryValue1 ==
                                                           null) {
                                                         return;
                                                       }
@@ -1077,7 +1077,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                         return;
                                                       }
                                                       if (_model
-                                                              .industryValue ==
+                                                              .industryValue1 ==
                                                           null) {
                                                         return;
                                                       }
@@ -1261,7 +1261,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                         return;
                                                       }
                                                       if (_model
-                                                              .industryValue ==
+                                                              .industryValue1 ==
                                                           null) {
                                                         return;
                                                       }
@@ -1421,7 +1421,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                             return FlutterFlowDropDown<
                                                                 String>(
                                                               controller: _model
-                                                                      .industryValueController ??=
+                                                                      .industryValueController1 ??=
                                                                   FormFieldController<
                                                                           String>(
                                                                       null),
@@ -1439,17 +1439,17 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                               onChanged:
                                                                   (val) async {
                                                                 setState(() =>
-                                                                    _model.industryValue =
+                                                                    _model.industryValue1 =
                                                                         val);
                                                                 if (FFAppState()
                                                                         .submittedSignUpForm &&
-                                                                    ((_model.industryValue !=
+                                                                    ((_model.industryValue1 !=
                                                                                 null &&
-                                                                            _model.industryValue !=
+                                                                            _model.industryValue1 !=
                                                                                 '') ||
-                                                                        (_model.industryValue ==
+                                                                        (_model.industryValue1 ==
                                                                                 null ||
-                                                                            _model.industryValue ==
+                                                                            _model.industryValue1 ==
                                                                                 ''))) {
                                                                   if (_model.formKey
                                                                               .currentState ==
@@ -1461,7 +1461,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                                     return;
                                                                   }
                                                                   if (_model
-                                                                          .industryValue ==
+                                                                          .industryValue1 ==
                                                                       null) {
                                                                     return;
                                                                   }
@@ -1555,6 +1555,193 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                           ],
                                         ),
                                       ),
+                                      if (false)
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  20.0, 30.0, 20.0, 0.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Stack(
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 7.0,
+                                                                0.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Expanded(
+                                                          child: FutureBuilder<
+                                                              ApiCallResponse>(
+                                                            future: SmeGroup
+                                                                .getIndustriesCall
+                                                                .call(),
+                                                            builder: (context,
+                                                                snapshot) {
+                                                              // Customize what your widget looks like when it's loading.
+                                                              if (!snapshot
+                                                                  .hasData) {
+                                                                return Center(
+                                                                  child:
+                                                                      SizedBox(
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
+                                                                    child:
+                                                                        SpinKitFadingCircle(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                      size:
+                                                                          50.0,
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              }
+                                                              final industryGetIndustriesResponse =
+                                                                  snapshot
+                                                                      .data!;
+                                                              return FlutterFlowDropDown<
+                                                                  String>(
+                                                                controller: _model
+                                                                        .industryValueController2 ??=
+                                                                    FormFieldController<
+                                                                            String>(
+                                                                        null),
+                                                                options:
+                                                                    (getJsonField(
+                                                                  industryGetIndustriesResponse
+                                                                      .jsonBody,
+                                                                  r'''$..industryName''',
+                                                                  true,
+                                                                ) as List)
+                                                                        .map<String>((s) =>
+                                                                            s.toString())
+                                                                        .toList()!,
+                                                                onChanged:
+                                                                    (val) async {
+                                                                  setState(() =>
+                                                                      _model.industryValue2 =
+                                                                          val);
+                                                                  if (FFAppState()
+                                                                          .submittedSignUpForm &&
+                                                                      ((_model.industryValue2 != null &&
+                                                                              _model.industryValue2 !=
+                                                                                  '') ||
+                                                                          (_model.industryValue2 == null ||
+                                                                              _model.industryValue2 == ''))) {
+                                                                    if (_model.formKey.currentState ==
+                                                                            null ||
+                                                                        !_model
+                                                                            .formKey
+                                                                            .currentState!
+                                                                            .validate()) {
+                                                                      return;
+                                                                    }
+                                                                    if (_model
+                                                                            .industryValue1 ==
+                                                                        null) {
+                                                                      return;
+                                                                    }
+                                                                    if (_model
+                                                                            .referedValue ==
+                                                                        null) {
+                                                                      return;
+                                                                    }
+                                                                  }
+                                                                },
+                                                                width: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width *
+                                                                    1.0,
+                                                                height: 60.0,
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge,
+                                                                hintText:
+                                                                    'Select your Industry',
+                                                                fillColor: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                                elevation: 2.0,
+                                                                borderColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent3,
+                                                                borderWidth:
+                                                                    1.0,
+                                                                borderRadius:
+                                                                    8.0,
+                                                                margin: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        12.0,
+                                                                        4.0,
+                                                                        12.0,
+                                                                        4.0),
+                                                                hidesUnderline:
+                                                                    true,
+                                                                isSearchable:
+                                                                    false,
+                                                                isMultiSelect:
+                                                                    false,
+                                                              );
+                                                            },
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 7.0,
+                                                                0.0, 0.0),
+                                                    child: Container(
+                                                      width: 52.0,
+                                                      height: 2.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(15.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Container(
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Text(
+                                                        'sub-Industry',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             20.0, 30.0, 20.0, 0.0),
@@ -1597,7 +1784,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                         return;
                                                       }
                                                       if (_model
-                                                              .industryValue ==
+                                                              .industryValue1 ==
                                                           null) {
                                                         return;
                                                       }
@@ -1999,7 +2186,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                         return;
                                                       }
                                                       if (_model
-                                                              .industryValue ==
+                                                              .industryValue1 ==
                                                           null) {
                                                         return;
                                                       }
@@ -2172,7 +2359,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                           return;
                                                         }
                                                         if (_model
-                                                                .industryValue ==
+                                                                .industryValue1 ==
                                                             null) {
                                                           return;
                                                         }
@@ -2267,40 +2454,42 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                         context: context,
                                                         builder: (context) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child: Container(
-                                                                height: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .height *
-                                                                    1.0,
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
                                                                 child:
-                                                                    InterestSelectionWidget(
-                                                                  industries:
-                                                                      getJsonField(
-                                                                    interestGetIndustriesResponse
-                                                                        .jsonBody,
-                                                                    r'''$''',
+                                                                    Container(
+                                                                  height: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .height *
+                                                                      1.0,
+                                                                  child:
+                                                                      InterestSelectionWidget(
+                                                                    industries:
+                                                                        getJsonField(
+                                                                      interestGetIndustriesResponse
+                                                                          .jsonBody,
+                                                                      r'''$''',
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
                                                             ),
-                                                          ));
+                                                          );
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));
@@ -2567,7 +2756,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                     .validate()) {
                                               return;
                                             }
-                                            if (_model.industryValue == null) {
+                                            if (_model.industryValue1 == null) {
                                               return;
                                             }
                                             if (_model.referedValue == null) {
@@ -2586,7 +2775,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                   .firstNameController.text,
                                               lastName: _model
                                                   .lastNameController.text,
-                                              industry: _model.industryValue,
+                                              industry: _model.industryValue1,
                                               name: _model
                                                   .firstNameController.text,
                                               password: _model
@@ -2659,7 +2848,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                       .validate()) {
                                                 return;
                                               }
-                                              if (_model.industryValue ==
+                                              if (_model.industryValue1 ==
                                                   null) {
                                                 return;
                                               }
@@ -2691,7 +2880,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                         .lastNameController
                                                         .text,
                                                     industry:
-                                                        _model.industryValue,
+                                                        _model.industryValue1,
                                                     name: _model
                                                         .firstNameController
                                                         .text,
@@ -2725,20 +2914,22 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          title: Text(
-                                                              'Signup Success'),
-                                                          content: Text(
-                                                              'Check registred mail,You will receive Verification Email.'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            title: Text(
+                                                                'Signup Success'),
+                                                            content: Text(
+                                                                'Check registred mail,You will receive Verification Email.'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     setState(() {
@@ -2814,7 +3005,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                               .companyNameController
                                                               .text,
                                                           true,
-                                                          _model.industryValue!,
+                                                          _model
+                                                              .industryValue1!,
                                                           _model.referedValue!,
                                                           _model
                                                               .passwordController
@@ -2831,20 +3023,22 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          title: Text(
-                                                              'Signup Success'),
-                                                          content: Text(
-                                                              'Check registred mail,You will receive Verification Email.'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            title: Text(
+                                                                'Signup Success'),
+                                                            content: Text(
+                                                                'Check registred mail,You will receive Verification Email.'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
 

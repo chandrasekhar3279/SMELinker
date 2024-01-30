@@ -13,14 +13,14 @@ export 'product_empty_list_model.dart';
 
 class ProductEmptyListWidget extends StatefulWidget {
   const ProductEmptyListWidget({
-    Key? key,
+    super.key,
     this.userId,
-  }) : super(key: key);
+  });
 
   final int? userId;
 
   @override
-  _ProductEmptyListWidgetState createState() => _ProductEmptyListWidgetState();
+  State<ProductEmptyListWidget> createState() => _ProductEmptyListWidgetState();
 }
 
 class _ProductEmptyListWidgetState extends State<ProductEmptyListWidget> {
@@ -97,13 +97,15 @@ class _ProductEmptyListWidgetState extends State<ProductEmptyListWidget> {
                           context: context,
                           builder: (context) {
                             return WebViewAware(
-                                child: Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: Container(
-                                height: MediaQuery.sizeOf(context).height * 1.0,
-                                child: AddProductWidget(),
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: Container(
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 1.0,
+                                  child: AddProductWidget(),
+                                ),
                               ),
-                            ));
+                            );
                           },
                         ).then((value) => safeSetState(() {}));
                       },

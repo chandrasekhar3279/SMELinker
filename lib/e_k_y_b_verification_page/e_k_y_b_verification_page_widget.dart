@@ -16,10 +16,10 @@ import 'e_k_y_b_verification_page_model.dart';
 export 'e_k_y_b_verification_page_model.dart';
 
 class EKYBVerificationPageWidget extends StatefulWidget {
-  const EKYBVerificationPageWidget({Key? key}) : super(key: key);
+  const EKYBVerificationPageWidget({super.key});
 
   @override
-  _EKYBVerificationPageWidgetState createState() =>
+  State<EKYBVerificationPageWidget> createState() =>
       _EKYBVerificationPageWidgetState();
 }
 
@@ -508,10 +508,33 @@ class _EKYBVerificationPageWidgetState
                                                   builder:
                                                       (alertDialogContext) {
                                                     return WebViewAware(
-                                                        child: AlertDialog(
+                                                      child: AlertDialog(
+                                                        title: Text('Error'),
+                                                        content: Text(
+                                                            'Something went wrong to verify company'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text(
+                                                                'Try again'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                              }
+                                            } else {
+                                              await showDialog(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return WebViewAware(
+                                                    child: AlertDialog(
                                                       title: Text('Error'),
                                                       content: Text(
-                                                          'Something went wrong to verify company'),
+                                                          'Something went  wrong update details'),
                                                       actions: [
                                                         TextButton(
                                                           onPressed: () =>
@@ -521,29 +544,8 @@ class _EKYBVerificationPageWidgetState
                                                               Text('Try again'),
                                                         ),
                                                       ],
-                                                    ));
-                                                  },
-                                                );
-                                              }
-                                            } else {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    title: Text('Error'),
-                                                    content: Text(
-                                                        'Something went  wrong update details'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child:
-                                                            Text('Try again'),
-                                                      ),
-                                                    ],
-                                                  ));
+                                                    ),
+                                                  );
                                                 },
                                               );
                                             }

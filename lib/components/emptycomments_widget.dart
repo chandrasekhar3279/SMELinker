@@ -9,10 +9,10 @@ import 'emptycomments_model.dart';
 export 'emptycomments_model.dart';
 
 class EmptycommentsWidget extends StatefulWidget {
-  const EmptycommentsWidget({Key? key}) : super(key: key);
+  const EmptycommentsWidget({super.key});
 
   @override
-  _EmptycommentsWidgetState createState() => _EmptycommentsWidgetState();
+  State<EmptycommentsWidget> createState() => _EmptycommentsWidgetState();
 }
 
 class _EmptycommentsWidgetState extends State<EmptycommentsWidget> {

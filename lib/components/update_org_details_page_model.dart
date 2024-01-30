@@ -67,8 +67,11 @@ class UpdateOrgDetailsPageModel
   String? countryOfRegionValue;
   FormFieldController<String>? countryOfRegionValueController;
   // State field(s) for industries widget.
-  String? industriesValue;
-  FormFieldController<String>? industriesValueController;
+  String? industriesValue1;
+  FormFieldController<String>? industriesValueController1;
+  // State field(s) for industries widget.
+  String? industriesValue2;
+  FormFieldController<String>? industriesValueController2;
   // State field(s) for yearofLaunch widget.
   String? yearofLaunchValue;
   FormFieldController<String>? yearofLaunchValueController;

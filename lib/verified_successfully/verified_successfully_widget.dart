@@ -10,10 +10,10 @@ import 'verified_successfully_model.dart';
 export 'verified_successfully_model.dart';
 
 class VerifiedSuccessfullyWidget extends StatefulWidget {
-  const VerifiedSuccessfullyWidget({Key? key}) : super(key: key);
+  const VerifiedSuccessfullyWidget({super.key});
 
   @override
-  _VerifiedSuccessfullyWidgetState createState() =>
+  State<VerifiedSuccessfullyWidget> createState() =>
       _VerifiedSuccessfullyWidgetState();
 }
 

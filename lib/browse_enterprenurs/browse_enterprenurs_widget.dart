@@ -19,10 +19,10 @@ import 'browse_enterprenurs_model.dart';
 export 'browse_enterprenurs_model.dart';
 
 class BrowseEnterprenursWidget extends StatefulWidget {
-  const BrowseEnterprenursWidget({Key? key}) : super(key: key);
+  const BrowseEnterprenursWidget({super.key});
 
   @override
-  _BrowseEnterprenursWidgetState createState() =>
+  State<BrowseEnterprenursWidget> createState() =>
       _BrowseEnterprenursWidgetState();
 }
 
@@ -136,27 +136,29 @@ class _BrowseEnterprenursWidgetState extends State<BrowseEnterprenursWidget> {
                                 context: context,
                                 builder: (context) {
                                   return WebViewAware(
-                                      child: GestureDetector(
-                                    onTap: () => _model
-                                            .unfocusNode.canRequestFocus
-                                        ? FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode)
-                                        : FocusScope.of(context).unfocus(),
-                                    child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: Container(
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                1.0,
-                                        child: IndustriesSelectionWidget(
-                                          industries: (_model
-                                                  .industriesAPIResponse
-                                                  ?.jsonBody ??
-                                              ''),
+                                    child: GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: Container(
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              1.0,
+                                          child: IndustriesSelectionWidget(
+                                            industries: (_model
+                                                    .industriesAPIResponse
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ));
+                                  );
                                 },
                               ).then((value) => safeSetState(() {}));
 

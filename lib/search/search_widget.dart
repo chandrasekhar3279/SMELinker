@@ -18,14 +18,14 @@ export 'search_model.dart';
 
 class SearchWidget extends StatefulWidget {
   const SearchWidget({
-    Key? key,
+    super.key,
     this.orgeDetails,
-  }) : super(key: key);
+  });
 
   final dynamic orgeDetails;
 
   @override
-  _SearchWidgetState createState() => _SearchWidgetState();
+  State<SearchWidget> createState() => _SearchWidgetState();
 }
 
 class _SearchWidgetState extends State<SearchWidget> {

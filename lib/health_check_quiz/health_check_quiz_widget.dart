@@ -19,14 +19,14 @@ export 'health_check_quiz_model.dart';
 
 class HealthCheckQuizWidget extends StatefulWidget {
   const HealthCheckQuizWidget({
-    Key? key,
+    super.key,
     required this.healthCheckContent,
-  }) : super(key: key);
+  });
 
   final dynamic healthCheckContent;
 
   @override
-  _HealthCheckQuizWidgetState createState() => _HealthCheckQuizWidgetState();
+  State<HealthCheckQuizWidget> createState() => _HealthCheckQuizWidgetState();
 }
 
 class _HealthCheckQuizWidgetState extends State<HealthCheckQuizWidget> {
@@ -338,6 +338,8 @@ class _HealthCheckQuizWidgetState extends State<HealthCheckQuizWidget> {
                                                                             0x00000000),
                                                                         child:
                                                                             ExpandableNotifier(
+                                                                          initialExpanded:
+                                                                              false,
                                                                           child:
                                                                               ExpandablePanel(
                                                                             header:
@@ -608,36 +610,33 @@ class _HealthCheckQuizWidgetState extends State<HealthCheckQuizWidget> {
                                                               builder:
                                                                   (context) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        GestureDetector(
-                                                                  onTap: () => _model
-                                                                          .unfocusNode
-                                                                          .canRequestFocus
-                                                                      ? FocusScope.of(
-                                                                              context)
-                                                                          .requestFocus(_model
-                                                                              .unfocusNode)
-                                                                      : FocusScope.of(
-                                                                              context)
-                                                                          .unfocus(),
                                                                   child:
-                                                                      Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
+                                                                      GestureDetector(
+                                                                    onTap: () => _model
+                                                                            .unfocusNode
+                                                                            .canRequestFocus
+                                                                        ? FocusScope.of(context).requestFocus(_model
+                                                                            .unfocusNode)
+                                                                        : FocusScope.of(context)
+                                                                            .unfocus(),
                                                                     child:
-                                                                        Container(
-                                                                      height:
-                                                                          MediaQuery.sizeOf(context).height *
-                                                                              1.0,
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
                                                                       child:
-                                                                          HealthCheckReportWidget(
-                                                                        healthcheckReport:
-                                                                            widget.healthCheckContent,
+                                                                          Container(
+                                                                        height: MediaQuery.sizeOf(context).height *
+                                                                            1.0,
+                                                                        child:
+                                                                            HealthCheckReportWidget(
+                                                                          healthcheckReport:
+                                                                              widget.healthCheckContent,
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ));
+                                                                );
                                                               },
                                                             ).then((value) =>
                                                                 safeSetState(

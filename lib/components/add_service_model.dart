@@ -55,6 +55,9 @@ class AddServiceModel extends FlutterFlowModel<AddServiceWidget> {
   // State field(s) for categoryList widget.
   String? categoryListValue;
   FormFieldController<String>? categoryListValueController;
+  // State field(s) for subcategoryList widget.
+  String? subcategoryListValue;
+  FormFieldController<String>? subcategoryListValueController;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;

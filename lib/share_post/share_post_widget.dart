@@ -19,10 +19,10 @@ import 'share_post_model.dart';
 export 'share_post_model.dart';
 
 class SharePostWidget extends StatefulWidget {
-  const SharePostWidget({Key? key}) : super(key: key);
+  const SharePostWidget({super.key});
 
   @override
-  _SharePostWidgetState createState() => _SharePostWidgetState();
+  State<SharePostWidget> createState() => _SharePostWidgetState();
 }
 
 class _SharePostWidgetState extends State<SharePostWidget> {
@@ -1475,30 +1475,33 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                                 context: context,
                                                 builder: (context) {
                                                   return WebViewAware(
-                                                      child: GestureDetector(
-                                                    onTap: () => _model
-                                                            .unfocusNode
-                                                            .canRequestFocus
-                                                        ? FocusScope.of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode)
-                                                        : FocusScope.of(context)
-                                                            .unfocus(),
-                                                    child: Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child: Container(
-                                                        height:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .height *
-                                                                1.0,
-                                                        child:
-                                                            GroupsSelectionPopupWidget(),
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child: Container(
+                                                          height:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .height *
+                                                                  1.0,
+                                                          child:
+                                                              GroupsSelectionPopupWidget(),
+                                                        ),
                                                       ),
                                                     ),
-                                                  ));
+                                                  );
                                                 },
                                               ).then((value) =>
                                                   safeSetState(() {}));
@@ -1588,19 +1591,20 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
-                                                  child: AlertDialog(
-                                                title: Text('Success'),
-                                                content: Text(
-                                                    'Your feed posted successfully'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ));
+                                                child: AlertDialog(
+                                                  title: Text('Success'),
+                                                  content: Text(
+                                                      'Your feed posted successfully'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
                                             },
                                           );
 
@@ -1615,19 +1619,20 @@ class _SharePostWidgetState extends State<SharePostWidget> {
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
-                                                  child: AlertDialog(
-                                                title: Text('Error'),
-                                                content: Text(
-                                                    'Something went wrong !'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Try again'),
-                                                  ),
-                                                ],
-                                              ));
+                                                child: AlertDialog(
+                                                  title: Text('Error'),
+                                                  content: Text(
+                                                      'Something went wrong !'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Try again'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
                                             },
                                           );
                                         }

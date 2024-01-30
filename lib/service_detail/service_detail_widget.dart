@@ -17,18 +17,18 @@ export 'service_detail_model.dart';
 
 class ServiceDetailWidget extends StatefulWidget {
   const ServiceDetailWidget({
-    Key? key,
+    super.key,
     this.servicecardInfo,
     this.userId,
     this.orgDetail,
-  }) : super(key: key);
+  });
 
   final dynamic servicecardInfo;
   final int? userId;
   final dynamic orgDetail;
 
   @override
-  _ServiceDetailWidgetState createState() => _ServiceDetailWidgetState();
+  State<ServiceDetailWidget> createState() => _ServiceDetailWidgetState();
 }
 
 class _ServiceDetailWidgetState extends State<ServiceDetailWidget> {
@@ -372,18 +372,19 @@ class _ServiceDetailWidgetState extends State<ServiceDetailWidget> {
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          title: Text('Success'),
-                                          content:
-                                              Text('Your request hasbeen sent'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            title: Text('Success'),
+                                            content: Text(
+                                                'Your request hasbeen sent'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     FFAppState().update(() {});
@@ -392,18 +393,19 @@ class _ServiceDetailWidgetState extends State<ServiceDetailWidget> {
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          title: Text('Error'),
-                                          content:
-                                              Text('Something went wrong!'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Try again'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            title: Text('Error'),
+                                            content:
+                                                Text('Something went wrong!'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Try again'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                   }

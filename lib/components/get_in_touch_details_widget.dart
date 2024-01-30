@@ -15,14 +15,14 @@ export 'get_in_touch_details_model.dart';
 
 class GetInTouchDetailsWidget extends StatefulWidget {
   const GetInTouchDetailsWidget({
-    Key? key,
+    super.key,
     this.getinTouch,
-  }) : super(key: key);
+  });
 
   final dynamic getinTouch;
 
   @override
-  _GetInTouchDetailsWidgetState createState() =>
+  State<GetInTouchDetailsWidget> createState() =>
       _GetInTouchDetailsWidgetState();
 }
 
@@ -688,19 +688,20 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
-                                                  child: AlertDialog(
-                                                title: Text('Success'),
-                                                content: Text(
-                                                    'Updated your contact details successfully'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ));
+                                                child: AlertDialog(
+                                                  title: Text('Success'),
+                                                  content: Text(
+                                                      'Updated your contact details successfully'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
                                             },
                                           );
                                           setState(() {
@@ -714,19 +715,20 @@ class _GetInTouchDetailsWidgetState extends State<GetInTouchDetailsWidget> {
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
-                                                  child: AlertDialog(
-                                                title: Text('Error'),
-                                                content: Text(
-                                                    'Something went wrong'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Try again'),
-                                                  ),
-                                                ],
-                                              ));
+                                                child: AlertDialog(
+                                                  title: Text('Error'),
+                                                  content: Text(
+                                                      'Something went wrong'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Try again'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
                                             },
                                           );
                                         }

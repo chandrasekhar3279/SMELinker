@@ -19,14 +19,14 @@ export 'edit_profile_model.dart';
 
 class EditProfileWidget extends StatefulWidget {
   const EditProfileWidget({
-    Key? key,
+    super.key,
     this.editProfile,
-  }) : super(key: key);
+  });
 
   final dynamic editProfile;
 
   @override
-  _EditProfileWidgetState createState() => _EditProfileWidgetState();
+  State<EditProfileWidget> createState() => _EditProfileWidgetState();
 }
 
 class _EditProfileWidgetState extends State<EditProfileWidget> {
@@ -588,20 +588,21 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: Container(
-                                          height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                              1.0,
-                                          child: SelectImageWidget(
-                                            selectedImage:
-                                                _model.uploadedLocalFile,
-                                            ratio: 1.0,
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: Container(
+                                            height: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                1.0,
+                                            child: SelectImageWidget(
+                                              selectedImage:
+                                                  _model.uploadedLocalFile,
+                                              ratio: 1.0,
+                                            ),
                                           ),
                                         ),
-                                      ));
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 }
@@ -915,19 +916,20 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                               context: context,
                                               builder: (alertDialogContext) {
                                                 return WebViewAware(
-                                                    child: AlertDialog(
-                                                  title: Text('Success'),
-                                                  content: Text(
-                                                      'Profile updated successfully'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ));
+                                                  child: AlertDialog(
+                                                    title: Text('Success'),
+                                                    content: Text(
+                                                        'Profile updated successfully'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
                                               },
                                             );
                                             setState(() {
@@ -947,19 +949,20 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                               context: context,
                                               builder: (alertDialogContext) {
                                                 return WebViewAware(
-                                                    child: AlertDialog(
-                                                  title: Text('Error'),
-                                                  content: Text(
-                                                      'Something went wrong !'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('TryAgain'),
-                                                    ),
-                                                  ],
-                                                ));
+                                                  child: AlertDialog(
+                                                    title: Text('Error'),
+                                                    content: Text(
+                                                        'Something went wrong !'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('TryAgain'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
                                               },
                                             );
                                             setState(() {

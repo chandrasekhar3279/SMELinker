@@ -17,14 +17,14 @@ export 'growth_card_detail_model.dart';
 
 class GrowthCardDetailWidget extends StatefulWidget {
   const GrowthCardDetailWidget({
-    Key? key,
+    super.key,
     this.growthCardInfo,
-  }) : super(key: key);
+  });
 
   final dynamic growthCardInfo;
 
   @override
-  _GrowthCardDetailWidgetState createState() => _GrowthCardDetailWidgetState();
+  State<GrowthCardDetailWidget> createState() => _GrowthCardDetailWidgetState();
 }
 
 class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
@@ -518,20 +518,22 @@ class _GrowthCardDetailWidgetState extends State<GrowthCardDetailWidget> {
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          title:
-                                                              Text('Success'),
-                                                          content: Text(
-                                                              'Your request sent successfully'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            title:
+                                                                Text('Success'),
+                                                            content: Text(
+                                                                'Your request sent successfully'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
 

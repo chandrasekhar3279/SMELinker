@@ -12,10 +12,10 @@ import 'sign_up_selection_model.dart';
 export 'sign_up_selection_model.dart';
 
 class SignUpSelectionWidget extends StatefulWidget {
-  const SignUpSelectionWidget({Key? key}) : super(key: key);
+  const SignUpSelectionWidget({super.key});
 
   @override
-  _SignUpSelectionWidgetState createState() => _SignUpSelectionWidgetState();
+  State<SignUpSelectionWidget> createState() => _SignUpSelectionWidgetState();
 }
 
 class _SignUpSelectionWidgetState extends State<SignUpSelectionWidget> {

@@ -14,16 +14,16 @@ export 'edit_comment_model.dart';
 
 class EditCommentWidget extends StatefulWidget {
   const EditCommentWidget({
-    Key? key,
+    super.key,
     required this.feedCommentInfo,
     this.feedId,
-  }) : super(key: key);
+  });
 
   final dynamic feedCommentInfo;
   final dynamic feedId;
 
   @override
-  _EditCommentWidgetState createState() => _EditCommentWidgetState();
+  State<EditCommentWidget> createState() => _EditCommentWidgetState();
 }
 
 class _EditCommentWidgetState extends State<EditCommentWidget> {
@@ -297,19 +297,20 @@ class _EditCommentWidgetState extends State<EditCommentWidget> {
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
-                                                  child: AlertDialog(
-                                                title: Text('Success'),
-                                                content: Text(
-                                                    'You comment updated successfully'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ));
+                                                child: AlertDialog(
+                                                  title: Text('Success'),
+                                                  content: Text(
+                                                      'You comment updated successfully'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
                                             },
                                           );
 
@@ -336,19 +337,20 @@ class _EditCommentWidgetState extends State<EditCommentWidget> {
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
-                                                  child: AlertDialog(
-                                                title: Text('Error'),
-                                                content: Text(
-                                                    'Something went wrong!'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Try again'),
-                                                  ),
-                                                ],
-                                              ));
+                                                child: AlertDialog(
+                                                  title: Text('Error'),
+                                                  content: Text(
+                                                      'Something went wrong!'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Try again'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
                                             },
                                           );
                                         }

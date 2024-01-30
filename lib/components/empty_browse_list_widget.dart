@@ -9,10 +9,10 @@ import 'empty_browse_list_model.dart';
 export 'empty_browse_list_model.dart';
 
 class EmptyBrowseListWidget extends StatefulWidget {
-  const EmptyBrowseListWidget({Key? key}) : super(key: key);
+  const EmptyBrowseListWidget({super.key});
 
   @override
-  _EmptyBrowseListWidgetState createState() => _EmptyBrowseListWidgetState();
+  State<EmptyBrowseListWidget> createState() => _EmptyBrowseListWidgetState();
 }
 
 class _EmptyBrowseListWidgetState extends State<EmptyBrowseListWidget> {

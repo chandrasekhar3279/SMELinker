@@ -17,10 +17,10 @@ import 'browse_service_providers_model.dart';
 export 'browse_service_providers_model.dart';
 
 class BrowseServiceProvidersWidget extends StatefulWidget {
-  const BrowseServiceProvidersWidget({Key? key}) : super(key: key);
+  const BrowseServiceProvidersWidget({super.key});
 
   @override
-  _BrowseServiceProvidersWidgetState createState() =>
+  State<BrowseServiceProvidersWidget> createState() =>
       _BrowseServiceProvidersWidgetState();
 }
 

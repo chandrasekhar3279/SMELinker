@@ -11,10 +11,10 @@ import 'subscribed_details_model.dart';
 export 'subscribed_details_model.dart';
 
 class SubscribedDetailsWidget extends StatefulWidget {
-  const SubscribedDetailsWidget({Key? key}) : super(key: key);
+  const SubscribedDetailsWidget({super.key});
 
   @override
-  _SubscribedDetailsWidgetState createState() =>
+  State<SubscribedDetailsWidget> createState() =>
       _SubscribedDetailsWidgetState();
 }
 

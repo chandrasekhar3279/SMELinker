@@ -14,14 +14,14 @@ export 'health_check_report_model.dart';
 
 class HealthCheckReportWidget extends StatefulWidget {
   const HealthCheckReportWidget({
-    Key? key,
+    super.key,
     this.healthcheckReport,
-  }) : super(key: key);
+  });
 
   final dynamic healthcheckReport;
 
   @override
-  _HealthCheckReportWidgetState createState() =>
+  State<HealthCheckReportWidget> createState() =>
       _HealthCheckReportWidgetState();
 }
 
@@ -224,6 +224,7 @@ class _HealthCheckReportWidgetState extends State<HealthCheckReportWidget> {
                                               width: double.infinity,
                                               color: Colors.white,
                                               child: ExpandableNotifier(
+                                                initialExpanded: false,
                                                 child: ExpandablePanel(
                                                   header: Text(
                                                     getJsonField(

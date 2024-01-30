@@ -11,14 +11,14 @@ export 'booking_empty_list_model.dart';
 
 class BookingEmptyListWidget extends StatefulWidget {
   const BookingEmptyListWidget({
-    Key? key,
+    super.key,
     this.emptyDescription,
-  }) : super(key: key);
+  });
 
   final String? emptyDescription;
 
   @override
-  _BookingEmptyListWidgetState createState() => _BookingEmptyListWidgetState();
+  State<BookingEmptyListWidget> createState() => _BookingEmptyListWidgetState();
 }
 
 class _BookingEmptyListWidgetState extends State<BookingEmptyListWidget> {

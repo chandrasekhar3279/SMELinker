@@ -11,14 +11,14 @@ export 'joined_emptylist_model.dart';
 
 class JoinedEmptylistWidget extends StatefulWidget {
   const JoinedEmptylistWidget({
-    Key? key,
+    super.key,
     this.tabIndex,
-  }) : super(key: key);
+  });
 
   final int? tabIndex;
 
   @override
-  _JoinedEmptylistWidgetState createState() => _JoinedEmptylistWidgetState();
+  State<JoinedEmptylistWidget> createState() => _JoinedEmptylistWidgetState();
 }
 
 class _JoinedEmptylistWidgetState extends State<JoinedEmptylistWidget> {

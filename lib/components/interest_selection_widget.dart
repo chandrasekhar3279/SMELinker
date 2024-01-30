@@ -11,14 +11,14 @@ export 'interest_selection_model.dart';
 
 class InterestSelectionWidget extends StatefulWidget {
   const InterestSelectionWidget({
-    Key? key,
+    super.key,
     this.industries,
-  }) : super(key: key);
+  });
 
   final dynamic industries;
 
   @override
-  _InterestSelectionWidgetState createState() =>
+  State<InterestSelectionWidget> createState() =>
       _InterestSelectionWidgetState();
 }
 

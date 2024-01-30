@@ -11,16 +11,16 @@ export 'select_image_model.dart';
 
 class SelectImageWidget extends StatefulWidget {
   const SelectImageWidget({
-    Key? key,
+    super.key,
     this.selectedImage,
     this.ratio,
-  }) : super(key: key);
+  });
 
   final FFUploadedFile? selectedImage;
   final double? ratio;
 
   @override
-  _SelectImageWidgetState createState() => _SelectImageWidgetState();
+  State<SelectImageWidget> createState() => _SelectImageWidgetState();
 }
 
 class _SelectImageWidgetState extends State<SelectImageWidget> {

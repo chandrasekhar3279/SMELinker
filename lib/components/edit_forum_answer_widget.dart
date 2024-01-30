@@ -15,16 +15,16 @@ export 'edit_forum_answer_model.dart';
 
 class EditForumAnswerWidget extends StatefulWidget {
   const EditForumAnswerWidget({
-    Key? key,
+    super.key,
     this.answerItem,
     this.questionId,
-  }) : super(key: key);
+  });
 
   final dynamic answerItem;
   final int? questionId;
 
   @override
-  _EditForumAnswerWidgetState createState() => _EditForumAnswerWidgetState();
+  State<EditForumAnswerWidget> createState() => _EditForumAnswerWidgetState();
 }
 
 class _EditForumAnswerWidgetState extends State<EditForumAnswerWidget> {
@@ -325,19 +325,20 @@ class _EditForumAnswerWidgetState extends State<EditForumAnswerWidget> {
                                               context: context,
                                               builder: (alertDialogContext) {
                                                 return WebViewAware(
-                                                    child: AlertDialog(
-                                                  title: Text('Updated'),
-                                                  content: Text(
-                                                      'Your answer changed successfully'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ));
+                                                  child: AlertDialog(
+                                                    title: Text('Updated'),
+                                                    content: Text(
+                                                        'Your answer changed successfully'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
                                               },
                                             );
                                             _model.updatePage(() {
@@ -360,19 +361,21 @@ class _EditForumAnswerWidgetState extends State<EditForumAnswerWidget> {
                                               context: context,
                                               builder: (alertDialogContext) {
                                                 return WebViewAware(
-                                                    child: AlertDialog(
-                                                  title: Text('Error'),
-                                                  content: Text(
-                                                      'Something went wrong !'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Try again'),
-                                                    ),
-                                                  ],
-                                                ));
+                                                  child: AlertDialog(
+                                                    title: Text('Error'),
+                                                    content: Text(
+                                                        'Something went wrong !'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child:
+                                                            Text('Try again'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
                                               },
                                             );
                                           }

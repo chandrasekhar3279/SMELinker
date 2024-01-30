@@ -14,10 +14,10 @@ import 'resources_model.dart';
 export 'resources_model.dart';
 
 class ResourcesWidget extends StatefulWidget {
-  const ResourcesWidget({Key? key}) : super(key: key);
+  const ResourcesWidget({super.key});
 
   @override
-  _ResourcesWidgetState createState() => _ResourcesWidgetState();
+  State<ResourcesWidget> createState() => _ResourcesWidgetState();
 }
 
 class _ResourcesWidgetState extends State<ResourcesWidget> {

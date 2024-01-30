@@ -19,14 +19,14 @@ export 'edit_product_model.dart';
 
 class EditProductWidget extends StatefulWidget {
   const EditProductWidget({
-    Key? key,
+    super.key,
     this.productItem,
-  }) : super(key: key);
+  });
 
   final dynamic productItem;
 
   @override
-  _EditProductWidgetState createState() => _EditProductWidgetState();
+  State<EditProductWidget> createState() => _EditProductWidgetState();
 }
 
 class _EditProductWidgetState extends State<EditProductWidget> {
@@ -156,7 +156,7 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                 !_model.formKey.currentState!.validate()) {
                               return;
                             }
-                            if (_model.editProductDropDownValue == null) {
+                            if (_model.editProductDropDownValue1 == null) {
                               return;
                             }
                           },
@@ -222,7 +222,7 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                     !_model.formKey.currentState!.validate()) {
                                   return;
                                 }
-                                if (_model.editProductDropDownValue == null) {
+                                if (_model.editProductDropDownValue1 == null) {
                                   return;
                                 }
                               },
@@ -292,7 +292,7 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                   !_model.formKey.currentState!.validate()) {
                                 return;
                               }
-                              if (_model.editProductDropDownValue == null) {
+                              if (_model.editProductDropDownValue1 == null) {
                                 return;
                               }
                             },
@@ -385,9 +385,9 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                             snapshot.data!;
                                         return FlutterFlowDropDown<String>(
                                           controller: _model
-                                                  .editProductDropDownValueController ??=
+                                                  .editProductDropDownValueController1 ??=
                                               FormFieldController<String>(
-                                            _model.editProductDropDownValue ??=
+                                            _model.editProductDropDownValue1 ??=
                                                 getJsonField(
                                               widget.productItem,
                                               r'''$.category''',
@@ -403,7 +403,7 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                               .toList()!,
                                           onChanged: (val) async {
                                             setState(() => _model
-                                                    .editProductDropDownValue =
+                                                    .editProductDropDownValue1 =
                                                 val);
                                             if (_model.formKey.currentState ==
                                                     null ||
@@ -412,7 +412,7 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                               return;
                                             }
                                             if (_model
-                                                    .editProductDropDownValue ==
+                                                    .editProductDropDownValue1 ==
                                                 null) {
                                               return;
                                             }
@@ -472,6 +472,136 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                           ],
                         ),
                       ),
+                      if (false)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 30.0, 0.0, 0.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Stack(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 7.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(),
+                                      child: FutureBuilder<ApiCallResponse>(
+                                        future: SmeGroup
+                                            .getProductCategoriesCall
+                                            .call(
+                                          accessToken: FFAppState().accessToken,
+                                        ),
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child: SpinKitFadingCircle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary,
+                                                  size: 50.0,
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          final editProductDropDownGetProductCategoriesResponse =
+                                              snapshot.data!;
+                                          return FlutterFlowDropDown<String>(
+                                            controller: _model
+                                                    .editProductDropDownValueController2 ??=
+                                                FormFieldController<String>(
+                                              _model.editProductDropDownValue2 ??=
+                                                  getJsonField(
+                                                widget.productItem,
+                                                r'''$.category''',
+                                              ).toString(),
+                                            ),
+                                            options: (getJsonField(
+                                              editProductDropDownGetProductCategoriesResponse
+                                                  .jsonBody,
+                                              r'''$..category''',
+                                              true,
+                                            ) as List)
+                                                .map<String>(
+                                                    (s) => s.toString())
+                                                .toList()!,
+                                            onChanged: (val) async {
+                                              setState(() => _model
+                                                      .editProductDropDownValue2 =
+                                                  val);
+                                              if (_model.formKey.currentState ==
+                                                      null ||
+                                                  !_model.formKey.currentState!
+                                                      .validate()) {
+                                                return;
+                                              }
+                                              if (_model
+                                                      .editProductDropDownValue1 ==
+                                                  null) {
+                                                return;
+                                              }
+                                            },
+                                            width: 230.0,
+                                            height: 60.0,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium,
+                                            hintText: 'Please select category',
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            elevation: 2.0,
+                                            borderColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .accent3,
+                                            borderWidth: 1.0,
+                                            borderRadius: 8.0,
+                                            margin:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 4.0, 12.0, 4.0),
+                                            hidesUnderline: true,
+                                            isSearchable: false,
+                                            isMultiSelect: false,
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 7.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: 55.0,
+                                      height: 2.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 0.0, 0.0, 0.0),
+                                    child: Container(
+                                      decoration: BoxDecoration(),
+                                      child: Text(
+                                        'Sub-category',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
@@ -773,7 +903,7 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                               .validate()) {
                                         return;
                                       }
-                                      if (_model.editProductDropDownValue ==
+                                      if (_model.editProductDropDownValue1 ==
                                           null) {
                                         return;
                                       }
@@ -786,7 +916,7 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                                   .text,
                                               _model.editproductDescController
                                                   .text,
-                                              _model.editProductDropDownValue!,
+                                              _model.editProductDropDownValue1!,
                                               _model.editProductPriceController
                                                   .text,
                                               getJsonField(
@@ -803,18 +933,20 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
-                                                child: AlertDialog(
-                                              title: Text('Success'),
-                                              content: Text('Product updated.'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ));
+                                              child: AlertDialog(
+                                                title: Text('Success'),
+                                                content:
+                                                    Text('Product updated.'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
                                           },
                                         );
 
@@ -829,19 +961,20 @@ class _EditProductWidgetState extends State<EditProductWidget> {
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
-                                                child: AlertDialog(
-                                              title: Text('Error'),
-                                              content: Text(
-                                                  'Image size must be below 1MB.'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Try again'),
-                                                ),
-                                              ],
-                                            ));
+                                              child: AlertDialog(
+                                                title: Text('Error'),
+                                                content: Text(
+                                                    'Image size must be below 1MB.'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Try again'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
                                           },
                                         );
                                       }

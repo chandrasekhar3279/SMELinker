@@ -12,10 +12,10 @@ import 'browse_industrie_filter_model.dart';
 export 'browse_industrie_filter_model.dart';
 
 class BrowseIndustrieFilterWidget extends StatefulWidget {
-  const BrowseIndustrieFilterWidget({Key? key}) : super(key: key);
+  const BrowseIndustrieFilterWidget({super.key});
 
   @override
-  _BrowseIndustrieFilterWidgetState createState() =>
+  State<BrowseIndustrieFilterWidget> createState() =>
       _BrowseIndustrieFilterWidgetState();
 }
 

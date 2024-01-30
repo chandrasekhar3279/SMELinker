@@ -13,16 +13,16 @@ export 'team_empty_list_model.dart';
 
 class TeamEmptyListWidget extends StatefulWidget {
   const TeamEmptyListWidget({
-    Key? key,
+    super.key,
     this.emptyDescription,
     this.userId,
-  }) : super(key: key);
+  });
 
   final String? emptyDescription;
   final int? userId;
 
   @override
-  _TeamEmptyListWidgetState createState() => _TeamEmptyListWidgetState();
+  State<TeamEmptyListWidget> createState() => _TeamEmptyListWidgetState();
 }
 
 class _TeamEmptyListWidgetState extends State<TeamEmptyListWidget> {
@@ -110,13 +110,15 @@ class _TeamEmptyListWidgetState extends State<TeamEmptyListWidget> {
                           context: context,
                           builder: (context) {
                             return WebViewAware(
-                                child: Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: Container(
-                                height: MediaQuery.sizeOf(context).height * 1.0,
-                                child: AddTeamMemberWidget(),
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: Container(
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 1.0,
+                                  child: AddTeamMemberWidget(),
+                                ),
                               ),
-                            ));
+                            );
                           },
                         ).then((value) => safeSetState(() {}));
                       },

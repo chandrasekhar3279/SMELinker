@@ -19,14 +19,14 @@ export 'edit_service_model.dart';
 
 class EditServiceWidget extends StatefulWidget {
   const EditServiceWidget({
-    Key? key,
+    super.key,
     this.editServiceItem,
-  }) : super(key: key);
+  });
 
   final dynamic editServiceItem;
 
   @override
-  _EditServiceWidgetState createState() => _EditServiceWidgetState();
+  State<EditServiceWidget> createState() => _EditServiceWidgetState();
 }
 
 class _EditServiceWidgetState extends State<EditServiceWidget> {
@@ -334,9 +334,9 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                           0.0, 7.0, 0.0, 0.0),
                                       child: FlutterFlowDropDown<String>(
                                         controller: _model
-                                                .editServicecategoryListValueController ??=
+                                                .editServicecategoryListValueController1 ??=
                                             FormFieldController<String>(
-                                          _model.editServicecategoryListValue ??=
+                                          _model.editServicecategoryListValue1 ??=
                                               getJsonField(
                                             widget.editServiceItem,
                                             r'''$.category''',
@@ -350,9 +350,9 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                         ) as List)
                                             .map<String>((s) => s.toString())
                                             .toList()!,
-                                        onChanged: (val) => setState(() =>
-                                            _model.editServicecategoryListValue =
-                                                val),
+                                        onChanged: (val) => setState(() => _model
+                                                .editServicecategoryListValue1 =
+                                            val),
                                         width: double.infinity,
                                         height: 60.0,
                                         textStyle: FlutterFlowTheme.of(context)
@@ -402,6 +402,91 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                               ],
                             ),
                           ),
+                          if (false)
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 30.0, 0.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 7.0, 0.0, 0.0),
+                                        child: FlutterFlowDropDown<String>(
+                                          controller: _model
+                                                  .editServicecategoryListValueController2 ??=
+                                              FormFieldController<String>(
+                                            _model.editServicecategoryListValue2 ??=
+                                                getJsonField(
+                                              widget.editServiceItem,
+                                              r'''$.category''',
+                                            ).toString(),
+                                          ),
+                                          options: (getJsonField(
+                                            columnGetServiceCategoriesResponse
+                                                .jsonBody,
+                                            r'''$..category''',
+                                            true,
+                                          ) as List)
+                                              .map<String>((s) => s.toString())
+                                              .toList()!,
+                                          onChanged: (val) => setState(() =>
+                                              _model.editServicecategoryListValue2 =
+                                                  val),
+                                          width: double.infinity,
+                                          height: 60.0,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium,
+                                          hintText: 'Please select...',
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          elevation: 2.0,
+                                          borderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .accent3,
+                                          borderWidth: 1.0,
+                                          borderRadius: 8.0,
+                                          margin:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 4.0, 12.0, 4.0),
+                                          hidesUnderline: true,
+                                          isSearchable: false,
+                                          isMultiSelect: false,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 7.0, 0.0, 0.0),
+                                        child: Container(
+                                          width: 55.0,
+                                          height: 2.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 0.0, 0.0),
+                                        child: Container(
+                                          decoration: BoxDecoration(),
+                                          child: Text(
+                                            'Category',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 30.0, 0.0, 0.0),
@@ -506,7 +591,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                   return;
                                                 }
                                                 if (_model
-                                                        .editServicecategoryListValue ==
+                                                        .editServicecategoryListValue1 ==
                                                     null) {
                                                   return;
                                                 }
@@ -611,7 +696,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                   return;
                                                 }
                                                 if (_model
-                                                        .editServicecategoryListValue ==
+                                                        .editServicecategoryListValue1 ==
                                                     null) {
                                                   return;
                                                 }
@@ -749,7 +834,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                   return;
                                                 }
                                                 if (_model
-                                                        .editServicecategoryListValue ==
+                                                        .editServicecategoryListValue1 ==
                                                     null) {
                                                   return;
                                                 }
@@ -854,7 +939,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                   return;
                                                 }
                                                 if (_model
-                                                        .editServicecategoryListValue ==
+                                                        .editServicecategoryListValue1 ==
                                                     null) {
                                                   return;
                                                 }
@@ -1291,7 +1376,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                             return;
                                           }
                                           if (_model
-                                                  .editServicecategoryListValue ==
+                                                  .editServicecategoryListValue1 ==
                                               null) {
                                             return;
                                           }
@@ -1323,7 +1408,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                         .editServiceDescController
                                                         .text,
                                                     _model
-                                                        .editServicecategoryListValue!,
+                                                        .editServicecategoryListValue1!,
                                                     '${_model.minCostTextFieldController.text} - ${_model.maxCostTextFieldController.text}',
                                                     '${_model.minTimeTextFieldController.text} - ${_model.maxTimeTextFieldController.text} ${_model.dropDownValue}',
                                                     getJsonField(
@@ -1341,19 +1426,20 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return WebViewAware(
-                                                      child: AlertDialog(
-                                                    title: Text('Success'),
-                                                    content: Text(
-                                                        'Service updated.'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
+                                                    child: AlertDialog(
+                                                      title: Text('Success'),
+                                                      content: Text(
+                                                          'Service updated.'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
                                                 },
                                               );
 
@@ -1372,20 +1458,21 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return WebViewAware(
-                                                      child: AlertDialog(
-                                                    title: Text('Error'),
-                                                    content: Text(
-                                                        'Image size must be below 1MB.'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child:
-                                                            Text('Try again'),
-                                                      ),
-                                                    ],
-                                                  ));
+                                                    child: AlertDialog(
+                                                      title: Text('Error'),
+                                                      content: Text(
+                                                          'Image size must be below 1MB.'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child:
+                                                              Text('Try again'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
                                                 },
                                               );
                                             }
@@ -1394,20 +1481,21 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                               context: context,
                                               builder: (alertDialogContext) {
                                                 return WebViewAware(
-                                                    child: AlertDialog(
-                                                  title: Text(
-                                                      'Invalid time or cost'),
-                                                  content: Text(
-                                                      'min cannot be greater than max.'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ));
+                                                  child: AlertDialog(
+                                                    title: Text(
+                                                        'Invalid time or cost'),
+                                                    content: Text(
+                                                        'min cannot be greater than max.'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
                                               },
                                             );
                                           }

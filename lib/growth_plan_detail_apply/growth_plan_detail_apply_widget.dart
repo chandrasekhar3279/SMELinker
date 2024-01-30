@@ -14,16 +14,16 @@ export 'growth_plan_detail_apply_model.dart';
 
 class GrowthPlanDetailApplyWidget extends StatefulWidget {
   const GrowthPlanDetailApplyWidget({
-    Key? key,
+    super.key,
     this.growthPlanId,
     this.growthPlanInfo,
-  }) : super(key: key);
+  });
 
   final int? growthPlanId;
   final dynamic growthPlanInfo;
 
   @override
-  _GrowthPlanDetailApplyWidgetState createState() =>
+  State<GrowthPlanDetailApplyWidget> createState() =>
       _GrowthPlanDetailApplyWidgetState();
 }
 
@@ -307,18 +307,19 @@ class _GrowthPlanDetailApplyWidgetState
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      title: Text('Success'),
-                                      content: Text(
-                                          'Your request has been sent successfully'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
+                                      child: AlertDialog(
+                                        title: Text('Success'),
+                                        content: Text(
+                                            'Your request has been sent successfully'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 );
 
@@ -328,17 +329,18 @@ class _GrowthPlanDetailApplyWidgetState
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      title: Text('Error'),
-                                      content: Text('Something went wrong!'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Try again'),
-                                        ),
-                                      ],
-                                    ));
+                                      child: AlertDialog(
+                                        title: Text('Error'),
+                                        content: Text('Something went wrong!'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Try again'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 );
                               }

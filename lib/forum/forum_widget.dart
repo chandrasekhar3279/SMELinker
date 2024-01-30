@@ -27,14 +27,14 @@ export 'forum_model.dart';
 
 class ForumWidget extends StatefulWidget {
   const ForumWidget({
-    Key? key,
+    super.key,
     this.questionId,
-  }) : super(key: key);
+  });
 
   final String? questionId;
 
   @override
-  _ForumWidgetState createState() => _ForumWidgetState();
+  State<ForumWidget> createState() => _ForumWidgetState();
 }
 
 class _ForumWidgetState extends State<ForumWidget> {
@@ -761,18 +761,18 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                         builder:
                                                                             (alertDialogContext) {
                                                                           return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                            title:
-                                                                                Text('Great'),
-                                                                            content:
-                                                                                Text('We’ve received your question.'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                child: Text('Ok'),
-                                                                              ),
-                                                                            ],
-                                                                          ));
+                                                                            child:
+                                                                                AlertDialog(
+                                                                              title: Text('Great'),
+                                                                              content: Text('We’ve received your question.'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                  child: Text('Ok'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
                                                                         },
                                                                       );
                                                                       setState(
@@ -793,18 +793,18 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                         builder:
                                                                             (alertDialogContext) {
                                                                           return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                            title:
-                                                                                Text('Error'),
-                                                                            content:
-                                                                                Text('This Question seems irrelevant or inappropriate and can\'t be posted'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                child: Text('Close'),
-                                                                              ),
-                                                                            ],
-                                                                          ));
+                                                                            child:
+                                                                                AlertDialog(
+                                                                              title: Text('Error'),
+                                                                              content: Text('This Question seems irrelevant or inappropriate and can\'t be posted'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                  child: Text('Close'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
                                                                         },
                                                                       );
                                                                     }
@@ -1250,33 +1250,53 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                     waitDuration: Duration(milliseconds: 100),
                                                                                                                     showDuration: Duration(milliseconds: 1500),
                                                                                                                     triggerMode: TooltipTriggerMode.tap,
-                                                                                                                    child: Container(
-                                                                                                                      width: 30.0,
-                                                                                                                      height: 30.0,
-                                                                                                                      decoration: BoxDecoration(
-                                                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                                        shape: BoxShape.circle,
-                                                                                                                        border: Border.all(
-                                                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                                                          width: 1.0,
-                                                                                                                        ),
-                                                                                                                      ),
+                                                                                                                    child: InkWell(
+                                                                                                                      splashColor: Colors.transparent,
+                                                                                                                      focusColor: Colors.transparent,
+                                                                                                                      hoverColor: Colors.transparent,
+                                                                                                                      highlightColor: Colors.transparent,
+                                                                                                                      onTap: () async {
+                                                                                                                        context.pushNamed(
+                                                                                                                          'GroupDetailpage',
+                                                                                                                          queryParameters: {
+                                                                                                                            'groupId': serializeParam(
+                                                                                                                              getJsonField(
+                                                                                                                                groupsDataItem,
+                                                                                                                                r'''$.groupId''',
+                                                                                                                              ),
+                                                                                                                              ParamType.int,
+                                                                                                                            ),
+                                                                                                                          }.withoutNulls,
+                                                                                                                        );
+                                                                                                                      },
                                                                                                                       child: Container(
-                                                                                                                        width: 11.0,
-                                                                                                                        height: 11.0,
-                                                                                                                        clipBehavior: Clip.antiAlias,
+                                                                                                                        width: 30.0,
+                                                                                                                        height: 30.0,
                                                                                                                         decoration: BoxDecoration(
+                                                                                                                          color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                                           shape: BoxShape.circle,
+                                                                                                                          border: Border.all(
+                                                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                                                            width: 1.0,
+                                                                                                                          ),
                                                                                                                         ),
-                                                                                                                        child: Image.network(
-                                                                                                                          getJsonField(
-                                                                                                                            functions.image(getJsonField(
-                                                                                                                              groupsDataItem,
-                                                                                                                              r'''$.groupImg''',
-                                                                                                                            ).toString()),
-                                                                                                                            r'''$.image''',
-                                                                                                                          ).toString(),
-                                                                                                                          fit: BoxFit.cover,
+                                                                                                                        child: Container(
+                                                                                                                          width: 11.0,
+                                                                                                                          height: 11.0,
+                                                                                                                          clipBehavior: Clip.antiAlias,
+                                                                                                                          decoration: BoxDecoration(
+                                                                                                                            shape: BoxShape.circle,
+                                                                                                                          ),
+                                                                                                                          child: Image.network(
+                                                                                                                            getJsonField(
+                                                                                                                              functions.image(getJsonField(
+                                                                                                                                groupsDataItem,
+                                                                                                                                r'''$.groupImg''',
+                                                                                                                              ).toString()),
+                                                                                                                              r'''$.image''',
+                                                                                                                            ).toString(),
+                                                                                                                            fit: BoxFit.cover,
+                                                                                                                          ),
                                                                                                                         ),
                                                                                                                       ),
                                                                                                                     ),
@@ -1942,19 +1962,20 @@ class _ForumWidgetState extends State<ForumWidget> {
                                                                                                                                                     context: context,
                                                                                                                                                     builder: (context) {
                                                                                                                                                       return WebViewAware(
-                                                                                                                                                          child: GestureDetector(
-                                                                                                                                                        onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                                                                                        child: Padding(
-                                                                                                                                                          padding: MediaQuery.viewInsetsOf(context),
-                                                                                                                                                          child: Container(
-                                                                                                                                                            height: MediaQuery.sizeOf(context).height * 0.2,
-                                                                                                                                                            child: ForumAnswerWithInReplyWidget(
-                                                                                                                                                              subAnswerQuestionItem: contentItem,
-                                                                                                                                                              subAnswersList: answersContentItem,
+                                                                                                                                                        child: GestureDetector(
+                                                                                                                                                          onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                                                                                          child: Padding(
+                                                                                                                                                            padding: MediaQuery.viewInsetsOf(context),
+                                                                                                                                                            child: Container(
+                                                                                                                                                              height: MediaQuery.sizeOf(context).height * 0.2,
+                                                                                                                                                              child: ForumAnswerWithInReplyWidget(
+                                                                                                                                                                subAnswerQuestionItem: contentItem,
+                                                                                                                                                                subAnswersList: answersContentItem,
+                                                                                                                                                              ),
                                                                                                                                                             ),
                                                                                                                                                           ),
                                                                                                                                                         ),
-                                                                                                                                                      ));
+                                                                                                                                                      );
                                                                                                                                                     },
                                                                                                                                                   ).then((value) => safeSetState(() {}));
                                                                                                                                                 },

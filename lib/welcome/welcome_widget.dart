@@ -16,10 +16,10 @@ import 'welcome_model.dart';
 export 'welcome_model.dart';
 
 class WelcomeWidget extends StatefulWidget {
-  const WelcomeWidget({Key? key}) : super(key: key);
+  const WelcomeWidget({super.key});
 
   @override
-  _WelcomeWidgetState createState() => _WelcomeWidgetState();
+  State<WelcomeWidget> createState() => _WelcomeWidgetState();
 }
 
 class _WelcomeWidgetState extends State<WelcomeWidget> {

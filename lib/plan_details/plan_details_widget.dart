@@ -12,14 +12,14 @@ export 'plan_details_model.dart';
 
 class PlanDetailsWidget extends StatefulWidget {
   const PlanDetailsWidget({
-    Key? key,
+    super.key,
     this.planDetails,
-  }) : super(key: key);
+  });
 
   final String? planDetails;
 
   @override
-  _PlanDetailsWidgetState createState() => _PlanDetailsWidgetState();
+  State<PlanDetailsWidget> createState() => _PlanDetailsWidgetState();
 }
 
 class _PlanDetailsWidgetState extends State<PlanDetailsWidget> {

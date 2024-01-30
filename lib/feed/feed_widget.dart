@@ -27,14 +27,14 @@ export 'feed_model.dart';
 
 class FeedWidget extends StatefulWidget {
   const FeedWidget({
-    Key? key,
+    super.key,
     this.userId,
-  }) : super(key: key);
+  });
 
   final int? userId;
 
   @override
-  _FeedWidgetState createState() => _FeedWidgetState();
+  State<FeedWidget> createState() => _FeedWidgetState();
 }
 
 class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
@@ -491,927 +491,943 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                             ),
                                           ),
                                           if (_model.choiceChipsValue == 'All')
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 60.0, 0.0, 0.0),
-                                              child: RefreshIndicator(
-                                                onRefresh: () async {
-                                                  setState(() => _model
-                                                      .listViewAllPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListViewAll();
-                                                },
-                                                child: PagedListView<
-                                                    ApiPagingParams, dynamic>(
-                                                  pagingController: _model
-                                                      .setListViewAllController(
-                                                    (nextPageMarker) => SmeGroup
-                                                        .getFeedCall
-                                                        .call(
-                                                      pageNumber: nextPageMarker
-                                                          .nextPageNumber,
-                                                      pageSize: 10,
-                                                      accessToken: FFAppState()
-                                                          .accessToken,
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 60.0, 0.0, 0.0),
+                                                child: RefreshIndicator(
+                                                  onRefresh: () async {
+                                                    setState(() => _model
+                                                        .listViewAllPagingController
+                                                        ?.refresh());
+                                                    await _model
+                                                        .waitForOnePageForListViewAll();
+                                                  },
+                                                  child: PagedListView<
+                                                      ApiPagingParams, dynamic>(
+                                                    pagingController: _model
+                                                        .setListViewAllController(
+                                                      (nextPageMarker) =>
+                                                          SmeGroup.getFeedCall
+                                                              .call(
+                                                        pageNumber:
+                                                            nextPageMarker
+                                                                .nextPageNumber,
+                                                        pageSize: 10,
+                                                        accessToken:
+                                                            FFAppState()
+                                                                .accessToken,
+                                                      ),
                                                     ),
-                                                  ),
-                                                  padding: EdgeInsets.zero,
-                                                  reverse: false,
-                                                  scrollDirection:
-                                                      Axis.vertical,
-                                                  builderDelegate:
-                                                      PagedChildBuilderDelegate<
-                                                          dynamic>(
-                                                    // Customize what your widget looks like when it's loading the first page.
-                                                    firstPageProgressIndicatorBuilder:
-                                                        (_) => Center(
-                                                      child:
-                                                          FeedListShimmerLoadingWidget(),
-                                                    ),
-                                                    // Customize what your widget looks like when it's loading another page.
-                                                    newPageProgressIndicatorBuilder:
-                                                        (_) => Center(
-                                                      child:
-                                                          FeedListShimmerLoadingWidget(),
-                                                    ),
+                                                    padding: EdgeInsets.zero,
+                                                    reverse: false,
+                                                    scrollDirection:
+                                                        Axis.vertical,
+                                                    builderDelegate:
+                                                        PagedChildBuilderDelegate<
+                                                            dynamic>(
+                                                      // Customize what your widget looks like when it's loading the first page.
+                                                      firstPageProgressIndicatorBuilder:
+                                                          (_) => Center(
+                                                        child:
+                                                            FeedListShimmerLoadingWidget(),
+                                                      ),
+                                                      // Customize what your widget looks like when it's loading another page.
+                                                      newPageProgressIndicatorBuilder:
+                                                          (_) => Center(
+                                                        child:
+                                                            FeedListShimmerLoadingWidget(),
+                                                      ),
 
-                                                    itemBuilder: (context, _,
-                                                        feedIndex) {
-                                                      final feedItem = _model
-                                                          .listViewAllPagingController!
-                                                          .itemList![feedIndex];
-                                                      return Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    5.0,
-                                                                    0.0,
-                                                                    15.0),
-                                                        child: Container(
-                                                          width: 100.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        15.0,
-                                                                        12.0,
-                                                                        15.0,
-                                                                        10.0),
-                                                            child: InkWell(
-                                                              splashColor: Colors
-                                                                  .transparent,
-                                                              focusColor: Colors
-                                                                  .transparent,
-                                                              hoverColor: Colors
-                                                                  .transparent,
-                                                              highlightColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              onTap: () async {
-                                                                context
-                                                                    .pushNamed(
-                                                                  'FeedDetail',
-                                                                  queryParameters:
-                                                                      {
-                                                                    'feedDetail':
-                                                                        serializeParam(
-                                                                      feedItem,
-                                                                      ParamType
-                                                                          .JSON,
-                                                                    ),
-                                                                    'feedId':
-                                                                        serializeParam(
-                                                                      getJsonField(
+                                                      itemBuilder: (context, _,
+                                                          feedIndex) {
+                                                        final feedItem = _model
+                                                            .listViewAllPagingController!
+                                                            .itemList![feedIndex];
+                                                        return Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      5.0,
+                                                                      0.0,
+                                                                      15.0),
+                                                          child: Container(
+                                                            width: 100.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          15.0,
+                                                                          12.0,
+                                                                          15.0,
+                                                                          10.0),
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'FeedDetail',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'feedDetail':
+                                                                          serializeParam(
                                                                         feedItem,
-                                                                        r'''$.id''',
+                                                                        ParamType
+                                                                            .JSON,
                                                                       ),
-                                                                      ParamType
-                                                                          .int,
-                                                                    ),
-                                                                    'userId':
-                                                                        serializeParam(
-                                                                      0,
-                                                                      ParamType
-                                                                          .int,
-                                                                    ),
-                                                                  }.withoutNulls,
-                                                                );
-                                                              },
-                                                              child: Container(
-                                                                width: double
-                                                                    .infinity,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8.0),
-                                                                ),
-                                                                child: Padding(
-                                                                  padding:
-                                                                      EdgeInsets
-                                                                          .all(
-                                                                              2.0),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
+                                                                      'feedId':
+                                                                          serializeParam(
+                                                                        getJsonField(
+                                                                          feedItem,
+                                                                          r'''$.id''',
+                                                                        ),
+                                                                        ParamType
+                                                                            .int,
+                                                                      ),
+                                                                      'userId':
+                                                                          serializeParam(
+                                                                        0,
+                                                                        ParamType
+                                                                            .int,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                  );
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
+                                                                  child:
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            InkWell(
-                                                                          splashColor:
-                                                                              Colors.transparent,
-                                                                          focusColor:
-                                                                              Colors.transparent,
-                                                                          hoverColor:
-                                                                              Colors.transparent,
-                                                                          highlightColor:
-                                                                              Colors.transparent,
-                                                                          onTap:
-                                                                              () async {
-                                                                            context.pushNamed(
-                                                                              'CompanyDetailsPage',
-                                                                              queryParameters: {
-                                                                                'userId': serializeParam(
-                                                                                  getJsonField(
-                                                                                    feedItem,
-                                                                                    r'''$.companyId''',
-                                                                                  ),
-                                                                                  ParamType.int,
-                                                                                ),
-                                                                              }.withoutNulls,
-                                                                            );
-                                                                          },
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            2.0),
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              8.0,
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.start,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children: [
-                                                                              Container(
-                                                                                width: 40.0,
-                                                                                height: 40.0,
-                                                                                decoration: BoxDecoration(
-                                                                                  shape: BoxShape.circle,
-                                                                                  border: Border.all(
-                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                    width: 1.0,
-                                                                                  ),
-                                                                                ),
-                                                                                child: Visibility(
-                                                                                  visible: (getJsonField(
-                                                                                            feedItem,
-                                                                                            r'''$.companyLogo''',
-                                                                                          ) !=
-                                                                                          null) &&
-                                                                                      (getJsonField(
-                                                                                            feedItem,
-                                                                                            r'''$.companyLogo''',
-                                                                                          ) !=
-                                                                                          ''),
-                                                                                  child: Container(
-                                                                                    width: 40.0,
-                                                                                    height: 40.0,
-                                                                                    clipBehavior: Clip.antiAlias,
-                                                                                    decoration: BoxDecoration(
-                                                                                      shape: BoxShape.circle,
+                                                                              InkWell(
+                                                                            splashColor:
+                                                                                Colors.transparent,
+                                                                            focusColor:
+                                                                                Colors.transparent,
+                                                                            hoverColor:
+                                                                                Colors.transparent,
+                                                                            highlightColor:
+                                                                                Colors.transparent,
+                                                                            onTap:
+                                                                                () async {
+                                                                              context.pushNamed(
+                                                                                'CompanyDetailsPage',
+                                                                                queryParameters: {
+                                                                                  'userId': serializeParam(
+                                                                                    getJsonField(
+                                                                                      feedItem,
+                                                                                      r'''$.companyId''',
                                                                                     ),
-                                                                                    child: Image.network(
-                                                                                      valueOrDefault<String>(
-                                                                                        getJsonField(
-                                                                                          functions.image(getJsonField(
-                                                                                            feedItem,
-                                                                                            r'''$.companyLogo''',
-                                                                                          ).toString()),
-                                                                                          r'''$.image''',
-                                                                                        )?.toString(),
-                                                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
-                                                                                      ),
-                                                                                      fit: BoxFit.contain,
-                                                                                    ),
+                                                                                    ParamType.int,
                                                                                   ),
-                                                                                ),
-                                                                              ),
-                                                                              if ((getJsonField(
-                                                                                        feedItem,
-                                                                                        r'''$.companyLogo''',
-                                                                                      ) ==
-                                                                                      null) ||
-                                                                                  (getJsonField(
-                                                                                        feedItem,
-                                                                                        r'''$.companyLogo''',
-                                                                                      ) ==
-                                                                                      ''))
+                                                                                }.withoutNulls,
+                                                                              );
+                                                                            },
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                                              children: [
                                                                                 Container(
                                                                                   width: 40.0,
                                                                                   height: 40.0,
                                                                                   decoration: BoxDecoration(
-                                                                                    color: Color(0xFFFA6400),
                                                                                     shape: BoxShape.circle,
-                                                                                  ),
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                                                    children: [
-                                                                                      Text(
-                                                                                        functions.profilePicName(getJsonField(
-                                                                                          feedItem,
-                                                                                          r'''$.companyName''',
-                                                                                        ).toString()),
-                                                                                        textAlign: TextAlign.center,
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Roboto',
-                                                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                              Expanded(
-                                                                                child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                  child: Column(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                    children: [
-                                                                                      Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        children: [
-                                                                                          Flexible(
-                                                                                            child: Text(
-                                                                                              valueOrDefault<String>(
-                                                                                                getJsonField(
-                                                                                                  feedItem,
-                                                                                                  r'''$.companyName''',
-                                                                                                )?.toString(),
-                                                                                                'companyName',
-                                                                                              ).maybeHandleOverflow(
-                                                                                                maxChars: 35,
-                                                                                                replacement: '…',
-                                                                                              ),
-                                                                                              textAlign: TextAlign.start,
-                                                                                              maxLines: 1,
-                                                                                              style: FlutterFlowTheme.of(context).titleMedium,
-                                                                                            ),
-                                                                                          ),
-                                                                                          if (getJsonField(
-                                                                                                feedItem,
-                                                                                                r'''$.verifiedCompany''',
-                                                                                              ) ==
-                                                                                              true)
-                                                                                            Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                              child: Icon(
-                                                                                                Icons.verified,
-                                                                                                color: Color(0xFF5191FF),
-                                                                                                size: 20.0,
-                                                                                              ),
-                                                                                            ),
-                                                                                        ],
-                                                                                      ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
-                                                                                        child: Text(
-                                                                                          functions.smeroleName(getJsonField(
-                                                                                            feedItem,
-                                                                                            r'''$.roleName''',
-                                                                                          ).toString()),
-                                                                                          style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                fontFamily: 'Roboto',
-                                                                                                color: FlutterFlowTheme.of(context).accent1,
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.min,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.end,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.center,
-                                                                          children: [
-                                                                            Expanded(
-                                                                              child: Text(
-                                                                                valueOrDefault<String>(
-                                                                                  getJsonField(
-                                                                                    feedItem,
-                                                                                    r'''$.title''',
-                                                                                  )?.toString(),
-                                                                                  'title',
-                                                                                ),
-                                                                                textAlign: TextAlign.start,
-                                                                                maxLines: 2,
-                                                                                style: FlutterFlowTheme.of(context).labelLarge,
-                                                                              ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            10.0),
-                                                                        child:
-                                                                            Text(
-                                                                          '${valueOrDefault<String>(
-                                                                            functions.submitedDate(getJsonField(
-                                                                              feedItem,
-                                                                              r'''$.updatedTime''',
-                                                                            )),
-                                                                            'Date',
-                                                                          )} ago',
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodySmall,
-                                                                        ),
-                                                                      ),
-                                                                      if (getJsonField(
-                                                                            feedItem,
-                                                                            r'''$.featuredImage''',
-                                                                          ) ==
-                                                                          null)
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              10.0,
-                                                                              0.0,
-                                                                              10.0),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              Expanded(
-                                                                                child: FlutterFlowYoutubePlayer(
-                                                                                  url: valueOrDefault<String>(
-                                                                                    getJsonField(
-                                                                                      feedItem,
-                                                                                      r'''$.feedUrl''',
-                                                                                    )?.toString(),
-                                                                                    'no link',
-                                                                                  ),
-                                                                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                  height: 180.0,
-                                                                                  autoPlay: false,
-                                                                                  looping: true,
-                                                                                  mute: false,
-                                                                                  showControls: true,
-                                                                                  showFullScreen: true,
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                      if (getJsonField(
-                                                                            feedItem,
-                                                                            r'''$.featuredImage''',
-                                                                          ) !=
-                                                                          null)
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              10.0,
-                                                                              0.0,
-                                                                              10.0),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              Expanded(
-                                                                                child: Container(
-                                                                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                  height: 180.0,
-                                                                                  decoration: BoxDecoration(
-                                                                                    borderRadius: BorderRadius.circular(8.0),
                                                                                     border: Border.all(
-                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
                                                                                       width: 1.0,
                                                                                     ),
                                                                                   ),
-                                                                                  child: ClipRRect(
-                                                                                    borderRadius: BorderRadius.circular(8.0),
-                                                                                    child: Image.network(
-                                                                                      valueOrDefault<String>(
-                                                                                        getJsonField(
-                                                                                          functions.image(getJsonField(
-                                                                                            feedItem,
-                                                                                            r'''$.featuredImage''',
-                                                                                          ).toString()),
-                                                                                          r'''$.image''',
-                                                                                        )?.toString(),
-                                                                                        'no image',
+                                                                                  child: Visibility(
+                                                                                    visible: (getJsonField(
+                                                                                              feedItem,
+                                                                                              r'''$.companyLogo''',
+                                                                                            ) !=
+                                                                                            null) &&
+                                                                                        (getJsonField(
+                                                                                              feedItem,
+                                                                                              r'''$.companyLogo''',
+                                                                                            ) !=
+                                                                                            ''),
+                                                                                    child: Container(
+                                                                                      width: 40.0,
+                                                                                      height: 40.0,
+                                                                                      clipBehavior: Clip.antiAlias,
+                                                                                      decoration: BoxDecoration(
+                                                                                        shape: BoxShape.circle,
                                                                                       ),
-                                                                                      width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                      height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                      fit: BoxFit.contain,
+                                                                                      child: Image.network(
+                                                                                        valueOrDefault<String>(
+                                                                                          getJsonField(
+                                                                                            functions.image(getJsonField(
+                                                                                              feedItem,
+                                                                                              r'''$.companyLogo''',
+                                                                                            ).toString()),
+                                                                                            r'''$.image''',
+                                                                                          )?.toString(),
+                                                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/s-m-e-linker-hh39tp/assets/6sjweisoxvxb/sme_blue_bold.png',
+                                                                                        ),
+                                                                                        fit: BoxFit.contain,
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            2.0),
-                                                                        child:
-                                                                            Text(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            getJsonField(
-                                                                              feedItem,
-                                                                              r'''$.description''',
-                                                                            )?.toString(),
-                                                                            'No Description',
-                                                                          ),
-                                                                          textAlign:
-                                                                              TextAlign.start,
-                                                                          maxLines:
-                                                                              4,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Roboto',
-                                                                                color: Color(0xFF252525),
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                      Container(
-                                                                        width: double
-                                                                            .infinity,
-                                                                        decoration:
-                                                                            BoxDecoration(),
-                                                                        child:
-                                                                            Visibility(
-                                                                          visible: getJsonField(
-                                                                                feedItem,
-                                                                                r'''$.groupsData[:]''',
-                                                                              ) !=
-                                                                              null,
-                                                                          child:
-                                                                              Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                6.0,
-                                                                                0.0,
-                                                                                6.0),
-                                                                            child:
-                                                                                Builder(
-                                                                              builder: (context) {
-                                                                                final groupsData = getJsonField(
-                                                                                  feedItem,
-                                                                                  r'''$.groupsData[:]''',
-                                                                                ).toList();
-                                                                                return SingleChildScrollView(
-                                                                                  scrollDirection: Axis.horizontal,
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                                                    children: List.generate(groupsData.length, (groupsDataIndex) {
-                                                                                      final groupsDataItem = groupsData[groupsDataIndex];
-                                                                                      return Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                                        child: AlignedTooltip(
-                                                                                          content: Padding(
-                                                                                              padding: EdgeInsets.all(8.0),
+                                                                                if ((getJsonField(
+                                                                                          feedItem,
+                                                                                          r'''$.companyLogo''',
+                                                                                        ) ==
+                                                                                        null) ||
+                                                                                    (getJsonField(
+                                                                                          feedItem,
+                                                                                          r'''$.companyLogo''',
+                                                                                        ) ==
+                                                                                        ''))
+                                                                                  Container(
+                                                                                    width: 40.0,
+                                                                                    height: 40.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: Color(0xFFFA6400),
+                                                                                      shape: BoxShape.circle,
+                                                                                    ),
+                                                                                    child: Row(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                                                      children: [
+                                                                                        Text(
+                                                                                          functions.profilePicName(getJsonField(
+                                                                                            feedItem,
+                                                                                            r'''$.companyName''',
+                                                                                          ).toString()),
+                                                                                          textAlign: TextAlign.center,
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Roboto',
+                                                                                                color: FlutterFlowTheme.of(context).secondary,
+                                                                                              ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ),
+                                                                                Expanded(
+                                                                                  child: Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                    child: Column(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                      children: [
+                                                                                        Row(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            Flexible(
                                                                                               child: Text(
-                                                                                                getJsonField(
-                                                                                                  groupsDataItem,
-                                                                                                  r'''$.groupName''',
-                                                                                                ).toString(),
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                              )),
-                                                                                          offset: 4.0,
-                                                                                          preferredDirection: AxisDirection.up,
-                                                                                          borderRadius: BorderRadius.circular(8.0),
-                                                                                          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                          elevation: 4.0,
-                                                                                          tailBaseWidth: 24.0,
-                                                                                          tailLength: 12.0,
-                                                                                          waitDuration: Duration(milliseconds: 100),
-                                                                                          showDuration: Duration(milliseconds: 1500),
-                                                                                          triggerMode: TooltipTriggerMode.tap,
-                                                                                          child: Container(
-                                                                                            width: 35.0,
-                                                                                            height: 35.0,
-                                                                                            decoration: BoxDecoration(
-                                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                              shape: BoxShape.circle,
-                                                                                              border: Border.all(
-                                                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                                                width: 1.0,
+                                                                                                valueOrDefault<String>(
+                                                                                                  getJsonField(
+                                                                                                    feedItem,
+                                                                                                    r'''$.companyName''',
+                                                                                                  )?.toString(),
+                                                                                                  'companyName',
+                                                                                                ).maybeHandleOverflow(
+                                                                                                  maxChars: 35,
+                                                                                                  replacement: '…',
+                                                                                                ),
+                                                                                                textAlign: TextAlign.start,
+                                                                                                maxLines: 1,
+                                                                                                style: FlutterFlowTheme.of(context).titleMedium,
                                                                                               ),
                                                                                             ),
-                                                                                            child: Container(
-                                                                                              width: 11.0,
-                                                                                              height: 11.0,
-                                                                                              clipBehavior: Clip.antiAlias,
-                                                                                              decoration: BoxDecoration(
-                                                                                                shape: BoxShape.circle,
+                                                                                            if (getJsonField(
+                                                                                                  feedItem,
+                                                                                                  r'''$.verifiedCompany''',
+                                                                                                ) ==
+                                                                                                true)
+                                                                                              Padding(
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                                child: Icon(
+                                                                                                  Icons.verified,
+                                                                                                  color: Color(0xFF5191FF),
+                                                                                                  size: 20.0,
+                                                                                                ),
                                                                                               ),
-                                                                                              child: Image.network(
-                                                                                                getJsonField(
-                                                                                                  functions.image(getJsonField(
-                                                                                                    groupsDataItem,
-                                                                                                    r'''$.groupImg''',
-                                                                                                  ).toString()),
-                                                                                                  r'''$.image''',
-                                                                                                ).toString(),
-                                                                                                fit: BoxFit.cover,
-                                                                                              ),
-                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                        Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                                                                          child: Text(
+                                                                                            functions.smeroleName(getJsonField(
+                                                                                              feedItem,
+                                                                                              r'''$.roleName''',
+                                                                                            ).toString()),
+                                                                                            style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                  fontFamily: 'Roboto',
+                                                                                                  color: FlutterFlowTheme.of(context).accent1,
+                                                                                                ),
                                                                                           ),
                                                                                         ),
-                                                                                      );
-                                                                                    }),
+                                                                                      ],
+                                                                                    ),
                                                                                   ),
-                                                                                );
-                                                                              },
+                                                                                ),
+                                                                              ],
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                      ),
-                                                                      Divider(
-                                                                        thickness:
-                                                                            1.0,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .accent3,
-                                                                      ),
-                                                                      Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceEvenly,
-                                                                        children: [
-                                                                          Row(
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              10.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Row(
                                                                             mainAxisSize:
-                                                                                MainAxisSize.max,
+                                                                                MainAxisSize.min,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.end,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.center,
                                                                             children: [
-                                                                              Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                children: [
-                                                                                  if (getJsonField(
-                                                                                        feedItem,
-                                                                                        r'''$.helpful''',
-                                                                                      ) ==
-                                                                                      false)
-                                                                                    InkWell(
-                                                                                      splashColor: Colors.transparent,
-                                                                                      focusColor: Colors.transparent,
-                                                                                      hoverColor: Colors.transparent,
-                                                                                      highlightColor: Colors.transparent,
-                                                                                      onTap: () async {
-                                                                                        _model.apiResultSetLike = await SmeGroup.setHelpfulnessCall.call(
-                                                                                          feedId: getJsonField(
-                                                                                            feedItem,
-                                                                                            r'''$.id''',
-                                                                                          ),
-                                                                                          helpful: true,
-                                                                                          accessToken: FFAppState().accessToken,
-                                                                                        );
-                                                                                        if ((_model.apiResultSetLike?.succeeded ?? true)) {
-                                                                                          setState(() => _model.listViewAllPagingController?.refresh());
-                                                                                          await _model.waitForOnePageForListViewAll();
-                                                                                        } else {
-                                                                                          await showDialog(
-                                                                                            context: context,
-                                                                                            builder: (alertDialogContext) {
-                                                                                              return WebViewAware(
-                                                                                                  child: AlertDialog(
-                                                                                                title: Text('ERROR!'),
-                                                                                                content: Text('Something went wrong.'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ));
-                                                                                            },
-                                                                                          );
-                                                                                        }
-
-                                                                                        setState(() {});
-                                                                                      },
-                                                                                      child: Icon(
-                                                                                        Icons.thumb_up_outlined,
-                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        size: 20.0,
-                                                                                      ),
-                                                                                    ),
-                                                                                  if (getJsonField(
-                                                                                        feedItem,
-                                                                                        r'''$.helpful''',
-                                                                                      ) ==
-                                                                                      true)
-                                                                                    InkWell(
-                                                                                      splashColor: Colors.transparent,
-                                                                                      focusColor: Colors.transparent,
-                                                                                      hoverColor: Colors.transparent,
-                                                                                      highlightColor: Colors.transparent,
-                                                                                      onTap: () async {
-                                                                                        _model.apiResultRemoveLike = await SmeGroup.setHelpfulnessCall.call(
-                                                                                          feedId: getJsonField(
-                                                                                            feedItem,
-                                                                                            r'''$.id''',
-                                                                                          ),
-                                                                                          helpful: false,
-                                                                                          accessToken: FFAppState().accessToken,
-                                                                                        );
-                                                                                        if ((_model.apiResultRemoveLike?.succeeded ?? true)) {
-                                                                                          setState(() => _model.listViewAllPagingController?.refresh());
-                                                                                          await _model.waitForOnePageForListViewAll();
-                                                                                        } else {
-                                                                                          await showDialog(
-                                                                                            context: context,
-                                                                                            builder: (alertDialogContext) {
-                                                                                              return WebViewAware(
-                                                                                                  child: AlertDialog(
-                                                                                                title: Text('ERROR!'),
-                                                                                                content: Text('Something went wrong.'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ));
-                                                                                            },
-                                                                                          );
-                                                                                        }
-
-                                                                                        setState(() {});
-                                                                                      },
-                                                                                      child: Icon(
-                                                                                        Icons.thumb_up,
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        size: 20.0,
-                                                                                      ),
-                                                                                    ),
-                                                                                ],
-                                                                              ),
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                              Expanded(
                                                                                 child: Text(
-                                                                                  getJsonField(
-                                                                                    feedItem,
-                                                                                    r'''$.totalHelpful''',
-                                                                                  ).toString(),
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Roboto',
-                                                                                        color: FlutterFlowTheme.of(context).accent1,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                          Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                children: [
-                                                                                  if (getJsonField(
-                                                                                        feedItem,
-                                                                                        r'''$.unHelpful''',
-                                                                                      ) ==
-                                                                                      false)
-                                                                                    InkWell(
-                                                                                      splashColor: Colors.transparent,
-                                                                                      focusColor: Colors.transparent,
-                                                                                      hoverColor: Colors.transparent,
-                                                                                      highlightColor: Colors.transparent,
-                                                                                      onTap: () async {
-                                                                                        _model.apiResultSetUnlike = await SmeGroup.setUnHelpfulnessCall.call(
-                                                                                          feedId: getJsonField(
-                                                                                            feedItem,
-                                                                                            r'''$.id''',
-                                                                                          ),
-                                                                                          unHelpful: true,
-                                                                                          accessToken: FFAppState().accessToken,
-                                                                                        );
-                                                                                        if ((_model.apiResultSetUnlike?.succeeded ?? true)) {
-                                                                                          setState(() => _model.listViewAllPagingController?.refresh());
-                                                                                          await _model.waitForOnePageForListViewAll();
-                                                                                        } else {
-                                                                                          await showDialog(
-                                                                                            context: context,
-                                                                                            builder: (alertDialogContext) {
-                                                                                              return WebViewAware(
-                                                                                                  child: AlertDialog(
-                                                                                                title: Text('ERROR!'),
-                                                                                                content: Text('Something went wrong.'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ));
-                                                                                            },
-                                                                                          );
-                                                                                        }
-
-                                                                                        setState(() {});
-                                                                                      },
-                                                                                      child: Icon(
-                                                                                        Icons.thumb_down_outlined,
-                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        size: 20.0,
-                                                                                      ),
-                                                                                    ),
-                                                                                  if (getJsonField(
-                                                                                        feedItem,
-                                                                                        r'''$.unHelpful''',
-                                                                                      ) ==
-                                                                                      true)
-                                                                                    InkWell(
-                                                                                      splashColor: Colors.transparent,
-                                                                                      focusColor: Colors.transparent,
-                                                                                      hoverColor: Colors.transparent,
-                                                                                      highlightColor: Colors.transparent,
-                                                                                      onTap: () async {
-                                                                                        _model.apiResultRemoveUnlike = await SmeGroup.setUnHelpfulnessCall.call(
-                                                                                          feedId: getJsonField(
-                                                                                            feedItem,
-                                                                                            r'''$.id''',
-                                                                                          ),
-                                                                                          unHelpful: false,
-                                                                                          accessToken: FFAppState().accessToken,
-                                                                                        );
-                                                                                        if ((_model.apiResultRemoveUnlike?.succeeded ?? true)) {
-                                                                                          setState(() => _model.listViewAllPagingController?.refresh());
-                                                                                          await _model.waitForOnePageForListViewAll();
-                                                                                        } else {
-                                                                                          await showDialog(
-                                                                                            context: context,
-                                                                                            builder: (alertDialogContext) {
-                                                                                              return WebViewAware(
-                                                                                                  child: AlertDialog(
-                                                                                                title: Text('ERROR!'),
-                                                                                                content: Text('Something went wrong.'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ));
-                                                                                            },
-                                                                                          );
-                                                                                        }
-
-                                                                                        setState(() {});
-                                                                                      },
-                                                                                      child: Icon(
-                                                                                        Icons.thumb_down,
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        size: 20.0,
-                                                                                      ),
-                                                                                    ),
-                                                                                ],
-                                                                              ),
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                child: Text(
-                                                                                  getJsonField(
-                                                                                    feedItem,
-                                                                                    r'''$.totalUnHelpful''',
-                                                                                  ).toString(),
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Roboto',
-                                                                                        color: FlutterFlowTheme.of(context).accent1,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                          Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              FaIcon(
-                                                                                FontAwesomeIcons.commentDots,
-                                                                                color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                size: 20.0,
-                                                                              ),
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                child: Text(
-                                                                                  getJsonField(
-                                                                                    feedItem,
-                                                                                    r'''$.totalComments''',
-                                                                                  ).toString(),
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Roboto',
-                                                                                        color: FlutterFlowTheme.of(context).accent1,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                          if (false)
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
-                                                                              child: Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                children: [
-                                                                                  FaIcon(
-                                                                                    FontAwesomeIcons.retweet,
-                                                                                    color: Color(0xFF57636C),
-                                                                                    size: 24.0,
+                                                                                  valueOrDefault<String>(
+                                                                                    getJsonField(
+                                                                                      feedItem,
+                                                                                      r'''$.title''',
+                                                                                    )?.toString(),
+                                                                                    'title',
                                                                                   ),
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 8.0, 0.0),
-                                                                                    child: Text(
-                                                                                      '9',
-                                                                                      style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                            fontFamily: 'Outfit',
-                                                                                            color: Color(0xFF57636C),
-                                                                                            fontSize: 14.0,
-                                                                                            fontWeight: FontWeight.normal,
-                                                                                          ),
+                                                                                  textAlign: TextAlign.start,
+                                                                                  maxLines: 2,
+                                                                                  style: FlutterFlowTheme.of(context).labelLarge,
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              5.0,
+                                                                              0.0,
+                                                                              10.0),
+                                                                          child:
+                                                                              Text(
+                                                                            '${valueOrDefault<String>(
+                                                                              functions.submitedDate(getJsonField(
+                                                                                feedItem,
+                                                                                r'''$.updatedTime''',
+                                                                              )),
+                                                                              'Date',
+                                                                            )} ago',
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodySmall,
+                                                                          ),
+                                                                        ),
+                                                                        if (getJsonField(
+                                                                              feedItem,
+                                                                              r'''$.featuredImage''',
+                                                                            ) ==
+                                                                            null)
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                10.0,
+                                                                                0.0,
+                                                                                10.0),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Expanded(
+                                                                                  child: FlutterFlowYoutubePlayer(
+                                                                                    url: valueOrDefault<String>(
+                                                                                      getJsonField(
+                                                                                        feedItem,
+                                                                                        r'''$.feedUrl''',
+                                                                                      )?.toString(),
+                                                                                      'no link',
+                                                                                    ),
+                                                                                    width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                    height: 180.0,
+                                                                                    autoPlay: false,
+                                                                                    looping: true,
+                                                                                    mute: false,
+                                                                                    showControls: true,
+                                                                                    showFullScreen: true,
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        if (getJsonField(
+                                                                              feedItem,
+                                                                              r'''$.featuredImage''',
+                                                                            ) !=
+                                                                            null)
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                10.0,
+                                                                                0.0,
+                                                                                10.0),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Expanded(
+                                                                                  child: Container(
+                                                                                    width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                    height: 180.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                      border: Border.all(
+                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                        width: 1.0,
+                                                                                      ),
+                                                                                    ),
+                                                                                    child: ClipRRect(
+                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                      child: Image.network(
+                                                                                        valueOrDefault<String>(
+                                                                                          getJsonField(
+                                                                                            functions.image(getJsonField(
+                                                                                              feedItem,
+                                                                                              r'''$.featuredImage''',
+                                                                                            ).toString()),
+                                                                                            r'''$.image''',
+                                                                                          )?.toString(),
+                                                                                          'no image',
+                                                                                        ),
+                                                                                        width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                        height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                        fit: BoxFit.contain,
+                                                                                      ),
                                                                                     ),
                                                                                   ),
-                                                                                ],
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              10.0,
+                                                                              0.0,
+                                                                              2.0),
+                                                                          child:
+                                                                              Text(
+                                                                            valueOrDefault<String>(
+                                                                              getJsonField(
+                                                                                feedItem,
+                                                                                r'''$.description''',
+                                                                              )?.toString(),
+                                                                              'No Description',
+                                                                            ),
+                                                                            textAlign:
+                                                                                TextAlign.start,
+                                                                            maxLines:
+                                                                                4,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Roboto',
+                                                                                  color: Color(0xFF252525),
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                        Container(
+                                                                          width:
+                                                                              double.infinity,
+                                                                          decoration:
+                                                                              BoxDecoration(),
+                                                                          child:
+                                                                              Visibility(
+                                                                            visible: getJsonField(
+                                                                                  feedItem,
+                                                                                  r'''$.groupsData[:]''',
+                                                                                ) !=
+                                                                                null,
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 6.0),
+                                                                              child: Builder(
+                                                                                builder: (context) {
+                                                                                  final groupsData = getJsonField(
+                                                                                    feedItem,
+                                                                                    r'''$.groupsData[:]''',
+                                                                                  ).toList();
+                                                                                  return SingleChildScrollView(
+                                                                                    scrollDirection: Axis.horizontal,
+                                                                                    child: Row(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                                                      children: List.generate(groupsData.length, (groupsDataIndex) {
+                                                                                        final groupsDataItem = groupsData[groupsDataIndex];
+                                                                                        return Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                          child: AlignedTooltip(
+                                                                                            content: Padding(
+                                                                                                padding: EdgeInsets.all(8.0),
+                                                                                                child: Text(
+                                                                                                  getJsonField(
+                                                                                                    groupsDataItem,
+                                                                                                    r'''$.groupName''',
+                                                                                                  ).toString(),
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                )),
+                                                                                            offset: 4.0,
+                                                                                            preferredDirection: AxisDirection.up,
+                                                                                            borderRadius: BorderRadius.circular(8.0),
+                                                                                            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                            elevation: 4.0,
+                                                                                            tailBaseWidth: 24.0,
+                                                                                            tailLength: 12.0,
+                                                                                            waitDuration: Duration(milliseconds: 100),
+                                                                                            showDuration: Duration(milliseconds: 1500),
+                                                                                            triggerMode: TooltipTriggerMode.tap,
+                                                                                            child: InkWell(
+                                                                                              splashColor: Colors.transparent,
+                                                                                              focusColor: Colors.transparent,
+                                                                                              hoverColor: Colors.transparent,
+                                                                                              highlightColor: Colors.transparent,
+                                                                                              onTap: () async {
+                                                                                                context.pushNamed(
+                                                                                                  'GroupDetailpage',
+                                                                                                  queryParameters: {
+                                                                                                    'groupId': serializeParam(
+                                                                                                      getJsonField(
+                                                                                                        groupsDataItem,
+                                                                                                        r'''$.groupId''',
+                                                                                                      ),
+                                                                                                      ParamType.int,
+                                                                                                    ),
+                                                                                                  }.withoutNulls,
+                                                                                                );
+                                                                                              },
+                                                                                              child: Container(
+                                                                                                width: 35.0,
+                                                                                                height: 35.0,
+                                                                                                decoration: BoxDecoration(
+                                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                  shape: BoxShape.circle,
+                                                                                                  border: Border.all(
+                                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                                    width: 1.0,
+                                                                                                  ),
+                                                                                                ),
+                                                                                                child: Container(
+                                                                                                  width: 11.0,
+                                                                                                  height: 11.0,
+                                                                                                  clipBehavior: Clip.antiAlias,
+                                                                                                  decoration: BoxDecoration(
+                                                                                                    shape: BoxShape.circle,
+                                                                                                  ),
+                                                                                                  child: Image.network(
+                                                                                                    getJsonField(
+                                                                                                      functions.image(getJsonField(
+                                                                                                        groupsDataItem,
+                                                                                                        r'''$.groupImg''',
+                                                                                                      ).toString()),
+                                                                                                      r'''$.image''',
+                                                                                                    ).toString(),
+                                                                                                    fit: BoxFit.cover,
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        );
+                                                                                      }),
+                                                                                    ),
+                                                                                  );
+                                                                                },
                                                                               ),
                                                                             ),
-                                                                          if (false)
-                                                                            Expanded(
-                                                                              child: Padding(
+                                                                          ),
+                                                                        ),
+                                                                        Divider(
+                                                                          thickness:
+                                                                              1.0,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).accent3,
+                                                                        ),
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceEvenly,
+                                                                          children: [
+                                                                            Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  children: [
+                                                                                    if (getJsonField(
+                                                                                          feedItem,
+                                                                                          r'''$.helpful''',
+                                                                                        ) ==
+                                                                                        false)
+                                                                                      InkWell(
+                                                                                        splashColor: Colors.transparent,
+                                                                                        focusColor: Colors.transparent,
+                                                                                        hoverColor: Colors.transparent,
+                                                                                        highlightColor: Colors.transparent,
+                                                                                        onTap: () async {
+                                                                                          _model.apiResultSetLike = await SmeGroup.setHelpfulnessCall.call(
+                                                                                            feedId: getJsonField(
+                                                                                              feedItem,
+                                                                                              r'''$.id''',
+                                                                                            ),
+                                                                                            helpful: true,
+                                                                                            accessToken: FFAppState().accessToken,
+                                                                                          );
+                                                                                          if ((_model.apiResultSetLike?.succeeded ?? true)) {
+                                                                                            setState(() => _model.listViewAllPagingController?.refresh());
+                                                                                            await _model.waitForOnePageForListViewAll();
+                                                                                          } else {
+                                                                                            await showDialog(
+                                                                                              context: context,
+                                                                                              builder: (alertDialogContext) {
+                                                                                                return WebViewAware(
+                                                                                                  child: AlertDialog(
+                                                                                                    title: Text('ERROR!'),
+                                                                                                    content: Text('Something went wrong.'),
+                                                                                                    actions: [
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                        child: Text('Ok'),
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                );
+                                                                                              },
+                                                                                            );
+                                                                                          }
+
+                                                                                          setState(() {});
+                                                                                        },
+                                                                                        child: Icon(
+                                                                                          Icons.thumb_up_outlined,
+                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                          size: 20.0,
+                                                                                        ),
+                                                                                      ),
+                                                                                    if (getJsonField(
+                                                                                          feedItem,
+                                                                                          r'''$.helpful''',
+                                                                                        ) ==
+                                                                                        true)
+                                                                                      InkWell(
+                                                                                        splashColor: Colors.transparent,
+                                                                                        focusColor: Colors.transparent,
+                                                                                        hoverColor: Colors.transparent,
+                                                                                        highlightColor: Colors.transparent,
+                                                                                        onTap: () async {
+                                                                                          _model.apiResultRemoveLike = await SmeGroup.setHelpfulnessCall.call(
+                                                                                            feedId: getJsonField(
+                                                                                              feedItem,
+                                                                                              r'''$.id''',
+                                                                                            ),
+                                                                                            helpful: false,
+                                                                                            accessToken: FFAppState().accessToken,
+                                                                                          );
+                                                                                          if ((_model.apiResultRemoveLike?.succeeded ?? true)) {
+                                                                                            setState(() => _model.listViewAllPagingController?.refresh());
+                                                                                            await _model.waitForOnePageForListViewAll();
+                                                                                          } else {
+                                                                                            await showDialog(
+                                                                                              context: context,
+                                                                                              builder: (alertDialogContext) {
+                                                                                                return WebViewAware(
+                                                                                                  child: AlertDialog(
+                                                                                                    title: Text('ERROR!'),
+                                                                                                    content: Text('Something went wrong.'),
+                                                                                                    actions: [
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                        child: Text('Ok'),
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                );
+                                                                                              },
+                                                                                            );
+                                                                                          }
+
+                                                                                          setState(() {});
+                                                                                        },
+                                                                                        child: Icon(
+                                                                                          Icons.thumb_up,
+                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                          size: 20.0,
+                                                                                        ),
+                                                                                      ),
+                                                                                  ],
+                                                                                ),
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                  child: Text(
+                                                                                    getJsonField(
+                                                                                      feedItem,
+                                                                                      r'''$.totalHelpful''',
+                                                                                    ).toString(),
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Roboto',
+                                                                                          color: FlutterFlowTheme.of(context).accent1,
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                            Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  children: [
+                                                                                    if (getJsonField(
+                                                                                          feedItem,
+                                                                                          r'''$.unHelpful''',
+                                                                                        ) ==
+                                                                                        false)
+                                                                                      InkWell(
+                                                                                        splashColor: Colors.transparent,
+                                                                                        focusColor: Colors.transparent,
+                                                                                        hoverColor: Colors.transparent,
+                                                                                        highlightColor: Colors.transparent,
+                                                                                        onTap: () async {
+                                                                                          _model.apiResultSetUnlike = await SmeGroup.setUnHelpfulnessCall.call(
+                                                                                            feedId: getJsonField(
+                                                                                              feedItem,
+                                                                                              r'''$.id''',
+                                                                                            ),
+                                                                                            unHelpful: true,
+                                                                                            accessToken: FFAppState().accessToken,
+                                                                                          );
+                                                                                          if ((_model.apiResultSetUnlike?.succeeded ?? true)) {
+                                                                                            setState(() => _model.listViewAllPagingController?.refresh());
+                                                                                            await _model.waitForOnePageForListViewAll();
+                                                                                          } else {
+                                                                                            await showDialog(
+                                                                                              context: context,
+                                                                                              builder: (alertDialogContext) {
+                                                                                                return WebViewAware(
+                                                                                                  child: AlertDialog(
+                                                                                                    title: Text('ERROR!'),
+                                                                                                    content: Text('Something went wrong.'),
+                                                                                                    actions: [
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                        child: Text('Ok'),
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                );
+                                                                                              },
+                                                                                            );
+                                                                                          }
+
+                                                                                          setState(() {});
+                                                                                        },
+                                                                                        child: Icon(
+                                                                                          Icons.thumb_down_outlined,
+                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                          size: 20.0,
+                                                                                        ),
+                                                                                      ),
+                                                                                    if (getJsonField(
+                                                                                          feedItem,
+                                                                                          r'''$.unHelpful''',
+                                                                                        ) ==
+                                                                                        true)
+                                                                                      InkWell(
+                                                                                        splashColor: Colors.transparent,
+                                                                                        focusColor: Colors.transparent,
+                                                                                        hoverColor: Colors.transparent,
+                                                                                        highlightColor: Colors.transparent,
+                                                                                        onTap: () async {
+                                                                                          _model.apiResultRemoveUnlike = await SmeGroup.setUnHelpfulnessCall.call(
+                                                                                            feedId: getJsonField(
+                                                                                              feedItem,
+                                                                                              r'''$.id''',
+                                                                                            ),
+                                                                                            unHelpful: false,
+                                                                                            accessToken: FFAppState().accessToken,
+                                                                                          );
+                                                                                          if ((_model.apiResultRemoveUnlike?.succeeded ?? true)) {
+                                                                                            setState(() => _model.listViewAllPagingController?.refresh());
+                                                                                            await _model.waitForOnePageForListViewAll();
+                                                                                          } else {
+                                                                                            await showDialog(
+                                                                                              context: context,
+                                                                                              builder: (alertDialogContext) {
+                                                                                                return WebViewAware(
+                                                                                                  child: AlertDialog(
+                                                                                                    title: Text('ERROR!'),
+                                                                                                    content: Text('Something went wrong.'),
+                                                                                                    actions: [
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                        child: Text('Ok'),
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                );
+                                                                                              },
+                                                                                            );
+                                                                                          }
+
+                                                                                          setState(() {});
+                                                                                        },
+                                                                                        child: Icon(
+                                                                                          Icons.thumb_down,
+                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                          size: 20.0,
+                                                                                        ),
+                                                                                      ),
+                                                                                  ],
+                                                                                ),
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                  child: Text(
+                                                                                    getJsonField(
+                                                                                      feedItem,
+                                                                                      r'''$.totalUnHelpful''',
+                                                                                    ).toString(),
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Roboto',
+                                                                                          color: FlutterFlowTheme.of(context).accent1,
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                            Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                FaIcon(
+                                                                                  FontAwesomeIcons.commentDots,
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  size: 20.0,
+                                                                                ),
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                  child: Text(
+                                                                                    getJsonField(
+                                                                                      feedItem,
+                                                                                      r'''$.totalComments''',
+                                                                                    ).toString(),
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Roboto',
+                                                                                          color: FlutterFlowTheme.of(context).accent1,
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                            if (false)
+                                                                              Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.end,
                                                                                   children: [
+                                                                                    FaIcon(
+                                                                                      FontAwesomeIcons.retweet,
+                                                                                      color: Color(0xFF57636C),
+                                                                                      size: 24.0,
+                                                                                    ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsets.all(8.0),
-                                                                                      child: Icon(
-                                                                                        Icons.more_vert,
-                                                                                        color: Color(0xFF57636C),
-                                                                                        size: 24.0,
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 8.0, 0.0),
+                                                                                      child: Text(
+                                                                                        '9',
+                                                                                        style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                              fontFamily: 'Outfit',
+                                                                                              color: Color(0xFF57636C),
+                                                                                              fontSize: 14.0,
+                                                                                              fontWeight: FontWeight.normal,
+                                                                                            ),
                                                                                       ),
                                                                                     ),
                                                                                   ],
                                                                                 ),
                                                                               ),
-                                                                            ),
-                                                                        ],
-                                                                      ),
-                                                                    ],
+                                                                            if (false)
+                                                                              Expanded(
+                                                                                child: Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    mainAxisAlignment: MainAxisAlignment.end,
+                                                                                    children: [
+                                                                                      Padding(
+                                                                                        padding: EdgeInsets.all(8.0),
+                                                                                        child: Icon(
+                                                                                          Icons.more_vert,
+                                                                                          color: Color(0xFF57636C),
+                                                                                          size: 24.0,
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                          ],
+                                                                        ),
+                                                                      ],
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
                                                             ),
                                                           ),
-                                                        ),
-                                                      );
-                                                    },
+                                                        );
+                                                      },
+                                                    ),
                                                   ),
                                                 ),
                                               ),

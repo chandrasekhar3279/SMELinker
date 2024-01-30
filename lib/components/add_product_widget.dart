@@ -18,10 +18,10 @@ import 'add_product_model.dart';
 export 'add_product_model.dart';
 
 class AddProductWidget extends StatefulWidget {
-  const AddProductWidget({Key? key}) : super(key: key);
+  const AddProductWidget({super.key});
 
   @override
-  _AddProductWidgetState createState() => _AddProductWidgetState();
+  State<AddProductWidget> createState() => _AddProductWidgetState();
 }
 
 class _AddProductWidgetState extends State<AddProductWidget> {
@@ -325,7 +325,7 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                               final dropDownGetProductCategoriesResponse =
                                   snapshot.data!;
                               return FlutterFlowDropDown<String>(
-                                controller: _model.dropDownValueController ??=
+                                controller: _model.dropDownValueController1 ??=
                                     FormFieldController<String>(null),
                                 options: (getJsonField(
                                   dropDownGetProductCategoriesResponse.jsonBody,
@@ -335,7 +335,7 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                                     .map<String>((s) => s.toString())
                                     .toList()!,
                                 onChanged: (val) =>
-                                    setState(() => _model.dropDownValue = val),
+                                    setState(() => _model.dropDownValue1 = val),
                                 width: 230.0,
                                 height: 60.0,
                                 textStyle:
@@ -358,6 +358,70 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                           ),
                         ),
                       ),
+                      if (false)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 30.0, 0.0, 0.0),
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            decoration: BoxDecoration(),
+                            child: FutureBuilder<ApiCallResponse>(
+                              future: SmeGroup.getProductCategoriesCall.call(
+                                accessToken: FFAppState().accessToken,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: SpinKitFadingCircle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        size: 50.0,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                final dropDownGetProductCategoriesResponse =
+                                    snapshot.data!;
+                                return FlutterFlowDropDown<String>(
+                                  controller:
+                                      _model.dropDownValueController2 ??=
+                                          FormFieldController<String>(null),
+                                  options: (getJsonField(
+                                    dropDownGetProductCategoriesResponse
+                                        .jsonBody,
+                                    r'''$..category''',
+                                    true,
+                                  ) as List)
+                                      .map<String>((s) => s.toString())
+                                      .toList()!,
+                                  onChanged: (val) => setState(
+                                      () => _model.dropDownValue2 = val),
+                                  width: 230.0,
+                                  height: 60.0,
+                                  textStyle:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  hintText: 'Please select category',
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  elevation: 2.0,
+                                  borderColor:
+                                      FlutterFlowTheme.of(context).accent3,
+                                  borderWidth: 1.0,
+                                  borderRadius: 8.0,
+                                  margin: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 4.0, 12.0, 4.0),
+                                  hidesUnderline: true,
+                                  isSearchable: false,
+                                  isMultiSelect: false,
+                                );
+                              },
+                            ),
+                          ),
+                        ),
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
@@ -666,7 +730,7 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                                                     .serviceNameController.text,
                                                 _model
                                                     .productDescController.text,
-                                                _model.dropDownValue!,
+                                                _model.dropDownValue1!,
                                                 _model.priceController.text,
                                                 null),
                                             r'''$''',
@@ -680,18 +744,20 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
-                                                  child: AlertDialog(
-                                                title: Text('Success'),
-                                                content: Text('Product added.'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ));
+                                                child: AlertDialog(
+                                                  title: Text('Success'),
+                                                  content:
+                                                      Text('Product added.'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
                                             },
                                           );
                                           Navigator.pop(context);
@@ -700,19 +766,20 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
-                                                  child: AlertDialog(
-                                                title: Text('Error'),
-                                                content: Text(
-                                                    'Image size must be below 1MB.'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Try again'),
-                                                  ),
-                                                ],
-                                              ));
+                                                child: AlertDialog(
+                                                  title: Text('Error'),
+                                                  content: Text(
+                                                      'Image size must be below 1MB.'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Try again'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
                                             },
                                           );
                                           setState(() {});
@@ -722,19 +789,20 @@ class _AddProductWidgetState extends State<AddProductWidget> {
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
-                                                child: AlertDialog(
-                                              title: Text('Required'),
-                                              content:
-                                                  Text('Please add an image.'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ));
+                                              child: AlertDialog(
+                                                title: Text('Required'),
+                                                content: Text(
+                                                    'Please add an image.'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
                                           },
                                         );
                                       }

@@ -10,14 +10,14 @@ export 'empty_list_view_forum_answer_component_model.dart';
 
 class EmptyListViewForumAnswerComponentWidget extends StatefulWidget {
   const EmptyListViewForumAnswerComponentWidget({
-    Key? key,
+    super.key,
     this.listIsFor,
-  }) : super(key: key);
+  });
 
   final String? listIsFor;
 
   @override
-  _EmptyListViewForumAnswerComponentWidgetState createState() =>
+  State<EmptyListViewForumAnswerComponentWidget> createState() =>
       _EmptyListViewForumAnswerComponentWidgetState();
 }
 

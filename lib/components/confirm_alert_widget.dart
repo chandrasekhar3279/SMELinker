@@ -12,14 +12,14 @@ export 'confirm_alert_model.dart';
 
 class ConfirmAlertWidget extends StatefulWidget {
   const ConfirmAlertWidget({
-    Key? key,
+    super.key,
     this.groupId,
-  }) : super(key: key);
+  });
 
   final int? groupId;
 
   @override
-  _ConfirmAlertWidgetState createState() => _ConfirmAlertWidgetState();
+  State<ConfirmAlertWidget> createState() => _ConfirmAlertWidgetState();
 }
 
 class _ConfirmAlertWidgetState extends State<ConfirmAlertWidget> {

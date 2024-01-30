@@ -13,10 +13,10 @@ import 'change_password_model.dart';
 export 'change_password_model.dart';
 
 class ChangePasswordWidget extends StatefulWidget {
-  const ChangePasswordWidget({Key? key}) : super(key: key);
+  const ChangePasswordWidget({super.key});
 
   @override
-  _ChangePasswordWidgetState createState() => _ChangePasswordWidgetState();
+  State<ChangePasswordWidget> createState() => _ChangePasswordWidgetState();
 }
 
 class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
@@ -395,18 +395,19 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                                 context: context,
                                 builder: (alertDialogContext) {
                                   return WebViewAware(
-                                      child: AlertDialog(
-                                    title: Text('Success'),
-                                    content: Text(
-                                        'Your password changed successfully'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: Text('Ok'),
-                                      ),
-                                    ],
-                                  ));
+                                    child: AlertDialog(
+                                      title: Text('Success'),
+                                      content: Text(
+                                          'Your password changed successfully'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
                                 },
                               );
                               setState(() {});
@@ -426,17 +427,18 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                                 context: context,
                                 builder: (alertDialogContext) {
                                   return WebViewAware(
-                                      child: AlertDialog(
-                                    title: Text('Error'),
-                                    content: Text('Something wnet wrong!'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: Text('Ok'),
-                                      ),
-                                    ],
-                                  ));
+                                    child: AlertDialog(
+                                      title: Text('Error'),
+                                      content: Text('Something wnet wrong!'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
                                 },
                               );
                             }
@@ -445,19 +447,20 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                               context: context,
                               builder: (alertDialogContext) {
                                 return WebViewAware(
-                                    child: AlertDialog(
-                                  title: Text(
-                                      'New Password and Confirm Password should not be empty'),
-                                  content: Text(
-                                      'confirm password and password should match'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(alertDialogContext),
-                                      child: Text('ok'),
-                                    ),
-                                  ],
-                                ));
+                                  child: AlertDialog(
+                                    title: Text(
+                                        'New Password and Confirm Password should not be empty'),
+                                    content: Text(
+                                        'confirm password and password should match'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('ok'),
+                                      ),
+                                    ],
+                                  ),
+                                );
                               },
                             );
                           }

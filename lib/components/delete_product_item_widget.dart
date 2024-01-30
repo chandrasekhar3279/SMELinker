@@ -13,14 +13,14 @@ export 'delete_product_item_model.dart';
 
 class DeleteProductItemWidget extends StatefulWidget {
   const DeleteProductItemWidget({
-    Key? key,
+    super.key,
     this.deleteProductId,
-  }) : super(key: key);
+  });
 
   final int? deleteProductId;
 
   @override
-  _DeleteProductItemWidgetState createState() =>
+  State<DeleteProductItemWidget> createState() =>
       _DeleteProductItemWidgetState();
 }
 
@@ -150,17 +150,18 @@ class _DeleteProductItemWidgetState extends State<DeleteProductItemWidget> {
                           context: context,
                           builder: (alertDialogContext) {
                             return WebViewAware(
-                                child: AlertDialog(
-                              title: Text('Deleted'),
-                              content: Text('Product deleted successfully'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Ok'),
-                                ),
-                              ],
-                            ));
+                              child: AlertDialog(
+                                title: Text('Deleted'),
+                                content: Text('Product deleted successfully'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                         );
                         setState(() {
@@ -181,17 +182,18 @@ class _DeleteProductItemWidgetState extends State<DeleteProductItemWidget> {
                           context: context,
                           builder: (alertDialogContext) {
                             return WebViewAware(
-                                child: AlertDialog(
-                              title: Text('Error'),
-                              content: Text('Something went wrong!'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Try again'),
-                                ),
-                              ],
-                            ));
+                              child: AlertDialog(
+                                title: Text('Error'),
+                                content: Text('Something went wrong!'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Try again'),
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                         );
                       }

@@ -11,10 +11,10 @@ import 'community_guidelines_model.dart';
 export 'community_guidelines_model.dart';
 
 class CommunityGuidelinesWidget extends StatefulWidget {
-  const CommunityGuidelinesWidget({Key? key}) : super(key: key);
+  const CommunityGuidelinesWidget({super.key});
 
   @override
-  _CommunityGuidelinesWidgetState createState() =>
+  State<CommunityGuidelinesWidget> createState() =>
       _CommunityGuidelinesWidgetState();
 }
 

@@ -22,7 +22,7 @@ export 'more_details_model.dart';
 
 class MoreDetailsWidget extends StatefulWidget {
   const MoreDetailsWidget({
-    Key? key,
+    super.key,
     this.question,
     this.productItem,
     this.serviceItem,
@@ -30,7 +30,7 @@ class MoreDetailsWidget extends StatefulWidget {
     this.feedCommentInfo,
     this.feedID,
     this.userId,
-  }) : super(key: key);
+  });
 
   final dynamic question;
   final dynamic productItem;
@@ -41,7 +41,7 @@ class MoreDetailsWidget extends StatefulWidget {
   final int? userId;
 
   @override
-  _MoreDetailsWidgetState createState() => _MoreDetailsWidgetState();
+  State<MoreDetailsWidget> createState() => _MoreDetailsWidgetState();
 }
 
 class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
@@ -109,15 +109,16 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                       context: context,
                       builder: (context) {
                         return WebViewAware(
-                            child: Padding(
-                          padding: MediaQuery.viewInsetsOf(context),
-                          child: Container(
-                            height: MediaQuery.sizeOf(context).height * 1.0,
-                            child: EditForumQuestionWidget(
-                              questionItem: widget.question,
+                          child: Padding(
+                            padding: MediaQuery.viewInsetsOf(context),
+                            child: Container(
+                              height: MediaQuery.sizeOf(context).height * 1.0,
+                              child: EditForumQuestionWidget(
+                                questionItem: widget.question,
+                              ),
                             ),
                           ),
-                        ));
+                        );
                       },
                     ).then((value) => safeSetState(() {}));
                   } else {
@@ -133,15 +134,16 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                         context: context,
                         builder: (context) {
                           return WebViewAware(
-                              child: Padding(
-                            padding: MediaQuery.viewInsetsOf(context),
-                            child: Container(
-                              height: MediaQuery.sizeOf(context).height * 1.0,
-                              child: EditProductWidget(
-                                productItem: widget.productItem,
+                            child: Padding(
+                              padding: MediaQuery.viewInsetsOf(context),
+                              child: Container(
+                                height: MediaQuery.sizeOf(context).height * 1.0,
+                                child: EditProductWidget(
+                                  productItem: widget.productItem,
+                                ),
                               ),
                             ),
-                          ));
+                          );
                         },
                       ).then((value) => safeSetState(() {}));
                     } else {
@@ -157,15 +159,17 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                           context: context,
                           builder: (context) {
                             return WebViewAware(
-                                child: Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: Container(
-                                height: MediaQuery.sizeOf(context).height * 1.0,
-                                child: EditServiceWidget(
-                                  editServiceItem: widget.serviceItem,
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: Container(
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 1.0,
+                                  child: EditServiceWidget(
+                                    editServiceItem: widget.serviceItem,
+                                  ),
                                 ),
                               ),
-                            ));
+                            );
                           },
                         ).then((value) => safeSetState(() {}));
                       } else {
@@ -181,20 +185,21 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                             context: context,
                             builder: (context) {
                               return WebViewAware(
-                                  child: Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: Container(
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 1.0,
-                                  child: EditForumAnswerWidget(
-                                    answerItem: widget.answerItem,
-                                    questionId: getJsonField(
-                                      widget.question,
-                                      r'''$.questionId''',
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: Container(
+                                    height:
+                                        MediaQuery.sizeOf(context).height * 1.0,
+                                    child: EditForumAnswerWidget(
+                                      answerItem: widget.answerItem,
+                                      questionId: getJsonField(
+                                        widget.question,
+                                        r'''$.questionId''',
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ));
+                              );
                             },
                           ).then((value) => safeSetState(() {}));
                         } else {
@@ -211,17 +216,20 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                               context: context,
                               builder: (context) {
                                 return WebViewAware(
-                                    child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: Container(
-                                    height:
-                                        MediaQuery.sizeOf(context).height * 1.0,
-                                    child: EditCommentWidget(
-                                      feedCommentInfo: widget.feedCommentInfo!,
-                                      feedId: widget.feedID,
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: Container(
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              1.0,
+                                      child: EditCommentWidget(
+                                        feedCommentInfo:
+                                            widget.feedCommentInfo!,
+                                        feedId: widget.feedID,
+                                      ),
                                     ),
                                   ),
-                                ));
+                                );
                               },
                             ).then((value) => safeSetState(() {}));
                           }
@@ -274,18 +282,19 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                       context: context,
                       builder: (context) {
                         return WebViewAware(
-                            child: Padding(
-                          padding: MediaQuery.viewInsetsOf(context),
-                          child: Container(
-                            height: MediaQuery.sizeOf(context).height * 0.3,
-                            child: DeleteForumQuestionWidget(
-                              deleteQuestionId: getJsonField(
-                                widget.question,
-                                r'''$.questionId''',
+                          child: Padding(
+                            padding: MediaQuery.viewInsetsOf(context),
+                            child: Container(
+                              height: MediaQuery.sizeOf(context).height * 0.3,
+                              child: DeleteForumQuestionWidget(
+                                deleteQuestionId: getJsonField(
+                                  widget.question,
+                                  r'''$.questionId''',
+                                ),
                               ),
                             ),
                           ),
-                        ));
+                        );
                       },
                     ).then((value) => safeSetState(() {}));
                   } else {
@@ -301,18 +310,19 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                         context: context,
                         builder: (context) {
                           return WebViewAware(
-                              child: Padding(
-                            padding: MediaQuery.viewInsetsOf(context),
-                            child: Container(
-                              height: MediaQuery.sizeOf(context).height * 0.3,
-                              child: DeleteProductItemWidget(
-                                deleteProductId: getJsonField(
-                                  widget.productItem,
-                                  r'''$.productId''',
+                            child: Padding(
+                              padding: MediaQuery.viewInsetsOf(context),
+                              child: Container(
+                                height: MediaQuery.sizeOf(context).height * 0.3,
+                                child: DeleteProductItemWidget(
+                                  deleteProductId: getJsonField(
+                                    widget.productItem,
+                                    r'''$.productId''',
+                                  ),
                                 ),
                               ),
                             ),
-                          ));
+                          );
                         },
                       ).then((value) => safeSetState(() {}));
                     } else {
@@ -328,18 +338,20 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                           context: context,
                           builder: (context) {
                             return WebViewAware(
-                                child: Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: Container(
-                                height: MediaQuery.sizeOf(context).height * 0.3,
-                                child: DeleteServiceItemWidget(
-                                  deleteServiceId: getJsonField(
-                                    widget.serviceItem,
-                                    r'''$.id''',
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: Container(
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.3,
+                                  child: DeleteServiceItemWidget(
+                                    deleteServiceId: getJsonField(
+                                      widget.serviceItem,
+                                      r'''$.id''',
+                                    ),
                                   ),
                                 ),
                               ),
-                            ));
+                            );
                           },
                         ).then((value) => safeSetState(() {}));
                       } else {
@@ -355,19 +367,20 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                             context: context,
                             builder: (context) {
                               return WebViewAware(
-                                  child: Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: Container(
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.3,
-                                  child: DeleteForumAnswerWidget(
-                                    deleteAnswerId: getJsonField(
-                                      widget.answerItem,
-                                      r'''$.answerId''',
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: Container(
+                                    height:
+                                        MediaQuery.sizeOf(context).height * 0.3,
+                                    child: DeleteForumAnswerWidget(
+                                      deleteAnswerId: getJsonField(
+                                        widget.answerItem,
+                                        r'''$.answerId''',
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ));
+                              );
                             },
                           ).then((value) => safeSetState(() {}));
                         } else {
@@ -383,22 +396,24 @@ class _MoreDetailsWidgetState extends State<MoreDetailsWidget> {
                               context: context,
                               builder: (context) {
                                 return WebViewAware(
-                                    child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: Container(
-                                    height:
-                                        MediaQuery.sizeOf(context).height * 0.3,
-                                    child: DeleteFeedCommentWidget(
-                                      deleteFeedCommentId:
-                                          widget.feedCommentInfo,
-                                      deleteFeedId: getJsonField(
-                                        widget.feedID,
-                                        r'''$.feedId''',
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: Container(
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.3,
+                                      child: DeleteFeedCommentWidget(
+                                        deleteFeedCommentId:
+                                            widget.feedCommentInfo,
+                                        deleteFeedId: getJsonField(
+                                          widget.feedID,
+                                          r'''$.feedId''',
+                                        ),
+                                        userId: 0,
                                       ),
-                                      userId: 0,
                                     ),
                                   ),
-                                ));
+                                );
                               },
                             ).then((value) => safeSetState(() {}));
                           }

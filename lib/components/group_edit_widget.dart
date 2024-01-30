@@ -13,14 +13,14 @@ export 'group_edit_model.dart';
 
 class GroupEditWidget extends StatefulWidget {
   const GroupEditWidget({
-    Key? key,
+    super.key,
     this.groupId,
-  }) : super(key: key);
+  });
 
   final int? groupId;
 
   @override
-  _GroupEditWidgetState createState() => _GroupEditWidgetState();
+  State<GroupEditWidget> createState() => _GroupEditWidgetState();
 }
 
 class _GroupEditWidgetState extends State<GroupEditWidget> {
@@ -131,12 +131,13 @@ class _GroupEditWidgetState extends State<GroupEditWidget> {
                               context: context,
                               builder: (context) {
                                 return WebViewAware(
-                                    child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: ConfirmAlertWidget(
-                                    groupId: widget.groupId,
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: ConfirmAlertWidget(
+                                      groupId: widget.groupId,
+                                    ),
                                   ),
-                                ));
+                                );
                               },
                             ).then((value) => safeSetState(() {}));
                           },

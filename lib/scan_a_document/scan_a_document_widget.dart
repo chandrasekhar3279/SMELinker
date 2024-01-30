@@ -13,10 +13,10 @@ import 'scan_a_document_model.dart';
 export 'scan_a_document_model.dart';
 
 class ScanADocumentWidget extends StatefulWidget {
-  const ScanADocumentWidget({Key? key}) : super(key: key);
+  const ScanADocumentWidget({super.key});
 
   @override
-  _ScanADocumentWidgetState createState() => _ScanADocumentWidgetState();
+  State<ScanADocumentWidget> createState() => _ScanADocumentWidgetState();
 }
 
 class _ScanADocumentWidgetState extends State<ScanADocumentWidget> {

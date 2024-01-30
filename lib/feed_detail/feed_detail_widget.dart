@@ -22,18 +22,18 @@ export 'feed_detail_model.dart';
 
 class FeedDetailWidget extends StatefulWidget {
   const FeedDetailWidget({
-    Key? key,
+    super.key,
     this.feedDetail,
     this.feedId,
     this.userId,
-  }) : super(key: key);
+  });
 
   final dynamic feedDetail;
   final int? feedId;
   final int? userId;
 
   @override
-  _FeedDetailWidgetState createState() => _FeedDetailWidgetState();
+  State<FeedDetailWidget> createState() => _FeedDetailWidgetState();
 }
 
 class _FeedDetailWidgetState extends State<FeedDetailWidget> {
@@ -822,43 +822,68 @@ class _FeedDetailWidgetState extends State<FeedDetailWidget> {
                                                     milliseconds: 1500),
                                                 triggerMode:
                                                     TooltipTriggerMode.tap,
-                                                child: Container(
-                                                  width: 45.0,
-                                                  height: 45.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    shape: BoxShape.circle,
-                                                    border: Border.all(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      width: 1.0,
-                                                    ),
-                                                  ),
-                                                  child: Container(
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.network(
-                                                      valueOrDefault<String>(
-                                                        getJsonField(
-                                                          functions.image(
-                                                              getJsonField(
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context.pushNamed(
+                                                      'GroupDetailpage',
+                                                      queryParameters: {
+                                                        'groupId':
+                                                            serializeParam(
+                                                          getJsonField(
                                                             gropusdataItem,
-                                                            r'''$.groupImg''',
-                                                          ).toString()),
-                                                          r'''$.image''',
-                                                        )?.toString(),
-                                                        'https://images.unsplash.com/photo-1614436163996-25cee5f54290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80',
+                                                            r'''$.groupId''',
+                                                          ),
+                                                          ParamType.int,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    width: 45.0,
+                                                    height: 45.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      shape: BoxShape.circle,
+                                                      border: Border.all(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        width: 1.0,
                                                       ),
-                                                      fit: BoxFit.contain,
+                                                    ),
+                                                    child: Container(
+                                                      width: 40.0,
+                                                      height: 40.0,
+                                                      clipBehavior:
+                                                          Clip.antiAlias,
+                                                      decoration: BoxDecoration(
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: Image.network(
+                                                        valueOrDefault<String>(
+                                                          getJsonField(
+                                                            functions.image(
+                                                                getJsonField(
+                                                              gropusdataItem,
+                                                              r'''$.groupImg''',
+                                                            ).toString()),
+                                                            r'''$.image''',
+                                                          )?.toString(),
+                                                          'https://images.unsplash.com/photo-1614436163996-25cee5f54290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80',
+                                                        ),
+                                                        fit: BoxFit.contain,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),

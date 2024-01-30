@@ -22,16 +22,16 @@ export 'forum_view_all_answers_model.dart';
 
 class ForumViewAllAnswersWidget extends StatefulWidget {
   const ForumViewAllAnswersWidget({
-    Key? key,
+    super.key,
     this.questionItemContent,
     this.orgDetails,
-  }) : super(key: key);
+  });
 
   final dynamic questionItemContent;
   final dynamic orgDetails;
 
   @override
-  _ForumViewAllAnswersWidgetState createState() =>
+  State<ForumViewAllAnswersWidget> createState() =>
       _ForumViewAllAnswersWidgetState();
 }
 
@@ -486,49 +486,73 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                                           TooltipTriggerMode
                                                                               .tap,
                                                                       child:
-                                                                          Container(
-                                                                        width:
-                                                                            30.0,
-                                                                        height:
-                                                                            30.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
-                                                                          shape:
-                                                                              BoxShape.circle,
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                        ),
+                                                                          InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          context
+                                                                              .pushNamed(
+                                                                            'GroupDetailpage',
+                                                                            queryParameters:
+                                                                                {
+                                                                              'groupId': serializeParam(
+                                                                                getJsonField(
+                                                                                  groupsDataItem,
+                                                                                  r'''$.groupId''',
+                                                                                ),
+                                                                                ParamType.int,
+                                                                              ),
+                                                                            }.withoutNulls,
+                                                                          );
+                                                                        },
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              11.0,
+                                                                              30.0,
                                                                           height:
-                                                                              11.0,
-                                                                          clipBehavior:
-                                                                              Clip.antiAlias,
+                                                                              30.0,
                                                                           decoration:
                                                                               BoxDecoration(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryBackground,
                                                                             shape:
                                                                                 BoxShape.circle,
+                                                                            border:
+                                                                                Border.all(
+                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                              width: 1.0,
+                                                                            ),
                                                                           ),
                                                                           child:
-                                                                              Image.network(
-                                                                            getJsonField(
-                                                                              functions.image(getJsonField(
-                                                                                groupsDataItem,
-                                                                                r'''$.groupImg''',
-                                                                              ).toString()),
-                                                                              r'''$.image''',
-                                                                            ).toString(),
-                                                                            fit:
-                                                                                BoxFit.cover,
+                                                                              Container(
+                                                                            width:
+                                                                                11.0,
+                                                                            height:
+                                                                                11.0,
+                                                                            clipBehavior:
+                                                                                Clip.antiAlias,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              shape: BoxShape.circle,
+                                                                            ),
+                                                                            child:
+                                                                                Image.network(
+                                                                              getJsonField(
+                                                                                functions.image(getJsonField(
+                                                                                  groupsDataItem,
+                                                                                  r'''$.groupImg''',
+                                                                                ).toString()),
+                                                                                r'''$.image''',
+                                                                              ).toString(),
+                                                                              fit: BoxFit.cover,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -1291,19 +1315,20 @@ class _ForumViewAllAnswersWidgetState extends State<ForumViewAllAnswersWidget> {
                                                                           builder:
                                                                               (context) {
                                                                             return WebViewAware(
-                                                                                child: GestureDetector(
-                                                                              onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                              child: Padding(
-                                                                                padding: MediaQuery.viewInsetsOf(context),
-                                                                                child: Container(
-                                                                                  height: MediaQuery.sizeOf(context).height * 0.2,
-                                                                                  child: ForumAnswerWithInReplyWidget(
-                                                                                    subAnswerQuestionItem: widget.questionItemContent,
-                                                                                    subAnswersList: answersItem,
+                                                                              child: GestureDetector(
+                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                child: Padding(
+                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                  child: Container(
+                                                                                    height: MediaQuery.sizeOf(context).height * 0.2,
+                                                                                    child: ForumAnswerWithInReplyWidget(
+                                                                                      subAnswerQuestionItem: widget.questionItemContent,
+                                                                                      subAnswersList: answersItem,
+                                                                                    ),
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            ));
+                                                                            );
                                                                           },
                                                                         ).then((value) =>
                                                                             safeSetState(() {}));

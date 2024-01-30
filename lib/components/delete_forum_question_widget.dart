@@ -13,14 +13,14 @@ export 'delete_forum_question_model.dart';
 
 class DeleteForumQuestionWidget extends StatefulWidget {
   const DeleteForumQuestionWidget({
-    Key? key,
+    super.key,
     this.deleteQuestionId,
-  }) : super(key: key);
+  });
 
   final int? deleteQuestionId;
 
   @override
-  _DeleteForumQuestionWidgetState createState() =>
+  State<DeleteForumQuestionWidget> createState() =>
       _DeleteForumQuestionWidgetState();
 }
 
@@ -154,18 +154,19 @@ class _DeleteForumQuestionWidgetState extends State<DeleteForumQuestionWidget> {
                             context: context,
                             builder: (alertDialogContext) {
                               return WebViewAware(
-                                  child: AlertDialog(
-                                title: Text('Question Deleted'),
-                                content:
-                                    Text('Question Item Deleted successfully'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ));
+                                child: AlertDialog(
+                                  title: Text('Question Deleted'),
+                                  content: Text(
+                                      'Question Item Deleted successfully'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                           );
                           _model.updatePage(() {
@@ -179,17 +180,18 @@ class _DeleteForumQuestionWidgetState extends State<DeleteForumQuestionWidget> {
                             context: context,
                             builder: (alertDialogContext) {
                               return WebViewAware(
-                                  child: AlertDialog(
-                                title: Text('Error'),
-                                content: Text('Something went wrong !'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Try again'),
-                                  ),
-                                ],
-                              ));
+                                child: AlertDialog(
+                                  title: Text('Error'),
+                                  content: Text('Something went wrong !'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Try again'),
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                           );
                         }
