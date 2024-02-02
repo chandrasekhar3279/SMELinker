@@ -991,32 +991,52 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                         waitDuration: Duration(milliseconds: 100),
                                                                                                         showDuration: Duration(milliseconds: 800),
                                                                                                         triggerMode: TooltipTriggerMode.tap,
-                                                                                                        child: Container(
-                                                                                                          width: 35.0,
-                                                                                                          height: 35.0,
-                                                                                                          decoration: BoxDecoration(
-                                                                                                            shape: BoxShape.circle,
-                                                                                                            border: Border.all(
-                                                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                                                              width: 1.0,
-                                                                                                            ),
-                                                                                                          ),
+                                                                                                        child: InkWell(
+                                                                                                          splashColor: Colors.transparent,
+                                                                                                          focusColor: Colors.transparent,
+                                                                                                          hoverColor: Colors.transparent,
+                                                                                                          highlightColor: Colors.transparent,
+                                                                                                          onTap: () async {
+                                                                                                            context.pushNamed(
+                                                                                                              'GroupDetailpage',
+                                                                                                              queryParameters: {
+                                                                                                                'groupId': serializeParam(
+                                                                                                                  getJsonField(
+                                                                                                                    gropsistItem,
+                                                                                                                    r'''$.groupId''',
+                                                                                                                  ),
+                                                                                                                  ParamType.int,
+                                                                                                                ),
+                                                                                                              }.withoutNulls,
+                                                                                                            );
+                                                                                                          },
                                                                                                           child: Container(
-                                                                                                            width: 40.0,
-                                                                                                            height: 40.0,
-                                                                                                            clipBehavior: Clip.antiAlias,
+                                                                                                            width: 35.0,
+                                                                                                            height: 35.0,
                                                                                                             decoration: BoxDecoration(
                                                                                                               shape: BoxShape.circle,
+                                                                                                              border: Border.all(
+                                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                                                width: 1.0,
+                                                                                                              ),
                                                                                                             ),
-                                                                                                            child: Image.network(
-                                                                                                              getJsonField(
-                                                                                                                functions.image(getJsonField(
-                                                                                                                  gropsistItem,
-                                                                                                                  r'''$.groupImg''',
-                                                                                                                ).toString()),
-                                                                                                                r'''$.image''',
-                                                                                                              ).toString(),
-                                                                                                              fit: BoxFit.cover,
+                                                                                                            child: Container(
+                                                                                                              width: 40.0,
+                                                                                                              height: 40.0,
+                                                                                                              clipBehavior: Clip.antiAlias,
+                                                                                                              decoration: BoxDecoration(
+                                                                                                                shape: BoxShape.circle,
+                                                                                                              ),
+                                                                                                              child: Image.network(
+                                                                                                                getJsonField(
+                                                                                                                  functions.image(getJsonField(
+                                                                                                                    gropsistItem,
+                                                                                                                    r'''$.groupImg''',
+                                                                                                                  ).toString()),
+                                                                                                                  r'''$.image''',
+                                                                                                                ).toString(),
+                                                                                                                fit: BoxFit.cover,
+                                                                                                              ),
                                                                                                             ),
                                                                                                           ),
                                                                                                         ),
@@ -1553,32 +1573,52 @@ class _MyGrowthWidgetState extends State<MyGrowthWidget>
                                                                                                           waitDuration: Duration(milliseconds: 100),
                                                                                                           showDuration: Duration(milliseconds: 800),
                                                                                                           triggerMode: TooltipTriggerMode.tap,
-                                                                                                          child: Container(
-                                                                                                            width: 35.0,
-                                                                                                            height: 35.0,
-                                                                                                            decoration: BoxDecoration(
-                                                                                                              shape: BoxShape.circle,
-                                                                                                              border: Border.all(
-                                                                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                                                                width: 1.0,
-                                                                                                              ),
-                                                                                                            ),
-                                                                                                            child: Padding(
-                                                                                                              padding: EdgeInsets.all(1.0),
-                                                                                                              child: Container(
-                                                                                                                clipBehavior: Clip.antiAlias,
-                                                                                                                decoration: BoxDecoration(
-                                                                                                                  shape: BoxShape.circle,
-                                                                                                                ),
-                                                                                                                child: Image.network(
-                                                                                                                  getJsonField(
-                                                                                                                    functions.image(getJsonField(
+                                                                                                          child: InkWell(
+                                                                                                            splashColor: Colors.transparent,
+                                                                                                            focusColor: Colors.transparent,
+                                                                                                            hoverColor: Colors.transparent,
+                                                                                                            highlightColor: Colors.transparent,
+                                                                                                            onTap: () async {
+                                                                                                              context.pushNamed(
+                                                                                                                'GroupDetailpage',
+                                                                                                                queryParameters: {
+                                                                                                                  'groupId': serializeParam(
+                                                                                                                    getJsonField(
                                                                                                                       gropsistItem,
-                                                                                                                      r'''$.groupImg''',
-                                                                                                                    ).toString()),
-                                                                                                                    r'''$.image''',
-                                                                                                                  ).toString(),
-                                                                                                                  fit: BoxFit.cover,
+                                                                                                                      r'''$.groupId''',
+                                                                                                                    ),
+                                                                                                                    ParamType.int,
+                                                                                                                  ),
+                                                                                                                }.withoutNulls,
+                                                                                                              );
+                                                                                                            },
+                                                                                                            child: Container(
+                                                                                                              width: 35.0,
+                                                                                                              height: 35.0,
+                                                                                                              decoration: BoxDecoration(
+                                                                                                                shape: BoxShape.circle,
+                                                                                                                border: Border.all(
+                                                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                                                  width: 1.0,
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                              child: Padding(
+                                                                                                                padding: EdgeInsets.all(1.0),
+                                                                                                                child: Container(
+                                                                                                                  clipBehavior: Clip.antiAlias,
+                                                                                                                  decoration: BoxDecoration(
+                                                                                                                    shape: BoxShape.circle,
+                                                                                                                  ),
+                                                                                                                  child: Image.network(
+                                                                                                                    getJsonField(
+                                                                                                                      functions.image(getJsonField(
+                                                                                                                        gropsistItem,
+                                                                                                                        r'''$.groupImg''',
+                                                                                                                      ).toString()),
+                                                                                                                      r'''$.image''',
+                                                                                                                    ).toString(),
+                                                                                                                    fit: BoxFit.cover,
+                                                                                                                  ),
                                                                                                                 ),
                                                                                                               ),
                                                                                                             ),

@@ -373,19 +373,17 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
                             ),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsets.all(1.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Image.asset(
                                     'assets/images/men_women-e1c103345cd5f03ffc3c8ab30547141d.png',
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.7,
-                                    height:
-                                        MediaQuery.sizeOf(context).height * 0.3,
                                     fit: BoxFit.contain,
                                   ),
                                   Text(
@@ -408,7 +406,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                           1.0,
                                       height:
                                           MediaQuery.sizeOf(context).height *
-                                              0.4,
+                                              0.42,
                                       decoration: BoxDecoration(),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -450,7 +448,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                                     StyledVerticalDivider(
                                                       thickness: 1.0,
                                                       indent: 15.0,
-                                                      endIndent: 40.0,
+                                                      endIndent: 50.0,
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -641,40 +639,45 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                       ),
                                     ),
                                   ),
-                                  FFButtonWidget(
-                                    onPressed: () async {
-                                      context.pushNamed('SignUp');
-                                    },
-                                    text: 'Sign up',
-                                    options: FFButtonOptions(
-                                      width: 170.0,
-                                      height: 50.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).tertiary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondary,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                      elevation: 2.0,
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1.0,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 16.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        context.pushNamed('SignUp');
+                                      },
+                                      text: 'Sign up',
+                                      options: FFButtonOptions(
+                                        width: 170.0,
+                                        height: 50.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                        elevation: 2.0,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(100.0),
                                       ),
-                                      borderRadius:
-                                          BorderRadius.circular(100.0),
                                     ),
                                   ),
-                                ],
+                                ].divide(SizedBox(height: 8.0)),
                               ),
                             ),
                           ),

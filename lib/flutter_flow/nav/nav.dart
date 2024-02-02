@@ -321,6 +321,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'SubscribedDetails',
           path: '/subscribedDetails',
           builder: (context, params) => SubscribedDetailsWidget(),
+        ),
+        FFRoute(
+          name: 'LMSPage',
+          path: '/lMSPage',
+          builder: (context, params) => LMSPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

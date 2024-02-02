@@ -62,3 +62,4 @@ export '/my_content_detail/my_content_detail_widget.dart'
 export '/plan_details/plan_details_widget.dart' show PlanDetailsWidget;
 export '/subscribed_details/subscribed_details_widget.dart'
     show SubscribedDetailsWidget;
+export '/l_m_s_page/l_m_s_page_widget.dart' show LMSPageWidget;
